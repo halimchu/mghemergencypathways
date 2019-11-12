@@ -1,8 +1,48 @@
 import React, {Fragment} from "react";
 import { Dimensions, View, Text, StyleSheet, ScrollView, TouchableOpacity, SafeAreaView,  TouchableWithoutFeedback} from "react-native";
 import { Button, Divider } from 'react-native-elements'
+import Icon from 'react-native-vector-icons/Ionicons' 
+const myIcon = <Icon name="ios-arrow-back" size={30} color="white" />;
 
 export default class PertLabs extends React.Component {
+  static navigationOptions = ({ navigation }) => {
+    let headerLeft = (  
+      <Button 
+        icon={
+          <View style={{ marginLeft: 9 }}>
+            <Icon name="ios-arrow-back" size={34} color="white" />
+          </View>
+        }
+        onPress={() => navigation.goBack()}
+        type='clear'
+      />
+    )
+
+    headerTitle = (
+      <View style={{ marginBottom: 7}}>
+        <Text style={{ fontSize: Dimensions.get('window').height/45, color: 'white', fontWeight: 'bold', textAlign: 'center'}}>MGH EM Pathways</Text>
+      </View>
+    )
+      
+    let headerRight = (
+      <Button 
+        icon={
+          <View style={{ marginRight: Dimensions.get('window').width/75 }}>
+            <Icon name="md-home" size={32} color="white" />
+          </View>
+        }
+        onPress={() => navigation.navigate('Home')}
+        type='clear'
+      />
+    )
+    
+    return {
+      headerLeft, 
+      headerRight,
+      headerTitle,
+      headerStyle: {backgroundColor: '#709CD0'},      
+    }
+  }
 
   state = {
     data: [
@@ -26,8 +66,7 @@ export default class PertLabs extends React.Component {
 
   render() { 
     return (  
-      <View style={styles.container}>
-
+      <SafeAreaView style={styles.container}>
         <View style={styles.top}>
           <Text style={styles.titleFirstLine}>Pulmonary Embolism</Text>
           <Text style={styles.titleSecondLine}>Response Team</Text>
@@ -46,9 +85,7 @@ export default class PertLabs extends React.Component {
               </View>        
           ))} 
         </View>
-
-
-      </View>
+      </SafeAreaView>
     )
   }
 }

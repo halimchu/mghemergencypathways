@@ -6,43 +6,74 @@ import { ThemeProvider, Button, Divider } from 'react-native-elements'
 const myIcon = <Icon name="ios-arrow-back" size={30} color="white" />;
 
 export default class RICU extends React.Component {
+  static navigationOptions = ({ navigation }) => {
+    let headerLeft = (  
+      <Button 
+        icon={
+          <View style={{ marginLeft: 9 }}>
+            <Icon name="ios-arrow-back" size={34} color="white" />
+          </View>
+        }
+        onPress={() => navigation.goBack()}
+        type='clear'
+      />
+    )
 
+    headerTitle = (
+      <View style={{ marginBottom: 7}}>
+        <Text style={{ fontSize: Dimensions.get('window').height/45, color: 'white', fontWeight: 'bold', textAlign: 'center'}}>MGH EM Pathways</Text>
+      </View>
+    )
+      
+    let headerRight = (
+      <Button 
+        icon={
+          <View style={{ marginRight: Dimensions.get('window').width/75 }}>
+            <Icon name="md-home" size={32} color="white" />
+          </View>
+        }
+        onPress={() => navigation.navigate('Home')}
+        type='clear'
+      />
+    )
+    
+    return {
+      headerLeft, 
+      headerRight,
+      headerTitle,
+      headerStyle: {backgroundColor: '#709CD0'},      
+    }
+  }
   
   render() { 
     return (  
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <View style={styles.top}>
           <Text style={styles.title}>RICU</Text>
           <Divider style={{ backgroundColor: '#CDCDCD', marginTop: 10, marginBottom: 10, marginLeft: 10, marginRight: 10, height: 1.5 }} />
         </View>
 
-
-
-          <View style={styles.bottom}>
-
-            <View style={{ marginTop: 100, marginBottom: 30 }}>
-              <Text style={styles.headerFirstLine}>Is airway patent </Text>
-              <Text style={styles.headerSecondLine}>and protected?</Text>
-            </View>
-
-            <SafeAreaView style={{ marginBottom: 15 }}>
-                <TouchableOpacity
-                  style={styles.customBtnBG} 
-                  onPress={() => this.props.navigation.navigate('RICU2')}>
-                  <Text style={styles.customBtnText}>No</Text>
-                </TouchableOpacity>
-            </SafeAreaView>
-
-            <SafeAreaView>
-                <TouchableOpacity
-                  style={styles.customBtnBG} 
-                  onPress={() => this.props.navigation.navigate('Result1')}>
-                  <Text style={styles.customBtnText}>Yes</Text>
-                </TouchableOpacity>
-            </SafeAreaView>
+        <View style={styles.bottom}>
+          <View style={{ marginTop: 100, marginBottom: 30 }}>
+            <Text style={styles.headerFirstLine}>Is airway patent </Text>
+            <Text style={styles.headerSecondLine}>and protected?</Text>
           </View>
-        </View>
 
+          <View style={{ marginBottom: 15 }}>
+            <TouchableOpacity
+              style={styles.customBtnBG} 
+              onPress={() => this.props.navigation.navigate('RICUNo')}>
+              <Text style={styles.customBtnText}>No</Text>
+            </TouchableOpacity>
+          </View>
+          
+          <TouchableOpacity
+            style={styles.customBtnBG} 
+            onPress={() => this.props.navigation.navigate('RICUYes')}>
+            <Text style={styles.customBtnText}>Yes</Text>
+          </TouchableOpacity>
+        </View>
+      </SafeAreaView>
     )
   }
 }

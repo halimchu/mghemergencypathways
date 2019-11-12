@@ -6,7 +6,45 @@ import { ThemeProvider, Button, Divider } from 'react-native-elements'
 const myIcon = <Icon name="ios-arrow-back" size={30} color="white" />;
 
 export default class Pert extends React.Component {
+  static navigationOptions = ({ navigation }) => {
+    let headerLeft = (  
+      <Button 
+        icon={
+          <View style={{ marginLeft: 9 }}>
+            <Icon name="ios-arrow-back" size={34} color="white" />
+          </View>
+        }
+        onPress={() => navigation.goBack()}
+        type='clear'
+      />
+    )
 
+    headerTitle = (
+      <View style={{ marginBottom: 7}}>
+        <Text style={{ fontSize: Dimensions.get('window').height/45, color: 'white', fontWeight: 'bold', textAlign: 'center'}}>MGH EM Pathways</Text>
+      </View>
+    )
+      
+    let headerRight = (
+      <Button 
+        icon={
+          <View style={{ marginRight: Dimensions.get('window').width/75 }}>
+            <Icon name="md-home" size={32} color="white" />
+          </View>
+        }
+        onPress={() => navigation.navigate('Home')}
+        type='clear'
+      />
+    )
+    
+    return {
+      headerLeft, 
+      headerRight,
+      headerTitle,
+      headerStyle: {backgroundColor: '#709CD0'},      
+    }
+  }
+  
   state = {
     data: [
       'PE with abnormal vital signs (tachycardia or hypotension)',

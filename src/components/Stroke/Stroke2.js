@@ -6,6 +6,45 @@ import { ThemeProvider, Button, Divider } from 'react-native-elements'
 const myIcon = <Icon name="ios-arrow-back" size={30} color="white" />;
 
 export default class Stroke3 extends React.Component {
+  static navigationOptions = ({ navigation }) => {
+    let headerLeft = (  
+      <Button 
+        icon={
+          <View style={{ marginLeft: 9 }}>
+            <Icon name="ios-arrow-back" size={34} color="white" />
+          </View>
+        }
+        onPress={() => navigation.goBack()}
+        type='clear'
+      />
+    )
+
+    headerTitle = (
+      <View style={{ marginBottom: 7}}>
+        <Text style={{ fontSize: Dimensions.get('window').height/45, color: 'white', fontWeight: 'bold', textAlign: 'center'}}>MGH EM Pathways</Text>
+      </View>
+    )
+      
+    let headerRight = (
+      <Button 
+        icon={
+          <View style={{ marginRight: Dimensions.get('window').width/75 }}>
+            <Icon name="md-home" size={32} color="white" />
+          </View>
+        }
+        onPress={() => navigation.navigate('Home')}
+        type='clear'
+      />
+    )
+    
+    return {
+      headerLeft, 
+      headerRight,
+      headerTitle,
+      headerStyle: {backgroundColor: '#709CD0'},      
+    }
+  }
+
   
   state = {
     data: [
@@ -20,7 +59,7 @@ export default class Stroke3 extends React.Component {
   
   render() { 
     return (  
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <View style={styles.top}>
           <Text style={styles.title}>Stroke</Text>
           <Divider style={{ backgroundColor: '#CDCDCD', marginTop: 10, marginBottom: 10, marginLeft: 10, marginRight: 10, height: 1.5 }} />
@@ -39,18 +78,14 @@ export default class Stroke3 extends React.Component {
         </View>
       
 
-
-       
         <View style={styles.bottom}>
-          <SafeAreaView style={{ marginBottom: 5 }}>
-              <TouchableOpacity
-                style={styles.customBtnBG} 
-                onPress={() => this.props.navigation.navigate('Stroke3')}>
-                <Text style={styles.customBtnText}>Next Steps</Text>
-              </TouchableOpacity>
-          </SafeAreaView>
+          <TouchableOpacity
+            style={styles.customBtnBG} 
+            onPress={() => this.props.navigation.navigate('Stroke3')}>
+            <Text style={styles.customBtnText}>Next Steps</Text>
+          </TouchableOpacity>
         </View>
-      </View>
+      </SafeAreaView>
     )
   }
 }

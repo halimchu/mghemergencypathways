@@ -29,35 +29,39 @@ import { createAppContainer } from 'react-navigation'
 
 import Home from './src/components/Home'
 import RICU from './src/components/RICU/RICU'
-import RICU2 from './src/components/RICU/RICU2'
-import RICU3 from './src/components/RICU/RICU3'
-import Result1 from './src/components/RICU/Result1'
-import STEMI1 from './src/components/STEMI/STEMI1'
-import STEMI2 from './src/components/STEMI/STEMI2'
-import STEMI3 from './src/components/STEMI/STEMI3'
+import RICUNo from './src/components/RICU/RICUNo'
+import RICUNextSteps from './src/components/RICU/RICUNextSteps'
+import RICUYes from './src/components/RICU/RICUYes'
+import STEMI from './src/components/STEMI/STEMI'
+import STEMIYes from './src/components/STEMI/STEMIYes'
+import STEMIUncertain from './src/components/STEMI/STEMIUncertain'
 import Stroke1 from './src/components/Stroke/Stroke1'
 import Stroke2 from './src/components/Stroke/Stroke2'
 import Stroke3 from './src/components/Stroke/Stroke3'
 import Pert from './src/components/Pert/Pert'
 import PertLabs from './src/components/Pert/PertLabs'
-import Acls from './src/components/Acls'
+import CardiacArrest from './src/components/ACLS/CardiacArrest'
+import Bradycardia from './src/components/ACLS/Bradycardia'
+import Tachycardia from './src/components/ACLS/Tachycardia'
 
 
 const AppNavigator = createStackNavigator({
   Home: { screen: Home },
   RICU: { screen: RICU },
-  RICU2: { screen: RICU2 },
-  RICU3: { screen: RICU3 },
-  Result1: { screen: Result1 },
-  STEMI1: { screen: STEMI1 },
-  STEMI2: { screen: STEMI2 },
-  STEMI3: { screen: STEMI3 },
+  RICUNo: { screen: RICUNo },
+  RICUNextSteps: { screen: RICUNextSteps },
+  RICUYes: { screen: RICUYes },
+  STEMI: { screen: STEMI },
+  STEMIYes: { screen: STEMIYes },
+  STEMIUncertain: { screen: STEMIUncertain },
   Stroke1: { screen: Stroke1 },
   Stroke2: { screen: Stroke2 },
   Stroke3: { screen: Stroke3 },
   Pert: { screen: Pert },
   PertLabs: { screen: PertLabs },
-  Acls: { screen: Acls },
+  CardiacArrest: { screen: CardiacArrest },
+  Bradycardia: { screen: Bradycardia },
+  Tachycardia: { screen: Tachycardia }
 })
 
 

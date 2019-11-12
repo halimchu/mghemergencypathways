@@ -3,8 +3,10 @@ import { View, Text, StyleSheet, TouchableOpacity, FlatList, ScrollView, SafeAre
 import { ThemeProvider, Button, Divider } from 'react-native-elements'
 import Icon from 'react-native-vector-icons/Ionicons'
 
-export default class InpatientConditions extends React.Component {
+// iphone 11 height 896
+// iphone 11 width 414
 
+export default class InpatientConditions extends React.Component {
     static navigationOptions = ({ navigation }) => {
       let headerLeft = (  
         <Button 
@@ -17,13 +19,11 @@ export default class InpatientConditions extends React.Component {
           type='clear'
         />
       )
-  
       headerTitle = (
-        <View style={{ marginBottom: 10}}>
+        <View style={{ marginBottom: 7}}>
           <Text style={{ fontSize: Dimensions.get('window').height/45, color: 'white', fontWeight: 'bold', textAlign: 'center'}}>MGH EM Pathways</Text>
         </View>
       )
-        
       let headerRight = (
         <Button 
           icon={
@@ -35,23 +35,22 @@ export default class InpatientConditions extends React.Component {
           type='clear'
         />
       )
-      
       return {
-        // headerLeft, 
-        // headerRight,
         headerTitle,
         headerStyle: {backgroundColor: '#709CD0'},      
       }
     }
+
   
   
     render() { 
       return (  
-        <View>
-  
-  
+        <SafeAreaView style={{ justifyContent: 'center' }}>
+
           <View style={{ alignItems: 'center', marginTop: 15 }}>
-            <Text style={{ fontSize: Dimensions.get('window').height/34.5,  }}>Inpatient Medicine</Text>
+            <Text style={styles.title}>Inpatient Emergencies</Text>
+
+            
             <SafeAreaView style={{ marginTop: 10 }}>
                 <TouchableOpacity
                   style={styles.customBtnBG} 
@@ -60,86 +59,88 @@ export default class InpatientConditions extends React.Component {
                 </TouchableOpacity>
             </SafeAreaView>
   
-            <SafeAreaView style={{ marginTop: 10}}>
+            <View style={{ marginTop: 10}}>
                 <TouchableOpacity
                   style={styles.customBtnBG} 
                   onPress={() => this.props.navigation.navigate('Pert')}>
                   <Text style={styles.customBtnText}>PE</Text>
                 </TouchableOpacity>
-            </SafeAreaView>
+            </View>
           
-            <SafeAreaView style={{ marginTop: 10}}>
+            <View style={{ marginTop: 10}}>
               <TouchableOpacity
                 style={styles.customBtnBG} 
                 onPress={() => this.props.navigation.navigate('RICU')}>
                 <Text style={styles.customBtnText}>RICU (Airway)</Text>
               </TouchableOpacity>
-            </SafeAreaView>
+            </View>
           
-            <SafeAreaView style={{ marginTop: 10}}>
+            <View style={{ marginTop: 10}}>
               <TouchableOpacity
                 style={styles.customBtnBG} 
-                onPress={() => this.props.navigation.navigate('STEMI1')}>
+                onPress={() => this.props.navigation.navigate('STEMI')}>
                 <Text style={styles.customBtnText}>STEMI</Text>
               </TouchableOpacity>
-            </SafeAreaView>
+            </View>
          
-            <SafeAreaView style={{ marginTop: 10}}>
-              <TouchableOpacity
-                style={styles.customBtnBG} 
-                onPress={() => this.props.navigation.navigate('Acls')}>
-                <Text style={styles.customBtnText}>ACLS</Text>
-              </TouchableOpacity>
-            </SafeAreaView>
+        
   
+
+
+
             <View style={{ alignItems: 'center', marginTop: 30, }}>
-              <Text style={{ fontSize: Dimensions.get('window').height/34.5, }}>Emergency Department</Text>
-  
-              <SafeAreaView style={{ marginTop: 10}}>
+              <Text style={styles.title}>ACLS</Text>
+              <View style={{ marginTop: 10}}>
                   <TouchableOpacity
                     style={styles.customBtnBG} 
-                    onPress={() => this.props.navigation.navigate('InpatientConditions')}>
-                    <Text style={styles.customBtnText}>MGH</Text>
+                    onPress={() => this.props.navigation.navigate('CardiacArrest')}>
+                    <Text style={styles.customBtnText}>Cardiac Arrest</Text>
                   </TouchableOpacity>
-              </SafeAreaView>
+              </View>
   
-              <SafeAreaView style={{ marginTop: 10}}>
+              <View style={{ marginTop: 10}}>
                   <TouchableOpacity
                     style={styles.customBtnBG} 
-                    onPress={() => this.props.navigation.navigate('InpatientConditions')}>
-                    <Text style={styles.customBtnText}>BWH</Text>
+                    onPress={() => this.props.navigation.navigate('Bradycardia')}>
+                    <Text style={styles.customBtnText}>Bradycardia</Text>
                   </TouchableOpacity>
-              </SafeAreaView>
+              </View>
+
+              <View style={{ marginTop: 10}}>
+                  <TouchableOpacity
+                    style={styles.customBtnBG} 
+                    onPress={() => this.props.navigation.navigate('Tachycardia')}>
+                    <Text style={styles.customBtnText}>Tachycardia</Text>
+                  </TouchableOpacity>
+              </View>
             </View>
           </View>
   
-        </View>
+        </SafeAreaView>
       )
     }
   }
   
   const styles = StyleSheet.create({
     title: {
-  
+      fontWeight: '500',
+      fontSize: Dimensions.get('window').height/34, 
     },
-  
     customBtnText: {
-      fontSize: 20,
       fontWeight: '600',
       color: "#fff",
       textAlign: 'center',
       textAlignVertical: "center",
-      margin: 13
+      fontSize: Dimensions.get('window').height/40,
+      marginTop: Dimensions.get('window').height/35
     },
-  
-    /* Here, style the background of your button */
     customBtnBG: {
       backgroundColor: "#69c8a1",
       shadowOpacity: .15, 
       paddingHorizontal: 1,
       paddingVertical: 1,
-      // borderRadius: 8,
-      width: 330,
-      height: 60,
+      borderRadius: 8,
+      width: Dimensions.get('window').width/1.13,
+      height: Dimensions.get('window').height/11.25,
     }
   });

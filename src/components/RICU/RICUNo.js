@@ -5,7 +5,45 @@ import { ThemeProvider, Button, Divider } from 'react-native-elements'
 
 const myIcon = <Icon name="ios-arrow-back" size={30} color="white" />;
 
-export default class RICU2 extends React.Component {
+export default class RICUNo extends React.Component {
+  static navigationOptions = ({ navigation }) => {
+    let headerLeft = (  
+      <Button 
+        icon={
+          <View style={{ marginLeft: 9 }}>
+            <Icon name="ios-arrow-back" size={34} color="white" />
+          </View>
+        }
+        onPress={() => navigation.goBack()}
+        type='clear'
+      />
+    )
+
+    headerTitle = (
+      <View style={{ marginBottom: 7 }}>
+        <Text style={{ fontSize: Dimensions.get('window').height/45, color: 'white', fontWeight: 'bold', textAlign: 'center'}}>MGH EM Pathways</Text>
+      </View>
+    )
+      
+    let headerRight = (
+      <Button 
+        icon={
+          <View style={{ marginRight: Dimensions.get('window').width/75 }}>
+            <Icon name="md-home" size={32} color="white" />
+          </View>
+        }
+        onPress={() => navigation.navigate('Home')}
+        type='clear'
+      />
+    )
+    
+    return {
+      headerLeft, 
+      headerRight,
+      headerTitle,
+      headerStyle: {backgroundColor: '#709CD0'},      
+    }
+  }
 
   state = {
     data: [
@@ -20,18 +58,17 @@ export default class RICU2 extends React.Component {
 
   render() { 
     return (  
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <View style={styles.top}>
           <Text style={styles.title}>RICU</Text>
           <Divider style={{ backgroundColor: '#CDCDCD', marginTop: 10, marginBottom: 10, marginLeft: 10, marginRight: 10, height: 1.5 }} />
         </View>
        
 
-
-
         <View style={styles.middle}>
           <Text style={styles.headerOne}>Dial x63333 for "STAT RICU"</Text>
-          <Text style={styles.headerTwo}>If need for surgical airway, state: "Emergency surgical airway, [current location]"</Text>
+          <Text style={styles.headerTwo}>If need for surgical airway,</Text>
+          <Text style={styles.headerThree}>state: "Emergency surgical airway, [current location]"</Text>
           
           <Text style={{ fontSize: Dimensions.get('window').height/32.5, marginLeft: 30, }}>What to prepare:</Text>
           {this.state.data.map((item) => (
@@ -50,13 +87,13 @@ export default class RICU2 extends React.Component {
             <SafeAreaView>
                 <TouchableOpacity
                   style={styles.customBtnBG} 
-                  onPress={() => this.props.navigation.navigate('RICU3')}>
+                  onPress={() => this.props.navigation.navigate('RICUNextSteps')}>
                   <Text style={styles.customBtnText}>Next Steps</Text>
                 </TouchableOpacity>
             </SafeAreaView>
           </View>
 
-      </View>
+      </SafeAreaView>
     )
   }
 }
@@ -99,8 +136,12 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: 15
   },
-
   headerTwo: {
+    fontSize: Dimensions.get('window').height/32.5,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  headerThree: {
     fontSize: Dimensions.get('window').height/32.5,
     fontWeight: 'bold',
     textAlign: 'center',
