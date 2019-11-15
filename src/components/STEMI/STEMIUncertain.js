@@ -22,7 +22,7 @@ export default class STEMI3 extends React.Component {
 
     headerTitle = (
       <View style={{ marginBottom: 7}}>
-        <Text style={{ fontSize: Dimensions.get('window').height/45, color: 'white', fontWeight: 'bold', textAlign: 'center'}}>MGH EM Pathways</Text>
+        <Text style={{ fontSize: Dimensions.get('window').height/45, color: 'white', fontWeight: 'bold', textAlign: 'center'}}>MGH Stat</Text>
       </View>
     )
       
@@ -58,7 +58,7 @@ export default class STEMI3 extends React.Component {
 
         <View style={{ marginTop: 120 }}>
           <Text style={styles.text}>STAT page General</Text>
-          <Text style={styles.text}>Cardiology Consult*:</Text>
+          <Text style={styles.text}>Cardiology Consult:</Text>
           <Text style={styles.text}>"Suspect Acute MI"</Text>
         </View>
 

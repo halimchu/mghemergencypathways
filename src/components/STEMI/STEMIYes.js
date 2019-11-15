@@ -22,7 +22,7 @@ export default class STEMI2 extends React.Component {
 
     headerTitle = (
       <View style={{ marginBottom: 7}}>
-        <Text style={{ fontSize: Dimensions.get('window').height/45, color: 'white', fontWeight: 'bold', textAlign: 'center'}}>MGH EM Pathways</Text>
+        <Text style={{ fontSize: Dimensions.get('window').height/45, color: 'white', fontWeight: 'bold', textAlign: 'center'}}>MGH Stat</Text>
       </View>
     )
       
@@ -52,20 +52,23 @@ export default class STEMI2 extends React.Component {
 
         <View style={styles.top}>
           <Text style={styles.title}>STEMI</Text>
-          <Divider style={{ backgroundColor: '#CDCDCD', marginTop: 10, marginBottom: 10, marginLeft: 10, marginRight: 10, height: 1.5 }} />
+          <Divider style={{backgroundColor: '#CDCDCD', marginTop: 10, marginBottom: 10, marginLeft: 10, marginRight: 10, height: 1.5 }} />
         </View>
 
 
-        <View style={{ marginTop: 120 }}>
-          <Text style={styles.text}>Call Cath Emergency</Text>
-          <Text style={styles.text}>STEMI Line</Text>
-          <Text style={styles.text}>x6-8282</Text>
+        <View style={{ alignItems: 'center'}}>
+          <View style={{ alignItems: 'center', marginTop: 120, width: 300, height: 150, backgroundColor: 'rgba(200, 0, 0, 0.5)'}}>
+            <Text style={styles.textFirst}>Call Cath Emergency</Text>
+            <Text style={styles.textFirst}>STEMI Line</Text>
+            <Text style={styles.textFirst}>x6-8282</Text>
+          </View>
         </View>
 
         <View style={{ marginTop: 120 }}>
-          <Text style={styles.text}>Start .AcuteMIMGH SmartPhrase in EPIC</Text>
-          <Text style={styles.text}>to provide relevant</Text>
-          <Text style={styles.text}>information to clinical team</Text>
+          <Text style={styles.textFirst}>Enter SmartPhrase in Epic</Text>
+          <Text style={styles.textFirst}>Start .AcuteMIMGH</Text>
+          <Text style={styles.textSecond}>(to generate relevant</Text>
+          <Text style={styles.textSecond}>information to clinical team)</Text>
         </View>
 
       </View>
@@ -91,9 +94,16 @@ const styles = StyleSheet.create({
   },
 
 
-  text: {
+  textFirst: {
     // fontSize: 25,
     fontSize: Dimensions.get('window').height/32.5,
+    fontWeight: 'bold',
+    marginTop: 10,
+    textAlign: 'center'
+  },
+  textSecond: {
+    // fontSize: 25,
+    fontSize: Dimensions.get('window').height/38,
     fontWeight: 'bold',
     marginTop: 10,
     textAlign: 'center'

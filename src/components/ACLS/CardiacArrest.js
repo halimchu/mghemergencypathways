@@ -45,15 +45,32 @@ export default class CardiacArrest extends React.Component {
   
   render() { 
     return (  
-      <View style={styles.container}>
-        <View style={{justifyContent: 'center', alignItems: 'center'}}>
+      <SafeAreaView style={styles.container}>
+        <ScrollView>
+          <View style={{justifyContent: 'center', alignItems: 'center'}}>
             <Image
-              source={require('../../../assets/acls.png')}
-              style={{width: Dimensions.get('window').width/1.08, height: Dimensions.get('window').height/1.91}}
+              source={require('../../../assets/acls3.png')}
+              style={{width: Dimensions.get('window').width/1, height: Dimensions.get('window').height/.57}}
               // style={{width: 350, height: 425}}
             />
           </View>
-      </View>
+        </ScrollView>
+      </SafeAreaView>
+
+
+    //   <SafeAreaView style={{}}>
+    //   <ScrollView>
+    //     <View style={{alignItems: 'center', }}>
+    //       <View style={{justifyContent: 'center', alignItems: 'center', width: 120, height: 120, backgroundColor: 'lightblue'}}>
+    //         <Text>Start CPR</Text>
+    //         <Text>Give oxygen</Text>
+    //         <Text>Attach monitor</Text>
+    //       </View>
+    //       <View style={{borderColor: 'black', borderWidth: 2, height: 30,}}></View>
+    //         <Icon name="md-arrow-dropdown" size={35} color="black" />
+    //     </View>
+    //   </ScrollView>
+    // </SafeAreaView>
     )
   }
 }

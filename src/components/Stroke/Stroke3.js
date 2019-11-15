@@ -22,7 +22,7 @@ export default class Stroke4 extends React.Component {
 
     headerTitle = (
       <View style={{ marginBottom: 7}}>
-        <Text style={{ fontSize: Dimensions.get('window').height/45, color: 'white', fontWeight: 'bold', textAlign: 'center'}}>MGH EM Pathways</Text>
+        <Text style={{ fontSize: Dimensions.get('window').height/45, color: 'white', fontWeight: 'bold', textAlign: 'center'}}>MGH Stat</Text>
       </View>
     )
       

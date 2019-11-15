@@ -20,7 +20,7 @@ export default class PertLabs extends React.Component {
 
     headerTitle = (
       <View style={{ marginBottom: 7}}>
-        <Text style={{ fontSize: Dimensions.get('window').height/45, color: 'white', fontWeight: 'bold', textAlign: 'center'}}>MGH EM Pathways</Text>
+        <Text style={{ fontSize: Dimensions.get('window').height/45, color: 'white', fontWeight: 'bold', textAlign: 'center'}}>MGH Stat</Text>
       </View>
     )
       
@@ -46,19 +46,13 @@ export default class PertLabs extends React.Component {
 
   state = {
     data: [
-      'CBC with diff',
-      'BMP',
-      'LFTs',
+      'CBC with diff, BMP, LFTs, Lactate, D-dimer, ABG',
+      'PT/INR and PTT, Type and Screen',
       'NT-pro-BNP (or BNP)',
       'Troponin T-hs',
-      'D-dimer',
+      'EKG',
       'CTA chest PE protocol',
       'US LE duplex (bilateral)',
-      'PT/INR and PTT',
-      'Type and screen',
-      'Lactate',
-      'ABG',
-      'EKG',
       'TTE (Page US Tech if daytime hours)'
     ]
   }
@@ -75,7 +69,7 @@ export default class PertLabs extends React.Component {
         <Divider style={{ backgroundColor: '#CDCDCD', marginLeft: 10, marginRight: 10, height: 1.5 }} />
 
         <View style={styles.middle}>
-          <Text style={styles.header}>Please order labs</Text>
+          <Text style={styles.header}>Please Order:</Text>
           {this.state.data.map((item) => (
               <View key={item} style={ styles.bulletPoints }>
                 <View style={{ flexDirection: 'row' }}>

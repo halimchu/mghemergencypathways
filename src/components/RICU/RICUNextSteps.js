@@ -21,7 +21,7 @@ export default class RICUNextSteps extends React.Component {
 
     headerTitle = (
       <View style={{ marginBottom: 7}}>
-        <Text style={{ fontSize: Dimensions.get('window').height/45, color: 'white', fontWeight: 'bold', textAlign: 'center'}}>MGH EM Pathways</Text>
+        <Text style={{ fontSize: Dimensions.get('window').height/45, color: 'white', fontWeight: 'bold', textAlign: 'center'}}>MGH Stat</Text>
       </View>
     )
       
@@ -48,15 +48,15 @@ export default class RICUNextSteps extends React.Component {
 
   state = { 
     data: [
-      ['One-Liner:', 'major cardiac, pulm, ENT'],
+      ['One-Liner:', 'Major cardiac, pulm, ENT'],
       ['Last Echo:', 'EF, RV function, RVSP, valves'],
-      ['Prior Intubations:', '"chart reviews" -> "anesthesia," leave open'],
+      ['Prior Intubations:', '"Chart reviews" -> "Anesthesia," leave open'],
       ['Code Status'],
-      ['Gas Exchange:', 'last ABG'],
+      ['Gas Exchange:', 'Last ABG'],
       ['Allergies'],
       ['Access'],
-      ['NPO Status:', 'last meal, major GI issues'],
-      ['Status:', 'functional status & weight[kg]']
+      ['NPO Status:', 'Last meal, major GI issues'],
+      ['Status:', 'Functional status & weight[kg]']
     ],
   }
 
