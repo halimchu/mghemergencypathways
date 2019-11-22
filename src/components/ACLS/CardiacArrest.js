@@ -42,17 +42,105 @@ export default class CardiacArrest extends React.Component {
       headerStyle: {backgroundColor: '#709CD0'},      
     }
   }
+
+  image () {
+    return (
+      Dimensions.get('window').width === 375 && Dimensions.get('window').height === 812 
+      &&
+      Dimensions.get('window').width === 414 && Dimensions.get('window').height === 896
+      
+      ? 
+
+      <Image
+        source={require('../../../assets/acls1000x1500.png')}
+        style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/.6}}
+      /> 
+      
+      : 
+    
+      <Image
+        source={require('../../../assets/acls1000x1500.png')}
+        style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/.5}}
+      />
+    )
+  }
+
+  
+
+  IPhone375x812 () {
+    if (Dimensions.get('window').width === 375 && Dimensions.get('window').height === 812) {
+      return (
+        <Image
+          source={require('../../../assets/acls1000x1500.png')}
+          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/.7}}
+        />
+      )
+    }
+  }
+
+  IPhone414x896 () {
+    if (Dimensions.get('window').width === 414 && Dimensions.get('window').height === 896) {
+      return (
+        <Image
+          source={require('../../../assets/acls1000x1500.png')}
+          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/.7}}
+        />
+      )
+    }
+  }
+
+  IPhone375x667 () {
+    if (Dimensions.get('window').width === 375 && Dimensions.get('window').height === 667) {
+      return (
+        <Image
+          source={require('../../../assets/acls1000x1500.png')}
+          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/.56 }}
+        />
+      )
+    }
+  }
+
+  IPhone414x736 () {
+    if (Dimensions.get('window').width === 414 && Dimensions.get('window').height === 736) {
+      return (
+        <Image
+          source={require('../../../assets/acls1000x1500.png')}
+          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/.56 }}
+        />
+      )
+    }
+  }
+
+
+
+
+
+
   
   render() { 
     return (  
       <SafeAreaView style={styles.container}>
         <ScrollView>
           <View style={{justifyContent: 'center', alignItems: 'center'}}>
-            <Image
-              source={require('../../../assets/acls3.png')}
+            <Text>{Dimensions.get('window').width}</Text>
+            <Text>{Dimensions.get('window').height}</Text>
+
+
+            {this.IPhone375x812()}
+            {this.IPhone414x896()}
+            {this.IPhone375x667()}
+            {this.IPhone414x736()}
+
+
+        
+           
+
+
+            {/* <Image
+              source={require('../../../assets/acls1000x2000.png')}
               style={{width: Dimensions.get('window').width/1, height: Dimensions.get('window').height/.57}}
               // style={{width: 350, height: 425}}
-            />
+            /> */}
           </View>
         </ScrollView>
       </SafeAreaView>
