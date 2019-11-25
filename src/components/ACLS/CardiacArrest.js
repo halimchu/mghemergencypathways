@@ -43,27 +43,27 @@ export default class CardiacArrest extends React.Component {
     }
   }
 
-  image () {
-    return (
-      Dimensions.get('window').width === 375 && Dimensions.get('window').height === 812 
-      &&
-      Dimensions.get('window').width === 414 && Dimensions.get('window').height === 896
+  // image () {
+  //   return (
+  //     Dimensions.get('window').width === 375 && Dimensions.get('window').height === 812 
+  //     &&
+  //     Dimensions.get('window').width === 414 && Dimensions.get('window').height === 896
       
-      ? 
+  //     ? 
 
-      <Image
-        source={require('../../../assets/acls1000x1500.png')}
-        style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/.6}}
-      /> 
+  //     <Image
+  //       source={require('../../../assets/CardiacArrest1000x1500.png')}
+  //       style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/.6}}
+  //     /> 
       
-      : 
+  //     : 
     
-      <Image
-        source={require('../../../assets/acls1000x1500.png')}
-        style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/.5}}
-      />
-    )
-  }
+  //     <Image
+  //       source={require('../../../assets/CardiacArrest1000x1500.png')}
+  //       style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/.5}}
+  //     />
+  //   )
+  // }
 
   
 
@@ -71,7 +71,7 @@ export default class CardiacArrest extends React.Component {
     if (Dimensions.get('window').width === 375 && Dimensions.get('window').height === 812) {
       return (
         <Image
-          source={require('../../../assets/acls1000x1500.png')}
+          source={require('../../../assets/CardiacArrest3000x6000.png')}
           style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/.7}}
         />
       )
@@ -82,7 +82,7 @@ export default class CardiacArrest extends React.Component {
     if (Dimensions.get('window').width === 414 && Dimensions.get('window').height === 896) {
       return (
         <Image
-          source={require('../../../assets/acls1000x1500.png')}
+          source={require('../../../assets/CardiacArrest3000x6000.png')}
           style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/.7}}
         />
       )
@@ -93,7 +93,7 @@ export default class CardiacArrest extends React.Component {
     if (Dimensions.get('window').width === 375 && Dimensions.get('window').height === 667) {
       return (
         <Image
-          source={require('../../../assets/acls1000x1500.png')}
+          source={require('../../../assets/CardiacArrest3000x6000.png')}
           style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/.56 }}
         />
       )
@@ -104,7 +104,7 @@ export default class CardiacArrest extends React.Component {
     if (Dimensions.get('window').width === 414 && Dimensions.get('window').height === 736) {
       return (
         <Image
-          source={require('../../../assets/acls1000x1500.png')}
+          source={require('../../../assets/CardiacArrest3000x6000.png')}
           style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/.56 }}
         />
       )
@@ -120,7 +120,7 @@ export default class CardiacArrest extends React.Component {
   render() { 
     return (  
       <SafeAreaView style={styles.container}>
-        <ScrollView>
+        <ScrollView maximumZoomScale={2}>
           <View style={{justifyContent: 'center', alignItems: 'center'}}>
             <Text>{Dimensions.get('window').width}</Text>
             <Text>{Dimensions.get('window').height}</Text>

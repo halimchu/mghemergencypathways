@@ -1,9 +1,10 @@
 import React, {Fragment} from "react";
-import { Dimensions, View, Text, StyleSheet, ScrollView, TouchableOpacity, SafeAreaView,  TouchableWithoutFeedback} from "react-native";
-import Icon from 'react-native-vector-icons/Ionicons' 
+import { Linking, Dimensions, View, Text, StyleSheet, ScrollView, TouchableOpacity, SafeAreaView,  TouchableWithoutFeedback} from "react-native";
 import { ThemeProvider, Button, Divider } from 'react-native-elements'
+import Icon from 'react-native-vector-icons/Ionicons' 
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons' 
 
-const myIcon = <Icon name="ios-arrow-back" size={30} color="white" />;
+const phoneIcon = <MaterialIcons name="phone" size={30} color="white" />;
 
 export default class RICUNo extends React.Component {
   static navigationOptions = ({ navigation }) => {
@@ -11,7 +12,8 @@ export default class RICUNo extends React.Component {
       <Button 
         icon={
           <View style={{ marginLeft: 9 }}>
-            <Icon name="ios-arrow-back" size={34} color="white" />
+            {/* <Icon name="ios-arrow-back" size={34} color="white" /> */}
+            <Icon name="md-arrow-back" size={34} color="white" />
           </View>
         }
         onPress={() => navigation.goBack()}
@@ -55,6 +57,13 @@ export default class RICUNo extends React.Component {
     ]
   }
 
+  dialCall = () => {
+    let phoneNumber = '';
+    if (Platform.OS === 'android') { phoneNumber = `tel:7149448364` }
+    else {phoneNumber = `telprompt:7149448364` }
+    Linking.openURL(phoneNumber);
+  }
+
 
   render() { 
     return (  
@@ -65,8 +74,39 @@ export default class RICUNo extends React.Component {
         </View>
        
 
-        <View style={styles.middle}>
-          <Text style={styles.headerOne}>Dial x63333 for "STAT RICU"</Text>
+        <View style={styles.middle}> 
+
+
+
+
+          <View style={{ alignItems: 'center' }}>
+            <TouchableOpacity
+                style={{
+                  alignItems: "center",
+                  justifyContent: "center",
+                  borderRadius: 40,
+                  backgroundColor: '#B62130',
+                  height: Dimensions.get('window').height/11,
+                  width: Dimensions.get('window').width/1.12,
+                }}
+                onPress={()=>{this.dialCall()}
+              }
+              >
+              <View style={{ flexDirection: 'row' }}>
+                <MaterialIcons name="phone" size={24} color="white" />
+                <Text style={{ fontSize: Dimensions.get('window').height/37, color: 'white', fontWeight: 'bold' }}> Call STAT RICU Consult</Text>
+              </View>
+              <Text style={{ marginTop: Dimensions.get('window').height/150, color: 'white', fontSize: Dimensions.get('window').height/45, fontWeight: '400'}}>x6-3333</Text>
+            </TouchableOpacity>
+          </View>
+
+
+
+
+
+
+
+         
           <Text style={styles.headerTwo}>If need for surgical airway,</Text>
           <Text style={styles.headerThree}>state: "Emergency surgical airway, [current location]"</Text>
           
@@ -99,110 +139,81 @@ export default class RICUNo extends React.Component {
 }
 
 const styles = StyleSheet.create({
-
   container: {
     flex: 1
   },
-
   top: {
     height: '10%',
     // backgroundColor: 'yellow'
   },
-
   middle: {
     height: '75%',
-    // backgroundColor: '#eee',
+    // backgroundColor: 'green',
   },
-
   bottom: {
     height: '15%',
     alignItems: 'center', 
     justifyContent: 'center',
     // backgroundColor: 'gray',
   },
-  
   title: {
-    // fontSize: 25,
-    fontSize: Dimensions.get('window').height/32.5,
-    fontWeight: 'bold',
-    marginTop: 10,
-    textAlign: 'center'
-  },
-
-  headerOne: {
-    // fontSize: 25,
-    fontSize: Dimensions.get('window').height/32.5,
     fontWeight: 'bold',
     textAlign: 'center',
-    marginBottom: 15
+    marginTop: Dimensions.get('window').height/70,
+    fontSize: Dimensions.get('window').height/32.5,
+  },
+  headerOne: {
+    fontWeight: 'bold',
+    textAlign: 'center',
+    fontSize: Dimensions.get('window').height/32.5,
   },
   headerTwo: {
-    fontSize: Dimensions.get('window').height/32.5,
     fontWeight: 'bold',
     textAlign: 'center',
+    marginTop: Dimensions.get('window').height/45, 
+    fontSize: Dimensions.get('window').height/34,
   },
   headerThree: {
-    fontSize: Dimensions.get('window').height/32.5,
     fontWeight: 'bold',
     textAlign: 'center',
-    marginBottom: 25,
+    marginBottom: Dimensions.get('window').height/40,
+    fontSize: Dimensions.get('window').height/34,
   },
-
   headerText: {
-    // fontSize: 25,
-    fontSize: Dimensions.get('window').height/32.5,
-    color: 'gray',
     fontWeight: '500',
     color: '#515254',
     textAlign: 'center',
-    marginLeft: 12,
-    marginRight: 12
+    fontSize: Dimensions.get('window').height/32.5,
   },
-
-
   bulletPoint: {
-    // fontSize: 20,
+    color: 'gray',
     fontSize: Dimensions.get('window').height/40,
-    color: 'gray'
   },
-
   bulletPointText: {
-    // fontSize: 25,
+    fontWeight: '300',
+    marginLeft: Dimensions.get('window').width/80,
     fontSize: Dimensions.get('window').height/33.7,
-    marginLeft: 4,
-    fontWeight: '300'
   },
-
   bulletPoints: {
     flexDirection: 'row',
-    marginTop: 15,
-    marginLeft: 50,
-    marginRight: 50,
+    marginTop: Dimensions.get('window').height/90,
+    marginLeft: Dimensions.get('window').width/8,
+    marginRight: Dimensions.get('window').width/30,
   },
-
-  /* Here, style the text of your button */
   customBtnText: {
-    // fontSize: 20,
-    // margin: 13
-    fontSize: Dimensions.get('window').height/35,
-    marginTop: Dimensions.get('window').height/62,
     fontWeight: '600',
     color: "#fff",
     textAlign: 'center',
     textAlignVertical: "center",
+    fontSize: Dimensions.get('window').height/35,
+    marginTop: Dimensions.get('window').height/62,
   },
-
-  /* Here, style the background of your button */
   customBtnBG: {
     backgroundColor: "#69c8a1",
     paddingHorizontal: 1,
     paddingVertical: 1,
     borderRadius: 8,
-    // width: 330,
-    // height: 60,
     width: Dimensions.get('window').width/1.13,
     height: Dimensions.get('window').height/13.5,
-  },
-
-
-});
+  }
+})

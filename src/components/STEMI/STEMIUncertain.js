@@ -1,7 +1,8 @@
 import React, {Fragment} from "react";
 import { Dimensions, View, Text, StyleSheet, ScrollView, TouchableOpacity, SafeAreaView,  TouchableWithoutFeedback} from "react-native";
-import Icon from 'react-native-vector-icons/Ionicons' 
 import { ThemeProvider, Button, Divider } from 'react-native-elements'
+import Icon from 'react-native-vector-icons/Ionicons' 
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons' 
 
 const myIcon = <Icon name="ios-arrow-back" size={30} color="white" />;
 
@@ -48,49 +49,75 @@ export default class STEMI3 extends React.Component {
   
   render() { 
     return (  
-      <View style={styles.container}>
-
+      <SafeAreaView style={styles.container}>
         <View style={styles.top}>
           <Text style={styles.title}>STEMI</Text>
           <Divider style={{ backgroundColor: '#CDCDCD', marginTop: 10, marginBottom: 10, marginLeft: 10, marginRight: 10, height: 1.5 }} />
         </View>
 
+        <View style={{ alignItems: 'center' }}>
+            <TouchableOpacity
+                style={{
+                  alignItems: "center",
+                  justifyContent: "center",
+                  borderRadius: 40,
+                  backgroundColor: '#B62130',
+                  height: Dimensions.get('window').height/8.5,
+                  width: Dimensions.get('window').width/1.12,
+                }}
+                onPress={()=>{this.dialCall()}
+              }
+              >
+              <View style={{ flexDirection: 'row' }}>
+                <MaterialIcons name="phone" size={24} color="white" />
+                <Text style={{ fontSize: Dimensions.get('window').height/37, color: 'white', fontWeight: 'bold' }}> Call STAT General</Text>
+              </View>
+                <Text style={{ fontSize: Dimensions.get('window').height/37, color: 'white', fontWeight: 'bold' }}>Cardiology Consult</Text>
+              <Text style={{ marginTop: Dimensions.get('window').height/150, color: 'white', fontSize: Dimensions.get('window').height/45, fontWeight: '400'}}></Text>
+            </TouchableOpacity>
+          </View>
 
-        <View style={{ marginTop: 120 }}>
-          <Text style={styles.text}>STAT page General</Text>
-          <Text style={styles.text}>Cardiology Consult:</Text>
-          <Text style={styles.text}>"Suspect Acute MI"</Text>
+
+        <View style={styles.bottom}>
+          <Text style={styles.textFirst}>STAT Page General</Text>
+          <Text style={styles.textSecond}>Cardiology Consult:</Text>
+          <Text style={styles.textSecond}>"Suspect Acute MI"</Text>
         </View>
-
-      </View>
+      </SafeAreaView>
     )
   }
 }
 
 const styles = StyleSheet.create({
-
   container: {
     flex: 1,
   },
   top: {
-    height: '10%',
+    height: '7%',
+    // backgroundColor: 'yellow'
+  },
+  bottom: {
+    height: '93%',
+    paddingTop: Dimensions.get('window').height/3.8,
+    // backgroundColor: 'pink'
   },
 
   title: {
-    // fontSize: 25,
     fontSize: Dimensions.get('window').height/32.5,
     fontWeight: 'bold',
     marginTop: 10,
     textAlign: 'center'
   },
 
-
-  text: {
-    // fontSize: 25,
+  textFirst: {
     fontSize: Dimensions.get('window').height/32.5,
     fontWeight: 'bold',
-    marginTop: 10,
     textAlign: 'center'
+  },
+  textSecond: {
+    fontSize: Dimensions.get('window').height/32.5,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginTop: Dimensions.get('window').height/75
   }
-
-});
+})

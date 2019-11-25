@@ -1,5 +1,5 @@
 import React, {Fragment} from "react";
-import { Dimensions, View, Text, StyleSheet, ScrollView, TouchableOpacity, SafeAreaView,  TouchableWithoutFeedback} from "react-native";
+import { Linking, Dimensions, View, Text, StyleSheet, ScrollView, TouchableOpacity, SafeAreaView,  TouchableWithoutFeedback} from "react-native";
 import Icon from 'react-native-vector-icons/Ionicons' 
 import { ThemeProvider, Button, Divider } from 'react-native-elements'
 
@@ -45,26 +45,42 @@ export default class STEMI2 extends React.Component {
       headerStyle: {backgroundColor: '#709CD0'},      
     }
   }
+
+  dialCall = () => {
+    let phoneNumber = '';
+    if (Platform.OS === 'android') { phoneNumber = `tel:7149448364` }
+    else {phoneNumber = `telprompt:7149448364` }
+    Linking.openURL(phoneNumber);
+  }
   
   render() { 
     return (  
       <View style={styles.container}>
 
-        <View style={styles.top}>
+        <View style={styles.top}> 
           <Text style={styles.title}>STEMI</Text>
           <Divider style={{backgroundColor: '#CDCDCD', marginTop: 10, marginBottom: 10, marginLeft: 10, marginRight: 10, height: 1.5 }} />
         </View>
 
-
-        <View style={{ alignItems: 'center'}}>
-          <View style={{ alignItems: 'center', marginTop: 120, width: 300, height: 150, backgroundColor: 'rgba(200, 0, 0, 0.5)'}}>
-            <Text style={styles.textFirst}>Call Cath Emergency</Text>
-            <Text style={styles.textFirst}>STEMI Line</Text>
-            <Text style={styles.textFirst}>x6-8282</Text>
-          </View>
+        <View style={styles.middle}>
+          <TouchableOpacity
+              style={{
+                alignItems: "center",
+                justifyContent: "center",
+                backgroundColor: 'rgba(200, 0, 0, 0.5)',
+                borderRadius: 10,
+                height: Dimensions.get('window').height/6,
+                width: Dimensions.get('window').width/1.3,
+              }}
+              onPress={()=>{this.dialCall()}}
+            >
+              <Text style={{ fontSize: Dimensions.get('window').height/32, fontWeight: 'bold' }}>Press To Call STEMI</Text>
+              <Text style={{ marginTop: Dimensions.get('window').height/60, fontSize: Dimensions.get('window').height/40, fontWeight: '400'}}>(x6-8282)</Text>
+            </TouchableOpacity>
         </View>
 
-        <View style={{ marginTop: 120 }}>
+
+        <View style={styles.bottom}>
           <Text style={styles.textFirst}>Enter SmartPhrase in Epic</Text>
           <Text style={styles.textFirst}>Start .AcuteMIMGH</Text>
           <Text style={styles.textSecond}>(to generate relevant</Text>
@@ -77,36 +93,37 @@ export default class STEMI2 extends React.Component {
 }
 
 const styles = StyleSheet.create({
-
   container: {
     flex: 1,
   },
   top: {
     height: '10%',
   },
+  middle: {
+    height: '45%',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  bottom: {
+    height: '45%',
+  },
 
   title: {
-    // fontSize: 25,
-    fontSize: Dimensions.get('window').height/32.5,
     fontWeight: 'bold',
-    marginTop: 10,
-    textAlign: 'center'
+    textAlign: 'center',
+    marginTop: Dimensions.get('window').height/70,
+    fontSize: Dimensions.get('window').height/32.5,
   },
-
-
   textFirst: {
-    // fontSize: 25,
-    fontSize: Dimensions.get('window').height/32.5,
-    fontWeight: 'bold',
+    fontWeight: '500',
+    textAlign: 'center',
     marginTop: 10,
-    textAlign: 'center'
+    fontSize: Dimensions.get('window').height/32,
   },
   textSecond: {
-    // fontSize: 25,
-    fontSize: Dimensions.get('window').height/38,
-    fontWeight: 'bold',
-    marginTop: 10,
-    textAlign: 'center'
+    fontWeight: '500',
+    textAlign: 'center',
+    marginTop: Dimensions.get('window').height/70,
+    fontSize: Dimensions.get('window').height/37,
   }
-
-});
+})
