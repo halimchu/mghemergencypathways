@@ -94,7 +94,7 @@ export default class RICUNo extends React.Component {
               >
               <View style={{ flexDirection: 'row' }}>
                 <MaterialIcons name="phone" size={24} color="white" />
-                <Text style={{ fontSize: Dimensions.get('window').height/37, color: 'white', fontWeight: 'bold' }}> Call STAT RICU Consult</Text>
+                <Text style={{ fontSize: Dimensions.get('window').height/37, color: 'white', fontWeight: 'bold' }}> Call RICU Consult</Text>
               </View>
               <Text style={{ marginTop: Dimensions.get('window').height/150, color: 'white', fontSize: Dimensions.get('window').height/45, fontWeight: '400'}}>x6-3333</Text>
             </TouchableOpacity>

@@ -21,7 +21,7 @@ export default class InpatientConditions extends React.Component {
       )
       headerTitle = (
         <View style={{ marginBottom: 7}}>
-          <Text style={{ fontSize: Dimensions.get('window').height/45, color: 'white', fontWeight: 'bold', textAlign: 'center'}}>MGH Stat</Text>
+          <Text style={{ fontSize: Dimensions.get('window').height/45, color: 'white', fontWeight: 'bold', textAlign: 'center'}}>MGH STAT</Text>
         </View>
       )
       let headerRight = (
@@ -70,7 +70,7 @@ export default class InpatientConditions extends React.Component {
             <View style={{ marginTop: 10}}>
               <TouchableOpacity
                 style={styles.customBtnBG} 
-                onPress={() => this.props.navigation.navigate('RICU')}>
+                onPress={() => this.props.navigation.navigate('RICUNo')}>
                 <Text style={styles.customBtnText}>RICU (Airway)</Text>
               </TouchableOpacity>
             </View>

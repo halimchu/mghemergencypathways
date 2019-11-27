@@ -28,7 +28,6 @@ import { createStackNavigator } from 'react-navigation-stack'
 import { createAppContainer } from 'react-navigation'
 
 import Home from './src/components/Home'
-import RICU from './src/components/RICU/RICU'
 import RICUNo from './src/components/RICU/RICUNo'
 import RICUNextSteps from './src/components/RICU/RICUNextSteps'
 import RICUYes from './src/components/RICU/RICUYes'
@@ -47,7 +46,6 @@ import Tachycardia from './src/components/ACLS/Tachycardia'
 
 const AppNavigator = createStackNavigator({
   Home: { screen: Home },
-  RICU: { screen: RICU },
   RICUNo: { screen: RICUNo },
   RICUNextSteps: { screen: RICUNextSteps },
   RICUYes: { screen: RICUYes },

@@ -2,7 +2,7 @@ import React, {Fragment} from "react";
 import { Linking, Dimensions, View, Text, StyleSheet, ScrollView, TouchableOpacity, SafeAreaView,  TouchableWithoutFeedback} from "react-native";
 import Icon from 'react-native-vector-icons/Ionicons' 
 import { ThemeProvider, Button, Divider } from 'react-native-elements'
-
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 const myIcon = <Icon name="ios-arrow-back" size={30} color="white" />;
 
 
@@ -88,43 +88,32 @@ export default class Pert extends React.Component {
           </View>
         </View>
 
+        
 
         <View style={styles.middleTwo}>
-          <TouchableOpacity
-            style={{
-              alignItems: "center",
-              justifyContent: "center",
-              borderColor: '#DDDFD4', 
-              borderRadius: 10,
-              borderWidth: 3,
-              backgroundColor: '#EFEFEF',
-              height: Dimensions.get('window').height/6,
-              width: Dimensions.get('window').width/1.3,
-            }}
-            onPress={()=>{this.dialCall()}}
-          >
-            <Text style={{ fontSize: Dimensions.get('window').height/32, fontWeight: 'bold', color: '#434449' }}>Press To Call PERT</Text>
-            <Text style={{ marginTop: Dimensions.get('window').height/60, fontSize: Dimensions.get('window').height/45, fontWeight: '400'}}>x4-PERT (4-7378)</Text>
-            {/* <Text style={{ fontSize: Dimensions.get('window').height/37}}>Pulmonary Embolism</Text>
-            <Text style={{ fontSize: Dimensions.get('window').height/37}}>Response Team (PERT)</Text> */}
-          </TouchableOpacity>
-
-          <View>
-          </View>
+          <View style={{ alignItems: 'center' }}>
+              <TouchableOpacity
+                  style={{
+                    alignItems: "center",
+                    justifyContent: "center",
+                    borderRadius: 40,
+                    backgroundColor: '#B62130',
+                    height: Dimensions.get('window').height/11,
+                    width: Dimensions.get('window').width/1.12,
+                  }}
+                  onPress={()=>{this.dialCall()}
+                }
+                >
+                <View style={{ flexDirection: 'row' }}>
+                  <MaterialIcons name="phone" size={24} color="white" />
+                  <Text style={{ fontSize: Dimensions.get('window').height/37, color: 'white', fontWeight: 'bold' }}> Call PERT Consult</Text>
+                </View>
+                <Text style={{ marginTop: Dimensions.get('window').height/150, color: 'white', fontSize: Dimensions.get('window').height/45, fontWeight: '400'}}>x4-7378</Text>
+              </TouchableOpacity>
+            </View>
         </View>
 
 
-
-        
-
-
-
-
-        {/* <View style={styles.middleTwo}>
-          <Text style={{ fontSize: Dimensions.get('window').height/33, fontWeight: '500', marginBottom: 10 }}>Call x4-PERT (4-7378)</Text>
-          <Text style={{ fontSize: Dimensions.get('window').height/37}}>Pulmonary Embolism</Text>
-          <Text style={{ fontSize: Dimensions.get('window').height/37}}>Response Team (PERT)</Text>
-        </View> */}
 
 
           <View style={styles.bottom}>

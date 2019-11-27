@@ -42,17 +42,69 @@ export default class Tachycardia extends React.Component {
       headerStyle: {backgroundColor: '#709CD0'},      
     }
   }
+
+  IPhone375x812 () {
+    if (Dimensions.get('window').width === 375 && Dimensions.get('window').height === 812) {
+      return (
+        <Image
+          source={require('../../../assets/Tachycardia4000x6000.png')}
+          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1 }}
+        />
+      )
+    }
+  }
+
+  IPhone414x896 () {
+    if (Dimensions.get('window').width === 414 && Dimensions.get('window').height === 896) {
+      return (
+        <Image
+          source={require('../../../assets/Tachycardia4000x6000.png')}
+          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.16}}
+        />
+      )
+    }
+  }
+
+  IPhone375x667 () {
+    if (Dimensions.get('window').width === 375 && Dimensions.get('window').height === 667) {
+      return (
+        <Image
+          source={require('../../../assets/Tachycardia4000x6000.png')}
+          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height }}
+        />
+      )
+    }
+  }
+
+  IPhone414x736 () {
+    if (Dimensions.get('window').width === 414 && Dimensions.get('window').height === 736) {
+      return (
+        <Image
+          source={require('../../../assets/Tachycardia4000x6000.png')}
+          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height }}
+        />
+      )
+    }
+  }
+
   
   render() { 
     return (  
-      <View style={styles.container}>
-        <View style={{justifyContent: 'center', alignItems: 'center'}}>
-            <Image
-              source={require('../../../assets/tachycardia.png')}
-              style={{width: Dimensions.get('window').width/1.05, height: Dimensions.get('window').height/2.5}}
-            />
-          </View>
-      </View>
+      <SafeAreaView style={styles.container}>
+        <ScrollView maximumZoomScale={2.5}>
+          <View style={{justifyContent: 'center', alignItems: 'center'}}>
+
+          <Text>{Dimensions.get('window').width}</Text>
+          <Text>{Dimensions.get('window').height}</Text>
+
+            {this.IPhone375x812()}
+            {this.IPhone414x896()}
+            {this.IPhone375x667()}
+            {this.IPhone414x736()}
+
+            </View>
+        </ScrollView>
+      </SafeAreaView>
     )
   }
 }

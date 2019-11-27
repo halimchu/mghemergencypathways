@@ -1,10 +1,15 @@
 import React, {Fragment} from "react";
-import { Dimensions, View, Text, StyleSheet, ScrollView, TouchableOpacity, SafeAreaView,  TouchableWithoutFeedback} from "react-native";
-import { ThemeProvider, Button, Divider } from 'react-native-elements'
+import { Linking, Dimensions, View, Text, StyleSheet, ScrollView, TouchableOpacity, SafeAreaView,  TouchableWithoutFeedback} from "react-native";
 import Icon from 'react-native-vector-icons/Ionicons' 
+import { ThemeProvider, Button, Divider } from 'react-native-elements'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons' 
+import FontAwesome5Icons from 'react-native-vector-icons/FontAwesome5'
+
+
 
 const myIcon = <Icon name="ios-arrow-back" size={30} color="white" />;
+
+// 6177268282 STEMI line
 
 export default class STEMI3 extends React.Component {
 
@@ -50,39 +55,41 @@ export default class STEMI3 extends React.Component {
   render() { 
     return (  
       <SafeAreaView style={styles.container}>
+
         <View style={styles.top}>
           <Text style={styles.title}>STEMI</Text>
           <Divider style={{ backgroundColor: '#CDCDCD', marginTop: 10, marginBottom: 10, marginLeft: 10, marginRight: 10, height: 1.5 }} />
-        </View>
-
-        <View style={{ alignItems: 'center' }}>
+        
+          <View style={{ marginTop: Dimensions.get('window').height/5, alignItems: 'center', }}>
             <TouchableOpacity
                 style={{
                   alignItems: "center",
                   justifyContent: "center",
                   borderRadius: 40,
                   backgroundColor: '#B62130',
-                  height: Dimensions.get('window').height/8.5,
+                  height: Dimensions.get('window').height/8,
                   width: Dimensions.get('window').width/1.12,
                 }}
-                onPress={()=>{this.dialCall()}
+                onPress={ () => { Linking.openURL('https://ppd.partners.org/scripts/phsweb.mwl?APP=PDPERS&FF=PDA&ACTION=SEARCHRES&SRCHNM=29694') }
               }
               >
               <View style={{ flexDirection: 'row' }}>
-                <MaterialIcons name="phone" size={24} color="white" />
-                <Text style={{ fontSize: Dimensions.get('window').height/37, color: 'white', fontWeight: 'bold' }}> Call STAT General</Text>
+                <FontAwesome5Icons name="pager" size={22} color="white" />
+                <Text style={{ fontSize: Dimensions.get('window').height/37, color: 'white', fontWeight: 'bold' }}> Page General</Text>
               </View>
-                <Text style={{ fontSize: Dimensions.get('window').height/37, color: 'white', fontWeight: 'bold' }}>Cardiology Consult</Text>
-              <Text style={{ marginTop: Dimensions.get('window').height/150, color: 'white', fontSize: Dimensions.get('window').height/45, fontWeight: '400'}}></Text>
+              <Text style={{ fontSize: Dimensions.get('window').height/37, color: 'white', fontWeight: 'bold' }}>Cardiology Consult</Text>
+              <Text style={{ marginTop: Dimensions.get('window').height/150, color: 'white', fontSize: Dimensions.get('window').height/45, fontWeight: '400'}}>25712</Text>
             </TouchableOpacity>
           </View>
-
+        </View>
+     
 
         <View style={styles.bottom}>
-          <Text style={styles.textFirst}>STAT Page General</Text>
-          <Text style={styles.textSecond}>Cardiology Consult:</Text>
-          <Text style={styles.textSecond}>"Suspect Acute MI"</Text>
+          <Text style={styles.textFirst}>Please write</Text>
+          <Text style={styles.textFirst}>"Suspect Acute MI"</Text>
+          <Text style={styles.textFirst}>in page</Text>
         </View>
+
       </SafeAreaView>
     )
   }
@@ -93,12 +100,11 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   top: {
-    height: '7%',
+    height: '50%',
     // backgroundColor: 'yellow'
   },
   bottom: {
-    height: '93%',
-    paddingTop: Dimensions.get('window').height/3.8,
+    height: '50%',
     // backgroundColor: 'pink'
   },
 
@@ -119,5 +125,13 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     marginTop: Dimensions.get('window').height/75
-  }
+  },
+  customBtnBG: {
+    backgroundColor: "#69c8a1",
+    paddingHorizontal: 1,
+    paddingVertical: 1,
+    borderRadius: 40,
+    width: Dimensions.get('window').width/1.2,
+    height: Dimensions.get('window').height/8.5,
+  },
 })

@@ -2,6 +2,7 @@ import React, {Fragment} from "react";
 import { Linking, Dimensions, View, Text, StyleSheet, ScrollView, TouchableOpacity, SafeAreaView,  TouchableWithoutFeedback} from "react-native";
 import Icon from 'react-native-vector-icons/Ionicons' 
 import { ThemeProvider, Button, Divider } from 'react-native-elements'
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
 const myIcon = <Icon name="ios-arrow-back" size={30} color="white" />;
 
@@ -63,20 +64,26 @@ export default class STEMI2 extends React.Component {
         </View>
 
         <View style={styles.middle}>
-          <TouchableOpacity
-              style={{
-                alignItems: "center",
-                justifyContent: "center",
-                backgroundColor: 'rgba(200, 0, 0, 0.5)',
-                borderRadius: 10,
-                height: Dimensions.get('window').height/6,
-                width: Dimensions.get('window').width/1.3,
-              }}
-              onPress={()=>{this.dialCall()}}
-            >
-              <Text style={{ fontSize: Dimensions.get('window').height/32, fontWeight: 'bold' }}>Press To Call STEMI</Text>
-              <Text style={{ marginTop: Dimensions.get('window').height/60, fontSize: Dimensions.get('window').height/40, fontWeight: '400'}}>(x6-8282)</Text>
-            </TouchableOpacity>
+        <View style={{ alignItems: 'center' }}>
+              <TouchableOpacity
+                  style={{
+                    alignItems: "center",
+                    justifyContent: "center",
+                    borderRadius: 40,
+                    backgroundColor: '#B62130',
+                    height: Dimensions.get('window').height/11,
+                    width: Dimensions.get('window').width/1.12,
+                  }}
+                  onPress={()=>{this.dialCall()}
+                }
+                >
+                <View style={{ flexDirection: 'row' }}>
+                  <MaterialIcons name="phone" size={24} color="white" />
+                  <Text style={{ fontSize: Dimensions.get('window').height/37, color: 'white', fontWeight: 'bold' }}> Call STEMI Consult</Text>
+                </View>
+                <Text style={{ marginTop: Dimensions.get('window').height/150, color: 'white', fontSize: Dimensions.get('window').height/45, fontWeight: '400'}}>x6-8282</Text>
+              </TouchableOpacity>
+            </View>
         </View>
 
 

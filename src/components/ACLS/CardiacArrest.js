@@ -43,29 +43,6 @@ export default class CardiacArrest extends React.Component {
     }
   }
 
-  // image () {
-  //   return (
-  //     Dimensions.get('window').width === 375 && Dimensions.get('window').height === 812 
-  //     &&
-  //     Dimensions.get('window').width === 414 && Dimensions.get('window').height === 896
-      
-  //     ? 
-
-  //     <Image
-  //       source={require('../../../assets/CardiacArrest1000x1500.png')}
-  //       style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/.6}}
-  //     /> 
-      
-  //     : 
-    
-  //     <Image
-  //       source={require('../../../assets/CardiacArrest1000x1500.png')}
-  //       style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/.5}}
-  //     />
-  //   )
-  // }
-
-  
 
   IPhone375x812 () {
     if (Dimensions.get('window').width === 375 && Dimensions.get('window').height === 812) {
@@ -120,50 +97,31 @@ export default class CardiacArrest extends React.Component {
   render() { 
     return (  
       <SafeAreaView style={styles.container}>
-        <ScrollView maximumZoomScale={2}>
+        <ScrollView maximumZoomScale={2.5}>
           <View style={{justifyContent: 'center', alignItems: 'center'}}>
-            <Text>{Dimensions.get('window').width}</Text>
-            <Text>{Dimensions.get('window').height}</Text>
+            {/* <Text>{Dimensions.get('window').width}</Text>
+            <Text>{Dimensions.get('window').height}</Text> */}
 
-
+            <Text style={styles.title}>Adult Cardiac Arrest Algorithm</Text>
             {this.IPhone375x812()}
             {this.IPhone414x896()}
             {this.IPhone375x667()}
             {this.IPhone414x736()}
 
 
-        
-           
-
-
-            {/* <Image
-              source={require('../../../assets/acls1000x2000.png')}
-              style={{width: Dimensions.get('window').width/1, height: Dimensions.get('window').height/.57}}
-              // style={{width: 350, height: 425}}
-            /> */}
           </View>
         </ScrollView>
       </SafeAreaView>
-
-
-    //   <SafeAreaView style={{}}>
-    //   <ScrollView>
-    //     <View style={{alignItems: 'center', }}>
-    //       <View style={{justifyContent: 'center', alignItems: 'center', width: 120, height: 120, backgroundColor: 'lightblue'}}>
-    //         <Text>Start CPR</Text>
-    //         <Text>Give oxygen</Text>
-    //         <Text>Attach monitor</Text>
-    //       </View>
-    //       <View style={{borderColor: 'black', borderWidth: 2, height: 30,}}></View>
-    //         <Icon name="md-arrow-dropdown" size={35} color="black" />
-    //     </View>
-    //   </ScrollView>
-    // </SafeAreaView>
     )
   }
 }
 
 
 const styles = StyleSheet.create({
-
+  title: {
+    fontSize: Dimensions.get('window').height/37,
+    fontWeight: 'bold',
+    marginBottom: Dimensions.get('window').height/70,
+    marginTop: Dimensions.get('window').height/70,
+  }
   });
