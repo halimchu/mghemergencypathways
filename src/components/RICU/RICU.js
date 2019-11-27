@@ -6,13 +6,12 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
 const phoneIcon = <MaterialIcons name="phone" size={30} color="white" />;
 
-export default class RICUNo extends React.Component {
+export default class RICU extends React.Component {
   static navigationOptions = ({ navigation }) => {
     let headerLeft = (  
       <Button 
         icon={
           <View style={{ marginLeft: 9 }}>
-            {/* <Icon name="ios-arrow-back" size={34} color="white" /> */}
             <Icon name="md-arrow-back" size={34} color="white" />
           </View>
         }

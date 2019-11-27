@@ -48,7 +48,7 @@ export default class Tachycardia extends React.Component {
       return (
         <Image
           source={require('../../../assets/Tachycardia4000x6000.png')}
-          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1 }}
+          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/.95 }}
         />
       )
     }
@@ -59,7 +59,7 @@ export default class Tachycardia extends React.Component {
       return (
         <Image
           source={require('../../../assets/Tachycardia4000x6000.png')}
-          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.16}}
+          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/.95}}
         />
       )
     }
@@ -70,7 +70,7 @@ export default class Tachycardia extends React.Component {
       return (
         <Image
           source={require('../../../assets/Tachycardia4000x6000.png')}
-          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height }}
+          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/.8 }}
         />
       )
     }
@@ -81,7 +81,7 @@ export default class Tachycardia extends React.Component {
       return (
         <Image
           source={require('../../../assets/Tachycardia4000x6000.png')}
-          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height }}
+          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/.8 }}
         />
       )
     }

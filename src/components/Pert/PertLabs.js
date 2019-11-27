@@ -68,7 +68,7 @@ export default class PertLabs extends React.Component {
 
         <Divider style={{ backgroundColor: '#CDCDCD', marginLeft: 10, marginRight: 10, height: 1.5 }} />
 
-        <View style={styles.middle}>
+        <View style={styles.bottom}>
           <Text style={styles.header}>Please Order:</Text>
           {this.state.data.map((item) => (
               <View key={item} style={ styles.bulletPoints }>
@@ -89,61 +89,49 @@ const styles = StyleSheet.create({
     flex: 1
   },
   top: {
-    height: '11%',
+    height: '12.5%',
     // backgroundColor: 'yellow'
   },
   bottom: {
-    height: '89%',
-    alignItems: 'center', 
-    // backgroundColor: 'gray',
+    height: '87.5%',
+    // backgroundColor: 'pink',
   },
-
-
   titleFirstLine: {
-    // fontSize: 25,
-    fontSize: Dimensions.get('window').height/32.5,
     fontWeight: 'bold',
-    marginTop: 10,
-    textAlign: 'center'
+    textAlign: 'center',
+    color: '#2b2b2b',
+    marginTop: Dimensions.get('window').height/60,
+    fontSize: Dimensions.get('window').height/32.5,
   },
   titleSecondLine: {
-    fontSize: Dimensions.get('window').height/32.5,
     fontWeight: 'bold',
-    textAlign: 'center'
+    textAlign: 'center',
+    color: '#2b2b2b',
+    fontSize: Dimensions.get('window').height/32.5,
+    marginBottom: Dimensions.get('window').height/30,
   },
   header: {
-    // fontSize: 22,
-    fontSize: Dimensions.get('window').height/35,
     fontWeight: '500',
-    color: '#515254',
-    textAlign: 'center',
-    marginTop: 17,
-    marginBottom: 8
+    color: '#2b2b2b',
+    marginLeft: Dimensions.get('window').width/15,
+    marginTop: Dimensions.get('window').height/35,
+    fontSize: Dimensions.get('window').height/32.5,
   },
-
-
   bulletPoint: {
+    color: 'gray',
     fontSize: Dimensions.get('window').height/35,
-    color: 'gray'
   },
-
   bulletPointText: {
-    fontSize: Dimensions.get('window').height/35,
-    marginLeft: 4,
-    fontWeight: '300'
+    fontWeight: '300',
+    fontSize: Dimensions.get('window').height/33.7,
+    marginLeft: Dimensions.get('window').width/100,
   },
-
   bulletPoints: {
-    flexDirection: 'row',
-    marginTop: 9,
-    marginLeft: 50,
-    marginRight: 50,
+    marginTop: Dimensions.get('window').height/50,
+    marginLeft: Dimensions.get('window').width/10,
+    marginRight: Dimensions.get('window').width/8,
   },
-
-  /* Here, style the text of your button */
   customBtnText: {
-    // fontSize: 20,
-    // margin: 13
     fontSize: Dimensions.get('window').height/35,
     marginTop: Dimensions.get('window').height/62,
     fontWeight: '600',
@@ -151,16 +139,12 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     textAlignVertical: "center",
   },
-
-  /* Here, style the background of your button */
   customBtnBG: {
     backgroundColor: "#69c8a1",
     paddingHorizontal: 1,
     paddingVertical: 1,
     borderRadius: 8,
-    // width: 330,
-    // height: 60,
     width: Dimensions.get('window').width/1.13,
     height: Dimensions.get('window').height/13.5,
   }
-});
+})

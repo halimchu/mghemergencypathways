@@ -1,41 +1,67 @@
-import React, {Fragment} from "react";
-import { Linking, Dimensions, View, Text, StyleSheet, ScrollView, TouchableOpacity, SafeAreaView,  TouchableWithoutFeedback} from "react-native";
-import { ThemeProvider, Button, Divider } from 'react-native-elements'
+import React from 'react'
+import { Linking, Dimensions, View, Text, StyleSheet, TouchableOpacity, SafeAreaView } from 'react-native'
+import { Button, Divider } from 'react-native-elements'
 import Icon from 'react-native-vector-icons/Ionicons' 
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons' 
 
-const myIcon = <Icon name="ios-arrow-back" size={30} color="white" />;
-
-export default class Sroke1 extends React.Component {
+export default class Stroke1 extends React.Component {
   static navigationOptions = ({ navigation }) => {
-    let headerLeft = (  
-      <Button 
-        icon={
-          <View style={{ marginLeft: 9 }}>
-            <Icon name="ios-arrow-back" size={34} color="white" />
-          </View>
-        }
-        onPress={() => navigation.goBack()}
-        type='clear'
-      />
+    let headerLeft = ( 
+      <View style={{ flexDirection: 'row' }}>
+          <Button 
+            icon={
+              <View style={{ marginLeft: Dimensions.get('window').width/45, }}>
+                <Icon name="ios-arrow-back" size={Dimensions.get('window').height/26} color="white" />
+              </View>
+            }
+            onPress={() => navigation.goBack()}
+            type='clear'
+          />
+
+          <Button 
+            icon={
+              <View style={{ marginLeft: Dimensions.get('window').width/45 }}>
+                <Icon name="ios-arrow-back" size={Dimensions.get('window').height/26} color="rgba(0, 0, 0, 0)" />
+              </View>
+            }
+            onPress={() => navigation.goBack()}
+            type='clear'
+          />
+      </View>
     )
 
     headerTitle = (
-      <View style={{ marginBottom: 7}}>
-        <Text style={{ fontSize: Dimensions.get('window').height/45, color: 'white', fontWeight: 'bold', textAlign: 'center'}}>MGH STAT</Text>
+      <View>
+        <Text style={{ 
+          fontSize: Dimensions.get('window').height/43, 
+          marginTop: Dimensions.get('window').height/200, 
+          color: 'white', fontWeight: 'bold', 
+          textAlign: 'center'}}>MGH STAT</Text>
       </View>
     )
       
     let headerRight = (
-      <Button 
-        icon={
-          <View style={{ marginRight: Dimensions.get('window').width/75 }}>
-            <Icon name="md-home" size={32} color="white" />
-          </View>
-        }
-        onPress={() => navigation.navigate('Home')}
-        type='clear'
-      />
+      <View style={{ flexDirection: 'row' }}>
+        <Button 
+          icon={
+            <View style={{ marginRight: Dimensions.get('window').width/75 }}>
+              <Icon name="md-home" size={32} color="rgba(0, 0, 0, 0)"  />
+            </View>
+          }
+          onPress={() => navigation.navigate('Home')}
+          type='clear'
+        />
+
+        <Button 
+          icon={
+            <View style={{ marginRight: Dimensions.get('window').width/75 }}>
+              <Icon name="md-home" size={32} color="white" />
+            </View>
+          }
+          onPress={() => navigation.navigate('Home')}
+          type='clear'
+        />
+      </View>
     )
     
     return {
@@ -68,41 +94,36 @@ export default class Sroke1 extends React.Component {
   render() { 
     return (  
       <SafeAreaView style={styles.container}>
-        <View style={styles.top}>
-          <Text style={styles.title}>Stroke</Text>
-          <Divider style={{ backgroundColor: '#CDCDCD', marginTop: 10, marginBottom: 10, marginLeft: 10, marginRight: 10, height: 1.5 }} />
-        </View>
+          <View style={styles.top}>
+            <Text style={styles.title}>Stroke</Text>
+            <Divider style={styles.divider} />
+          </View>
 
-        <View style={styles.middle}>
+          <View style={styles.middle}>
             <Text style={styles.header}>Concern for Stroke?</Text>
             {this.state.dataOne.map((item) => (
-                <View key={item} style={ styles.bulletPoints }>
-                  <View style={{ flexDirection: 'row' }}>
-                    <Text style={styles.bulletPoint}>{`\u2022`}</Text>
-                    <Text style={styles.bulletPointText}>{item}</Text>
-                  </View>
-                </View>        
+              <View key={item} style={ styles.bulletPoints }>
+                <View style={{ flexDirection: 'row' }}>
+                  <Text style={styles.bulletPoint}>{`\u2022`}</Text>
+                  <Text style={styles.bulletPointText}>{item}</Text>
+                </View>
+              </View>        
             ))} 
           </View>
 
-        <View style={styles.middleTwo}>
-          <View style={{ alignItems: 'center'}}>
-
+          <View style={styles.middleTwo}>
             <Text style={styles.header}>Initial Steps</Text>
-
-            <View style={{ alignItems: 'center', marginTop: 20 }}>
+            <View style={{ alignItems: 'center', marginTop: Dimensions.get('window').height/50 }}>
               <TouchableOpacity
-                  style={{
-                    alignItems: "center",
-                    justifyContent: "center",
-                    borderRadius: 40,
-                    backgroundColor: '#B62130',
-                    height: Dimensions.get('window').height/11,
-                    width: Dimensions.get('window').width/1.12,
-                  }}
-                  onPress={()=>{this.dialCall()}
-                }
-                >
+                style={{
+                  alignItems: "center",
+                  justifyContent: "center",
+                  borderRadius: 40,
+                  backgroundColor: '#B62130',
+                  height: Dimensions.get('window').height/10,
+                  width: Dimensions.get('window').width/1.12,
+                }}
+                onPress={()=>{this.dialCall()}}>
                 <View style={{ flexDirection: 'row' }}>
                   <MaterialIcons name="phone" size={24} color="white" />
                   <Text style={{ fontSize: Dimensions.get('window').height/37, color: 'white', fontWeight: 'bold' }}> Call Acute Stroke Consult</Text>
@@ -110,37 +131,26 @@ export default class Sroke1 extends React.Component {
                 <Text style={{ marginTop: Dimensions.get('window').height/150, color: 'white', fontSize: Dimensions.get('window').height/45, fontWeight: '400'}}>x6-3333</Text>
               </TouchableOpacity>
             </View>
+
+            <View style={{ marginTop: Dimensions.get('window').height/300 }}>
+              {this.state.dataTwo.map((item) => (
+                <View key={item} style={ styles.bulletPointsTwo }>
+                  <View style={{ flexDirection: 'row' }}>
+                    <Text style={styles.bulletPoint}>{`\u2022`}</Text>
+                    <Text style={styles.bulletPointText}>{item}</Text>
+                  </View>
+                </View>        
+              ))} 
+            </View>
           </View>
 
-
-
-
-
-
-
-
-
-
-
-          {this.state.dataTwo.map((item) => (
-              <View key={item} style={ styles.bulletPointsTwo }>
-                <View style={{ flexDirection: 'row' }}>
-                  <Text style={styles.bulletPoint}>{`\u2022`}</Text>
-                  <Text style={styles.bulletPointText}>{item}</Text>
-                </View>
-              </View>        
-          ))} 
-        </View>
-
-
-
-        <View style={styles.bottom}>
-          <TouchableOpacity
-            style={styles.customBtnBG} 
-            onPress={() => this.props.navigation.navigate('Stroke2')}>
-            <Text style={styles.customBtnText}>Next Steps</Text>
-          </TouchableOpacity>
-        </View>
+          <View style={styles.bottom}>
+            <TouchableOpacity
+              style={styles.customBtnBG} 
+              onPress={() => this.props.navigation.navigate('Stroke2')}>
+              <Text style={styles.customBtnText}>Next Steps</Text>
+            </TouchableOpacity>
+          </View>
       </SafeAreaView>
     )
   }
@@ -169,25 +179,26 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     // backgroundColor: 'gray',
   },
+  divider: {
+    backgroundColor: '#CDCDCD', 
+    marginTop: Dimensions.get('window').height/64, 
+    marginBottom: Dimensions.get('window').height/64, 
+    marginLeft: Dimensions.get('window').width/60, 
+    marginRight: Dimensions.get('window').width/60, 
+    height: Dimensions.get('window').height/600
+  },
   title: {
     fontWeight: 'bold',
     textAlign: 'center',
-    marginTop: 10,
+    color: '#2b2b2b',
+    marginTop: Dimensions.get('window').height/60,
     fontSize: Dimensions.get('window').height/32.5,
   },
   header: {
     fontWeight: 'bold',
-    marginLeft: 25,
-    fontSize: Dimensions.get('window').height/33,
-  },
-  headerText: {
-    color: 'gray',
-    fontWeight: '500',
-    color: '#515254',
-    textAlign: 'center',
-    marginLeft: 12,
-    marginRight: 12,
-    fontSize: Dimensions.get('window').height/32.5,
+    color: '#2b2b2b',
+    marginLeft: Dimensions.get('window').width/20,
+    fontSize: Dimensions.get('window').height/34,
   },
   bulletPoints: {
     flexDirection: 'row',
@@ -214,8 +225,8 @@ const styles = StyleSheet.create({
     color: "#fff",
     textAlign: 'center',
     textAlignVertical: "center",
-    marginTop: Dimensions.get('window').height/62,
     fontSize: Dimensions.get('window').height/35,
+    marginTop: Dimensions.get('window').height/47,
   },
   customBtnBG: {
     backgroundColor: "#69c8a1",
@@ -223,6 +234,6 @@ const styles = StyleSheet.create({
     paddingVertical: 1,
     borderRadius: 8,
     width: Dimensions.get('window').width/1.13,
-    height: Dimensions.get('window').height/13.5,
+    height: Dimensions.get('window').height/12,
   },
 })

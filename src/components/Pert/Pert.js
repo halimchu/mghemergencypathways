@@ -1,43 +1,67 @@
-import React, {Fragment} from "react";
-import { Linking, Dimensions, View, Text, StyleSheet, ScrollView, TouchableOpacity, SafeAreaView,  TouchableWithoutFeedback} from "react-native";
+import React from 'react'
+import { Linking, Dimensions, View, Text, StyleSheet, TouchableOpacity, SafeAreaView } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons' 
-import { ThemeProvider, Button, Divider } from 'react-native-elements'
+import { Button, Divider } from 'react-native-elements'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
-const myIcon = <Icon name="ios-arrow-back" size={30} color="white" />;
-
-
-// Pert number 6177247378
 
 export default class Pert extends React.Component {
   static navigationOptions = ({ navigation }) => {
-    let headerLeft = (  
-      <Button 
-        icon={
-          <View style={{ marginLeft: 9 }}>
-            <Icon name="ios-arrow-back" size={34} color="white" />
-          </View>
-        }
-        onPress={() => navigation.goBack()}
-        type='clear'
-      />
+    let headerLeft = ( 
+      <View style={{ flexDirection: 'row' }}>
+          <Button 
+            icon={
+              <View style={{ marginLeft: Dimensions.get('window').width/45, }}>
+                <Icon name="ios-arrow-back" size={Dimensions.get('window').height/26} color="white" />
+              </View>
+            }
+            onPress={() => navigation.goBack()}
+            type='clear'
+          />
+
+          <Button 
+            icon={
+              <View style={{ marginLeft: Dimensions.get('window').width/45 }}>
+                <Icon name="ios-arrow-back" size={Dimensions.get('window').height/26} color="rgba(0, 0, 0, 0)" />
+              </View>
+            }
+            onPress={() => navigation.goBack()}
+            type='clear'
+          />
+      </View>
     )
 
     headerTitle = (
-      <View style={{ marginBottom: 7}}>
-        <Text style={{ fontSize: Dimensions.get('window').height/45, color: 'white', fontWeight: 'bold', textAlign: 'center'}}>MGH Stat</Text>
+      <View>
+        <Text style={{ 
+          fontSize: Dimensions.get('window').height/43, 
+          marginTop: Dimensions.get('window').height/200, 
+          color: 'white', fontWeight: 'bold', 
+          textAlign: 'center'}}>MGH STAT</Text>
       </View>
     )
       
     let headerRight = (
-      <Button 
-        icon={
-          <View style={{ marginRight: Dimensions.get('window').width/75 }}>
-            <Icon name="md-home" size={32} color="white" />
-          </View>
-        }
-        onPress={() => navigation.navigate('Home')}
-        type='clear'
-      />
+      <View style={{ flexDirection: 'row' }}>
+        <Button 
+          icon={
+            <View style={{ marginRight: Dimensions.get('window').width/75 }}>
+              <Icon name="md-home" size={32} color="rgba(0, 0, 0, 0)"  />
+            </View>
+          }
+          onPress={() => navigation.navigate('Home')}
+          type='clear'
+        />
+
+        <Button 
+          icon={
+            <View style={{ marginRight: Dimensions.get('window').width/75 }}>
+              <Icon name="md-home" size={32} color="white" />
+            </View>
+          }
+          onPress={() => navigation.navigate('Home')}
+          type='clear'
+        />
+      </View>
     )
     
     return {
@@ -72,11 +96,11 @@ export default class Pert extends React.Component {
           <Text style={styles.titleSecondLine}>Response Team</Text>
         </View>
 
-        <Divider style={{ backgroundColor: '#CDCDCD', marginLeft: 10, marginRight: 10, height: 1.5 }} />
+        <Divider style={styles.divider} />
 
         <View style={styles.middleOne}>
           <View style={{ marginTop: Dimensions.get('window').height/60 }}>
-            <Text style={styles.headerOne}>Large Pulmonary Embolus?</Text>
+            <Text style={styles.header}>Large Pulmonary Embolus?</Text>
             {this.state.data.map((item) => (
                 <View key={item} style={ styles.bulletPoints }>
                   <View style={{ flexDirection: 'row' }}>
@@ -98,7 +122,7 @@ export default class Pert extends React.Component {
                     justifyContent: "center",
                     borderRadius: 40,
                     backgroundColor: '#B62130',
-                    height: Dimensions.get('window').height/11,
+                    height: Dimensions.get('window').height/10,
                     width: Dimensions.get('window').width/1.12,
                   }}
                   onPress={()=>{this.dialCall()}
@@ -136,18 +160,18 @@ const styles = StyleSheet.create({
     flex: 1
   },
   top: {
-    height: '11%',
+    height: '12.5%',
     // backgroundColor: 'yellow'
   },
   middleOne: {
-    height: '44%',
+    height: '48%',
+    paddingTop: Dimensions.get('window').height/120, 
     // backgroundColor: '#eee',
   },
   middleTwo: {
-    height: '30%',
-    justifyContent: 'center',
+    height: '24.5%',
+    paddingTop: Dimensions.get('window').height/23,
     alignItems: 'center',
-    paddingTop: Dimensions.get('window').height/80, 
     // backgroundColor: 'pink',
   },
   bottom: {
@@ -156,26 +180,32 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     // backgroundColor: 'gray',
   },
-
-
   titleFirstLine: {
     fontWeight: 'bold',
     textAlign: 'center',
+    color: '#2b2b2b',
+    marginTop: Dimensions.get('window').height/60,
     fontSize: Dimensions.get('window').height/32.5,
-    marginTop: Dimensions.get('window').height/80,
   },
   titleSecondLine: {
     fontWeight: 'bold',
     textAlign: 'center',
+    color: '#2b2b2b',
     fontSize: Dimensions.get('window').height/32.5,
+    marginBottom: Dimensions.get('window').height/30,
   },
-
-  headerOne: {
+  divider: {
+    backgroundColor: '#CDCDCD', 
+    marginLeft: Dimensions.get('window').width/60, 
+    marginRight: Dimensions.get('window').width/60, 
+    height: Dimensions.get('window').height/600
+  },
+  header: {
     fontWeight: '500',
     color: '#515254',
     fontSize: Dimensions.get('window').height/32.5,
     marginLeft: Dimensions.get('window').width/15,
-    marginTop: Dimensions.get('window').height/100
+    marginTop: Dimensions.get('window').height/300
   },
   bulletPoint: {
     color: 'gray',
@@ -186,20 +216,18 @@ const styles = StyleSheet.create({
     fontSize: Dimensions.get('window').height/33.7,
     marginLeft: Dimensions.get('window').width/100,
   },
-
   bulletPoints: {
     flexDirection: 'row',
-    marginTop: Dimensions.get('window').height/33.7,
+    marginTop: Dimensions.get('window').height/30,
     marginLeft: Dimensions.get('window').width/10,
     marginRight: Dimensions.get('window').width/8,
   },
-
   customBtnText: {
     fontWeight: '600',
     color: "#fff",
     textAlign: 'center',
     fontSize: Dimensions.get('window').height/35,
-    marginTop: Dimensions.get('window').height/62,
+    marginTop: Dimensions.get('window').height/47,
   },
   customBtnBG: {
     backgroundColor: "#69c8a1",
@@ -207,6 +235,6 @@ const styles = StyleSheet.create({
     paddingVertical: 1,
     borderRadius: 8,
     width: Dimensions.get('window').width/1.13,
-    height: Dimensions.get('window').height/13.5,
+    height: Dimensions.get('window').height/12,
   },
 })

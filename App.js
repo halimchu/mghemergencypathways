@@ -6,7 +6,7 @@
  * @flow
  */
 
-import React from 'react';
+import React from 'react'
 import {
   SafeAreaView,
   StyleSheet,
@@ -28,7 +28,7 @@ import { createStackNavigator } from 'react-navigation-stack'
 import { createAppContainer } from 'react-navigation'
 
 import Home from './src/components/Home'
-import RICUNo from './src/components/RICU/RICUNo'
+import RICU from './src/components/RICU/RICU'
 import RICUNextSteps from './src/components/RICU/RICUNextSteps'
 import RICUYes from './src/components/RICU/RICUYes'
 import STEMI from './src/components/STEMI/STEMI'
@@ -46,7 +46,7 @@ import Tachycardia from './src/components/ACLS/Tachycardia'
 
 const AppNavigator = createStackNavigator({
   Home: { screen: Home },
-  RICUNo: { screen: RICUNo },
+  RICU: { screen: RICU },
   RICUNextSteps: { screen: RICUNextSteps },
   RICUYes: { screen: RICUYes },
   STEMI: { screen: STEMI },
