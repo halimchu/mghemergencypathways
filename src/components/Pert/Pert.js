@@ -27,6 +27,16 @@ export default class Pert extends React.Component {
             onPress={() => navigation.goBack()}
             type='clear'
           />
+
+          <Button 
+            icon={
+              <View style={{ marginLeft: Dimensions.get('window').width/45 }}>
+                <Icon name="ios-arrow-back" size={Dimensions.get('window').height/26} color="rgba(0, 0, 0, 0)" />
+              </View>
+            }
+            onPress={() => navigation.goBack()}
+            type='clear'
+          />
       </View>
     )
 
@@ -82,8 +92,8 @@ export default class Pert extends React.Component {
 
   dialCall = () => {
     let phoneNumber = '';
-    if (Platform.OS === 'android') { phoneNumber = `tel:7149448364` }
-    else {phoneNumber = `telprompt:7149448364` }
+    if (Platform.OS === 'android') { phoneNumber = `tel:6177247378` }
+    else {phoneNumber = `telprompt:6177247378` }
     Linking.openURL(phoneNumber);
   }
 
@@ -164,15 +174,15 @@ const styles = StyleSheet.create({
     // backgroundColor: 'yellow'
   },
   middleOne: {
-    height: '48%',
+    height: '47%',
     paddingTop: Dimensions.get('window').height/120, 
     // backgroundColor: '#eee',
   },
   middleTwo: {
-    height: '24.5%',
-    paddingTop: Dimensions.get('window').height/23,
+    height: '25.5%',
+    justifyContent: 'center',
     alignItems: 'center',
-    // backgroundColor: 'pink',
+    backgroundColor: '#F7F7F7'
   },
   bottom: {
     height: '15%',

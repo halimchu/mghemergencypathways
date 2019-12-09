@@ -3,8 +3,6 @@ import { Dimensions, View, Text, StyleSheet, TouchableOpacity, SafeAreaView } fr
 import Icon from 'react-native-vector-icons/Ionicons' 
 import { Button, Divider } from 'react-native-elements'
 
-const myIcon = <Icon name="ios-arrow-back" size={30} color="white" />;
-
 export default class Stroke3 extends React.Component {
 
   static navigationOptions = ({ navigation }) => {
@@ -14,6 +12,16 @@ export default class Stroke3 extends React.Component {
             icon={
               <View style={{ marginLeft: Dimensions.get('window').width/45, }}>
                 <Icon name="ios-arrow-back" size={Dimensions.get('window').height/26} color="white" />
+              </View>
+            }
+            onPress={() => navigation.goBack()}
+            type='clear'
+          />
+
+          <Button 
+            icon={
+              <View style={{ marginLeft: Dimensions.get('window').width/45 }}>
+                <Icon name="ios-arrow-back" size={Dimensions.get('window').height/26} color="rgba(0, 0, 0, 0)" />
               </View>
             }
             onPress={() => navigation.goBack()}

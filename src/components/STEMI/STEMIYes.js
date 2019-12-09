@@ -1,42 +1,77 @@
-import React, {Fragment} from "react";
-import { Linking, Dimensions, View, Text, StyleSheet, ScrollView, TouchableOpacity, SafeAreaView,  TouchableWithoutFeedback} from "react-native";
+import React from 'react'
+import { Linking, Dimensions, View, Text, StyleSheet, TouchableOpacity, SafeAreaView } from 'react-native'
+import { Button, Divider } from 'react-native-elements'
 import Icon from 'react-native-vector-icons/Ionicons' 
-import { ThemeProvider, Button, Divider } from 'react-native-elements'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
-const myIcon = <Icon name="ios-arrow-back" size={30} color="white" />;
-
 export default class STEMI2 extends React.Component {
-
   static navigationOptions = ({ navigation }) => {
-    let headerLeft = (  
-      <Button 
-        icon={
-          <View style={{ marginLeft: 9 }}>
-            <Icon name="ios-arrow-back" size={34} color="white" />
-          </View>
-        }
-        onPress={() => navigation.goBack()}
-        type='clear'
-      />
+    let headerLeft = ( 
+      <View style={{ flexDirection: 'row' }}>
+          <Button 
+            icon={
+              <View style={{ marginLeft: Dimensions.get('window').width/45, }}>
+                <Icon name="ios-arrow-back" size={Dimensions.get('window').height/26} color="white" />
+              </View>
+            }
+            onPress={() => navigation.goBack()}
+            type='clear'
+          />
+
+          <Button 
+            icon={
+              <View style={{ marginLeft: Dimensions.get('window').width/45 }}>
+                <Icon name="ios-arrow-back" size={Dimensions.get('window').height/26} color="rgba(0, 0, 0, 0)" />
+              </View>
+            }
+            onPress={() => navigation.goBack()}
+            type='clear'
+          />
+
+          <Button 
+            icon={
+              <View style={{ marginLeft: Dimensions.get('window').width/45 }}>
+                <Icon name="ios-arrow-back" size={Dimensions.get('window').height/26} color="rgba(0, 0, 0, 0)" />
+              </View>
+            }
+            onPress={() => navigation.goBack()}
+            type='clear'
+          />
+      </View>
     )
 
     headerTitle = (
-      <View style={{ marginBottom: 7}}>
-        <Text style={{ fontSize: Dimensions.get('window').height/45, color: 'white', fontWeight: 'bold', textAlign: 'center'}}>MGH Stat</Text>
+      <View>
+        <Text style={{ 
+          fontSize: Dimensions.get('window').height/43, 
+          marginTop: Dimensions.get('window').height/200, 
+          color: 'white', fontWeight: 'bold', 
+          textAlign: 'center'}}>MGH STAT</Text>
       </View>
     )
       
     let headerRight = (
-      <Button 
-        icon={
-          <View style={{ marginRight: Dimensions.get('window').width/75 }}>
-            <Icon name="md-home" size={32} color="white" />
-          </View>
-        }
-        onPress={() => navigation.navigate('Home')}
-        type='clear'
-      />
+      <View style={{ flexDirection: 'row' }}>
+        <Button 
+          icon={
+            <View style={{ marginRight: Dimensions.get('window').width/75 }}>
+              <Icon name="md-home" size={32} color="rgba(0, 0, 0, 0)"  />
+            </View>
+          }
+          onPress={() => navigation.navigate('Home')}
+          type='clear'
+        />
+
+        <Button 
+          icon={
+            <View style={{ marginRight: Dimensions.get('window').width/75 }}>
+              <Icon name="md-home" size={32} color="white" />
+            </View>
+          }
+          onPress={() => navigation.navigate('Home')}
+          type='clear'
+        />
+      </View>
     )
     
     return {
@@ -49,29 +84,34 @@ export default class STEMI2 extends React.Component {
 
   dialCall = () => {
     let phoneNumber = '';
-    if (Platform.OS === 'android') { phoneNumber = `tel:7149448364` }
-    else {phoneNumber = `telprompt:7149448364` }
+    if (Platform.OS === 'android') { phoneNumber = `tel:6177268282` }
+    else {phoneNumber = `telprompt:6177268282` }
     Linking.openURL(phoneNumber);
   }
   
   render() { 
     return (  
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
+
+
 
         <View style={styles.top}> 
           <Text style={styles.title}>STEMI</Text>
-          <Divider style={{backgroundColor: '#CDCDCD', marginTop: 10, marginBottom: 10, marginLeft: 10, marginRight: 10, height: 1.5 }} />
+          <Divider style={styles.divider} />
         </View>
 
+
+
+
         <View style={styles.middle}>
-        <View style={{ alignItems: 'center' }}>
+            <View style={{ alignItems: 'center' }}>
               <TouchableOpacity
                   style={{
                     alignItems: "center",
                     justifyContent: "center",
                     borderRadius: 40,
                     backgroundColor: '#B62130',
-                    height: Dimensions.get('window').height/11,
+                    height: Dimensions.get('window').height/10,
                     width: Dimensions.get('window').width/1.12,
                   }}
                   onPress={()=>{this.dialCall()}
@@ -84,17 +124,20 @@ export default class STEMI2 extends React.Component {
                 <Text style={{ marginTop: Dimensions.get('window').height/150, color: 'white', fontSize: Dimensions.get('window').height/45, fontWeight: '400'}}>x6-8282</Text>
               </TouchableOpacity>
             </View>
+
+            <View style={{ paddingTop: Dimensions.get('window').height/16 }}>
+              <Text style={styles.textFirstLine}>Enter SmartPhrase in Epic</Text>
+              <Text style={{ paddingTop: Dimensions.get('window').height/100 }}>
+                <Text style={styles.textSecondLine}>Start </Text>
+                <Text style={styles.textSecondLineBold}>.AcuteMIMGH</Text>
+              </Text>
+              <Text style={styles.textLastTwoLines}>(to generate relevant</Text>
+              <Text style={styles.textLastTwoLines}>information to clinical team)</Text> 
+          </View>
         </View>
 
 
-        <View style={styles.bottom}>
-          <Text style={styles.textFirst}>Enter SmartPhrase in Epic</Text>
-          <Text style={styles.textFirst}>Start .AcuteMIMGH</Text>
-          <Text style={styles.textSecond}>(to generate relevant</Text>
-          <Text style={styles.textSecond}>information to clinical team)</Text>
-        </View>
-
-      </View>
+      </SafeAreaView>
     )
   }
 }
@@ -105,32 +148,51 @@ const styles = StyleSheet.create({
   },
   top: {
     height: '10%',
+    // backgroundColor: 'yellow'
   },
   middle: {
     height: '45%',
     justifyContent: 'center',
     alignItems: 'center',
+    marginTop: Dimensions.get('window').height/6,
+    backgroundColor: '#F7F7F7',
+    // backgroundColor: 'pink'
   },
-  bottom: {
-    height: '45%',
-  },
-
   title: {
     fontWeight: 'bold',
     textAlign: 'center',
-    marginTop: Dimensions.get('window').height/70,
+    color: '#2b2b2b',
+    paddingTop: Dimensions.get('window').height/60,
     fontSize: Dimensions.get('window').height/32.5,
   },
-  textFirst: {
+  divider: {
+    backgroundColor: '#CDCDCD', 
+    marginTop: Dimensions.get('window').height/64, 
+    marginBottom: Dimensions.get('window').height/64, 
+    marginLeft: Dimensions.get('window').width/60, 
+    marginRight: Dimensions.get('window').width/60, 
+    height: Dimensions.get('window').height/600
+  },
+  textFirstLine: {
     fontWeight: '500',
     textAlign: 'center',
-    marginTop: 10,
     fontSize: Dimensions.get('window').height/32,
   },
-  textSecond: {
+  textSecondLine: {
     fontWeight: '500',
     textAlign: 'center',
-    marginTop: Dimensions.get('window').height/70,
-    fontSize: Dimensions.get('window').height/37,
+    fontSize: Dimensions.get('window').height/32,
+  },
+  textSecondLineBold: {
+    fontWeight: 'bold',
+    textAlign: 'center',
+    paddingTop: Dimensions.get('window').height/100,
+    fontSize: Dimensions.get('window').height/32,
+  },
+  textLastTwoLines: {
+    fontWeight: '500',
+    textAlign: 'center',
+    paddingTop: Dimensions.get('window').height/100,
+    fontSize: Dimensions.get('window').height/35,
   }
 })

@@ -29,7 +29,7 @@ export default class InpatientConditions extends React.Component {
             <TouchableOpacity
               style={styles.customBtnBG} 
               onPress={() => this.props.navigation.navigate('Stroke1')}>
-              <Text style={styles.customBtnText}>CVA</Text>
+              <Text style={styles.customBtnText}>Stroke</Text>
             </TouchableOpacity>
           </SafeAreaView>
 

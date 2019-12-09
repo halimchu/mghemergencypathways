@@ -1,23 +1,42 @@
-import React, {Fragment} from "react";
-import { Dimensions, View, Text, StyleSheet, ScrollView, TouchableOpacity, SafeAreaView,  TouchableWithoutFeedback} from "react-native";
+import React from 'react'
+import { Dimensions, View, Text, StyleSheet, TouchableOpacity, SafeAreaView } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons' 
-import { ThemeProvider, Button, Divider } from 'react-native-elements'
-
-const myIcon = <Icon name="ios-arrow-back" size={30} color="white" />;
+import { Button, Divider } from 'react-native-elements'
 
 export default class RICUYes extends React.Component {
-
   static navigationOptions = ({ navigation }) => {
-    let headerLeft = (  
-      <Button 
-        icon={
-          <View style={{ marginLeft: 9 }}>
-            <Icon name="ios-arrow-back" size={34} color="white" />
-          </View>
-        }
-        onPress={() => navigation.goBack()}
-        type='clear'
-      />
+    let headerLeft = ( 
+      <View style={{ flexDirection: 'row' }}>
+          <Button 
+            icon={
+              <View style={{ marginLeft: Dimensions.get('window').width/45, }}>
+                <Icon name="ios-arrow-back" size={Dimensions.get('window').height/26} color="white" />
+              </View>
+            }
+            onPress={() => navigation.goBack()}
+            type='clear'
+          />
+
+          <Button 
+            icon={
+              <View style={{ marginLeft: Dimensions.get('window').width/45 }}>
+                <Icon name="ios-arrow-back" size={Dimensions.get('window').height/26} color="rgba(0, 0, 0, 0)" />
+              </View>
+            }
+            onPress={() => navigation.goBack()}
+            type='clear'
+          />
+
+          <Button 
+            icon={
+              <View style={{ marginLeft: Dimensions.get('window').width/45 }}>
+                <Icon name="ios-arrow-back" size={Dimensions.get('window').height/26} color="rgba(0, 0, 0, 0)" />
+              </View>
+            }
+            onPress={() => navigation.goBack()}
+            type='clear'
+          />
+      </View>
     )
 
     headerTitle = (
@@ -53,7 +72,7 @@ export default class RICUYes extends React.Component {
 
         <View style={styles.top}>
           <Text style={styles.title}>RICU</Text>
-          <Divider style={{ backgroundColor: '#CDCDCD', marginTop: 10, marginBottom: 10, marginLeft: 10, marginRight: 10, height: 1.5 }} />
+          <Divider style={styles.divider} />
         </View>
 
 
@@ -82,8 +101,14 @@ const styles = StyleSheet.create({
     marginTop: 10,
     textAlign: 'center'
   },
-
-
+  divider: {
+    backgroundColor: '#CDCDCD', 
+    marginTop: Dimensions.get('window').height/64, 
+    marginBottom: Dimensions.get('window').height/64, 
+    marginLeft: Dimensions.get('window').width/60, 
+    marginRight: Dimensions.get('window').width/60, 
+    height: Dimensions.get('window').height/600
+  },
   text: {
     // fontSize: 25,
     fontSize: Dimensions.get('window').height/32.5,
@@ -91,5 +116,4 @@ const styles = StyleSheet.create({
     marginTop: 10,
     textAlign: 'center'
   }
-
-});
+})

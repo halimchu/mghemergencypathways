@@ -1,40 +1,76 @@
-import React, {Fragment} from "react";
-import { Dimensions, View, Text, StyleSheet, ScrollView, TouchableOpacity, SafeAreaView,  TouchableWithoutFeedback} from "react-native";
+import React from 'react'
+import { Dimensions, View, Text, StyleSheet, TouchableOpacity, SafeAreaView } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons' 
-import { ThemeProvider, Button, Divider } from 'react-native-elements'
-
-const myIcon = <Icon name="ios-arrow-back" size={30} color="white" />;
+import { Button, Divider } from 'react-native-elements'
 
 export default class STEMI extends React.Component {
   static navigationOptions = ({ navigation }) => {
-    let headerLeft = (  
-      <Button 
-        icon={
-          <View style={{ marginLeft: 9 }}>
-            <Icon name="ios-arrow-back" size={34} color="white" />
-          </View>
-        }
-        onPress={() => navigation.goBack()}
-        type='clear'
-      />
+    let headerLeft = ( 
+      <View style={{ flexDirection: 'row' }}>
+          <Button 
+            icon={
+              <View style={{ marginLeft: Dimensions.get('window').width/45, }}>
+                <Icon name="ios-arrow-back" size={Dimensions.get('window').height/26} color="white" />
+              </View>
+            }
+            onPress={() => navigation.goBack()}
+            type='clear'
+          />
+
+          <Button 
+            icon={
+              <View style={{ marginLeft: Dimensions.get('window').width/45 }}>
+                <Icon name="ios-arrow-back" size={Dimensions.get('window').height/26} color="rgba(0, 0, 0, 0)" />
+              </View>
+            }
+            onPress={() => navigation.goBack()}
+            type='clear'
+          />
+
+          <Button 
+            icon={
+              <View style={{ marginLeft: Dimensions.get('window').width/45 }}>
+                <Icon name="ios-arrow-back" size={Dimensions.get('window').height/26} color="rgba(0, 0, 0, 0)" />
+              </View>
+            }
+            onPress={() => navigation.goBack()}
+            type='clear'
+          />
+      </View>
     )
 
     headerTitle = (
-      <View style={{ marginBottom: 7}}>
-        <Text style={{ fontSize: Dimensions.get('window').height/45, color: 'white', fontWeight: 'bold', textAlign: 'center'}}>MGH Stat</Text>
+      <View>
+        <Text style={{ 
+          fontSize: Dimensions.get('window').height/43, 
+          marginTop: Dimensions.get('window').height/200, 
+          color: 'white', fontWeight: 'bold', 
+          textAlign: 'center'}}>MGH STAT</Text>
       </View>
     )
       
     let headerRight = (
-      <Button 
-        icon={
-          <View style={{ marginRight: Dimensions.get('window').width/75 }}>
-            <Icon name="md-home" size={32} color="white" />
-          </View>
-        }
-        onPress={() => navigation.navigate('Home')}
-        type='clear'
-      />
+      <View style={{ flexDirection: 'row' }}>
+        <Button 
+          icon={
+            <View style={{ marginRight: Dimensions.get('window').width/75 }}>
+              <Icon name="md-home" size={32} color="rgba(0, 0, 0, 0)"  />
+            </View>
+          }
+          onPress={() => navigation.navigate('Home')}
+          type='clear'
+        />
+
+        <Button 
+          icon={
+            <View style={{ marginRight: Dimensions.get('window').width/75 }}>
+              <Icon name="md-home" size={32} color="white" />
+            </View>
+          }
+          onPress={() => navigation.navigate('Home')}
+          type='clear'
+        />
+      </View>
     )
     
     return {
@@ -75,9 +111,9 @@ export default class STEMI extends React.Component {
   secondFn() {
     return (
       this.state2.data.map((item) => (
-        <View key={item} style={{ flexDirection: 'row', marginLeft:40, }}>
+        <View key={item} style={{ flexDirection: 'row', marginRight: Dimensions.get('window').width/20, marginLeft: Dimensions.get('window').width/10 }}>
             <Text style={styles.bulletPoint}>{`\u2022`}</Text>  
-            <Text style={{flex:1, flexWrap: 'wrap'}}>
+            <Text style={{flex: 1, flexWrap: 'wrap'}}>
             <Text style={{ fontSize: Dimensions.get('window').height/34.5 }}> 
               {item}
             </Text>
@@ -120,31 +156,34 @@ export default class STEMI extends React.Component {
 
         <View style={styles.top}>
           <Text style={styles.title}>STEMI</Text>
-          <Divider style={{ backgroundColor: '#CDCDCD', marginTop: 10, marginBottom: 10, marginLeft: 10, marginRight: 10, height: 1.5 }} />
+          <Divider style={styles.divider} />
         </View>
 
-
-
-        <View style={styles.middle}>
+        <View style={styles.titleBlock}>
           <Text style={styles.header}>STEMI Criteria</Text>
+        </View>
+
+        <View style={styles.middleOne}>
           {this.firstFn()}
           {this.secondFn()}
           {this.thirdFn()}
         </View>
 
-
+        <View style={styles.middleTwo}>
+          <View style={{ marginTop: Dimensions.get('window').height/100 }}>
+            <Text style={styles.headerBottom}>One or more STEMI criteria?</Text>
+          </View>
+        </View>
 
 
         <View style={styles.bottom}>
-          <Text style={{ marginBottom: 15, fontSize: Dimensions.get('window').height/34.5, textAlign: 'center' }}>One or more STEMI criteria?</Text>
-          <SafeAreaView style={{ marginBottom: 5 }}>
-              <TouchableOpacity
-                style={styles.customBtnBG} 
-                onPress={() => this.props.navigation.navigate('STEMIYes')}>
-                <Text style={styles.customBtnText}>Yes</Text>
-              </TouchableOpacity>
+          <SafeAreaView style={{ marginBottom: Dimensions.get('window').height/150 }}>
+            <TouchableOpacity
+              style={styles.customBtnBG} 
+              onPress={() => this.props.navigation.navigate('STEMIYes')}>
+              <Text style={styles.customBtnText}>Yes</Text>
+            </TouchableOpacity>
           </SafeAreaView>
-
         
           <TouchableOpacity
             style={styles.customBtnBG} 
@@ -152,8 +191,6 @@ export default class STEMI extends React.Component {
             <Text style={styles.customBtnText}>Uncertain</Text>
           </TouchableOpacity>  
         </View>
-
-
       </SafeAreaView>
     )
   }
@@ -167,35 +204,55 @@ const styles = StyleSheet.create({
     height: '10%',
     // backgroundColor: 'yellow'
   },
-  middle: {
-    height: '60%',
+  titleBlock: {
+    height: '6%',
+    alignItems: 'center',
+    // backgroundColor: 'green'
+  },
+  middleOne: {
+    height: '50%',
+    justifyContent: 'center',
     // backgroundColor: 'pink'
   },
+  middleTwo: {
+    height: '9%',
+    justifyContent: 'center',
+    // backgroundColor: 'purple'
+  },
   bottom: {
-    height: '30%',
+    height: '25%',
     alignItems: 'center', 
     justifyContent: 'center',
     // backgroundColor: 'gray',
   },
 
+
   title: {
     fontWeight: 'bold',
     textAlign: 'center',
-    marginTop: 10,
+    color: '#2b2b2b',
+    marginTop: Dimensions.get('window').height/60,
     fontSize: Dimensions.get('window').height/32.5,
+  },
+  divider: {
+    backgroundColor: '#CDCDCD', 
+    marginTop: Dimensions.get('window').height/64, 
+    marginBottom: Dimensions.get('window').height/64, 
+    marginLeft: Dimensions.get('window').width/60, 
+    marginRight: Dimensions.get('window').width/60, 
+    height: Dimensions.get('window').height/600
   },
   header: {
     color: 'gray',
     fontWeight: '500',
     color: '#515254',
-    textAlign: 'center',
-    marginLeft: 12,
-    marginRight: 12,
-    marginBottom: 15,
+    marginBottom: Dimensions.get('window').height/70,
     fontSize: Dimensions.get('window').height/32.5,
   },
-
-
+  headerBottom: {
+    textAlign: 'center', 
+    fontSize: Dimensions.get('window').height/34.5, 
+  },
   bulletPoints: {
     flexDirection: 'row',
     marginRight: 40,
@@ -217,7 +274,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     textAlignVertical: "center",
     fontSize: Dimensions.get('window').height/35,
-    marginTop: Dimensions.get('window').height/62,
+    marginTop: Dimensions.get('window').height/47,
   },
   customBtnBG: {
     backgroundColor: "#69c8a1",
@@ -225,6 +282,6 @@ const styles = StyleSheet.create({
     paddingVertical: 1,
     borderRadius: 8,
     width: Dimensions.get('window').width/1.13,
-    height: Dimensions.get('window').height/13.5,
+    height: Dimensions.get('window').height/12,
   },
 })

@@ -7,32 +7,72 @@ const myIcon = <Icon name="ios-arrow-back" size={30} color="white" />;
 
 export default class Tachycardia extends React.Component {
   static navigationOptions = ({ navigation }) => {
-    let headerLeft = (  
-      <Button 
-        icon={
-          <View style={{ marginLeft: 9 }}>
-            <Icon name="ios-arrow-back" size={34} color="white" />
-          </View>
-        }
-        onPress={() => navigation.goBack()}
-        type='clear'
-      />
-    )
-    headerTitle = (
-      <View style={{ marginBottom: 7}}>
-        <Text style={{ fontSize: Dimensions.get('window').height/45, color: 'white', fontWeight: 'bold', textAlign: 'center'}}>MGH EM Pathways</Text>
+    let headerLeft = ( 
+      <View style={{ flexDirection: 'row' }}>
+          <Button 
+            icon={
+              <View style={{ marginLeft: Dimensions.get('window').width/45, }}>
+                <Icon name="ios-arrow-back" size={Dimensions.get('window').height/26} color="white" />
+              </View>
+            }
+            onPress={() => navigation.goBack()}
+            type='clear'
+          />
+
+          <Button 
+            icon={
+              <View style={{ marginLeft: Dimensions.get('window').width/45 }}>
+                <Icon name="ios-arrow-back" size={Dimensions.get('window').height/26} color="rgba(0, 0, 0, 0)" />
+              </View>
+            }
+            onPress={() => navigation.goBack()}
+            type='clear'
+          />
+
+          <Button 
+            icon={
+              <View style={{ marginLeft: Dimensions.get('window').width/45 }}>
+                <Icon name="ios-arrow-back" size={Dimensions.get('window').height/26} color="rgba(0, 0, 0, 0)" />
+              </View>
+            }
+            onPress={() => navigation.goBack()}
+            type='clear'
+          />
       </View>
     )
+
+    headerTitle = (
+      <View>
+        <Text style={{ 
+          fontSize: Dimensions.get('window').height/43, 
+          marginTop: Dimensions.get('window').height/200, 
+          color: 'white', fontWeight: 'bold', 
+          textAlign: 'center'}}>MGH STAT</Text>
+      </View>
+    )
+      
     let headerRight = (
-      <Button 
-        icon={
-          <View style={{ marginRight: Dimensions.get('window').width/75 }}>
-            <Icon name="md-home" size={32} color="white" />
-          </View>
-        }
-        onPress={() => navigation.navigate('Home')}
-        type='clear'
-      />
+      <View style={{ flexDirection: 'row' }}>
+        <Button 
+          icon={
+            <View style={{ marginRight: Dimensions.get('window').width/75 }}>
+              <Icon name="md-home" size={32} color="rgba(0, 0, 0, 0)"  />
+            </View>
+          }
+          onPress={() => navigation.navigate('Home')}
+          type='clear'
+        />
+
+        <Button 
+          icon={
+            <View style={{ marginRight: Dimensions.get('window').width/75 }}>
+              <Icon name="md-home" size={32} color="white" />
+            </View>
+          }
+          onPress={() => navigation.navigate('Home')}
+          type='clear'
+        />
+      </View>
     )
     
     return {
@@ -92,17 +132,20 @@ export default class Tachycardia extends React.Component {
     return (  
       <SafeAreaView style={styles.container}>
         <ScrollView maximumZoomScale={2.5}>
-          <View style={{justifyContent: 'center', alignItems: 'center'}}>
 
-          <Text>{Dimensions.get('window').width}</Text>
-          <Text>{Dimensions.get('window').height}</Text>
+          <View styles={styles.top}>
+            <Text style={styles.titleFirstLine}>Adult Tachycardia</Text>
+            <Text style={styles.titleSecondLine}>with a Pulse Algorithm</Text>
+            <Divider style={styles.divider} />
+          </View>
 
-            {this.IPhone375x812()}
-            {this.IPhone414x896()}
-            {this.IPhone375x667()}
-            {this.IPhone414x736()}
 
-            </View>
+          {this.IPhone375x812()}
+          {this.IPhone414x896()}
+          {this.IPhone375x667()}
+          {this.IPhone414x736()}
+
+
         </ScrollView>
       </SafeAreaView>
     )
@@ -111,5 +154,33 @@ export default class Tachycardia extends React.Component {
 
 
 const styles = StyleSheet.create({
-
-  });
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  top: {
+    paddingTop: Dimensions.get('window').height/300,
+  },
+  titleFirstLine: {
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: '#2b2b2b',
+    paddingTop: Dimensions.get('window').height/60,
+    fontSize: Dimensions.get('window').height/33,
+  },
+  titleSecondLine: {
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: '#2b2b2b',
+    fontSize: Dimensions.get('window').height/33,
+  },
+  divider: {
+    backgroundColor: '#CDCDCD', 
+    marginTop: Dimensions.get('window').height/64, 
+    marginBottom: Dimensions.get('window').height/64, 
+    marginLeft: Dimensions.get('window').width/60, 
+    marginRight: Dimensions.get('window').width/60, 
+    height: Dimensions.get('window').height/600
+  },
+})

@@ -1,47 +1,77 @@
-import React, {Fragment} from "react";
-import { Linking, Dimensions, View, Text, StyleSheet, ScrollView, TouchableOpacity, SafeAreaView,  TouchableWithoutFeedback} from "react-native";
+import React from 'react'
+import { Linking, Dimensions, View, Text, StyleSheet, TouchableOpacity, SafeAreaView } from 'react-native'
+import { Button, Divider } from 'react-native-elements'
 import Icon from 'react-native-vector-icons/Ionicons' 
-import { ThemeProvider, Button, Divider } from 'react-native-elements'
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons' 
 import FontAwesome5Icons from 'react-native-vector-icons/FontAwesome5'
 
-
-
-const myIcon = <Icon name="ios-arrow-back" size={30} color="white" />;
-
-// 6177268282 STEMI line
-
 export default class STEMI3 extends React.Component {
-
   static navigationOptions = ({ navigation }) => {
-    let headerLeft = (  
-      <Button 
-        icon={
-          <View style={{ marginLeft: 9 }}>
-            <Icon name="ios-arrow-back" size={34} color="white" />
-          </View>
-        }
-        onPress={() => navigation.goBack()}
-        type='clear'
-      />
+    let headerLeft = ( 
+      <View style={{ flexDirection: 'row' }}>
+          <Button 
+            icon={
+              <View style={{ marginLeft: Dimensions.get('window').width/45, }}>
+                <Icon name="ios-arrow-back" size={Dimensions.get('window').height/26} color="white" />
+              </View>
+            }
+            onPress={() => navigation.goBack()}
+            type='clear'
+          />
+
+          <Button 
+            icon={
+              <View style={{ marginLeft: Dimensions.get('window').width/45 }}>
+                <Icon name="ios-arrow-back" size={Dimensions.get('window').height/26} color="rgba(0, 0, 0, 0)" />
+              </View>
+            }
+            onPress={() => navigation.goBack()}
+            type='clear'
+          />
+
+          <Button 
+            icon={
+              <View style={{ marginLeft: Dimensions.get('window').width/45 }}>
+                <Icon name="ios-arrow-back" size={Dimensions.get('window').height/26} color="rgba(0, 0, 0, 0)" />
+              </View>
+            }
+            onPress={() => navigation.goBack()}
+            type='clear'
+          />
+      </View>
     )
 
     headerTitle = (
-      <View style={{ marginBottom: 7}}>
-        <Text style={{ fontSize: Dimensions.get('window').height/45, color: 'white', fontWeight: 'bold', textAlign: 'center'}}>MGH Stat</Text>
+      <View>
+        <Text style={{ 
+          fontSize: Dimensions.get('window').height/43, 
+          marginTop: Dimensions.get('window').height/200, 
+          color: 'white', fontWeight: 'bold', 
+          textAlign: 'center'}}>MGH STAT</Text>
       </View>
     )
       
     let headerRight = (
-      <Button 
-        icon={
-          <View style={{ marginRight: Dimensions.get('window').width/75 }}>
-            <Icon name="md-home" size={32} color="white" />
-          </View>
-        }
-        onPress={() => navigation.navigate('Home')}
-        type='clear'
-      />
+      <View style={{ flexDirection: 'row' }}>
+        <Button 
+          icon={
+            <View style={{ marginRight: Dimensions.get('window').width/75 }}>
+              <Icon name="md-home" size={32} color="rgba(0, 0, 0, 0)"  />
+            </View>
+          }
+          onPress={() => navigation.navigate('Home')}
+          type='clear'
+        />
+
+        <Button 
+          icon={
+            <View style={{ marginRight: Dimensions.get('window').width/75 }}>
+              <Icon name="md-home" size={32} color="white" />
+            </View>
+          }
+          onPress={() => navigation.navigate('Home')}
+          type='clear'
+        />
+      </View>
     )
     
     return {
@@ -58,36 +88,38 @@ export default class STEMI3 extends React.Component {
 
         <View style={styles.top}>
           <Text style={styles.title}>STEMI</Text>
-          <Divider style={{ backgroundColor: '#CDCDCD', marginTop: 10, marginBottom: 10, marginLeft: 10, marginRight: 10, height: 1.5 }} />
+          <Divider style={styles.divider} />
+        </View>
         
-          <View style={{ marginTop: Dimensions.get('window').height/5, alignItems: 'center', }}>
+        <View style={styles.middle}>
+          <View style={{ alignItems: 'center' }}>
             <TouchableOpacity
-                style={{
-                  alignItems: "center",
-                  justifyContent: "center",
-                  borderRadius: 40,
-                  backgroundColor: '#B62130',
-                  height: Dimensions.get('window').height/8,
-                  width: Dimensions.get('window').width/1.12,
-                }}
-                onPress={ () => { Linking.openURL('https://ppd.partners.org/scripts/phsweb.mwl?APP=PDPERS&FF=PDA&ACTION=SEARCHRES&SRCHNM=29694') }
-              }
-              >
+              style={{
+                alignItems: "center",
+                justifyContent: "center",
+                borderRadius: 60,
+                backgroundColor: '#B62130',
+                height: Dimensions.get('window').height/8,
+                width: Dimensions.get('window').width/1.12,
+              }}
+              onPress={ () => { Linking.openURL('https://ppd.partners.org/scripts/phsweb.mwl?APP=PDPERS&FF=PDA&ACTION=SEARCHRES&SRCHNM=25712') }
+              }>
               <View style={{ flexDirection: 'row' }}>
-                <FontAwesome5Icons name="pager" size={22} color="white" />
-                <Text style={{ fontSize: Dimensions.get('window').height/37, color: 'white', fontWeight: 'bold' }}> Page General</Text>
+                <View style={{ marginTop: Dimensions.get('window').height/350 }}>
+                  <FontAwesome5Icons name="pager" size={22} color="white" />
+                </View>
+                <Text style={{ fontSize: Dimensions.get('window').height/37, color: 'white', fontWeight: 'bold' }}>  Page General</Text>
               </View>
               <Text style={{ fontSize: Dimensions.get('window').height/37, color: 'white', fontWeight: 'bold' }}>Cardiology Consult</Text>
               <Text style={{ marginTop: Dimensions.get('window').height/150, color: 'white', fontSize: Dimensions.get('window').height/45, fontWeight: '400'}}>25712</Text>
             </TouchableOpacity>
           </View>
-        </View>
      
-
-        <View style={styles.bottom}>
-          <Text style={styles.textFirst}>Please write</Text>
-          <Text style={styles.textFirst}>"Suspect Acute MI"</Text>
-          <Text style={styles.textFirst}>in page</Text>
+          <View style={{ marginTop: Dimensions.get('window').height/20 }}>
+            <Text style={styles.text}>Please write</Text>
+            <Text style={styles.textBold}>"Suspect Acute MI"</Text>
+            <Text style={styles.text}>in page</Text>
+          </View>
         </View>
 
       </SafeAreaView>
@@ -100,38 +132,43 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   top: {
-    height: '50%',
+    height: '10%',
     // backgroundColor: 'yellow'
   },
-  bottom: {
-    height: '50%',
+  middle: {
+    height: '45%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: Dimensions.get('window').height/6,
+    backgroundColor: '#F7F7F7',
     // backgroundColor: 'pink'
   },
 
   title: {
-    fontSize: Dimensions.get('window').height/32.5,
-    fontWeight: 'bold',
-    marginTop: 10,
-    textAlign: 'center'
-  },
-
-  textFirst: {
-    fontSize: Dimensions.get('window').height/32.5,
-    fontWeight: 'bold',
-    textAlign: 'center'
-  },
-  textSecond: {
-    fontSize: Dimensions.get('window').height/32.5,
     fontWeight: 'bold',
     textAlign: 'center',
-    marginTop: Dimensions.get('window').height/75
+    color: '#2b2b2b',
+    marginTop: Dimensions.get('window').height/60,
+    fontSize: Dimensions.get('window').height/32.5,
   },
-  customBtnBG: {
-    backgroundColor: "#69c8a1",
-    paddingHorizontal: 1,
-    paddingVertical: 1,
-    borderRadius: 40,
-    width: Dimensions.get('window').width/1.2,
-    height: Dimensions.get('window').height/8.5,
+  divider: {
+    backgroundColor: '#CDCDCD', 
+    marginTop: Dimensions.get('window').height/64, 
+    marginBottom: Dimensions.get('window').height/64, 
+    marginLeft: Dimensions.get('window').width/60, 
+    marginRight: Dimensions.get('window').width/60, 
+    height: Dimensions.get('window').height/600
+  },
+  text: {
+    fontWeight: '500',
+    textAlign: 'center',
+    marginTop: Dimensions.get('window').height/100,
+    fontSize: Dimensions.get('window').height/32,
+  },
+  textBold: {
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginTop: Dimensions.get('window').height/100,
+    fontSize: Dimensions.get('window').height/32,
   },
 })

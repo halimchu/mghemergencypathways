@@ -26,6 +26,16 @@ export default class Stroke2 extends React.Component {
             onPress={() => navigation.goBack()}
             type='clear'
           />
+
+          <Button 
+            icon={
+              <View style={{ marginLeft: Dimensions.get('window').width/45 }}>
+                <Icon name="ios-arrow-back" size={Dimensions.get('window').height/26} color="rgba(0, 0, 0, 0)" />
+              </View>
+            }
+            onPress={() => navigation.goBack()}
+            type='clear'
+          />  
       </View>
     )
 

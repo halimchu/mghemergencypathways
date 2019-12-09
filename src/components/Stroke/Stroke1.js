@@ -27,6 +27,16 @@ export default class Stroke1 extends React.Component {
             onPress={() => navigation.goBack()}
             type='clear'
           />
+
+          <Button 
+            icon={
+              <View style={{ marginLeft: Dimensions.get('window').width/45 }}>
+                <Icon name="ios-arrow-back" size={Dimensions.get('window').height/26} color="rgba(0, 0, 0, 0)" />
+              </View>
+            }
+            onPress={() => navigation.goBack()}
+            type='clear'
+          />  
       </View>
     )
 
@@ -74,8 +84,8 @@ export default class Stroke1 extends React.Component {
 
   dialCall = () => {
     let phoneNumber = '';
-    if (Platform.OS === 'android') { phoneNumber = `tel:7149448364` }
-    else {phoneNumber = `telprompt:7149448364` }
+    if (Platform.OS === 'android') { phoneNumber = `tel:6177263333` }
+    else {phoneNumber = `telprompt:6177263333` }
     Linking.openURL(phoneNumber);
   }
 
