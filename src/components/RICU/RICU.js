@@ -109,10 +109,11 @@ export default class RICU extends React.Component {
         </View>
        
 
-        <View style={styles.middleOne}> 
+        <View style={styles.middle}> 
           <View style={{ alignItems: 'center' }}>
             <TouchableOpacity
               style={{
+                marginBottom: Dimensions.get('window').height/15, 
                 alignItems: "center",
                 justifyContent: "center",
                 borderRadius: 40,
@@ -129,32 +130,45 @@ export default class RICU extends React.Component {
             </TouchableOpacity>
           </View>
 
-          <Text style={styles.headerOne}>If need for surgical airway,</Text>
-          <Text style={styles.headerTwo}>state: "Emergency surgical airway, [current location]"</Text>
+
+
+
+          <View style={{ marginLeft: Dimensions.get('window').width/20, marginRight: Dimensions.get('window').width/20 }}>
+            <View style={{marginBottom: Dimensions.get('window').height/15}}>
+              <Text style={{textAlign: 'center', marginTop: Dimensions.get('window').height/45, fontSize: Dimensions.get('window').height/34,}}>
+                <Text>If need for </Text>
+                <Text style={{fontWeight: 'bold', textDecorationLine: 'underline'}}>emergent </Text>
+                <Text>airway, </Text>
+              </Text>
+              <Text style={{textAlign: 'center', fontSize: Dimensions.get('window').height/34}}>state:</Text>
+              <Text style={{fontWeight: '600', textAlign: 'center', fontSize: Dimensions.get('window').height/34}}>"Emergency airway, </Text>
+              <Text style={{fontWeight: '600', textAlign: 'center', fontSize: Dimensions.get('window').height/34}}>[current location]"</Text>
+            </View>
+
+
+
+
+            <Text style={{textAlign: 'center', marginTop: Dimensions.get('window').height/45, fontSize: Dimensions.get('window').height/34,}}>
+              <Text>If need for </Text>
+              <Text style={{fontWeight: 'bold', textDecorationLine: 'underline'}}>surgical </Text>
+              <Text>airway,</Text>
+            </Text>
+            <Text style={{textAlign: 'center', fontSize: Dimensions.get('window').height/34}}>state:</Text>
+            <Text style={{fontWeight: '600', textAlign: 'center', fontSize: Dimensions.get('window').height/34}}>"Emergency surgical airway</Text>
+            <Text style={{fontWeight: '600', textAlign: 'center', fontSize: Dimensions.get('window').height/34}}>[current location]"</Text>
           </View>
+        </View>
 
 
 
 
-          <View style={styles.middleTwo}>
-            <Text style={{ fontSize: Dimensions.get('window').height/32.5, marginLeft: Dimensions.get('window').width/10, }}>What to prepare:</Text>
-            {this.state.data.map((item) => (
-              <View key={item} style={ styles.bulletPoints }>
-                <View style={{ flexDirection: 'row' }}>
-                  <Text style={styles.bulletPoint}>{`\u2022`}</Text>
-                  <Text style={styles.bulletPointText}>{item}</Text>
-                </View>
-              </View>        
-            ))} 
-          </View>
-     
 
 
         <View style={styles.bottom}>
           <SafeAreaView>
             <TouchableOpacity
               style={styles.customBtnBG} 
-              onPress={() => this.props.navigation.navigate('RICUNextSteps')}>
+              onPress={() => this.props.navigation.navigate('RICUWhatToPrepare')}>
               <Text style={styles.customBtnText}>Next Steps</Text>
             </TouchableOpacity>
           </SafeAreaView>
@@ -172,16 +186,10 @@ const styles = StyleSheet.create({
     height: '10%',
     // backgroundColor: 'yellow'
   },
-  middleOne: {
-    height: '30%',
-    justifyContent: 'center',
-    backgroundColor: '#F7F7F7',
-    paddingTop: Dimensions.get('window').height/37,
-    // backgroundColor: 'yellow'
-  },
-  middleTwo: {
-    height: '45%',
-    paddingTop: Dimensions.get('window').height/85,
+  middle: {
+    height: '75%',
+    // backgroundColor: '#F7F7F7',
+    paddingTop: Dimensions.get('window').height/25,
     // backgroundColor: 'pink'
   },
   bottom: {
@@ -206,13 +214,13 @@ const styles = StyleSheet.create({
     height: Dimensions.get('window').height/600
   },
   headerOne: {
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
     textAlign: 'center',
     marginTop: Dimensions.get('window').height/45, 
     fontSize: Dimensions.get('window').height/34,
   },
   headerTwo: {
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
     textAlign: 'center',
     marginBottom: Dimensions.get('window').height/40,
     fontSize: Dimensions.get('window').height/34,

@@ -8,35 +8,25 @@ export default class Pert extends React.Component {
   static navigationOptions = ({ navigation }) => {
     let headerLeft = ( 
       <View style={{ flexDirection: 'row' }}>
-          <Button 
-            icon={
-              <View style={{ marginLeft: Dimensions.get('window').width/45, }}>
-                <Icon name="ios-arrow-back" size={Dimensions.get('window').height/26} color="white" />
-              </View>
-            }
-            onPress={() => navigation.goBack()}
-            type='clear'
-          />
+        <Button 
+          icon={
+            <View style={{ marginLeft: Dimensions.get('window').width/45 }}>
+              <Icon name="ios-arrow-back" size={Dimensions.get('window').height/26} color="white" />
+            </View>
+          }
+          onPress={() => navigation.goBack()}
+          type='clear'
+        />
 
-          <Button 
-            icon={
-              <View style={{ marginLeft: Dimensions.get('window').width/45 }}>
-                <Icon name="ios-arrow-back" size={Dimensions.get('window').height/26} color="rgba(0, 0, 0, 0)" />
-              </View>
-            }
-            onPress={() => navigation.goBack()}
-            type='clear'
-          />
-
-          <Button 
-            icon={
-              <View style={{ marginLeft: Dimensions.get('window').width/45 }}>
-                <Icon name="ios-arrow-back" size={Dimensions.get('window').height/26} color="rgba(0, 0, 0, 0)" />
-              </View>
-            }
-            onPress={() => navigation.goBack()}
-            type='clear'
-          />
+        <Button 
+          icon={
+            <View style={{ marginLeft: Dimensions.get('window').width/45 }}>
+              <Icon name="ios-arrow-back" size={Dimensions.get('window').height/26} color="rgba(0, 0, 0, 0)" />
+            </View>
+          }
+          onPress={() => navigation.goBack()}
+          type='clear'
+        />
       </View>
     )
 
@@ -63,6 +53,7 @@ export default class Pert extends React.Component {
         />
 
         <Button 
+        
           icon={
             <View style={{ marginRight: Dimensions.get('window').width/75 }}>
               <Icon name="md-home" size={32} color="white" />
@@ -70,6 +61,7 @@ export default class Pert extends React.Component {
           }
           onPress={() => navigation.navigate('Home')}
           type='clear'
+          
         />
       </View>
     )

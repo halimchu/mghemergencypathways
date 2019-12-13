@@ -29,8 +29,9 @@ import { createAppContainer } from 'react-navigation'
 
 import Home from './src/components/Home'
 import RICU from './src/components/RICU/RICU'
-import RICUNextSteps from './src/components/RICU/RICUNextSteps'
+import RICUWhatToPresent from './src/components/RICU/RICUWhatToPresent'
 import RICUYes from './src/components/RICU/RICUYes'
+import RICUWhatToPrepare from './src/components/RICU/RICUWhatToPrepare'
 import STEMI from './src/components/STEMI/STEMI'
 import STEMIYes from './src/components/STEMI/STEMIYes'
 import STEMIUncertain from './src/components/STEMI/STEMIUncertain'
@@ -39,7 +40,7 @@ import Stroke2 from './src/components/Stroke/Stroke2'
 import Stroke3 from './src/components/Stroke/Stroke3'
 import Pert from './src/components/Pert/Pert'
 import PertLabs from './src/components/Pert/PertLabs'
-import CardiacArrest from './src/components/ACLS/CardiacArrest'
+import CardiacArrest from './src/components/ACLS/CardiacArrest/CardiacArrest'
 import Bradycardia from './src/components/ACLS/Bradycardia'
 import Tachycardia from './src/components/ACLS/Tachycardia'
 
@@ -47,8 +48,9 @@ import Tachycardia from './src/components/ACLS/Tachycardia'
 const AppNavigator = createStackNavigator({
   Home: { screen: Home },
   RICU: { screen: RICU },
-  RICUNextSteps: { screen: RICUNextSteps },
+  RICUWhatToPresent: { screen: RICUWhatToPresent },
   RICUYes: { screen: RICUYes },
+  RICUWhatToPrepare: { screen: RICUWhatToPrepare },
   STEMI: { screen: STEMI },
   STEMIYes: { screen: STEMIYes },
   STEMIUncertain: { screen: STEMIUncertain },

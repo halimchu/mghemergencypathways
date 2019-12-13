@@ -1,9 +1,10 @@
 import React from 'react'
-import { Dimensions, View, Text, StyleSheet, TouchableOpacity, SafeAreaView } from 'react-native'
-import Icon from 'react-native-vector-icons/Ionicons' 
+import { Linking, Dimensions, View, Text, StyleSheet, TouchableOpacity, SafeAreaView } from 'react-native'
 import { Button, Divider } from 'react-native-elements'
+import Icon from 'react-native-vector-icons/Ionicons' 
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons' 
 
-export default class RICUNextSteps extends React.Component {
+export default class RICUWhatToPrepare extends React.Component {
   static navigationOptions = ({ navigation }) => {
     let headerLeft = ( 
       <View style={{ flexDirection: 'row' }}>
@@ -81,56 +82,21 @@ export default class RICUNextSteps extends React.Component {
     }
   }
 
-  state = { 
+  state = {
     data: [
-      ['One-Liner:', 'Major cardiac, pulm, ENT'],
-      ['Last Echo:', 'EF, RV function, RVSP, valves'],
-      ['Prior Intubations:', '"Chart reviews" -> "Anesthesia," leave open'],
-      ['Code Status'],
-      ['Gas Exchange:', 'Last ABG'],
-      ['Allergies'],
-      ['Access'],
-      ['NPO Status:', 'Last meal, major GI issues'],
-      ['Status:', 'Functional status & weight[kg]']
-    ],
+      'Respiratory Therapist',
+      'Ventilator (standing or transport)',
+      'Working IV',
+      'Vasopressor in line and on pump',
+      'Suction on and connected with tubing'
+    ]
   }
 
-  whatToPresent () {
-    return this.state.data.map((item) =>  
-      item[1] ? (
-          <View key={item[0]} style={{ marginLeft: Dimensions.get('window').width/19 }}>
-              <Text>
-                <Text style={styles.bulletPoint}>{`\u2022 `}</Text>
-                <Text style={{ 
-                  fontWeight: '500',
-                  fontSize: Dimensions.get('window').height/33.7, 
-                  }}>
-                  {item[0]}
-                </Text>
-              </Text>
-
-              <Text style={{ 
-                fontWeight: '300', 
-                fontSize: Dimensions.get('window').height/36, 
-                marginBottom: Dimensions.get('window').height/70, 
-                marginLeft: Dimensions.get('window').width/25 
-                }}>
-                {item[1]}
-              </Text>
-          </View>
-
-      ) : (
-
-      <Text style={{ marginLeft: Dimensions.get('window').width/19, marginBottom: Dimensions.get('window').height/70 }}>
-        <Text style={styles.bulletPoint}>{`\u2022 `}</Text>
-        <Text style={{ 
-          fontWeight: '500', 
-          fontSize: Dimensions.get('window').height/33.7, 
-          }}>
-          {item[0]}
-        </Text>
-      </Text>
-    ))
+  dialCall = () => {
+    let phoneNumber = '';
+    if (Platform.OS === 'android') { phoneNumber = `tel:6177263333` }
+    else {phoneNumber = `telprompt:6177263333` }
+    Linking.openURL(phoneNumber);
   }
 
 
@@ -141,10 +107,27 @@ export default class RICUNextSteps extends React.Component {
           <Text style={styles.title}>RICU</Text>
           <Divider style={styles.divider} />
         </View>
-
+       
+        <View style={styles.middle}>
+          <Text style={styles.header}>What to prepare:</Text>
+          {this.state.data.map((item) => (
+            <View key={item} style={ styles.bulletPoints }>
+              <View style={{ flexDirection: 'row' }}>
+                <Text style={styles.bulletPoint}>{`\u2022`}</Text>
+                <Text style={styles.bulletPointText}>{item}</Text>
+              </View>
+            </View>        
+          ))} 
+        </View>
+     
         <View style={styles.bottom}>
-          <Text style={styles.header}>What To Present?</Text>
-            {this.whatToPresent()}
+          <SafeAreaView>
+            <TouchableOpacity
+              style={styles.customBtnBG} 
+              onPress={() => this.props.navigation.navigate('RICUWhatToPresent')}>
+              <Text style={styles.customBtnText}>Next Steps</Text>
+            </TouchableOpacity>
+          </SafeAreaView>
         </View>
       </SafeAreaView>
     )
@@ -157,11 +140,18 @@ const styles = StyleSheet.create({
   },
   top: {
     height: '10%',
-    // backgroundColor: 'gray'
+    // backgroundColor: 'yellow'
+  },
+  middle: {
+    height: '75%',
+    // paddingTop: Dimensions.get('window').height/37,
+    // backgroundColor: 'pink'
   },
   bottom: {
-    height: '90%',
-    // backgroundColor: 'yellow',
+    height: '15%',
+    alignItems: 'center', 
+    justifyContent: 'center',
+    // backgroundColor: 'gray',
   },
   title: {
     fontWeight: 'bold',
@@ -181,11 +171,38 @@ const styles = StyleSheet.create({
   header: {
     fontWeight: 'bold',
     textAlign: 'center',
-    marginBottom: Dimensions.get('window').height/58,
+    marginBottom: Dimensions.get('window').height/120,
     fontSize: Dimensions.get('window').height/32.5,
   },
   bulletPoint: {
     color: 'gray',
     fontSize: Dimensions.get('window').height/40,
   },
+  bulletPointText: {
+    fontWeight: '300',
+    marginLeft: Dimensions.get('window').width/80,
+    fontSize: Dimensions.get('window').height/33.7,
+  },
+  bulletPoints: {
+    flexDirection: 'row',
+    marginTop: Dimensions.get('window').height/90,
+    marginLeft: Dimensions.get('window').width/20,
+    marginRight: Dimensions.get('window').width/20,
+  },
+  customBtnText: {
+    fontWeight: '600',
+    color: "#fff",
+    textAlign: 'center',
+    textAlignVertical: "center",
+    fontSize: Dimensions.get('window').height/35,
+    marginTop: Dimensions.get('window').height/47,
+  },
+  customBtnBG: {
+    backgroundColor: "#69c8a1",
+    paddingHorizontal: 1,
+    paddingVertical: 1,
+    borderRadius: 8,
+    width: Dimensions.get('window').width/1.13,
+    height: Dimensions.get('window').height/12,
+  }
 })
