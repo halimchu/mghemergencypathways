@@ -389,12 +389,12 @@
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 439N7GRVQR;
+						DevelopmentTeam = Z294XGPUQU;
 						ProvisioningStyle = Automatic;
 					};
 					2D02E48F1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 439N7GRVQR;
+						DevelopmentTeam = Z294XGPUQU;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 2D02E47A1E0B4A5D006451C7;
 					};
@@ -778,7 +778,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.mghemergencypathways;
+				PRODUCT_BUNDLE_IDENTIFIER = org.healthcaretransformationlab.mghstat.dev;
 				PRODUCT_NAME = "MGH STAT";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -798,7 +798,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.mghemergencypathways;
+				PRODUCT_BUNDLE_IDENTIFIER = org.healthcaretransformationlab.mghstat.dev;
 				PRODUCT_NAME = "MGH STAT";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -815,7 +815,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = 439N7GRVQR;
+				DEVELOPMENT_TEAM = Z294XGPUQU;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "mghemergencypathways-tvOS/Info.plist";
@@ -845,7 +845,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 439N7GRVQR;
+				DEVELOPMENT_TEAM = Z294XGPUQU;
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "mghemergencypathways-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -872,7 +872,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = 439N7GRVQR;
+				DEVELOPMENT_TEAM = Z294XGPUQU;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "mghemergencypathways-tvOSTests/Info.plist";
@@ -901,7 +901,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 439N7GRVQR;
+				DEVELOPMENT_TEAM = Z294XGPUQU;
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "mghemergencypathways-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

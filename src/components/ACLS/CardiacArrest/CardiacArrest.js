@@ -8,6 +8,7 @@ import CardiacArrestDrugTherapy from './cardiacArrestDrugTherapy'
 import CardiacArrestROSC from './cardiacArrestROSC'
 import CardiacArrestCPR from './cardiacArrestCPR'
 import CardiacArrestAdvancedAirway from './cardiacArrestAdvancedAirway'
+import Component from './Component'
 
 
 export default class CardiacArrest extends React.Component {
@@ -152,7 +153,7 @@ export default class CardiacArrest extends React.Component {
       shockEnergyHidden: true,
       drugTherapyHidden: true,
       ROSCHidden: true,
-      CPRHidden: true,
+      CPRQualityHidden: true,
       advancedAirwayHidden: true
     }
     this.ImageURI = require('../../../../assets/CardiacArrest3000x6000.png')
@@ -160,46 +161,59 @@ export default class CardiacArrest extends React.Component {
 
   onPressReversibleCausesHidden = () => {
     this.setState({ reversibleCausesHidden: !this.state.reversibleCausesHidden})
-
+    this.setState({ shockEnergyHidden: true})
+    this.setState({ drugTherapyHidden: true})
+    this.setState({ ROSCHidden: true})
+    this.setState({ CPRQualityHidden: true})
+    this.setState({ advancedAirwayHidden: true})
   }
-
   onPressShockEnergyHidden = () => {
+    this.setState({ reversibleCausesHidden: true})
     this.setState({ shockEnergyHidden: !this.state.shockEnergyHidden})
+    this.setState({ drugTherapyHidden: true})
+    this.setState({ ROSCHidden: true})
+    this.setState({ CPRQualityHidden: true})
+    this.setState({ advancedAirwayHidden: true})
   }
-
   onPressDrugTherapyHidden = () => {
+    this.setState({ reversibleCausesHidden: true})
+    this.setState({ shockEnergyHidden: true})
     this.setState({ drugTherapyHidden: !this.state.drugTherapyHidden})
+    this.setState({ ROSCHidden: true})
+    this.setState({ CPRQualityHidden: true})
+    this.setState({ advancedAirwayHidden: true})
   }
-
-  onPressROSC = () => {
+  onPressROSCHidden = () => {
+    this.setState({ reversibleCausesHidden: true})
+    this.setState({ shockEnergyHidden: true})
+    this.setState({ drugTherapyHidden: true})
     this.setState({ ROSCHidden: !this.state.ROSCHidden})
+    this.setState({ CPRQualityHidden: true})
+    this.setState({ advancedAirwayHidden: true})
   }
-
-  onPressCPR = () => {
-    this.setState({ CPRHidden: !this.state.CPRHidden})
+  onPressCPRQualityHidden = () => {
+    this.setState({ reversibleCausesHidden: true})
+    this.setState({ shockEnergyHidden: true})
+    this.setState({ drugTherapyHidden: true})
+    this.setState({ ROSCHidden: true})
+    this.setState({ CPRQualityHidden: !this.state.CPRQualityHidden})
+    this.setState({ advancedAirwayHidden: true})
   }
-
-  onPressAdvancedAirway = () => {
+  onPressAdvancedAirwayHidden = () => {
+    this.setState({ reversibleCausesHidden: true})
+    this.setState({ shockEnergyHidden: true})
+    this.setState({ drugTherapyHidden: true})
+    this.setState({ ROSCHidden: true})
+    this.setState({ CPRQualityHidden: true})
     this.setState({ advancedAirwayHidden: !this.state.advancedAirwayHidden})
   }
-
   scrollToBottom = () => {
     this.scroller.scrollTo({x: 0, y: this.state.screenHeight});
-  };
+  }
 
-  
   onContentSizeChange = (contentWidth, contentHeight) => {
     this.setState({ screenHeight: contentHeight })
   }
-
-
-  showReversibleCausesComponent = () => {
-    return (
-      !this.state.reversibleCausesHidden ? <CardiacArrestReversibleCauses /> : null
-    )
-  }
-
-
 
 
   measureParentView = (event) => {
@@ -207,93 +221,101 @@ export default class CardiacArrest extends React.Component {
       parentView: event.nativeEvent.layout.height
     })
   }
-  
   measureChildView = (event) => {
     this.setState({
       childHeight: event.nativeEvent.layout.height
     })
   }
-
   measureImageView = (event) => {
     this.setState({
       imageHeight: event.nativeEvent.layout.height
     })
   }
-
   measureReversibleCausesView = (event) => {
     this.setState({
       reversibleCausesView: event.nativeEvent.layout.height
     })
   }  
-
   measureShockEnergyView = (event) => {
     this.setState({
       shockEnergyView: event.nativeEvent.layout.height
     })
   }
-
   measureDrugTherapyView = (event) => {
     this.setState({
       drugTherapyView: event.nativeEvent.layout.height
     })
   }
-
   measureROSCView = (event) => {
     this.setState({
       ROSCView: event.nativeEvent.layout.height
     })
   }
-
   measureCPRQualityView = (event) => {
     this.setState({
       CPRQualityView: event.nativeEvent.layout.height
     })
   }
-
   measureAdvancedAirwayView = (event) => {
     this.setState({
       advancedAirwayView: event.nativeEvent.layout.height
     })
   }
 
+
+
+
   scrollToTopOfReversibleCauses = () => {
     let added = this.state.imageHeight + this.state.reversibleCausesView
     this.scroller.scrollTo({x: 0, y: added, animated: true})
   }
-
   scrollToTopOfShockEnergy = () => {
     const added = this.state.imageHeight + this.state.reversibleCausesView + this.state.shockEnergyView
     this.scroller.scrollTo({x: 0, y: added})
   }
-
   scrollToTopOfDrugTherapy = () => {
     const added = this.state.imageHeight + this.state.reversibleCausesView + this.state.shockEnergyView + this.state.drugTherapyView
     this.scroller.scrollTo({x: 0, y: added})
   }
-
   scrollToTopOfROSC = () => {
     const added = this.state.imageHeight + this.state.ROSCView
     this.scroller.scrollTo({x: 0, y: added})
   }
-
   scrollToTopOfCPRQuality = () => {
     const added = this.state.imageHeight + this.state.CPRQualityView
     this.scroller.scrollTo({x: 0, y: added})
   }
-
   scrollToTopOfAdvancedAirway = () => {
     const added = this.state.imageHeight + this.state.AdvancedAirwayView
     this.scroller.scrollTo({x: 0, y: added})
   }
 
-
-  scrollingForReversibleCauses = () => {
-    if (!this.state.reversibleCausesHidden) {
-      let added = this.state.imageHeight + this.state.reversibleCausesView
-      this.scroller.scrollTo({x: 0, y: added, animated: true})
-    }
-  }
+      
   
+  goToComponentTwo = () => {
+    const added = this.state.imageHeight + this.state.reversibleCausesView
+    this.scroller.scrollTo({x: 0, y: added, animated: true});
+  }
+  goToComponentThree = () => {
+    const added = this.state.imageHeight + this.state.reversibleCausesView 
+    this.scroller.scrollTo({x: 0, y: added, animated: true});
+  }
+  goToComponentFour = () => {
+    const added = this.state.imageHeight + this.state.reversibleCausesView + this.state.shockEnergyView + this.state.ROSCView
+    this.scroller.scrollTo({x: 0, y: added, animated: true});
+  }
+  goToComponentFive = () => {
+    const added = this.state.imageHeight + this.state.reversibleCausesView + this.state.shockEnergyView + this.state.ROSCView + this.state.CPRQualityView
+    this.scroller.scrollTo({x: 0, y: added, animated: true});
+  }
+  goToComponentSix = () => {
+    const added = this.state.imageHeight + this.state.reversibleCausesView + this.state.shockEnergyView + this.state.ROSCView + this.state.CPRQualityView + this.state.advancedAirwayView
+    this.scroller.scrollTo({x: 0, y: added, animated: true});
+  }
+  goToEnd = () => {
+    const added = this.state.imageHeight + this.state.reversibleCausesView + this.state.shockEnergyView + this.state.ROSCView + this.state.CPRQualityView + this.state.advancedAirwayView
+    this.scroller.scrollTo({x: 0, y: added, animated: true});
+  }
 
 
   render() {  
@@ -304,7 +326,7 @@ export default class CardiacArrest extends React.Component {
     // console.log('parentView:', this.state.parentView)
     console.log('image height:', this.state.imageHeight)
     console.log('reversiblecausesView', this.state.reversibleCausesView)
-    // console.log('shockEnergyView', this.state.shockEnergyView)
+    console.log('shockEnergyView', this.state.shockEnergyView)
     // console.log('drugTherapyView', this.state.drugTherapyView)
     // console.log('ROSC', this.state.ROSCView)
     // console.log('CPR QUality', this.state.CPRQualityView)
@@ -327,58 +349,83 @@ export default class CardiacArrest extends React.Component {
             <Divider style={styles.divider} />
           </View>
 
+          <View onLayout={this.measureImageView}>
+            {this.IPhone375x812()}
+            {this.IPhone414x896()}
+            {this.IPhone375x667()}
+            {this.IPhone414x736()}
+          </View>
 
 
-            <View onLayout={this.measureImageView}>
-              {this.IPhone375x812()}
-              {this.IPhone414x896()}
-              {this.IPhone375x667()}
-              {this.IPhone414x736()}
-            </View>
-        
-           
-          <View onLayout={this.measureParentView}>
-              <View onLayout={this.measureReversibleCausesView}>
-                {/* <Button title="Reversible Causes" onPress={this.onPressReversibleCausesHidden} /> */}
-                <Button title="Reversible Causes" onPress={() => {
-                  this.onPressReversibleCausesHidden()
-                }} />
-                {!this.state.reversibleCausesHidden ? <CardiacArrestReversibleCauses /> : null}
-                {/* {!this.state.reversibleCausesHidden ? this.scrollToTopOfReversibleCauses() : null} */}
-                {this.scrollingForReversibleCauses()}
+          <View style={{ alignItems: 'center'  }} onLayout={this.measureParentView}>
+              <View style={{  }} onLayout={this.measureReversibleCausesView}>
+                <Component 
+                  goToNextComponent={this.goToComponentTwo} 
+                  toggle={this.onPressReversibleCausesHidden} 
+                  hidden = {this.state.reversibleCausesHidden}
+                  component={<CardiacArrestReversibleCauses />}
+                  buttonTitle='Reversible Causes'
+                />
               </View>
 
-              <View onLayout={this.measureShockEnergyView}>
-                <Button title={"Shock Energy for Defibrillation"} onPress={this.onPressShockEnergyHidden} />
-                {!this.state.shockEnergyHidden ? <CardiacArrestShockEnergy /> : null}
-                {!this.state.shockEnergyHidden ? this.scrollToTopOfShockEnergy() : null}
+
+              <View style={{  }} onLayout={this.measureShockEnergyView}>
+                <Component
+                  goToNextComponent={this.goToComponentThree} 
+                  toggle={this.onPressShockEnergyHidden} 
+                  hidden = {this.state.shockEnergyHidden}
+                  component={<CardiacArrestShockEnergy />}
+                  buttonTitle='Shock Energy'
+                />
               </View>
             
-              <View onLayout={this.measureDrugTherapyView}>
-                <Button title="Drug Therapy" onPress ={this.onPressDrugTherapyHidden} />
-                {!this.state.drugTherapyHidden ? <CardiacArrestDrugTherapy /> : null}
-                {!this.state.drugTherapyHidden ? this.scrollToTopOfDrugTherapy() : null}
+              <View style={{  }} onLayout={this.measureDrugTherapyView}>
+                <Component 
+                  goToNextComponent={this.goToComponentFour} 
+                  toggle={this.onPressDrugTherapyHidden} 
+                  hidden = {this.state.drugTherapyHidden}
+                  component={<CardiacArrestDrugTherapy />}
+                  buttonTitle='Drug Therapy'
+                />
               </View>
 
-              {/* <View onLayout={this.measureROSCView}>
-                <Button title="Return of Spontaneous Circulation (ROSC)" onPress ={this.onPressROSC} />
-                {!this.state.ROSCHidden ? <CardiacArrestROSC /> : null}
-                {!this.state.ROSCHidden ? this.scrollToTopOfROSC() : null}
-              </View> */}
+              <View style={{ }} onLayout={this.measureROSCView}>
+                <Component 
+                  goToNextComponent={this.goToComponentFive} 
+                  toggle={this.onPressROSCHidden} 
+                  hidden = {this.state.ROSCHidden}
+                  component={<CardiacArrestROSC />}
+                  buttonTitle='ROSC'
+                />
+              </View>
 
+              <View style={{  }} onLayout={this.measureCPRQualityView}>
+                <Component 
+                  goToNextComponent={this.goToComponentSix} 
+                  toggle={this.onPressCPRQualityHidden} 
+                  hidden = {this.state.CPRQualityHidden}
+                  component={<CardiacArrestCPR />}
+                  buttonTitle='CPR Quality'
+                />
+              </View>
 
-              {/* <View onLayout={this.measureCPRQualityView}>
-                <Button title="CPR Quality" onPress ={this.onPressCPR} />
-                {!this.state.CPRHidden ? <CardiacArrestCPR /> : null}
-                {!this.state.CPRHidden ? this.scrollToTopOfCPRQuality() : null}
-              </View> */}
+              <View style={{ }} onLayout={this.measureAdvancedAirwayView}>
+                <Component 
+                  goToNextComponent={this.goToEnd} 
+                  toggle={this.onPressAdvancedAirwayHidden} 
+                  hidden = {this.state.advancedAirwayHidden}
+                  component={<CardiacArrestAdvancedAirway />}
+                  buttonTitle='Advanced Airway'
+                />
+              </View>
 
-              {/* <View onLayout={this.measureAdvancedAirwayView}>
-                <Button title="Advanced Airway" onPress ={this.onPressAdvancedAirway} />
-                {!this.state.advancedAirwayHidden ? <CardiacArrestAdvancedAirway /> : null}
-                {!this.state.advancedAirwayHidden ? this.scrollToTopOfAdvancedAirway() : null}
-              </View> */}
-
+              <View style={{
+                marginTop: Dimensions.get('window').height/50
+              }}>
+                <Text style={{fontSize: Dimensions.get('window').height/70,}}>
+                  American Heart Association Guidelines 2018
+                </Text>
+              </View>
           </View>
 
         

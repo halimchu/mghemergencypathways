@@ -14,7 +14,7 @@ export default class CardiacArrestAdvancedAirway extends React.Component {
       <View>
        {this.state.data.map((item) => (
 					<View key={item} style={ styles.bulletPoints }>
-						<View style={{ flexDirection: 'row' }}>
+						<View style={{ flexDirection: 'row', }}>
 							<Text style={styles.bulletPoint}>{`\u2022`}</Text>
 							<Text style={styles.bulletPointText}>{item}</Text>
 						</View>
@@ -33,11 +33,11 @@ const styles = StyleSheet.create({
   },
   bulletPoint: {
     fontWeight: 'bold',
-    fontSize: Dimensions.get('window').height/40,
+    fontSize: Dimensions.get('window').height/45,
   },
   bulletPointText: {
     marginLeft: Dimensions.get('window').height/150,
-    marginRight: Dimensions.get('window').height/20,
-    fontSize: Dimensions.get('window').height/40,
+    marginRight: Dimensions.get('window').height/30,
+    fontSize: Dimensions.get('window').height/45,
   },
 })
