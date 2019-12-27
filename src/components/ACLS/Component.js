@@ -26,15 +26,14 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: "#fff",
     textAlign: 'center',
-    fontSize: Dimensions.get('window').height/45,
-    marginTop: Dimensions.get('window').height/90,
+    fontSize: Dimensions.get('window').height/44,
+    marginTop: Dimensions.get('window').height/80,
   },
   customBtnBG: {
     borderWidth: 1,
     borderColor: 'white',
     backgroundColor: "#69c8a1",
     width: Dimensions.get('window').width/1,
-    height: Dimensions.get('window').height/20,
-    
+    height: Dimensions.get('window').height/18,
   },
 })

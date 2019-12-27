@@ -8,7 +8,8 @@ import CardiacArrestDrugTherapy from './cardiacArrestDrugTherapy'
 import CardiacArrestROSC from './cardiacArrestROSC'
 import CardiacArrestCPR from './cardiacArrestCPR'
 import CardiacArrestAdvancedAirway from './cardiacArrestAdvancedAirway'
-import Component from './Component'
+import Component from './../Component'
+import Timer from './Timer'
 
 
 export default class CardiacArrest extends React.Component {
@@ -349,6 +350,8 @@ export default class CardiacArrest extends React.Component {
             <Divider style={styles.divider} />
           </View>
 
+          {/* <Timer /> */}
+
           <View onLayout={this.measureImageView}>
             {this.IPhone375x812()}
             {this.IPhone414x896()}
@@ -358,7 +361,7 @@ export default class CardiacArrest extends React.Component {
 
 
           <View style={{ alignItems: 'center'  }} onLayout={this.measureParentView}>
-              <View style={{  }} onLayout={this.measureReversibleCausesView}>
+              <View onLayout={this.measureReversibleCausesView}>
                 <Component 
                   goToNextComponent={this.goToComponentTwo} 
                   toggle={this.onPressReversibleCausesHidden} 
@@ -369,13 +372,13 @@ export default class CardiacArrest extends React.Component {
               </View>
 
 
-              <View style={{  }} onLayout={this.measureShockEnergyView}>
+              <View onLayout={this.measureShockEnergyView}>
                 <Component
                   goToNextComponent={this.goToComponentThree} 
                   toggle={this.onPressShockEnergyHidden} 
                   hidden = {this.state.shockEnergyHidden}
                   component={<CardiacArrestShockEnergy />}
-                  buttonTitle='Shock Energy'
+                  buttonTitle='Shock Energy for Defibrillation'
                 />
               </View>
             
@@ -389,17 +392,17 @@ export default class CardiacArrest extends React.Component {
                 />
               </View>
 
-              <View style={{ }} onLayout={this.measureROSCView}>
+              <View onLayout={this.measureROSCView}>
                 <Component 
                   goToNextComponent={this.goToComponentFive} 
                   toggle={this.onPressROSCHidden} 
                   hidden = {this.state.ROSCHidden}
                   component={<CardiacArrestROSC />}
-                  buttonTitle='ROSC'
+                  buttonTitle='Return of Spontaneous Circulation (ROSC)'
                 />
               </View>
 
-              <View style={{  }} onLayout={this.measureCPRQualityView}>
+              <View onLayout={this.measureCPRQualityView}>
                 <Component 
                   goToNextComponent={this.goToComponentSix} 
                   toggle={this.onPressCPRQualityHidden} 

@@ -4,7 +4,7 @@ import { Button, Divider } from 'react-native-elements'
 import Icon from 'react-native-vector-icons/Ionicons' 
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons' 
 
-export default class RICU extends React.Component {
+export default class RICUOne extends React.Component {
   static navigationOptions = ({ navigation }) => {
     let headerLeft = ( 
       <View style={{ flexDirection: 'row' }}>
@@ -110,68 +110,59 @@ export default class RICU extends React.Component {
        
 
         <View style={styles.middle}> 
-          <View style={{ alignItems: 'center' }}>
-            <TouchableOpacity
-              style={{
-                marginBottom: Dimensions.get('window').height/15, 
-                alignItems: "center",
-                justifyContent: "center",
-                borderRadius: 40,
-                backgroundColor: '#B62130',
-                height: Dimensions.get('window').height/10,
-                width: Dimensions.get('window').width/1.12,
-              }}
-              onPress={()=>{this.dialCall()}}>
-              <View style={{ flexDirection: 'row' }}>
-                <MaterialIcons name="phone" size={24} color="white" />
-                <Text style={{ fontSize: Dimensions.get('window').height/37, color: 'white', fontWeight: 'bold' }}> Call RICU Consult</Text>
-              </View>
-              <Text style={{ marginTop: Dimensions.get('window').height/150, color: 'white', fontSize: Dimensions.get('window').height/45, fontWeight: '400'}}>x6-3333</Text>
-            </TouchableOpacity>
-          </View>
+            <View style={{ alignItems: 'center' }}>
+              <TouchableOpacity
+                style={{
+                  marginBottom: Dimensions.get('window').height/22, 
+                  alignItems: "center",
+                  justifyContent: "center",
+                  borderRadius: 40,
+                  backgroundColor: '#B62130',
+                  height: Dimensions.get('window').height/10,
+                  width: Dimensions.get('window').width/1.12,
+                }}
+                onPress={()=>{this.dialCall()}}>
+                <View style={{ flexDirection: 'row' }}>
+                  <MaterialIcons name="phone" size={24} color="white" />
+                  <Text style={{ fontSize: Dimensions.get('window').height/37, color: 'white', fontWeight: 'bold' }}> Call RICU Consult</Text>
+                </View>
+                <Text style={{ marginTop: Dimensions.get('window').height/150, color: 'white', fontSize: Dimensions.get('window').height/45, fontWeight: '400'}}>x6-3333</Text>
+              </TouchableOpacity>
 
 
 
 
-          <View style={{ marginLeft: Dimensions.get('window').width/20, marginRight: Dimensions.get('window').width/20 }}>
-            <View style={{marginBottom: Dimensions.get('window').height/15}}>
-              <Text style={{textAlign: 'center', marginTop: Dimensions.get('window').height/45, fontSize: Dimensions.get('window').height/34,}}>
-                <Text>If need for </Text>
-                <Text style={{fontWeight: 'bold', textDecorationLine: 'underline'}}>emergent </Text>
-                <Text>airway, </Text>
+
+            <View style={{alignItems: 'center'}}>
+              <Text style={{ 
+                marginTop: Dimensions.get('window').height/45, 
+                fontSize: Dimensions.get('window').height/30,}}>If need for 
               </Text>
-              <Text style={{textAlign: 'center', fontSize: Dimensions.get('window').height/34}}>state:</Text>
-              <Text style={{fontWeight: '600', textAlign: 'center', fontSize: Dimensions.get('window').height/34}}>"Emergency airway, </Text>
-              <Text style={{fontWeight: '600', textAlign: 'center', fontSize: Dimensions.get('window').height/34}}>[current location]"</Text>
+
+              <Text>
+                <Text style={{
+                  fontStyle: 'italic',
+                  fontWeight: '500',
+                  fontSize: Dimensions.get('window').height/30,}}>emergent </Text>
+                <Text style={{fontSize: Dimensions.get('window').height/30,}}>or </Text>
+                <Text style={{
+                  fontStyle: 'italic',
+                  fontWeight: '500',
+                  fontSize: Dimensions.get('window').height/30,}}>surgical</Text>
+              </Text>
+            
+              <Text style={{fontSize: Dimensions.get('window').height/30,}}>airway, call for</Text>
+              <Text style={{
+                fontWeight: 'bold',
+                fontSize: Dimensions.get('window').height/30,
+                marginTop: Dimensions.get('window').height/200}}>
+                "STAT RICU"
+              </Text>
             </View>
 
 
 
-
-            <Text style={{textAlign: 'center', marginTop: Dimensions.get('window').height/45, fontSize: Dimensions.get('window').height/34,}}>
-              <Text>If need for </Text>
-              <Text style={{fontWeight: 'bold', textDecorationLine: 'underline'}}>surgical </Text>
-              <Text>airway,</Text>
-            </Text>
-            <Text style={{textAlign: 'center', fontSize: Dimensions.get('window').height/34}}>state:</Text>
-            <Text style={{fontWeight: '600', textAlign: 'center', fontSize: Dimensions.get('window').height/34}}>"Emergency surgical airway</Text>
-            <Text style={{fontWeight: '600', textAlign: 'center', fontSize: Dimensions.get('window').height/34}}>[current location]"</Text>
           </View>
-        </View>
-
-
-
-
-
-
-        <View style={styles.bottom}>
-          <SafeAreaView>
-            <TouchableOpacity
-              style={styles.customBtnBG} 
-              onPress={() => this.props.navigation.navigate('RICUWhatToPrepare')}>
-              <Text style={styles.customBtnText}>Next Steps</Text>
-            </TouchableOpacity>
-          </SafeAreaView>
         </View>
       </SafeAreaView>
     )
@@ -183,20 +174,12 @@ const styles = StyleSheet.create({
     flex: 1
   },
   top: {
-    height: '10%',
+    height: '8%',
     // backgroundColor: 'yellow'
   },
   middle: {
-    height: '75%',
-    // backgroundColor: '#F7F7F7',
-    paddingTop: Dimensions.get('window').height/25,
+    marginTop: Dimensions.get('window').height/6,
     // backgroundColor: 'pink'
-  },
-  bottom: {
-    height: '15%',
-    alignItems: 'center', 
-    justifyContent: 'center',
-    // backgroundColor: 'gray',
   },
   title: {
     fontWeight: 'bold',

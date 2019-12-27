@@ -4,7 +4,7 @@ import { Button, Divider } from 'react-native-elements'
 import Icon from 'react-native-vector-icons/Ionicons' 
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons' 
 
-export default class Stroke1 extends React.Component {
+export default class RICURiskFactors extends React.Component {
   static navigationOptions = ({ navigation }) => {
     let headerLeft = ( 
       <View style={{ flexDirection: 'row' }}>
@@ -36,7 +36,7 @@ export default class Stroke1 extends React.Component {
             }
             onPress={() => navigation.goBack()}
             type='clear'
-          />  
+          />
       </View>
     )
 
@@ -82,36 +82,43 @@ export default class Stroke1 extends React.Component {
     }
   }
 
-  dialCall = () => {
-    let phoneNumber = '';
-    if (Platform.OS === 'android') { phoneNumber = `tel:6177263333` }
-    else {phoneNumber = `telprompt:6177263333` }
-    Linking.openURL(phoneNumber);
-  }
 
   state = {
-    dataOne: [
-      'Facial Drooping?',
-      'Arm or Leg Weakness?',
-      'Speech Difficulties?'
-    ],
-    dataTwo: [
-      'Obtain Last Seen Well (LSW) time',
-      'Obtain fingerstick glucose: Treat <50 or >400',
+    data: [
+      'Prior difficult intubation',
+      'BMI > 40',
+      'Cervical spine injury or fixation',
+      'Airway edema (burn, stridor, angioedema)',
+      'Airway bleeding (trauma, tumor)',
+      'History of head/neck tumor',
+      'Prior neck radiation',
+      'Prior or current tracheostomy',
+      'Known inability to open mouth (e.g. trismus)'
     ]
   }
-  
+
+
+
   render() { 
     return (  
       <SafeAreaView style={styles.container}>
-          <View style={styles.top}>
-            <Text style={styles.title}>Stroke</Text>
-            <Divider style={styles.divider} />
+        <View style={styles.top}>
+          <Text style={styles.title}>RICU</Text>
+          <Divider style={styles.divider} />
+        </View>
+      
+
+        <View style={styles.middle}>
+          <View style={styles.middleOne}>
+            <Text style={{
+              fontWeight: 'bold',
+              fontSize: Dimensions.get('window').height/31 }}>Difficult airway risk factors?</Text>
           </View>
 
-          <View style={styles.middle}>
-            <Text style={styles.header}>Concern for Stroke?</Text>
-            {this.state.dataOne.map((item) => (
+
+
+          <View style={styles.middleTwo}>
+            {this.state.data.map((item) => (
               <View key={item} style={ styles.bulletPoints }>
                 <View style={{ flexDirection: 'row' }}>
                   <Text style={styles.bulletPoint}>{`\u2022`}</Text>
@@ -120,47 +127,28 @@ export default class Stroke1 extends React.Component {
               </View>        
             ))} 
           </View>
+        </View>
 
-          <View style={styles.middleTwo}>
-            <Text style={styles.header}>Initial Steps</Text>
-            <View style={{ alignItems: 'center', marginTop: Dimensions.get('window').height/50 }}>
-              <TouchableOpacity
-                style={{
-                  alignItems: "center",
-                  justifyContent: "center",
-                  borderRadius: 40,
-                  backgroundColor: '#B62130',
-                  height: Dimensions.get('window').height/10,
-                  width: Dimensions.get('window').width/1.12,
-                }}
-                onPress={()=>{this.dialCall()}}>
-                <View style={{ flexDirection: 'row' }}>
-                  <MaterialIcons name="phone" size={24} color="white" />
-                  <Text style={{ fontSize: Dimensions.get('window').height/37, color: 'white', fontWeight: 'bold' }}> Call Acute Stroke Consult</Text>
-                </View>
-                <Text style={{ marginTop: Dimensions.get('window').height/150, color: 'white', fontSize: Dimensions.get('window').height/45, fontWeight: '400'}}>x6-3333</Text>
-              </TouchableOpacity>
-            </View>
 
-            <View style={{ marginTop: Dimensions.get('window').height/300 }}>
-              {this.state.dataTwo.map((item) => (
-                <View key={item} style={ styles.bulletPointsTwo }>
-                  <View style={{ flexDirection: 'row' }}>
-                    <Text style={styles.bulletPoint}>{`\u2022`}</Text>
-                    <Text style={styles.bulletPointText}>{item}</Text>
-                  </View>
-                </View>        
-              ))} 
-            </View>
-          </View>
 
-          <View style={styles.bottom}>
+        <View style={styles.bottom}>
+          <View style={{ marginRight: 20}}>
             <TouchableOpacity
               style={styles.customBtnBG} 
-              onPress={() => this.props.navigation.navigate('Stroke2')}>
-              <Text style={styles.customBtnText}>Next Steps</Text>
+              onPress={() => this.props.navigation.navigate('RICUTwo')}>
+              <Text style={styles.customBtnText}>Yes</Text>
             </TouchableOpacity>
           </View>
+        
+          <View>
+            <TouchableOpacity
+              style={styles.customBtnBG} 
+              onPress={() => this.props.navigation.navigate('RICUThree')}>
+              <Text style={styles.customBtnText}>No</Text>
+            </TouchableOpacity>  
+          </View>
+        </View>
+
       </SafeAreaView>
     )
   }
@@ -168,26 +156,39 @@ export default class Stroke1 extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
   },
   top: {
     height: '10%',
     // backgroundColor: 'yellow'
   },
   middle: {
-    height: '25%',
-    // backgroundColor: 'green'
+    height: '65%',
+    alignItems: 'center',
+    // backgroundColor: 'pink'
   },
-  middleTwo: {
-    height: '50%',
-    justifyContent: 'center',
-    backgroundColor: '#F7F7F7'
-  },
+          middleOne: {
+            height: '7%',
+            // backgroundColor: 'green'
+          },
+          middleTwo: {
+            height: '95%',
+            paddingTop: Dimensions.get('window').height/60,
+            // backgroundColor: 'purple'
+          },
   bottom: {
-    height: '15%',
-    alignItems: 'center', 
+    height: '25%',
+    marginTop: Dimensions.get('window').height/40,
     justifyContent: 'center',
+    flexDirection: 'row',
     // backgroundColor: 'gray',
+  },
+  title: {
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: '#2b2b2b',
+    marginTop: Dimensions.get('window').height/60,
+    fontSize: Dimensions.get('window').height/32.5,
   },
   divider: {
     backgroundColor: '#CDCDCD', 
@@ -197,38 +198,17 @@ const styles = StyleSheet.create({
     marginRight: Dimensions.get('window').width/60, 
     height: Dimensions.get('window').height/600
   },
-  title: {
+  text: {
     fontWeight: 'bold',
     textAlign: 'center',
-    color: '#2b2b2b',
-    marginTop: Dimensions.get('window').height/60,
-    fontSize: Dimensions.get('window').height/32.5,
+    // marginTop: Dimensions.get('window').height/100,
+    fontSize: Dimensions.get('window').height/32,
   },
-  header: {
+  textBold: {
     fontWeight: 'bold',
-    color: '#2b2b2b',
-    marginLeft: Dimensions.get('window').width/20,
-    fontSize: Dimensions.get('window').height/34,
-  },
-  bulletPoints: {
-    flexDirection: 'row',
-    marginLeft: Dimensions.get('window').width/10,
-    marginTop: Dimensions.get('window').height/60,
-  },
-  bulletPointsTwo: {
-    flexDirection: 'row',
-    marginLeft: Dimensions.get('window').width/10,
-    marginRight: Dimensions.get('window').width/10,
-    marginTop: Dimensions.get('window').height/40,
-  },
-  bulletPoint: {
-    color: 'gray',
-    fontSize: Dimensions.get('window').height/40,
-  },
-  bulletPointText: {
-    fontWeight: '300',
-    marginLeft: Dimensions.get('window').height/150,
-    fontSize: Dimensions.get('window').height/34.5,
+    textAlign: 'center',
+    marginTop: Dimensions.get('window').height/100,
+    fontSize: Dimensions.get('window').height/32,
   },
   customBtnText: {
     fontWeight: '600',
@@ -243,7 +223,22 @@ const styles = StyleSheet.create({
     paddingHorizontal: 1,
     paddingVertical: 1,
     borderRadius: 8,
-    width: Dimensions.get('window').width/1.13,
+    width: Dimensions.get('window').width/3,
     height: Dimensions.get('window').height/12,
+  },
+  bulletPoints: {
+    flexDirection: 'row',
+    marginRight: Dimensions.get('window').width/70,
+    marginLeft: Dimensions.get('window').width/10,
+    marginTop: Dimensions.get('window').height/90,
+  },
+  bulletPoint: {
+    color: 'gray',
+    fontSize: Dimensions.get('window').height/40,
+  },
+  bulletPointText: {
+    fontWeight: '300',
+    marginLeft: Dimensions.get('window').height/150,
+    fontSize: Dimensions.get('window').height/34.5,
   },
 })

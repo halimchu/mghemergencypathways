@@ -28,7 +28,14 @@ import { createStackNavigator } from 'react-navigation-stack'
 import { createAppContainer } from 'react-navigation'
 
 import Home from './src/components/Home'
-import RICU from './src/components/RICU/RICU'
+import RICUPatent from './src/components/RICU/RICUPatent'
+import RICUOxygenation from './src/components/RICU/RICUOxygenation'
+import RICUNIPPV from './src/components/RICU/RICUNIPPV'
+import RICUFutureIntubation from './src/components/RICU/RICUFutureIntubation'
+import RICURiskFactors from './src/components/RICU/RICURiskFactors'
+import RICUOne from './src/components/RICU/RICUOne'
+import RICUTwo from './src/components/RICU/RICUTwo'
+import RICUThree from './src/components/RICU/RICUThree'
 import RICUWhatToPresent from './src/components/RICU/RICUWhatToPresent'
 import RICUYes from './src/components/RICU/RICUYes'
 import RICUWhatToPrepare from './src/components/RICU/RICUWhatToPrepare'
@@ -41,13 +48,20 @@ import Stroke3 from './src/components/Stroke/Stroke3'
 import Pert from './src/components/Pert/Pert'
 import PertLabs from './src/components/Pert/PertLabs'
 import CardiacArrest from './src/components/ACLS/CardiacArrest/CardiacArrest'
-import Bradycardia from './src/components/ACLS/Bradycardia'
-import Tachycardia from './src/components/ACLS/Tachycardia'
+import Bradycardia from './src/components/ACLS/Bradycardia/Bradycardia'
+import Tachycardia from './src/components/ACLS/Tachycardia/Tachycardia'
 
 
 const AppNavigator = createStackNavigator({
   Home: { screen: Home },
-  RICU: { screen: RICU },
+  RICUPatent: { screen: RICUPatent },
+  RICUOxygenation: { screen: RICUOxygenation },
+  RICUNIPPV: { screen: RICUNIPPV },
+  RICUFutureIntubation: { screen: RICUFutureIntubation },
+  RICURiskFactors: { screen: RICURiskFactors },
+  RICUOne: { screen: RICUOne },
+  RICUTwo: { screen: RICUTwo },
+  RICUThree: { screen: RICUThree },
   RICUWhatToPresent: { screen: RICUWhatToPresent },
   RICUYes: { screen: RICUYes },
   RICUWhatToPrepare: { screen: RICUWhatToPrepare },

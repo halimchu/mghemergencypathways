@@ -1,9 +1,10 @@
 import React from 'react'
-import { Dimensions, View, Text, StyleSheet, TouchableOpacity, SafeAreaView } from 'react-native'
-import Icon from 'react-native-vector-icons/Ionicons' 
+import { Linking, Dimensions, View, Text, StyleSheet, TouchableOpacity, SafeAreaView } from 'react-native'
 import { Button, Divider } from 'react-native-elements'
+import Icon from 'react-native-vector-icons/Ionicons' 
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons' 
 
-export default class RICUWhatToPresent extends React.Component {
+export default class RICUPatent extends React.Component {
   static navigationOptions = ({ navigation }) => {
     let headerLeft = ( 
       <View style={{ flexDirection: 'row' }}>
@@ -81,57 +82,6 @@ export default class RICUWhatToPresent extends React.Component {
     }
   }
 
-  state = { 
-    data: [
-      ['One-Liner:', 'Major cardiac, pulm, ENT'],
-      ['Last Echo:', 'EF, RV function, RVSP, valves'],
-      ['Prior Intubations:', '"Chart reviews" -> "Anesthesia," leave open'],
-      ['Code Status'],
-      ['Gas Exchange:', 'Last ABG'],
-      ['Allergies'],
-      ['Access'],
-      ['NPO Status:', 'Last meal, major GI issues'],
-      ['Status:', 'Functional status & weight[kg]']
-    ],
-  }
-
-  whatToPresent () {
-    return this.state.data.map((item) => 
-      item[1] ? (
-          <View key={item[0]} style={{ marginRight: Dimensions.get('window').width/19, marginLeft: Dimensions.get('window').width/19 }}>
-              <Text>
-                <Text style={styles.bulletPoint}>{`\u2022 `}</Text>
-                <Text style={{ 
-                  fontWeight: '500',
-                  fontSize: Dimensions.get('window').height/33.7, 
-                  }}>
-                  {item[0]}
-                </Text>
-              </Text>
-
-              <Text style={{ 
-                fontWeight: '300', 
-                fontSize: Dimensions.get('window').height/36, 
-                marginBottom: Dimensions.get('window').height/70, 
-                marginLeft: Dimensions.get('window').width/28 
-                }}>
-                {item[1]}
-              </Text>
-          </View>
-
-      ) : (
-
-      <Text style={{ marginLeft: Dimensions.get('window').width/19, marginBottom: Dimensions.get('window').height/70 }}>
-        <Text style={styles.bulletPoint}>{`\u2022 `}</Text>
-        <Text style={{ 
-          fontWeight: '500', 
-          fontSize: Dimensions.get('window').height/33.7, 
-          }}>
-          {item[0]}
-        </Text>
-      </Text>
-    ))
-  }
 
 
   render() { 
@@ -141,11 +91,42 @@ export default class RICUWhatToPresent extends React.Component {
           <Text style={styles.title}>RICU</Text>
           <Divider style={styles.divider} />
         </View>
+        
 
-        <View style={styles.bottom}>
-          <Text style={styles.header}>What To Present:</Text>
-            {this.whatToPresent()}
-        </View>
+
+        <View style={styles.middle}>
+          <View style={{
+            marginLeft: Dimensions.get('window').width/60, 
+            marginRight: Dimensions.get('window').width/60, 
+            marginBottom: Dimensions.get('window').width/15}}>
+            <Text style={{
+              fontWeight: 'bold',
+              textAlign: 'center',
+              marginTop: Dimensions.get('window').height/100,
+              fontSize: Dimensions.get('window').height/29 }}>Is airway patent and protected?</Text>
+          </View>
+
+
+
+          <View style={{flexDirection: 'row'}}>
+            <View style={{ marginBottom: Dimensions.get('window').height/60, marginRight: 20}}>
+              <TouchableOpacity
+                style={styles.customBtnBG} 
+                onPress={() => this.props.navigation.navigate('RICUOxygenation')}>
+                <Text style={styles.customBtnText}>Yes</Text>
+              </TouchableOpacity>
+            </View>
+          
+            <View>
+              <TouchableOpacity
+                style={styles.customBtnBG} 
+                onPress={() => this.props.navigation.navigate('RICUOne')}>
+                <Text style={styles.customBtnText}>No</Text>
+              </TouchableOpacity>  
+            </View>
+          </View>
+          </View>
+
       </SafeAreaView>
     )
   }
@@ -153,15 +134,17 @@ export default class RICUWhatToPresent extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
   },
   top: {
     height: '10%',
-    // backgroundColor: 'gray'
+    // backgroundColor: 'yellow'
   },
-  bottom: {
+  middle: {
     height: '90%',
-    // backgroundColor: 'yellow',
+    alignItems: 'center',
+    marginTop: Dimensions.get('window').height/6,
+    // backgroundColor: 'pink'
   },
   title: {
     fontWeight: 'bold',
@@ -178,14 +161,32 @@ const styles = StyleSheet.create({
     marginRight: Dimensions.get('window').width/60, 
     height: Dimensions.get('window').height/600
   },
-  header: {
+  text: {
     fontWeight: 'bold',
     textAlign: 'center',
-    marginBottom: Dimensions.get('window').height/58,
-    fontSize: Dimensions.get('window').height/32.5,
+    marginTop: Dimensions.get('window').height/100,
+    fontSize: Dimensions.get('window').height/32,
   },
-  bulletPoint: {
-    color: 'gray',
-    fontSize: Dimensions.get('window').height/40,
+  textBold: {
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginTop: Dimensions.get('window').height/100,
+    fontSize: Dimensions.get('window').height/32,
+  },
+  customBtnText: {
+    fontWeight: '600',
+    color: "#fff",
+    textAlign: 'center',
+    textAlignVertical: "center",
+    fontSize: Dimensions.get('window').height/35,
+    marginTop: Dimensions.get('window').height/47,
+  },
+  customBtnBG: {
+    backgroundColor: "#69c8a1",
+    paddingHorizontal: 1,
+    paddingVertical: 1,
+    borderRadius: 8,
+    width: Dimensions.get('window').width/3,
+    height: Dimensions.get('window').height/12,
   },
 })

@@ -134,7 +134,10 @@ export default class Pert extends React.Component {
                   <MaterialIcons name="phone" size={24} color="white" />
                   <Text style={{ fontSize: Dimensions.get('window').height/37, color: 'white', fontWeight: 'bold' }}> Call PERT Consult</Text>
                 </View>
-                <Text style={{ marginTop: Dimensions.get('window').height/150, color: 'white', fontSize: Dimensions.get('window').height/45, fontWeight: '400'}}>x4-7378</Text>
+                <Text style={{ 
+                  marginTop: Dimensions.get('window').height/150, 
+                  color: 'white', 
+                  fontSize: Dimensions.get('window').height/45, fontWeight: '400'}}>x4-7378</Text>
               </TouchableOpacity>
             </View>
         </View>

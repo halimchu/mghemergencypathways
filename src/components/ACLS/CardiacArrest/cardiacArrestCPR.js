@@ -37,27 +37,22 @@ export default class CardiacArrestCPR extends React.Component {
 
 
 
-
-        <View style={{ marginTop: Dimensions.get('window').height/120 }}>
-          <Text style={{ marginLeft: Dimensions.get('window').width/5, }}>
+        <View style={{ marginLeft: Dimensions.get('window').width/5, flexDirection: 'row', marginTop: Dimensions.get('window').height/120 }}>
+            <Text style={{marginRight: Dimensions.get('window').width/120, fontSize: Dimensions.get('window').height/45}}>{`\u2022`}</Text>
             <Text style={{ 
-              marginLeft: Dimensions.get('window').width/6, 
-              fontWeight: '400', 
-              fontSize: Dimensions.get('window').height/45, }}>{`\u2022`}</Text>
-            <Text style={{ 
-              marginLeft: Dimensions.get('window').height/150, 
-              fontSize: Dimensions.get('window').height/45, }}>If PETCO</Text>
-            <Text style={{ 
-              fontWeight: 'bold', 
-              marginTop: Dimensions.get('window').height/70, 
-              fontSize: Dimensions.get('window').height/60, }}>2 </Text>
-            <Text style={{ fontSize: Dimensions.get('window').height/45, }}>{'<'}10 mm Hg, attempt to improve CPR quality.</Text>
-          </Text>
+              flex: 1, 
+              flexWrap: 'wrap'}}>
+              <Text style={{
+                fontSize: Dimensions.get('window').height/45 }}>If PETCO</Text>
+              <Text style={{ 
+                fontWeight: '500', 
+                fontSize: Dimensions.get('window').height/60 }}>2 </Text>
+              <Text style={{ fontSize: Dimensions.get('window').height/45, }}>{'<'}10 mm Hg, attempt to improve CPR quality.</Text>
+            </Text>
         </View>
 
 
-
-
+      
 
         <View style={{ marginTop: Dimensions.get('window').height/120, flexDirection: 'row' }}>
           <Text style={{ 
@@ -72,19 +67,15 @@ export default class CardiacArrestCPR extends React.Component {
 
 
 
-
-        <View style={{ marginTop: Dimensions.get('window').height/120, marginRight: Dimensions.get('window').width/20}}>
-          <Text style={{ marginLeft: Dimensions.get('window').width/5 }}>
+        <View style={{ marginLeft: Dimensions.get('window').width/5, flexDirection: 'row', marginTop: Dimensions.get('window').height/120 }}>
+            <Text style={{marginRight: Dimensions.get('window').width/120, fontSize: Dimensions.get('window').height/45}}>{`\u2022`}</Text>
             <Text style={{ 
-              marginLeft: Dimensions.get('window').width/6, 
-              fontWeight: '400', 
-              fontSize: Dimensions.get('window').height/45, }}>{`\u2022`}</Text>
-            <Text style={{ 
-              marginLeft: Dimensions.get('window').height/150, 
-              fontSize: Dimensions.get('window').height/45 }}>
-                If relaxation phase (diastolic) pressure {'<'}20 mm Hg, attempt to improve CPR quality.
+              flex: 1, 
+              flexWrap: 'wrap'}}>
+              <Text style={{
+                fontSize: Dimensions.get('window').height/45 }}>If relaxation phase (diastolic) pressure {'<'}20 mm Hg, attempt to improve CPR quality.
+              </Text>
             </Text>
-          </Text>
         </View>
 			</View>       
     )

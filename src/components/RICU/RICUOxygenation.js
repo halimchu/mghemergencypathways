@@ -1,11 +1,10 @@
-import React, {Fragment} from "react";
-import { Image, Dimensions, View, Text, StyleSheet, ScrollView, TouchableOpacity, SafeAreaView,  TouchableWithoutFeedback} from "react-native";
+import React from 'react'
+import { Linking, Dimensions, View, Text, StyleSheet, TouchableOpacity, SafeAreaView } from 'react-native'
+import { Button, Divider } from 'react-native-elements'
 import Icon from 'react-native-vector-icons/Ionicons' 
-import { ThemeProvider, Button, Divider } from 'react-native-elements'
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons' 
 
-const myIcon = <Icon name="ios-arrow-back" size={30} color="white" />;
-
-export default class Tachycardia extends React.Component {
+export default class RICUOxygenation extends React.Component {
   static navigationOptions = ({ navigation }) => {
     let headerLeft = ( 
       <View style={{ flexDirection: 'row' }}>
@@ -83,97 +82,78 @@ export default class Tachycardia extends React.Component {
     }
   }
 
-  IPhone375x812 () {
-    if (Dimensions.get('window').width === 375 && Dimensions.get('window').height === 812) {
-      return (
-        <Image
-          source={require('../../../assets/Tachycardia4000x6000.png')}
-          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/.95 }}
-        />
-      )
-    }
-  }
 
-  IPhone414x896 () {
-    if (Dimensions.get('window').width === 414 && Dimensions.get('window').height === 896) {
-      return (
-        <Image
-          source={require('../../../assets/Tachycardia4000x6000.png')}
-          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/.95}}
-        />
-      )
-    }
-  }
 
-  IPhone375x667 () {
-    if (Dimensions.get('window').width === 375 && Dimensions.get('window').height === 667) {
-      return (
-        <Image
-          source={require('../../../assets/Tachycardia4000x6000.png')}
-          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/.8 }}
-        />
-      )
-    }
-  }
-
-  IPhone414x736 () {
-    if (Dimensions.get('window').width === 414 && Dimensions.get('window').height === 736) {
-      return (
-        <Image
-          source={require('../../../assets/Tachycardia4000x6000.png')}
-          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/.8 }}
-        />
-      )
-    }
-  }
-
-  
   render() { 
     return (  
       <SafeAreaView style={styles.container}>
-        <ScrollView maximumZoomScale={2.5}>
+        <View style={styles.top}>
+          <Text style={styles.title}>RICU</Text>
+          <Divider style={styles.divider} />
+        </View>
+        
 
-          <View styles={styles.top}>
-            <Text style={styles.titleFirstLine}>Adult Tachycardia</Text>
-            <Text style={styles.titleSecondLine}>with a Pulse Algorithm</Text>
-            <Divider style={styles.divider} />
+
+        <View style={styles.middle}>
+          <View style={{
+            marginLeft: Dimensions.get('window').width/60, 
+            marginRight: Dimensions.get('window').width/60, 
+            marginBottom: Dimensions.get('window').width/15}}>
+            <Text style={{
+              fontWeight: 'bold',
+              textAlign: 'center',
+              marginTop: Dimensions.get('window').height/100,
+              marginRight: Dimensions.get('window').width/30, 
+              marginLeft: Dimensions.get('window').width/30, 
+              fontSize: Dimensions.get('window').height/29 }}>Adequate oxygenation and ventilation?</Text>
           </View>
 
 
-          {this.IPhone375x812()}
-          {this.IPhone414x896()}
-          {this.IPhone375x667()}
-          {this.IPhone414x736()}
 
+          <View style={{flexDirection: 'row'}}>
+            <View style={{ marginBottom: Dimensions.get('window').height/60, marginRight: 20}}>
+              <TouchableOpacity
+                style={styles.customBtnBG} 
+                onPress={() => this.props.navigation.navigate('RICUFutureIntubation')}>
+                <Text style={styles.customBtnText}>Yes</Text>
+              </TouchableOpacity>
+            </View>
+          
+            <View>
+              <TouchableOpacity
+                style={styles.customBtnBG} 
+                onPress={() => this.props.navigation.navigate('RICUNIPPV')}>
+                <Text style={styles.customBtnText}>No</Text>
+              </TouchableOpacity>  
+            </View>
+          </View>
+          </View>
 
-        </ScrollView>
       </SafeAreaView>
     )
   }
 }
 
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
   },
   top: {
-    paddingTop: Dimensions.get('window').height/300,
+    height: '10%',
+    // backgroundColor: 'yellow'
   },
-  titleFirstLine: {
+  middle: {
+    height: '90%',
+    alignItems: 'center',
+    marginTop: Dimensions.get('window').height/6,
+    // backgroundColor: 'pink'
+  },
+  title: {
     fontWeight: 'bold',
     textAlign: 'center',
     color: '#2b2b2b',
-    paddingTop: Dimensions.get('window').height/60,
-    fontSize: Dimensions.get('window').height/33,
-  },
-  titleSecondLine: {
-    fontWeight: 'bold',
-    textAlign: 'center',
-    color: '#2b2b2b',
-    fontSize: Dimensions.get('window').height/33,
+    marginTop: Dimensions.get('window').height/60,
+    fontSize: Dimensions.get('window').height/32.5,
   },
   divider: {
     backgroundColor: '#CDCDCD', 
@@ -182,5 +162,33 @@ const styles = StyleSheet.create({
     marginLeft: Dimensions.get('window').width/60, 
     marginRight: Dimensions.get('window').width/60, 
     height: Dimensions.get('window').height/600
+  },
+  text: {
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginTop: Dimensions.get('window').height/100,
+    fontSize: Dimensions.get('window').height/32,
+  },
+  textBold: {
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginTop: Dimensions.get('window').height/100,
+    fontSize: Dimensions.get('window').height/32,
+  },
+  customBtnText: {
+    fontWeight: '600',
+    color: "#fff",
+    textAlign: 'center',
+    textAlignVertical: "center",
+    fontSize: Dimensions.get('window').height/35,
+    marginTop: Dimensions.get('window').height/47,
+  },
+  customBtnBG: {
+    backgroundColor: "#69c8a1",
+    paddingHorizontal: 1,
+    paddingVertical: 1,
+    borderRadius: 8,
+    width: Dimensions.get('window').width/3,
+    height: Dimensions.get('window').height/12,
   },
 })

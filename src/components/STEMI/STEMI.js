@@ -114,7 +114,7 @@ export default class STEMI extends React.Component {
         <View key={item} style={{ flexDirection: 'row', marginRight: Dimensions.get('window').width/20, marginLeft: Dimensions.get('window').width/10 }}>
             <Text style={styles.bulletPoint}>{`\u2022`}</Text>  
             <Text style={{flex: 1, flexWrap: 'wrap'}}>
-            <Text style={{ fontSize: Dimensions.get('window').height/34.5 }}> 
+            <Text style={{ fontWeight: '300', fontSize: Dimensions.get('window').height/34.5 }}> 
               {item}
             </Text>
           </Text>   
