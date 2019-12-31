@@ -1,9 +1,9 @@
 import React from 'react'
-import { Dimensions, View, Text, StyleSheet, TouchableOpacity, SafeAreaView } from 'react-native'
+import { Image, Linking, Dimensions, View, Text, StyleSheet, TouchableOpacity, SafeAreaView } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons' 
 import { Button, Divider } from 'react-native-elements'
 
-export default class STEMI extends React.Component {
+export default class DevelopmentTeam extends React.Component {
   static navigationOptions = ({ navigation }) => {
     let headerLeft = ( 
       <View style={{ flexDirection: 'row' }}>
@@ -83,71 +83,38 @@ export default class STEMI extends React.Component {
   
   state = {
     data: [
-      'ST depression in at least two leads V1-V4',
-      'Multi-lead ST depression with ST elevation in aVR',
-      'Left Bundle Branch Block with acute symptoms'
+     'Andrew Chu MD, MPH',
+     'Halim Chu',
+     'Blake Niccum MD',
+     'Melvin Joice MD',
+     'Joshua Ziperstein MD',
+     'Jared Conley MD, PhD, MPH'
     ]
   }
 
-  state2 = {
-    data: [
-      '≥1 mm in at least two contiguous leads',
-      '≥2 mm (men) or ≥ 1.5 mm (women) in V2-V3'
-    ]
-  }
-
-  firstFn() {
+ 
+  names() {
     return (
-        <View style={{ flexDirection: 'row', marginLeft: Dimensions.get('window').height/40}}>
-        <Text style={styles.bulletPoint}>{`\u2022`}</Text>
-        <Text>
-          <Text style={{ fontSize: Dimensions.get('window').height/34.5, fontWeight: 'bold' }}>NEW </Text>
-          <Text style={styles.bulletPointText}>ST elevation</Text>
-        </Text>
-      </View>
-    )
-  }
-
-  secondFn() {
-    return (
-      this.state2.data.map((item) => (
-        <View key={item} style={{ flexDirection: 'row', marginRight: Dimensions.get('window').width/20, marginLeft: Dimensions.get('window').width/10 }}>
-            <Text style={styles.bulletPoint}>{`\u2022`}</Text>  
-            <Text style={{flex: 1, flexWrap: 'wrap'}}>
-            <Text style={{ fontWeight: '300', fontSize: Dimensions.get('window').height/34.5 }}> 
-              {item}
-            </Text>
-          </Text>   
+      this.state.data.map((item) => (
+        <View key={item} style={{ 
+          alignItems: 'center',
+          marginBottom:  Dimensions.get('window').height/80, 
+          // flexDirection: 'row', 
+          // marginRight: Dimensions.get('window').width/20, 
+          // marginLeft: Dimensions.get('window').width/10 
+        }}>
+          {/* <Text style={styles.bulletPoint}>{`\u2022`}</Text>   */}
+            {/* <Text style={{flex: 1, flexWrap: 'wrap'}}> */}
+              <Text style={{ fontWeight: '300', fontSize: Dimensions.get('window').height/38 }}> 
+                {item}
+              </Text>
+            {/* </Text>                                                                                                                                                  */}
         </View>
       ))
     )
   }
 
-  thirdFn() {
-    return (
-      this.state.data.map((item) => (
-        <View key={item} style={ styles.bulletPoints }>
-          <View style={{ flexDirection: 'row' }}>
-            <Text style={styles.bulletPoint}>{`\u2022`}</Text>
-            <Text>
-              <Text style={{ 
-                fontWeight: 'bold', 
-                fontSize: Dimensions.get('window').height/34.5, 
-              }}>
-                NEW
-              </Text>
-              <Text> </Text>
-              <Text style={{ 
-                fontWeight: '300',
-                fontSize: Dimensions.get('window').height/34.5,
-              }}>
-                {item}
-              </Text>
-            </Text>
-          </View>
-        </View>        
-    )))
-  }
+  
 
 
   render() { 
@@ -155,42 +122,65 @@ export default class STEMI extends React.Component {
       <SafeAreaView style={styles.container}>
 
         <View style={styles.top}>
-          <Text style={styles.title}>STEMI</Text>
-          <Divider style={styles.divider} />
+            <Text style={styles.title}>Development Team</Text>
+            {/* <Divider style={styles.divider} /> */}
+          {this.names()}
         </View>
 
-        <View style={styles.titleBlock}>
-          <Text style={styles.header}>STEMI Criteria</Text>
-        </View>
+      
+           
 
-        <View style={styles.middleOne}>
-          {this.firstFn()}
-          {this.secondFn()}
-          {this.thirdFn()}
-        </View>
+  
 
-        <View style={styles.middleTwo}>
-          <View style={{ marginTop: Dimensions.get('window').height/100 }}>
-            <Text style={styles.headerBottom}>One or more STEMI criteria?</Text>
-          </View>
-        </View>
 
 
         <View style={styles.bottom}>
-          <SafeAreaView style={{ marginBottom: Dimensions.get('window').height/150 }}>
-            <TouchableOpacity
-              style={styles.customBtnBG} 
-              onPress={() => this.props.navigation.navigate('STEMIYes')}>
-              <Text style={styles.customBtnText}>Yes</Text>
-            </TouchableOpacity>
-          </SafeAreaView>
-        
-          <TouchableOpacity
-            style={styles.customBtnBG} 
-            onPress={() => this.props.navigation.navigate('STEMIUncertain')}>
-            <Text style={styles.customBtnText}>Uncertain</Text>
-          </TouchableOpacity>  
+
+                <View style={{alignItems: 'center', marginTop: Dimensions.get('window').height/10, marginBottom: Dimensions.get('window').height/60}}>
+                  <Text style={{
+                    fontWeight: 'bold', 
+                    fontSize: Dimensions.get('window').height/32.5,
+                    color: '#2b2b2b',
+                    }}>Innovation Programs</Text>
+                </View>
+
+
+                <View style={{ justifyContent: 'center', alignItems: 'center', marginTop: Dimensions.get('window').height/60,}}>
+                    <View style={{marginBottom: Dimensions.get('window').height/60}}>
+                        <TouchableOpacity
+                          style={styles.customBtnBG}
+                          onPress={ () => { Linking.openURL('http://healthcaretransformation.org/') }}>
+                            <Image style={styles.htlImage} source={require('../../assets/htl-logo.png')} />
+                        </TouchableOpacity>
+                      </View>
+
+
+                      <View style={{marginBottom: Dimensions.get('window').height/60}}>
+                        <TouchableOpacity
+                          style={styles.customBtnBG}
+                          onPress={ () => { Linking.openURL('https://www.mghinnovationstudio.com/') }}>
+                          <Text style={styles.customBtnTextInnovation}>MGH Innovation Studio</Text>
+                        </TouchableOpacity>
+                      </View>
+
+                      
+
+                      <View>
+                        <TouchableOpacity
+                          style={styles.customBtnBG}
+                          onPress={ () => { Linking.openURL('http://www.mghlcs.org/') }}>
+                            <Image style={styles.lcsImage} source={require('../../assets/mghlcs-chemex-logo.png')} />
+                        </TouchableOpacity>
+                      </View>
+                </View>
         </View>
+
+
+
+
+            
+
+       
       </SafeAreaView>
     )
   }
@@ -201,28 +191,14 @@ const styles = StyleSheet.create({
     flex: 1
   },
   top: {
-    height: '10%',
+    height: '40%',
+    // justifyContent: 'center',
     // backgroundColor: 'yellow'
   },
-  titleBlock: {
-    height: '6%',
-    alignItems: 'center',
-    // backgroundColor: 'green'
-  },
-  middleOne: {
-    height: '50%',
-    justifyContent: 'center',
-    // backgroundColor: 'pink'
-  },
-  middleTwo: {
-    height: '9%',
-    justifyContent: 'center',
-    // backgroundColor: 'purple'
-  },
   bottom: {
-    height: '25%',
+    height: '50%',
     alignItems: 'center', 
-    justifyContent: 'center',
+    // justifyContent: 'center',
     // backgroundColor: 'gray',
   },
 
@@ -231,7 +207,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     color: '#2b2b2b',
-    marginTop: Dimensions.get('window').height/60,
+    marginTop: Dimensions.get('window').height/15,
+    marginBottom: Dimensions.get('window').height/38,
     fontSize: Dimensions.get('window').height/32.5,
   },
   divider: {
@@ -266,22 +243,38 @@ const styles = StyleSheet.create({
   },
   bulletPointText: {
     fontWeight: '300',
-    fontSize: Dimensions.get('window').height/34.5,
+    fontSize: Dimensions.get('window').height/38,
   },
-  customBtnText: {
-    fontWeight: '600',
-    color: "#fff",
-    textAlign: 'center',
-    textAlignVertical: "center",
-    fontSize: Dimensions.get('window').height/35,
-    marginTop: Dimensions.get('window').height/47,
-  },
+
+
+
+
+
   customBtnBG: {
-    backgroundColor: "#69c8a1",
+    borderColor: '#B7B8BA', 
+    borderWidth: 0.75, 
+    backgroundColor: "white",
     paddingHorizontal: 1,
     paddingVertical: 1,
     borderRadius: 8,
-    width: Dimensions.get('window').width/1.13,
-    height: Dimensions.get('window').height/12,
+    alignItems: 'center',
+    justifyContent: 'center', 
+    width: Dimensions.get('window').width/1.55,
+    height: Dimensions.get('window').height/13,
+  },
+  htlImage: {
+    width: Dimensions.get('window').width/2.2,
+    height: Dimensions.get('window').height/27,
+  },
+  lcsImage: {
+    width: Dimensions.get('window').width/2.9,
+    height: Dimensions.get('window').height/16,
+  },
+  customBtnTextInnovation: {
+    fontWeight: '400',
+    color: "gray",
+    textAlign: 'center',
+    textAlignVertical: "center",
+    fontSize: Dimensions.get('window').height/44,
   },
 })

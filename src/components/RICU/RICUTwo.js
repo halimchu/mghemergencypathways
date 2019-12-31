@@ -55,7 +55,7 @@ export default class RICUTwo extends React.Component {
         <Button 
           icon={
             <View style={{ marginRight: Dimensions.get('window').width/75 }}>
-              <Icon name="md-home" size={32} color="rgba(0, 0, 0, 0)"  />
+              <Icon name="md-home" size={Dimensions.get('window').height/26} color="rgba(0, 0, 0, 0)"  />
             </View>
           }
           onPress={() => navigation.navigate('Home')}
@@ -65,7 +65,7 @@ export default class RICUTwo extends React.Component {
         <Button 
           icon={
             <View style={{ marginRight: Dimensions.get('window').width/75 }}>
-              <Icon name="md-home" size={32} color="white" />
+              <Icon name="md-home" size={Dimensions.get('window').height/26} color="white" />
             </View>
           }
           onPress={() => navigation.navigate('Home')}
@@ -135,13 +135,20 @@ export default class RICUTwo extends React.Component {
 
             <View style={{alignItems: 'center'}}>
               <Text style={{ 
+                fontWeight: '500',
                 marginTop: Dimensions.get('window').height/45, 
                 fontSize: Dimensions.get('window').height/30,}}>Call RICU to indicate
               </Text>
               <Text style={{ 
+                marginTop: Dimensions.get('window').height/150,
+                fontWeight: '500',
+                fontStyle: 'italic',
                 fontSize: Dimensions.get('window').height/30,}}>"Please Call."
               </Text>
-              <Text style={{fontSize: Dimensions.get('window').height/30,}}>Leave callback number.</Text>
+              <Text style={{
+                marginTop: Dimensions.get('window').height/150,
+                fontWeight: '500',
+                fontSize: Dimensions.get('window').height/30,}}>Leave callback number.</Text>
             </View>
 
 

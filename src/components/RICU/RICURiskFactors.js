@@ -55,7 +55,7 @@ export default class RICURiskFactors extends React.Component {
         <Button 
           icon={
             <View style={{ marginRight: Dimensions.get('window').width/75 }}>
-              <Icon name="md-home" size={32} color="rgba(0, 0, 0, 0)"  />
+              <Icon name="md-home" size={Dimensions.get('window').height/26} color="rgba(0, 0, 0, 0)"  />
             </View>
           }
           onPress={() => navigation.navigate('Home')}
@@ -65,7 +65,7 @@ export default class RICURiskFactors extends React.Component {
         <Button 
           icon={
             <View style={{ marginRight: Dimensions.get('window').width/75 }}>
-              <Icon name="md-home" size={32} color="white" />
+              <Icon name="md-home" size={Dimensions.get('window').height/26} color="white" />
             </View>
           }
           onPress={() => navigation.navigate('Home')}
@@ -132,7 +132,7 @@ export default class RICURiskFactors extends React.Component {
 
 
         <View style={styles.bottom}>
-          <View style={{ marginRight: 20}}>
+          <View style={{ marginRight: Dimensions.get('window').width/15}}>
             <TouchableOpacity
               style={styles.customBtnBG} 
               onPress={() => this.props.navigation.navigate('RICUTwo')}>

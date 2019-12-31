@@ -55,7 +55,7 @@ export default class RICUThree extends React.Component {
         <Button 
           icon={
             <View style={{ marginRight: Dimensions.get('window').width/75 }}>
-              <Icon name="md-home" size={32} color="rgba(0, 0, 0, 0)"  />
+              <Icon name="md-home" size={Dimensions.get('window').height/26} color="rgba(0, 0, 0, 0)"  />
             </View>
           }
           onPress={() => navigation.navigate('Home')}
@@ -65,7 +65,7 @@ export default class RICUThree extends React.Component {
         <Button 
           icon={
             <View style={{ marginRight: Dimensions.get('window').width/75 }}>
-              <Icon name="md-home" size={32} color="white" />
+              <Icon name="md-home" size={Dimensions.get('window').height/26} color="white" />
             </View>
           }
           onPress={() => navigation.navigate('Home')}
@@ -136,10 +136,16 @@ export default class RICUThree extends React.Component {
             <View style={{alignItems: 'center'}}>
               <Text style={{ 
                 marginTop: Dimensions.get('window').height/45, 
+                fontWeight: '500',
                 fontSize: Dimensions.get('window').height/30,}}>Consider observation</Text>
               <Text style={{ 
+                marginTop: Dimensions.get('window').height/150,
+                fontWeight: '500',
                 fontSize: Dimensions.get('window').height/30,}}>or calling RICU for</Text>
               <Text style={{ 
+                marginTop: Dimensions.get('window').height/150,
+                fontStyle: 'italic',
+                fontWeight: '500',
                 fontSize: Dimensions.get('window').height/30,}}>"Please Call"</Text>
             
 

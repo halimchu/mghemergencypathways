@@ -1,5 +1,7 @@
 import React from 'react'
 import { View, Text, StyleSheet, TouchableOpacity, SafeAreaView, Dimensions } from 'react-native'
+import { Button } from 'react-native-elements'
+import Icon from 'react-native-vector-icons/Ionicons' 
 
 export default class InpatientConditions extends React.Component {
   static navigationOptions = ({ navigation }) => {
@@ -12,10 +14,24 @@ export default class InpatientConditions extends React.Component {
           textAlign: 'center'}}>MGH STAT</Text>
       </View>
     )
+
+
+    let headerRight = (  
+      <Button 
+        icon={
+          <View style={{ marginRight: Dimensions.get('window').width/75 }}>
+            <Icon name="ios-information-circle-outline" size={Dimensions.get('window').height/26} color="white" />
+          </View>
+        }
+        onPress={ () => navigation.navigate('DevelopmentTeam') }
+        type='clear'
+      />
+    )
     
     return {
       headerTitle,
-      headerStyle: {backgroundColor: '#709CD0'},      
+      headerRight,    
+      headerStyle: {backgroundColor: '#709CD0'},  
     }
   }
 

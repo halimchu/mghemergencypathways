@@ -50,6 +50,7 @@ import PertLabs from './src/components/Pert/PertLabs'
 import CardiacArrest from './src/components/ACLS/CardiacArrest/CardiacArrest'
 import Bradycardia from './src/components/ACLS/Bradycardia/Bradycardia'
 import Tachycardia from './src/components/ACLS/Tachycardia/Tachycardia'
+import DevelopmentTeam from './src/components/DevelopmentTeam'
 
 
 const AppNavigator = createStackNavigator({
@@ -75,7 +76,8 @@ const AppNavigator = createStackNavigator({
   PertLabs: { screen: PertLabs },
   CardiacArrest: { screen: CardiacArrest },
   Bradycardia: { screen: Bradycardia },
-  Tachycardia: { screen: Tachycardia }
+  Tachycardia: { screen: Tachycardia },
+  DevelopmentTeam: { screen: DevelopmentTeam }
 })
 
 

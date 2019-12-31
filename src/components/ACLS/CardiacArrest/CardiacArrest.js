@@ -63,7 +63,7 @@ export default class CardiacArrest extends React.Component {
         <Button 
           icon={
             <View style={{ marginRight: Dimensions.get('window').width/75 }}>
-              <Icon name="md-home" size={32} color="rgba(0, 0, 0, 0)"  />
+              <Icon name="md-home" size={Dimensions.get('window').height/26} color="rgba(0, 0, 0, 0)"  />
             </View>
           }
           onPress={() => navigation.navigate('Home')}
@@ -73,7 +73,7 @@ export default class CardiacArrest extends React.Component {
         <Button 
           icon={
             <View style={{ marginRight: Dimensions.get('window').width/75 }}>
-              <Icon name="md-home" size={32} color="white" />
+              <Icon name="md-home" size={Dimensions.get('window').height/26} color="white" />
             </View>
           }
           onPress={() => navigation.navigate('Home')}
@@ -350,12 +350,20 @@ export default class CardiacArrest extends React.Component {
             <Divider style={styles.divider} />
           </View>
 
+
+
+
           {/* <Timer /> */}
+
+
+
+
+
 
           <View onLayout={this.measureImageView}>
             {this.IPhone375x812()}
             {this.IPhone414x896()}
-            {this.IPhone375x667()}
+            {this.IPhone375x667()} 
             {this.IPhone414x736()}
           </View>
 
@@ -382,7 +390,7 @@ export default class CardiacArrest extends React.Component {
                 />
               </View>
             
-              <View style={{  }} onLayout={this.measureDrugTherapyView}>
+              <View onLayout={this.measureDrugTherapyView}>
                 <Component 
                   goToNextComponent={this.goToComponentFour} 
                   toggle={this.onPressDrugTherapyHidden} 
