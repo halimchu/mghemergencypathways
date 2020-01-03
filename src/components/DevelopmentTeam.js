@@ -137,11 +137,11 @@ export default class DevelopmentTeam extends React.Component {
         <View style={styles.bottom}>
 
                 <View style={{alignItems: 'center', marginTop: Dimensions.get('window').height/10, marginBottom: Dimensions.get('window').height/60}}>
-                  <Text style={{
+                  {/* <Text style={{
                     fontWeight: 'bold', 
                     fontSize: Dimensions.get('window').height/32.5,
                     color: '#2b2b2b',
-                    }}>Innovation Programs</Text>
+                    }}>Innovation Programs</Text> */}
                 </View>
 
 

@@ -33,19 +33,19 @@
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "Add a heading.png",
+      "filename" : "STAT120x120.png",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "Untitled design (1).png",
+      "filename" : "STAT180x180.png",
       "scale" : "3x"
     },
     {
       "size" : "1024x1024",
       "idiom" : "ios-marketing",
-      "filename" : "STAT.png",
+      "filename" : "STAT1024.png",
       "scale" : "1x"
     }
   ],
