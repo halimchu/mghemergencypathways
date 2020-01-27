@@ -139,7 +139,22 @@ export default class RICUWhatToPresent extends React.Component {
       <SafeAreaView style={styles.container}>
         <View style={styles.top}>
           <Text style={styles.title}>RICU</Text>
-          <Divider style={styles.divider} />
+          {/* <Divider style={styles.divider} /> */}
+
+          <View style={{alignItems: 'center', paddingTop: Dimensions.get('window').height/100, }}>
+              <View style={{ flexDirection: 'row'}}>
+                <View style={{marginRight: Dimensions.get('window').width/30}}>
+                  <View style={styles.circleNotFilledIn}></View>
+                </View>
+                <View style={{marginRight: Dimensions.get('window').width/30}}>
+                  <View style={styles.circleNotFilledIn}></View>
+                </View>
+                <View>
+                  <View style={styles.circleFilledIn}></View>
+                </View>
+              </View>
+            </View>
+
         </View>
 
         <View style={styles.bottom}>
@@ -152,6 +167,19 @@ export default class RICUWhatToPresent extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  circleFilledIn: {
+    width: 12,
+    height: 12,
+    borderRadius: 100/2,
+    backgroundColor: '#69c8a1'
+  },
+  circleNotFilledIn: {
+    width: 12,
+    height: 12,
+    borderRadius: 100/2,
+    borderWidth: 1,
+    borderColor: '#69c8a1'
+  },
   container: {
     flex: 1
   },
@@ -161,6 +189,7 @@ const styles = StyleSheet.create({
   },
   bottom: {
     height: '90%',
+    paddingTop: Dimensions.get('window').height/35,
     // backgroundColor: 'yellow',
   },
   title: {

@@ -123,7 +123,6 @@ export default class DevelopmentTeam extends React.Component {
 
         <View style={styles.top}>
             <Text style={styles.title}>Development Team</Text>
-            {/* <Divider style={styles.divider} /> */}
           {this.names()}
         </View>
 
@@ -165,13 +164,7 @@ export default class DevelopmentTeam extends React.Component {
 
                       
 
-                      <View>
-                        <TouchableOpacity
-                          style={styles.customBtnBG}
-                          onPress={ () => { Linking.openURL('http://www.mghlcs.org/') }}>
-                            <Image style={styles.lcsImage} source={require('../../assets/mghlcs-chemex-logo.png')} />
-                        </TouchableOpacity>
-                      </View>
+                      
                 </View>
         </View>
 

@@ -74,8 +74,8 @@ export default class Pert extends React.Component {
   
   state = {
     data: [
-      'PE with abnormal vital signs (tachycardia or hypotension)',
-      'Evidence of right heart strain (echo, EKG or positive biomarkers)',
+      'PE with abnormal VS (tachycardia or hypotension)',
+      'Evidence of right heart strain (echo, EKG, or positive biomarkers)',
       'Central or Saddle PE'
     ]
   }
@@ -93,13 +93,24 @@ export default class Pert extends React.Component {
       <SafeAreaView style={styles.container}>
         <View style={styles.top}>
           <Text style={styles.titleFirstLine}>Pulmonary Embolism</Text>
-          <Text style={styles.titleSecondLine}>Response Team</Text>
+
+          <View style={{alignItems: 'center', paddingTop: Dimensions.get('window').height/60, }}>
+            <View style={{ flexDirection: 'row'}}>
+              <View style={{marginRight: Dimensions.get('window').width/30}}>
+                <View style={styles.circleFilledIn}></View>
+              </View>
+              <View style={{marginRight: Dimensions.get('window').width/30}}>
+                <View style={styles.circleNotFilledIn}></View>
+              </View>
+            </View>
+          </View>
+
         </View>
 
-        <Divider style={styles.divider} />
+       
 
         <View style={styles.middleOne}>
-          <View style={{ marginTop: Dimensions.get('window').height/60 }}>
+          <View style={{ }}>
             <Text style={styles.header}>Large Pulmonary Embolus?</Text>
             {this.state.data.map((item) => (
                 <View key={item} style={ styles.bulletPoints }>
@@ -118,12 +129,15 @@ export default class Pert extends React.Component {
           <View style={{ alignItems: 'center' }}>
               <TouchableOpacity
                   style={{
+                    shadowOffset:{  width: 0,  height: 1,  },
+                    shadowColor: 'black',
+                    shadowOpacity: .5,
                     alignItems: "center",
                     justifyContent: "center",
-                    borderRadius: 40,
+                    borderRadius: 60,
                     backgroundColor: '#B62130',
-                    height: Dimensions.get('window').height/10,
-                    width: Dimensions.get('window').width/1.12,
+                    height: Dimensions.get('window').height/9,
+                    width: Dimensions.get('window').width/1.25,
                   }}
                   onPress={()=>{this.dialCall()}
                 }
@@ -139,7 +153,7 @@ export default class Pert extends React.Component {
               </TouchableOpacity>
             </View>
         </View>
-
+ 
 
 
 
@@ -159,23 +173,37 @@ export default class Pert extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  circleFilledIn: {
+    width: 12,
+    height: 12,
+    borderRadius: 100/2,
+    backgroundColor: '#69c8a1'
+  },
+  circleNotFilledIn: {
+    width: 12,
+    height: 12,
+    borderRadius: 100/2,
+    borderWidth: 1,
+    borderColor: '#69c8a1'
+  },
   container: {
     flex: 1
   },
   top: {
-    height: '12.5%',
+    height: '15%',
     // backgroundColor: 'yellow'
   },
   middleOne: {
-    height: '47%',
+    height: '46%',
     paddingTop: Dimensions.get('window').height/120, 
     // backgroundColor: '#eee',
   },
   middleTwo: {
-    height: '25.5%',
+    height: '24%',
+    paddingBottom: Dimensions.get('window').height/45,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F7F7F7'
+    // backgroundColor: '#F7F7F7'
   },
   bottom: {
     height: '15%',
@@ -195,7 +223,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#2b2b2b',
     fontSize: Dimensions.get('window').height/32.5,
-    marginBottom: Dimensions.get('window').height/30,
   },
   divider: {
     backgroundColor: '#CDCDCD', 
@@ -222,22 +249,23 @@ const styles = StyleSheet.create({
   bulletPoints: {
     flexDirection: 'row',
     marginTop: Dimensions.get('window').height/30,
-    marginLeft: Dimensions.get('window').width/10,
+    marginLeft: Dimensions.get('window').width/11,
     marginRight: Dimensions.get('window').width/8,
   },
   customBtnText: {
     fontWeight: '600',
-    color: "#fff",
     textAlign: 'center',
-    fontSize: Dimensions.get('window').height/35,
-    marginTop: Dimensions.get('window').height/47,
+    textAlignVertical: "center",
+    fontSize: Dimensions.get('window').height/40,
+    marginTop: Dimensions.get('window').height/40,
   },
   customBtnBG: {
-    backgroundColor: "#69c8a1",
+    borderWidth: 4,
+    borderColor: '#69c8a1',
     paddingHorizontal: 1,
     paddingVertical: 1,
-    borderRadius: 8,
-    width: Dimensions.get('window').width/1.13,
-    height: Dimensions.get('window').height/12,
+    borderRadius: 30,
+    width: Dimensions.get('window').width/1.25,
+    height: Dimensions.get('window').height/10.75,
   },
 })

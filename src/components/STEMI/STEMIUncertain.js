@@ -88,7 +88,19 @@ export default class STEMI3 extends React.Component {
 
         <View style={styles.top}>
           <Text style={styles.title}>STEMI</Text>
-          <Divider style={styles.divider} />
+          {/* <Divider style={styles.divider} /> */}
+
+          <View style={{alignItems: 'center', paddingTop: Dimensions.get('window').height/100, }}>
+              <View style={{ flexDirection: 'row'}}>
+                <View style={{marginRight: Dimensions.get('window').width/30}}>
+                  <View style={styles.circleNotFilledIn}></View>
+                </View>
+                <View style={{}}>
+                  <View style={styles.circleFilledIn}></View>
+                </View>
+              </View>
+          </View>
+
         </View>
         
         <View style={styles.middle}>
@@ -100,7 +112,7 @@ export default class STEMI3 extends React.Component {
                 borderRadius: 60,
                 backgroundColor: '#B62130',
                 height: Dimensions.get('window').height/8,
-                width: Dimensions.get('window').width/1.12,
+                width: Dimensions.get('window').width/1.25,
               }}
               onPress={ () => { Linking.openURL('https://ppd.partners.org/scripts/phsweb.mwl?APP=PDPERS&FF=PDA&ACTION=SEARCHRES&SRCHNM=25712') }
               }>
@@ -128,6 +140,19 @@ export default class STEMI3 extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  circleFilledIn: {
+    width: 12,
+    height: 12,
+    borderRadius: 100/2,
+    backgroundColor: '#69c8a1'
+  },
+  circleNotFilledIn: {
+    width: 12,
+    height: 12,
+    borderRadius: 100/2,
+    borderWidth: 1,
+    borderColor: '#69c8a1'
+  },
   container: {
     flex: 1,
   },
@@ -140,7 +165,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: Dimensions.get('window').height/6,
-    backgroundColor: '#F7F7F7',
+    // backgroundColor: '#F7F7F7',
     // backgroundColor: 'pink'
   },
 

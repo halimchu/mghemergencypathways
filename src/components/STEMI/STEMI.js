@@ -101,7 +101,7 @@ export default class STEMI extends React.Component {
         <View style={{ flexDirection: 'row', marginLeft: Dimensions.get('window').height/40}}>
         <Text style={styles.bulletPoint}>{`\u2022`}</Text>
         <Text>
-          <Text style={{ fontSize: Dimensions.get('window').height/34.5, fontWeight: 'bold' }}>NEW </Text>
+          <Text style={{ fontSize: Dimensions.get('window').height/37, fontWeight: '500' }}>NEW </Text>
           <Text style={styles.bulletPointText}>ST elevation</Text>
         </Text>
       </View>
@@ -114,7 +114,7 @@ export default class STEMI extends React.Component {
         <View key={item} style={{ flexDirection: 'row', marginRight: Dimensions.get('window').width/20, marginLeft: Dimensions.get('window').width/10 }}>
             <Text style={styles.bulletPoint}>{`\u2022`}</Text>  
             <Text style={{flex: 1, flexWrap: 'wrap'}}>
-            <Text style={{ fontWeight: '300', fontSize: Dimensions.get('window').height/34.5 }}> 
+            <Text style={{ fontWeight: '300', fontSize: Dimensions.get('window').height/37 }}> 
               {item}
             </Text>
           </Text>   
@@ -131,15 +131,15 @@ export default class STEMI extends React.Component {
             <Text style={styles.bulletPoint}>{`\u2022`}</Text>
             <Text>
               <Text style={{ 
-                fontWeight: 'bold', 
-                fontSize: Dimensions.get('window').height/34.5, 
+                fontWeight: '500', 
+                fontSize: Dimensions.get('window').height/37, 
               }}>
                 NEW
               </Text>
               <Text> </Text>
               <Text style={{ 
                 fontWeight: '300',
-                fontSize: Dimensions.get('window').height/34.5,
+                fontSize: Dimensions.get('window').height/37,
               }}>
                 {item}
               </Text>
@@ -156,40 +156,53 @@ export default class STEMI extends React.Component {
 
         <View style={styles.top}>
           <Text style={styles.title}>STEMI</Text>
-          <Divider style={styles.divider} />
+          {/* <Divider style={styles.divider} /> */}
+
+          <View style={{alignItems: 'center', paddingTop: Dimensions.get('window').height/100, }}>
+              <View style={{ flexDirection: 'row'}}>
+                <View style={{marginRight: Dimensions.get('window').width/30}}>
+                  <View style={styles.circleFilledIn}></View>
+                </View>
+                <View style={{}}>
+                  <View style={styles.circleNotFilledIn}></View>
+                </View>
+              </View>
+          </View>
         </View>
 
-        <View style={styles.titleBlock}>
-          <Text style={styles.header}>STEMI Criteria</Text>
-        </View>
-
-        <View style={styles.middleOne}>
+        <View style={styles.middle}>
+          <View style={{alignItems: 'center', }}>
+              <Text style={styles.header}>STEMI Criteria</Text>
+          </View>
           {this.firstFn()}
           {this.secondFn()}
           {this.thirdFn()}
         </View>
 
-        <View style={styles.middleTwo}>
-          <View style={{ marginTop: Dimensions.get('window').height/100 }}>
+        <View style={styles.bottom}>
+          <View style={{ marginBottom: Dimensions.get('window').height/80, marginTop: Dimensions.get('window').height/100 }}>
             <Text style={styles.headerBottom}>One or more STEMI criteria?</Text>
           </View>
-        </View>
+      
 
 
-        <View style={styles.bottom}>
-          <SafeAreaView style={{ marginBottom: Dimensions.get('window').height/150 }}>
+        
+        <View>
+            <View style={{marginBottom: Dimensions.get('window').height/200, }}>
+              <TouchableOpacity
+                style={styles.customBtnBG} 
+                onPress={() => this.props.navigation.navigate('STEMIYes')}>
+                <Text style={styles.customBtnText}>Yes</Text>
+              </TouchableOpacity>
+            </View>
+            
             <TouchableOpacity
               style={styles.customBtnBG} 
-              onPress={() => this.props.navigation.navigate('STEMIYes')}>
-              <Text style={styles.customBtnText}>Yes</Text>
-            </TouchableOpacity>
-          </SafeAreaView>
-        
-          <TouchableOpacity
-            style={styles.customBtnBG} 
-            onPress={() => this.props.navigation.navigate('STEMIUncertain')}>
-            <Text style={styles.customBtnText}>Uncertain</Text>
-          </TouchableOpacity>  
+              onPress={() => this.props.navigation.navigate('STEMIUncertain')}>
+              <Text style={styles.customBtnText}>Uncertain</Text>
+            </TouchableOpacity>  
+        </View>
+       
         </View>
       </SafeAreaView>
     )
@@ -197,6 +210,19 @@ export default class STEMI extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  circleFilledIn: {
+    width: 12,
+    height: 12,
+    borderRadius: 100/2,
+    backgroundColor: '#69c8a1'
+  },
+  circleNotFilledIn: {
+    width: 12,
+    height: 12,
+    borderRadius: 100/2,
+    borderWidth: 1,
+    borderColor: '#69c8a1'
+  },
   container: {
     flex: 1
   },
@@ -204,25 +230,14 @@ const styles = StyleSheet.create({
     height: '10%',
     // backgroundColor: 'yellow'
   },
-  titleBlock: {
-    height: '6%',
-    alignItems: 'center',
-    // backgroundColor: 'green'
-  },
-  middleOne: {
-    height: '50%',
+  middle: {
+    height: '57%',
     justifyContent: 'center',
-    // backgroundColor: 'pink'
-  },
-  middleTwo: {
-    height: '9%',
-    justifyContent: 'center',
-    // backgroundColor: 'purple'
+    backgroundColor: '#F7F7F7',
   },
   bottom: {
-    height: '25%',
+    height: '33%',
     alignItems: 'center', 
-    justifyContent: 'center',
     // backgroundColor: 'gray',
   },
 
@@ -243,14 +258,15 @@ const styles = StyleSheet.create({
     height: Dimensions.get('window').height/600
   },
   header: {
-    color: 'gray',
+    // color: 'gray',
     fontWeight: '500',
-    color: '#515254',
+    // color: '#515254',
     marginBottom: Dimensions.get('window').height/70,
     fontSize: Dimensions.get('window').height/32.5,
   },
   headerBottom: {
     textAlign: 'center', 
+    fontWeight: 'bold',
     fontSize: Dimensions.get('window').height/34.5, 
   },
   bulletPoints: {
@@ -270,18 +286,35 @@ const styles = StyleSheet.create({
   },
   customBtnText: {
     fontWeight: '600',
-    color: "#fff",
     textAlign: 'center',
     textAlignVertical: "center",
-    fontSize: Dimensions.get('window').height/35,
-    marginTop: Dimensions.get('window').height/47,
+    fontSize: Dimensions.get('window').height/40,
+    marginTop: Dimensions.get('window').height/40,
   },
   customBtnBG: {
-    backgroundColor: "#69c8a1",
+    borderWidth: 4,
+    borderColor: '#69c8a1',
+    // backgroundColor: "#69c8a1",
     paddingHorizontal: 1,
     paddingVertical: 1,
-    borderRadius: 8,
-    width: Dimensions.get('window').width/1.13,
-    height: Dimensions.get('window').height/12,
+    borderRadius: 30,
+    width: Dimensions.get('window').width/1.25,
+    height: Dimensions.get('window').height/10.75,
   },
+  // customBtnText: {
+  //   fontWeight: '600',
+  //   color: "#fff",
+  //   textAlign: 'center',
+  //   textAlignVertical: "center",
+  //   fontSize: Dimensions.get('window').height/35,
+  //   marginTop: Dimensions.get('window').height/47,
+  // },
+  // customBtnBG: {
+  //   backgroundColor: "#69c8a1",
+  //   paddingHorizontal: 1,
+  //   paddingVertical: 1,
+  //   borderRadius: 8,
+  //   width: Dimensions.get('window').width/1.13,
+  //   height: Dimensions.get('window').height/12,
+  // },
 })

@@ -106,11 +106,29 @@ export default class Stroke1 extends React.Component {
       <SafeAreaView style={styles.container}>
           <View style={styles.top}>
             <Text style={styles.title}>Stroke</Text>
-            <Divider style={styles.divider} />
+
+            <View style={{alignItems: 'center', paddingTop: Dimensions.get('window').height/100, }}>
+              <View style={{ flexDirection: 'row'}}>
+                <View style={{marginRight: Dimensions.get('window').width/30}}>
+                  <View style={styles.circleFilledIn}></View>
+                </View>
+                <View style={{marginRight: Dimensions.get('window').width/30}}>
+                  <View style={styles.circleNotFilledIn}></View>
+                </View>
+                <View>
+                  <View style={styles.circleNotFilledIn}></View>
+                </View>
+              </View>
+            </View>
+
           </View>
 
+
+
           <View style={styles.middle}>
-            <Text style={styles.header}>Concern for Stroke?</Text>
+            <View style={{marginLeft: Dimensions.get('window').width/20}}>
+              <Text style={styles.header}>Concern for Stroke?</Text>
+            </View>
             {this.state.dataOne.map((item) => (
               <View key={item} style={ styles.bulletPoints }>
                 <View style={{ flexDirection: 'row' }}>
@@ -122,21 +140,28 @@ export default class Stroke1 extends React.Component {
           </View>
 
           <View style={styles.middleTwo}>
-            <Text style={styles.header}>Initial Steps</Text>
-            <View style={{ alignItems: 'center', marginTop: Dimensions.get('window').height/50 }}>
+            <View style={{alignItems: 'center'}}>
+              <Text style={styles.header}>Initial Steps</Text>
+            </View>
+            <View style={{ 
+                  alignItems: 'center', 
+                  marginTop: Dimensions.get('window').height/50, 
+                  shadowOffset:{  width: 0,  height: 1,  },
+                  shadowColor: 'black',
+                  shadowOpacity: .5,}}>
               <TouchableOpacity
                 style={{
                   alignItems: "center",
                   justifyContent: "center",
-                  borderRadius: 40,
+                  borderRadius: 60,
                   backgroundColor: '#B62130',
-                  height: Dimensions.get('window').height/10,
-                  width: Dimensions.get('window').width/1.12,
+                  height: Dimensions.get('window').height/9,
+                  width: Dimensions.get('window').width/1.25,
                 }}
                 onPress={()=>{this.dialCall()}}>
                 <View style={{ flexDirection: 'row' }}>
                   <MaterialIcons name="phone" size={24} color="white" />
-                  <Text style={{ fontSize: Dimensions.get('window').height/37, color: 'white', fontWeight: 'bold' }}> Call Acute Stroke Consult</Text>
+                  <Text style={{ fontSize: Dimensions.get('window').height/42, color: 'white', fontWeight: 'bold' }}> Call Acute Stroke Consult</Text>
                 </View>
                 <Text style={{ marginTop: Dimensions.get('window').height/150, color: 'white', fontSize: Dimensions.get('window').height/45, fontWeight: '400'}}>x6-3333</Text>
               </TouchableOpacity>
@@ -167,6 +192,19 @@ export default class Stroke1 extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  circleFilledIn: {
+    width: 12,
+    height: 12,
+    borderRadius: 100/2,
+    backgroundColor: '#69c8a1'
+  },
+  circleNotFilledIn: {
+    width: 12,
+    height: 12,
+    borderRadius: 100/2,
+    borderWidth: 1,
+    borderColor: '#69c8a1'
+  },
   container: {
     flex: 1
   },
@@ -175,13 +213,17 @@ const styles = StyleSheet.create({
     // backgroundColor: 'yellow'
   },
   middle: {
-    height: '25%',
+    height: '29%',
+    paddingTop:  Dimensions.get('window').height/30,
     // backgroundColor: 'green'
   },
   middleTwo: {
-    height: '50%',
+    height: '46%',
     justifyContent: 'center',
-    backgroundColor: '#F7F7F7'
+    shadowOffset:{  width: 0,  height: 1,  },
+    shadowColor: 'black',
+    shadowOpacity: .25,
+    backgroundColor: '#F7F7F7',
   },
   bottom: {
     height: '15%',
@@ -232,18 +274,35 @@ const styles = StyleSheet.create({
   },
   customBtnText: {
     fontWeight: '600',
-    color: "#fff",
     textAlign: 'center',
     textAlignVertical: "center",
-    fontSize: Dimensions.get('window').height/35,
-    marginTop: Dimensions.get('window').height/47,
+    fontSize: Dimensions.get('window').height/40,
+    marginTop: Dimensions.get('window').height/40,
   },
   customBtnBG: {
-    backgroundColor: "#69c8a1",
+    borderWidth: 4,
+    borderColor: '#69c8a1',
     paddingHorizontal: 1,
     paddingVertical: 1,
-    borderRadius: 8,
-    width: Dimensions.get('window').width/1.13,
-    height: Dimensions.get('window').height/12,
+    borderRadius: 30,
+    shadowOpacity: .1,
+    width: Dimensions.get('window').width/1.25,
+    height: Dimensions.get('window').height/10.75,
   },
+  // customBtnText: {
+  //   fontWeight: '600',
+  //   color: "#fff",
+  //   textAlign: 'center',
+  //   textAlignVertical: "center",
+  //   fontSize: Dimensions.get('window').height/35,
+  //   marginTop: Dimensions.get('window').height/47,
+  // },
+  // customBtnBG: {
+  //   backgroundColor: "#69c8a1",
+  //   paddingHorizontal: 1,
+  //   paddingVertical: 1,
+  //   borderRadius: 8,
+  //   width: Dimensions.get('window').width/1.13,
+  //   height: Dimensions.get('window').height/12,
+  // },
 })

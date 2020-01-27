@@ -134,6 +134,17 @@ export default class CardiacArrest extends React.Component {
     }
   }
 
+  IPhone320x568 () {
+    if (Dimensions.get('window').width === 320 && Dimensions.get('window').height === 568) {
+      return (
+        <Image
+          source={require('../../../../assets/CardiacArrest3000x6000.png')}
+          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/.56 }}
+        />
+      )
+    }
+  }
+
   constructor(props) {
     super(props)
     this.state = { 
@@ -365,6 +376,7 @@ export default class CardiacArrest extends React.Component {
             {this.IPhone414x896()}
             {this.IPhone375x667()} 
             {this.IPhone414x736()}
+            {this.IPhone320x568()}
           </View>
 
 
@@ -379,7 +391,7 @@ export default class CardiacArrest extends React.Component {
                 />
               </View>
 
-
+ 
               <View onLayout={this.measureShockEnergyView}>
                 <Component
                   goToNextComponent={this.goToComponentThree} 

@@ -84,8 +84,8 @@ export default class PertLabs extends React.Component {
   state = {
     data: [
       'CBC with diff, BMP, LFTs, Lactate, D-dimer, ABG',
-      'PT/INR and PTT, Type and Screen',
-      'NT-pro-BNP (or BNP)',
+      'PT/INR and PTT, Type & Screen',
+      'NT-proBNP (or BNP)',
       'Troponin T-hs',
       'EKG',
       'CTA chest PE protocol',
@@ -99,13 +99,26 @@ export default class PertLabs extends React.Component {
       <SafeAreaView style={styles.container}>
         <View style={styles.top}>
           <Text style={styles.titleFirstLine}>Pulmonary Embolism</Text>
-          <Text style={styles.titleSecondLine}>Response Team</Text>
+
+          <View style={{alignItems: 'center', paddingTop: Dimensions.get('window').height/60, }}>
+              <View style={{ flexDirection: 'row'}}>
+                <View style={{marginRight: Dimensions.get('window').width/30}}>
+                  <View style={styles.circleNotFilledIn}></View>
+                </View>
+                <View style={{}}>
+                  <View style={styles.circleFilledIn}></View>
+                </View>
+              </View>
+          </View>
+
+        
         </View>
 
-        <Divider style={{ backgroundColor: '#CDCDCD', marginLeft: 10, marginRight: 10, height: 1.5 }} />
 
         <View style={styles.bottom}>
-          <Text style={styles.header}>Please Order:</Text>
+          <View style={{marginLeft: Dimensions.get('window').width/27}}>
+            <Text style={styles.header}>Please Order:</Text>
+          </View>
           {this.state.data.map((item) => (
             <View key={item} style={ styles.bulletPoints }>
               <View style={{ flexDirection: 'row' }}>
@@ -121,15 +134,28 @@ export default class PertLabs extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  circleFilledIn: {
+    width: 12,
+    height: 12,
+    borderRadius: 100/2,
+    backgroundColor: '#69c8a1'
+  },
+  circleNotFilledIn: {
+    width: 12,
+    height: 12,
+    borderRadius: 100/2,
+    borderWidth: 1,
+    borderColor: '#69c8a1'
+  },
   container: {
     flex: 1
   },
   top: {
-    height: '12.5%',
+    height: '16%',
     // backgroundColor: 'yellow'
   },
   bottom: {
-    height: '87.5%',
+    height: '84%',
     // backgroundColor: 'pink',
   },
   titleFirstLine: {
@@ -144,7 +170,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#2b2b2b',
     fontSize: Dimensions.get('window').height/32.5,
-    marginBottom: Dimensions.get('window').height/30,
   },
   header: {
     fontWeight: '500',

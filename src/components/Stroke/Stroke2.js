@@ -97,7 +97,22 @@ export default class Stroke2 extends React.Component {
       <SafeAreaView style={styles.container}>
         <View style={styles.top}>
           <Text style={styles.title}>Stroke</Text>
-          <Divider style={styles.divider} />
+          {/* <Divider style={styles.divider} /> */}
+
+          <View style={{alignItems: 'center', paddingTop: Dimensions.get('window').height/100, }}>
+              <View style={{ flexDirection: 'row'}}>
+                <View style={{marginRight: Dimensions.get('window').width/30}}>
+                  <View style={styles.circleNotFilledIn}></View>
+                </View>
+                <View style={{marginRight: Dimensions.get('window').width/30}}>
+                  <View style={styles.circleFilledIn}></View>
+                </View>
+                <View>
+                  <View style={styles.circleNotFilledIn}></View>
+                </View>
+              </View>
+            </View>
+
         </View>
 
         <View style={styles.middle}>
@@ -124,6 +139,19 @@ export default class Stroke2 extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  circleFilledIn: {
+    width: 12,
+    height: 12,
+    borderRadius: 100/2,
+    backgroundColor: '#69c8a1'
+  },
+  circleNotFilledIn: {
+    width: 12,
+    height: 12,
+    borderRadius: 100/2,
+    borderWidth: 1,
+    borderColor: '#69c8a1'
+  },
   container: {
     flex: 1
   },
@@ -133,6 +161,7 @@ const styles = StyleSheet.create({
   },
   middle: {
     height: '75%',
+    paddingTop: Dimensions.get('window').height/150, 
     // backgroundColor: 'green'
   },
   bottom: {
@@ -173,18 +202,34 @@ const styles = StyleSheet.create({
   },
   customBtnText: {
     fontWeight: '600',
-    color: "#fff",
     textAlign: 'center',
     textAlignVertical: "center",
-    fontSize: Dimensions.get('window').height/35,
-    marginTop: Dimensions.get('window').height/47,
+    fontSize: Dimensions.get('window').height/40,
+    marginTop: Dimensions.get('window').height/40,
   },
   customBtnBG: {
-    backgroundColor: "#69c8a1",
+    borderWidth: 4,
+    borderColor: '#69c8a1',
     paddingHorizontal: 1,
     paddingVertical: 1,
-    borderRadius: 8,
-    width: Dimensions.get('window').width/1.13,
-    height: Dimensions.get('window').height/12,
-  }
+    borderRadius: 30,
+    width: Dimensions.get('window').width/1.25,
+    height: Dimensions.get('window').height/10.75,
+  },
+  // customBtnText: {
+  //   fontWeight: '600',
+  //   color: "#fff",
+  //   textAlign: 'center',
+  //   textAlignVertical: "center",
+  //   fontSize: Dimensions.get('window').height/35,
+  //   marginTop: Dimensions.get('window').height/47,
+  // },
+  // customBtnBG: {
+  //   backgroundColor: "#69c8a1",
+  //   paddingHorizontal: 1,
+  //   paddingVertical: 1,
+  //   borderRadius: 8,
+  //   width: Dimensions.get('window').width/1.13,
+  //   height: Dimensions.get('window').height/12,
+  // }
 })

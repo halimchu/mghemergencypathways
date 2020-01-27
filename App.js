@@ -36,9 +36,10 @@ import RICURiskFactors from './src/components/RICU/RICURiskFactors'
 import RICUOne from './src/components/RICU/RICUOne'
 import RICUTwo from './src/components/RICU/RICUTwo'
 import RICUThree from './src/components/RICU/RICUThree'
+import RICU from './src/components/RICU/RICU'
 import RICUWhatToPresent from './src/components/RICU/RICUWhatToPresent'
-import RICUYes from './src/components/RICU/RICUYes'
 import RICUWhatToPrepare from './src/components/RICU/RICUWhatToPrepare'
+import RICUYes from './src/components/RICU/RICUYes'
 import STEMI from './src/components/STEMI/STEMI'
 import STEMIYes from './src/components/STEMI/STEMIYes'
 import STEMIUncertain from './src/components/STEMI/STEMIUncertain'
@@ -64,6 +65,7 @@ const AppNavigator = createStackNavigator({
   RICUTwo: { screen: RICUTwo },
   RICUThree: { screen: RICUThree },
   RICUWhatToPresent: { screen: RICUWhatToPresent },
+  RICU: { screen: RICU },
   RICUYes: { screen: RICUYes },
   RICUWhatToPrepare: { screen: RICUWhatToPrepare },
   STEMI: { screen: STEMI },

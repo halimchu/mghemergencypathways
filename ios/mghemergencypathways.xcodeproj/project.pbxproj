@@ -26,11 +26,8 @@
 		8A43D2E22350CFBF00AAE7FF /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A43D2E12350CFBF00AAE7FF /* Ionicons.ttf */; };
 		8A8A542A238C8459002D9952 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A8A5427238C8459002D9952 /* MaterialIcons.ttf */; };
 		8AB9DED9238D97BC00BF9FF0 /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8AB9DED6238D97BC00BF9FF0 /* FontAwesome5_Solid.ttf */; };
-		9E99387C404243D7A58DFC3C /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A6E2D0688583417DA1B904BB /* FontAwesome5_Solid.ttf */; };
 		A5EDC7FB885F4FE1A5B5DF1E /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 471CD319A440462FAD219B4E /* Feather.ttf */; };
-		C958586EA2664B6587EB47FA /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2369AC1B42EB483E97702334 /* Ionicons.ttf */; };
 		E5A70E54FAB84AA1A6E98321 /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F17D7E16190F4E16B01778EF /* Fontisto.ttf */; };
-		FAE9319824754B7FBF5FAF01 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 020FB63C37F6469E89B5D76E /* MaterialIcons.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -264,7 +261,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 940;
+				LastUpgradeCheck = 1120;
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
 					13B07F861A680F5B00A75B9A = {
@@ -274,10 +271,9 @@
 			};
 			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "mghemergencypathways" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 			);
@@ -330,13 +326,10 @@
 				086C16E269CD460C9F945BB6 /* FontAwesome.ttf in Resources */,
 				20B37B7D1ACE448885795736 /* FontAwesome5_Brands.ttf in Resources */,
 				1369C81F036A4F87A7BB27E7 /* FontAwesome5_Regular.ttf in Resources */,
-				9E99387C404243D7A58DFC3C /* FontAwesome5_Solid.ttf in Resources */,
 				E5A70E54FAB84AA1A6E98321 /* Fontisto.ttf in Resources */,
 				8A8A542A238C8459002D9952 /* MaterialIcons.ttf in Resources */,
 				0E37812822224B1E86493116 /* Foundation.ttf in Resources */,
-				C958586EA2664B6587EB47FA /* Ionicons.ttf in Resources */,
 				5034053BD3FA4DB2AEBFFEB7 /* MaterialCommunityIcons.ttf in Resources */,
-				FAE9319824754B7FBF5FAF01 /* MaterialIcons.ttf in Resources */,
 				025254BBDBCD4C649B5B0F4A /* Octicons.ttf in Resources */,
 				22A2427FD17F4FA4B98D91B7 /* SimpleLineIcons.ttf in Resources */,
 				011634E9F4FE4694A5A4394D /* Zocial.ttf in Resources */,
@@ -433,7 +426,7 @@
 			baseConfigurationReference = 85D5CE74089B13A6C24E2ADB /* Pods-mghemergencypathways.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CURRENT_PROJECT_VERSION = 20010301;
+				CURRENT_PROJECT_VERSION = 20012001;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = 6S5C5RSYA2;
 				INFOPLIST_FILE = mghemergencypathways/Info.plist;
@@ -455,7 +448,7 @@
 			baseConfigurationReference = A68E398784F583715F8BD203 /* Pods-mghemergencypathways.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CURRENT_PROJECT_VERSION = 20010301;
+				CURRENT_PROJECT_VERSION = 20012001;
 				DEVELOPMENT_TEAM = 6S5C5RSYA2;
 				INFOPLIST_FILE = mghemergencypathways/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

@@ -89,8 +89,20 @@ export default class RICUThree extends React.Component {
       'Working IV',
       'Vasopressor in line and on pump',
       'Suction on and connected with tubing'
-    ]
+    ],
+    surgicalAirwayHidden: true,
   }
+
+
+
+  onPressSurgicalAirwayHidden = () => {
+    this.setState({ surgicalAirwayHidden: !this.state.surgicalAirwayHidden})
+  }
+
+
+
+
+
 
   dialCall = () => {
     let phoneNumber = '';
