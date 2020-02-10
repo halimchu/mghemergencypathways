@@ -12,7 +12,7 @@ export default class BradyCardia extends React.Component {
           <Button 
             icon={
               <View style={{ marginLeft: Dimensions.get('window').width/45, }}>
-                <Icon name="ios-arrow-back" size={Dimensions.get('window').height/26} color="white" />
+                <Icon name="ios-arrow-back" size={Dimensions.get('window').height/29} color="white" />
               </View>
             }
             onPress={() => navigation.goBack()}
@@ -66,7 +66,7 @@ export default class BradyCardia extends React.Component {
         <Button 
           icon={
             <View style={{ marginRight: Dimensions.get('window').width/75 }}>
-              <Icon name="md-home" size={Dimensions.get('window').height/26} color="white" />
+              <Icon name="md-home" size={Dimensions.get('window').height/29} color="white" />
             </View>
           }
           onPress={() => navigation.navigate('Home')}
@@ -173,8 +173,6 @@ export default class BradyCardia extends React.Component {
             <Text style={styles.titleFirstLine}>Adult Bradycardia</Text>
             <Text style={styles.titleSecondLine}>with a Pulse Algorithm</Text>
             <Divider style={styles.divider} />
-            {/* <Text>{Dimensions.get('window').height}</Text>
-            <Text>{Dimensions.get('window').width}</Text> */}
           </View>
               
           <View onLayout={this.measureImageView}>

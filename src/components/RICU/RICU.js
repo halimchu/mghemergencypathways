@@ -11,7 +11,7 @@ export default class RICU extends React.Component {
           <Button 
             icon={
               <View style={{ marginLeft: Dimensions.get('window').width/45, }}>
-                <Icon name="ios-arrow-back" size={Dimensions.get('window').height/26} color="white" />
+                <Icon name="ios-arrow-back" size={Dimensions.get('window').height/29} color="white" />
               </View>
             }
             onPress={() => navigation.goBack()}
@@ -65,7 +65,7 @@ export default class RICU extends React.Component {
         <Button 
           icon={
             <View style={{ marginRight: Dimensions.get('window').width/75 }}>
-              <Icon name="md-home" size={Dimensions.get('window').height/26} color="white" />
+              <Icon name="md-home" size={Dimensions.get('window').height/29} color="white" />
             </View>
           }
           onPress={() => navigation.navigate('Home')}
@@ -152,13 +152,13 @@ export default class RICU extends React.Component {
                 <Text>    
                   <Text style={{ 
                     marginTop: Dimensions.get('window').height/45, 
-                    fontSize: Dimensions.get('window').height/30,}}>If need for </Text>
-                  <Text style={{fontWeight: 'bold', fontSize: Dimensions.get('window').height/30, textDecorationLine: 'underline'}}>emergent</Text>
-                  <Text style={{fontSize: Dimensions.get('window').height/30,}}> airway</Text>
+                    fontSize: Dimensions.get('window').height/32,}}>If need for </Text>
+                  <Text style={{fontWeight: 'bold', fontSize: Dimensions.get('window').height/34, textDecorationLine: 'underline'}}>emergent</Text>
+                  <Text style={{fontSize: Dimensions.get('window').height/34,}}> airway</Text>
                 </Text>
-                <Text style={{fontSize: Dimensions.get('window').height/30,}}>state:</Text>
-                <Text style={{fontSize: Dimensions.get('window').height/30, fontStyle: 'italic'}}>"Emergency airway,</Text>
-                <Text style={{fontSize: Dimensions.get('window').height/30, fontStyle: 'italic'}}>[current location]"</Text>
+                <Text style={{fontSize: Dimensions.get('window').height/34,}}>state:</Text>
+                <Text style={{fontSize: Dimensions.get('window').height/34, fontStyle: 'italic'}}>"Emergency airway,</Text>
+                <Text style={{fontSize: Dimensions.get('window').height/34, fontStyle: 'italic'}}>[current location]"</Text>
               </View>
 
 
@@ -166,13 +166,13 @@ export default class RICU extends React.Component {
                 <Text>    
                   <Text style={{ 
                     marginTop: Dimensions.get('window').height/45, 
-                    fontSize: Dimensions.get('window').height/30,}}>If need for </Text>
-                  <Text style={{fontWeight: 'bold', fontSize: Dimensions.get('window').height/30, textDecorationLine: 'underline'}}>surgical</Text>
-                  <Text style={{fontSize: Dimensions.get('window').height/30,}}> airway</Text>
+                    fontSize: Dimensions.get('window').height/34,}}>If need for </Text>
+                  <Text style={{fontWeight: 'bold', fontSize: Dimensions.get('window').height/34, textDecorationLine: 'underline'}}>surgical</Text>
+                  <Text style={{fontSize: Dimensions.get('window').height/34,}}> airway</Text>
                 </Text>
-                <Text style={{fontSize: Dimensions.get('window').height/30,}}>state:</Text>
-                <Text style={{fontSize: Dimensions.get('window').height/30, fontStyle: 'italic'}}>"Emergency airway,</Text>
-                <Text style={{fontSize: Dimensions.get('window').height/30, fontStyle: 'italic'}}>[current location]"</Text>
+                <Text style={{fontSize: Dimensions.get('window').height/34,}}>state:</Text>
+                <Text style={{fontSize: Dimensions.get('window').height/34, fontStyle: 'italic'}}>"Emergency airway,</Text>
+                <Text style={{fontSize: Dimensions.get('window').height/34, fontStyle: 'italic'}}>[current location]"</Text>
               </View>
 
 
@@ -200,14 +200,14 @@ const styles = StyleSheet.create({
     width: 12,
     height: 12,
     borderRadius: 100/2,
-    backgroundColor: '#69c8a1'
+    backgroundColor: '#0f55bc'
   },
   circleNotFilledIn: {
     width: 12,
     height: 12,
     borderRadius: 100/2,
     borderWidth: 1,
-    borderColor: '#69c8a1'
+    borderColor: '#0f55bc'
   },
   container: {
     flex: 1
@@ -279,27 +279,11 @@ const styles = StyleSheet.create({
   },
   customBtnBG: {
     borderWidth: 4,
-    borderColor: '#69c8a1',
+    borderColor: '#0f55bc',
     paddingHorizontal: 1,
     paddingVertical: 1,
     borderRadius: 30,
     width: Dimensions.get('window').width/1.25,
     height: Dimensions.get('window').height/10.75,
-  },
-  // customBtnText: {
-  //   fontWeight: '600',
-  //   color: "#fff",
-  //   textAlign: 'center',
-  //   textAlignVertical: "center",
-  //   fontSize: Dimensions.get('window').height/35,
-  //   marginTop: Dimensions.get('window').height/47,
-  // },
-  // customBtnBG: {
-  //   backgroundColor: "#69c8a1",
-  //   paddingHorizontal: 1,
-  //   paddingVertical: 1,
-  //   borderRadius: 8,
-  //   width: Dimensions.get('window').width/1.13,
-  //   height: Dimensions.get('window').height/12,
-  // }
+  }
 })

@@ -10,7 +10,7 @@ export default class RICUWhatToPresent extends React.Component {
           <Button 
             icon={
               <View style={{ marginLeft: Dimensions.get('window').width/45, }}>
-                <Icon name="ios-arrow-back" size={Dimensions.get('window').height/26} color="white" />
+                <Icon name="ios-arrow-back" size={Dimensions.get('window').height/29} color="white" />
               </View>
             }
             onPress={() => navigation.goBack()}
@@ -64,7 +64,7 @@ export default class RICUWhatToPresent extends React.Component {
         <Button 
           icon={
             <View style={{ marginRight: Dimensions.get('window').width/75 }}>
-              <Icon name="md-home" size={Dimensions.get('window').height/26} color="white" />
+              <Icon name="md-home" size={Dimensions.get('window').height/29} color="white" />
             </View>
           }
           onPress={() => navigation.navigate('Home')}
@@ -171,14 +171,14 @@ const styles = StyleSheet.create({
     width: 12,
     height: 12,
     borderRadius: 100/2,
-    backgroundColor: '#69c8a1'
+    backgroundColor: '#0f55bc'
   },
   circleNotFilledIn: {
     width: 12,
     height: 12,
     borderRadius: 100/2,
     borderWidth: 1,
-    borderColor: '#69c8a1'
+    borderColor: '#0f55bc'
   },
   container: {
     flex: 1

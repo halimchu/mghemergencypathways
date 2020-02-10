@@ -19,7 +19,7 @@ export default class CardiacArrest extends React.Component {
           <Button 
             icon={
               <View style={{ marginLeft: Dimensions.get('window').width/45, }}>
-                <Icon name="ios-arrow-back" size={Dimensions.get('window').height/26} color="white" />
+                <Icon name="ios-arrow-back" size={Dimensions.get('window').height/29} color="white" />
               </View>
             }
             onPress={() => navigation.goBack()}
@@ -73,7 +73,7 @@ export default class CardiacArrest extends React.Component {
         <Button 
           icon={
             <View style={{ marginRight: Dimensions.get('window').width/75 }}>
-              <Icon name="md-home" size={Dimensions.get('window').height/26} color="white" />
+              <Icon name="md-home" size={Dimensions.get('window').height/29} color="white" />
             </View>
           }
           onPress={() => navigation.navigate('Home')}
