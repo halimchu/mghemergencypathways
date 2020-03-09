@@ -2,7 +2,7 @@ import React from 'react'
 import { Image, Dimensions, View, Text, StyleSheet, ScrollView, TouchableOpacity, SafeAreaView } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons' 
 import { Button, Divider } from 'react-native-elements'
-import CardiacArrestReversibleCauses from './cardiacArrestReverisibleCauses'
+import ReversibleCauses from '../reversibleCauses'
 import CardiacArrestShockEnergy from './cardiacArrestShockEnergy'
 import CardiacArrestDrugTherapy from './cardiacArrestDrugTherapy'
 import CardiacArrestROSC from './cardiacArrestROSC'
@@ -94,8 +94,8 @@ export default class CardiacArrest extends React.Component {
     if (Dimensions.get('window').width === 375 && Dimensions.get('window').height === 812) {
       return (
         <Image
-          source={require('../../../../assets/CardiacArrest3000x6000.png')}
-          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/.7}}
+          source={require('../../../../assets/CardiacArrest3000x5500.png')}
+          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/.75}}
         />
       )
     }
@@ -105,8 +105,8 @@ export default class CardiacArrest extends React.Component {
     if (Dimensions.get('window').width === 414 && Dimensions.get('window').height === 896) {
       return (
         <Image
-          source={require('../../../../assets/CardiacArrest3000x6000.png')}
-          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/.7}}
+          source={require('../../../../assets/CardiacArrest3000x5500.png')}
+          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/.75}}
         />
       )
     }
@@ -116,8 +116,8 @@ export default class CardiacArrest extends React.Component {
     if (Dimensions.get('window').width === 375 && Dimensions.get('window').height === 667) {
       return (
         <Image
-          source={require('../../../../assets/CardiacArrest3000x6000.png')}
-          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/.56 }}
+          source={require('../../../../assets/CardiacArrest3000x5500.png')}
+          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/.6 }}
         />
       )
     }
@@ -127,8 +127,8 @@ export default class CardiacArrest extends React.Component {
     if (Dimensions.get('window').width === 414 && Dimensions.get('window').height === 736) {
       return (
         <Image
-          source={require('../../../../assets/CardiacArrest3000x6000.png')}
-          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/.56 }}
+          source={require('../../../../assets/CardiacArrest3000x5500.png')}
+          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/.6 }}
         />
       )
     }
@@ -138,8 +138,8 @@ export default class CardiacArrest extends React.Component {
     if (Dimensions.get('window').width === 320 && Dimensions.get('window').height === 568) {
       return (
         <Image
-          source={require('../../../../assets/CardiacArrest3000x6000.png')}
-          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/.56 }}
+          source={require('../../../../assets/CardiacArrest3000x5500.png')}
+          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/.63 }}
         />
       )
     }
@@ -168,7 +168,7 @@ export default class CardiacArrest extends React.Component {
       CPRQualityHidden: true,
       advancedAirwayHidden: true
     }
-    this.ImageURI = require('../../../../assets/CardiacArrest3000x6000.png')
+    this.ImageURI = require('../../../../assets/Cardiac.png')
   }
 
   onPressReversibleCausesHidden = () => {
@@ -354,20 +354,21 @@ export default class CardiacArrest extends React.Component {
           maximumZoomScale={2.5}
           ref={(scroller) => {this.scroller = scroller}}
           onContentSizeChange={this.onContentSizeChange}
-        >
+        > 
 
-          <View style={styles.top}>
+          
+
+          <View style={{paddingTop: Dimensions.get('window').height/300,}}>
             <Text style={styles.title}>Adult Cardiac Arrest Algorithm</Text>
             <Divider style={styles.divider} />
           </View>
+          <Text>{Dimensions.get('window').width}</Text>
+          <Text>{Dimensions.get('window').height}</Text>
 
 
 
 
           {/* <Timer /> */}
-
-
-
 
 
 
@@ -380,13 +381,104 @@ export default class CardiacArrest extends React.Component {
           </View>
 
 
-          <View style={{ alignItems: 'center'  }} onLayout={this.measureParentView}>
+
+
+
+
+<View style={{}}>
+
+        <View style={{flexDirection: 'row', }}>
+            <View style={{
+                flexDirection: 'column',
+                width: '60%',
+                backgroundColor: '#EED8C5', 
+                borderRadius: 10, 
+                padding: Dimensions.get('window').width/50,
+                marginLeft: Dimensions.get('window').width/40,  
+                marginRight: Dimensions.get('window').width/50,
+                paddingBottom: Dimensions.get('window').height/75,
+            }}>
+
+              <View style={{flexDirection: 'row'}}>
+                <View style={{flexDirection: 'column'}}>
+                    <Text style={{fontSize: Dimensions.get('window').height/42,}}>{`\u2022`}</Text>
+                </View>
+
+                <View style={{flexDirection: 'column'}}>
+                  <Text style={{fontSize: Dimensions.get('window').height/42}}>
+                    <Text>If no signs of return of spontaneous circulation (ROSC), go to</Text>
+                    <Text style={{fontWeight: 'bold'}}> 10</Text>
+                    <Text> or</Text>
+                    <Text style={{fontWeight: 'bold'}}> 11</Text>
+                  </Text>
+                </View>
+              </View>
+              <View></View>
+
+
+
+            <View style={{flexDirection: 'row'}}>
+              <View style={{flexDirection: 'column'}}>
+                  <Text style={{fontSize: Dimensions.get('window').height/42,}}>{`\u2022`}</Text>
+              </View>
+
+              <View style={{flexDirection: 'column'}}>
+                      <Text style={{fontSize: Dimensions.get('window').height/42,}}>If ROSC, go to</Text>
+                      <TouchableOpacity
+                        style={styles.customBtnBG3} 
+                        onPress={() => this.props.navigation.navigate('PostCardiacArrestCare')}>
+                        <Text style={styles.customBtnText2}>Post Cardiac Arrest Care</Text>
+                      </TouchableOpacity>
+              </View>
+            </View>
+          </View>
+
+
+
+
+
+          <View style={{
+              flexDirection: 'column',
+              width: '20%', 
+              alignItems: 'center',
+              borderRadius: 10, 
+              marginLeft: Dimensions.get('window').width/7,  
+          }}>
+            <View style={{flexDirection: 'column', }}>
+              <View style={{flexDirection: 'row', backgroundColor: '#EED8C5', borderRadius: 10, height: Dimensions.get('window').height/10, padding: 10}}>
+                    <Text style={{fontSize: Dimensions.get('window').height/42,}}>
+                      <Text>Go to</Text>
+                      <Text style={{fontWeight: 'bold'}}> 5</Text>
+                      <Text> or</Text>
+                      <Text style={{fontWeight: 'bold'}}> 7</Text>
+                    </Text>
+              </View>
+
+              <View style={{flexDirection: 'row', backgroundColor: 'white'}}>
+                {/* <Text>Hllo</Text> */}
+              </View>
+
+            </View>
+
+
+
+
+
+          </View>
+        </View>
+</View>
+
+
+   
+
+
+          <View style={{ alignItems: 'center', marginTop: Dimensions.get('window').height/80 }} onLayout={this.measureParentView}>
               <View onLayout={this.measureReversibleCausesView}>
                 <Component 
                   goToNextComponent={this.goToComponentTwo} 
                   toggle={this.onPressReversibleCausesHidden} 
                   hidden = {this.state.reversibleCausesHidden}
-                  component={<CardiacArrestReversibleCauses />}
+                  component={<ReversibleCauses />}
                   buttonTitle='Reversible Causes'
                 />
               </View>
@@ -486,5 +578,24 @@ const styles = StyleSheet.create({
     marginLeft: Dimensions.get('window').width/60, 
     marginRight: Dimensions.get('window').width/60, 
     height: Dimensions.get('window').height/600
+  },
+  customBtnText2: {
+    fontWeight: '500',
+    textAlign: 'center',
+    textAlignVertical: "center",
+    color: 'white',
+    fontSize: Dimensions.get('window').height/50,
+    marginTop: Dimensions.get('window').height/200
+  },
+  customBtnBG3: {
+    alignItems: 'center',
+    backgroundColor: '#B93E2F',
+    paddingHorizontal: 1,
+    paddingVertical: 1,
+    shadowOpacity: .1, 
+    borderRadius: 4, 
+    marginTop: Dimensions.get('window').height/150,
+    width: Dimensions.get('window').width/2,
+    height: Dimensions.get('window').height/25,
   }
 })
