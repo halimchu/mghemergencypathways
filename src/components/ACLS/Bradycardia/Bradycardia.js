@@ -4,6 +4,7 @@ import Icon from 'react-native-vector-icons/Ionicons'
 import { Button, Divider } from 'react-native-elements'
 import Component from './../Component'
 import DosesDetails from './DosesDetails'
+import LinearGradient from 'react-native-linear-gradient';
 
 export default class BradyCardia extends React.Component {
   static navigationOptions = ({ navigation }) => {
@@ -47,7 +48,7 @@ export default class BradyCardia extends React.Component {
           fontSize: Dimensions.get('window').height/43, 
           marginTop: Dimensions.get('window').height/200, 
           color: 'white', fontWeight: 'bold', 
-          textAlign: 'center'}}>MGH STAT</Text>
+          textAlign: 'center'}}>ACLS STAT</Text>
       </View>
     )
       
@@ -79,7 +80,15 @@ export default class BradyCardia extends React.Component {
       headerLeft, 
       headerRight,
       headerTitle,
-      headerStyle: {backgroundColor: '#709CD0'},      
+      headerBackground: (
+        <LinearGradient
+            colors={['#23A7C2', '#2D7C93',]}
+            style={{ flex: 1 }}
+            start={{x: 0, y: 0}}
+            end={{x: 1, y: 0}}
+        />
+      ),
+      // headerStyle: {backgroundColor: '#709CD0'},      
     }
   }
 
@@ -87,8 +96,8 @@ export default class BradyCardia extends React.Component {
     if (Dimensions.get('window').width === 375 && Dimensions.get('window').height === 812) {
       return (
         <Image
-          source={require('../../../../assets/Bradycardia3000x4000.png')}
-          style={{marginBottom: Dimensions.get('window').height/70, width: Dimensions.get('window').width, height: Dimensions.get('window').height}}
+          source={require('../../../../assets/Bradycardia3000x3000.png')}
+          style={{marginBottom: Dimensions.get('window').height/70, width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.25}}
         />
       )
     }
@@ -98,7 +107,7 @@ export default class BradyCardia extends React.Component {
     if (Dimensions.get('window').width === 414 && Dimensions.get('window').height === 896) {
       return (
         <Image
-          source={require('../../../../assets/Bradycardia3000x4000.png')}
+          source={require('../../../../assets/Bradycardia3000x3000.png')}
           style={{marginBottom: Dimensions.get('window').height/70, width: Dimensions.get('window').width, height: Dimensions.get('window').height}}
         />
       )
@@ -109,7 +118,7 @@ export default class BradyCardia extends React.Component {
     if (Dimensions.get('window').width === 375 && Dimensions.get('window').height === 667) {
       return (
         <Image
-          source={require('../../../../assets/Bradycardia3000x4000.png')}
+          source={require('../../../../assets/Bradycardia3000x3000.png')}
           style={{marginBottom: Dimensions.get('window').height/70, width: Dimensions.get('window').width, height: Dimensions.get('window').height/.85}}
         />
       )
@@ -120,7 +129,7 @@ export default class BradyCardia extends React.Component {
     if (Dimensions.get('window').width === 414 && Dimensions.get('window').height === 736) {
       return (
         <Image
-          source={require('../../../../assets/Bradycardia3000x4000.png')}
+          source={require('../../../../assets/Bradycardia3000x3000.png')}
           style={{marginBottom: Dimensions.get('window').height/70, width: Dimensions.get('window').width, height: Dimensions.get('window').height/.85 }}
         />
       )
@@ -182,6 +191,10 @@ export default class BradyCardia extends React.Component {
             {this.IPhone414x736()}
           </View>
 
+          <View style={{marginBottom: Dimensions.get('window').height/60}}>
+
+          </View>
+
 
           <View onLayout={this.measureDosesDetailsView}>
             <Component
@@ -193,18 +206,10 @@ export default class BradyCardia extends React.Component {
             />
           </View>
 
-
-          <View style={{
-            marginTop: Dimensions.get('window').height/50,
-            alignItems: 'center'
-          }}>
-            <Text style={{fontSize: Dimensions.get('window').height/70,}}>
-              American Heart Association Guidelines 2015
-            </Text>
-          </View>
+          
 
 
-
+        
         </ScrollView>
       </SafeAreaView>
     )

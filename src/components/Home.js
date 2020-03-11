@@ -13,7 +13,7 @@ export default class InpatientConditions extends React.Component {
           fontSize: Dimensions.get('window').height/43, 
           marginTop: Dimensions.get('window').height/200, 
           color: 'white', fontWeight: 'bold', 
-          textAlign: 'center'}}>MGH STAT</Text>
+          textAlign: 'center'}}>ACLS STAT</Text>
       </View>
     )
 
@@ -24,7 +24,8 @@ export default class InpatientConditions extends React.Component {
             <Icon name="ios-information-circle-outline" size={Dimensions.get('window').height/29} color="white" />
           </View>
         }
-        onPress={ () => navigation.navigate('DevelopmentTeam') }
+        onPress={ () => navigation.navigate('') }
+        // DevelopmentTeam
         type='clear'
       />
     )
@@ -34,10 +35,11 @@ export default class InpatientConditions extends React.Component {
       headerRight,  
       headerBackground: (
         <LinearGradient
-            colors={['#0086A2', '#1FAFC1',]}
+            colors={['#23A7C2', '#2D7C93',]}
+            // colors={['#336E79', '#146675',]}
             style={{ flex: 1 }}
-            start={{x: 0, y: 0}}
-            end={{x: 1, y: 0}}
+            // start={{x: 0, y: 0}}
+            // end={{x: 1, y: 0}}
         />
       ),
       // headerStyle: {backgroundColor: '#709CD0'},  
@@ -728,129 +730,601 @@ export default class InpatientConditions extends React.Component {
 
 
 
-// #4 new design with only ACLS content
-render() { 
-  return (  
-      <View>
+// // #4 new (my design) design with only ACLS content
+// render() { 
+//   return (  
+//       <View>
             
 
 
-        <View style={{
-          backgroundColor: '#256A96', 
-          marginTop: Dimensions.get('window').height/25, 
-          marginLeft: Dimensions.get('window').width/30, 
-          marginRight: Dimensions.get('window').width/30,
-          paddingBottom: Dimensions.get('window').height/60,
-          shadowOpacity: .5
-        }}>
-           <View style={{
-                paddingTop: Dimensions.get('window').height/100, 
-                alignItems: 'center',
-            }}>
-                <Text style={{color: 'white', fontSize: Dimensions.get('window').height/35, fontWeight: '500'}}>ACLS</Text>
-            </View>
-        </View>
+//         <View style={{
+//           backgroundColor: '#256A96', 
+//           marginTop: Dimensions.get('window').height/25, 
+//           marginLeft: Dimensions.get('window').width/30, 
+//           marginRight: Dimensions.get('window').width/30,
+//           paddingBottom: Dimensions.get('window').height/60,
+//           shadowOpacity: .5
+//         }}>
+//            <View style={{
+//                 paddingTop: Dimensions.get('window').height/100, 
+//                 alignItems: 'center',
+//             }}>
+//                 <Text style={{color: 'white', fontSize: Dimensions.get('window').height/35, fontWeight: '500'}}>ACLS</Text>
+//             </View>
+//         </View>
 
-        <View style={{
-          // backgroundColor: '#E7EAEA', 
-          backgroundColor: '#EBEBEB', 
-          alignItems: 'center',
-          marginLeft: Dimensions.get('window').width/30,  
-          marginRight: Dimensions.get('window').width/30,
-          paddingBottom: Dimensions.get('window').height/75,
-        }}>
-            <View style={{ 
-              paddingBottom: Dimensions.get('window').height/80,
-            }}>
-            </View>
+//         <View style={{
+//           // backgroundColor: '#E7EAEA', 
+//           backgroundColor: '#EBEBEB', 
+//           alignItems: 'center',
+//           marginLeft: Dimensions.get('window').width/30,  
+//           marginRight: Dimensions.get('window').width/30,
+//           paddingBottom: Dimensions.get('window').height/75,
+//         }}>
+//             <View style={{ 
+//               paddingBottom: Dimensions.get('window').height/80,
+//             }}>
+//             </View>
             
             
-            <View style={{alignItems: 'center', }}>
-              <View style={{flexDirection: 'row', }}>
-                <View style={{
-                  flexDirection: 'column', 
-                  marginRight: Dimensions.get('window').width/30, 
-                  marginBottom: Dimensions.get('window').height/150}}>
-                  <TouchableOpacity
-                    underlayColor='#69c8a1'
-                    style={styles.customBtnBG3} 
-                    onPress={() => this.props.navigation.navigate('CardiacArrest')}>
-                    <Text style={styles.customBtnText2}>Cardiac Arrest</Text>
-                  </TouchableOpacity>
-                </View>
+//             <View style={{alignItems: 'center', }}>
+//               <View style={{flexDirection: 'row', }}>
+//                 <View style={{
+//                   flexDirection: 'column', 
+//                   marginRight: Dimensions.get('window').width/30, 
+//                   marginBottom: Dimensions.get('window').height/150}}>
+//                   <TouchableOpacity
+//                     underlayColor='#69c8a1'
+//                     style={styles.customBtnBG3} 
+//                     onPress={() => this.props.navigation.navigate('CardiacArrest')}>
+//                     <Text style={styles.customBtnText2}>Cardiac Arrest</Text>
+//                   </TouchableOpacity>
+//                 </View>
 
-                <View style={{flexDirection: 'column'}}>
-                  <TouchableOpacity
-                    style={styles.customBtnBG3} 
-                    onPress={() => this.props.navigation.navigate('Bradycardia')}>
-                    <Text style={styles.customBtnText2}>Bradycardia</Text>
-                  </TouchableOpacity>
-                </View>     
-              </View>
-
-
+//                 <View style={{flexDirection: 'column'}}>
+//                   <TouchableOpacity
+//                     style={styles.customBtnBG3} 
+//                     onPress={() => this.props.navigation.navigate('Bradycardia')}>
+//                     <Text style={styles.customBtnText2}>Bradycardia</Text>
+//                   </TouchableOpacity>
+//                 </View>     
+//               </View>
 
 
 
-              <View style={{flexDirection: 'row', }}>
-                <View style={{
-                  flexDirection: 'column', 
-                  marginRight: Dimensions.get('window').width/30, 
-                  marginBottom: Dimensions.get('window').height/150}}>
-                  <TouchableOpacity
-                    underlayColor='#69c8a1'
-                    style={styles.customBtnBG3} 
-                    onPress={() => this.props.navigation.navigate('Tachycardia')}>
-                    <Text style={styles.customBtnText2}>Tachycardia</Text>
-                  </TouchableOpacity>
-                </View>
 
-                <View style={{flexDirection: 'column'}}>
-                  <TouchableOpacity
-                    style={styles.customBtnBG3} 
-                    onPress={() => this.props.navigation.navigate('PostCardiacArrestCare')}>
-                    <Text style={styles.customBtnTextLine1}>Post Cardiac</Text>
-                    <Text style={styles.customBtnTextLine2}>Arrest Care</Text>
-                  </TouchableOpacity>
-                </View>     
-              </View>
+
+//               <View style={{flexDirection: 'row', }}>
+//                 <View style={{
+//                   flexDirection: 'column', 
+//                   marginRight: Dimensions.get('window').width/30, 
+//                   marginBottom: Dimensions.get('window').height/150}}>
+//                   <TouchableOpacity
+//                     underlayColor='#69c8a1'
+//                     style={styles.customBtnBG3} 
+//                     onPress={() => this.props.navigation.navigate('Tachycardia')}>
+//                     <Text style={styles.customBtnText2}>Tachycardia</Text>
+//                   </TouchableOpacity>
+//                 </View>
+
+//                 <View style={{flexDirection: 'column'}}>
+//                   <TouchableOpacity
+//                     style={styles.customBtnBG3} 
+//                     onPress={() => this.props.navigation.navigate('PostCardiacArrestCare')}>
+//                     <Text style={styles.customBtnTextLine1}>Post Cardiac</Text>
+//                     <Text style={styles.customBtnTextLine2}>Arrest Care</Text>
+//                   </TouchableOpacity>
+//                 </View>     
+//               </View>
 
               
         
             
-              {/* <View style={{
-                  marginTop: Dimensions.get('window').height/140,
-                  flexDirection: 'column', 
-                  marginLeft: Dimensions.get('window').width/28, 
-                  }}>
-                  <TouchableOpacity
-                    underlayColor='#69c8a1'
-                    style={styles.customBtnBG3} 
-                    onPress={() => this.props.navigation.navigate('Tachycardia')}>
-                    <Text style={styles.customBtnText2}>Tachycardia</Text>
-                  </TouchableOpacity>
-              </View> */}
+//               {/* <View style={{
+//                   marginTop: Dimensions.get('window').height/140,
+//                   flexDirection: 'column', 
+//                   marginLeft: Dimensions.get('window').width/28, 
+//                   }}>
+//                   <TouchableOpacity
+//                     underlayColor='#69c8a1'
+//                     style={styles.customBtnBG3} 
+//                     onPress={() => this.props.navigation.navigate('Tachycardia')}>
+//                     <Text style={styles.customBtnText2}>Tachycardia</Text>
+//                   </TouchableOpacity>
+//               </View> */}
 
               
 
-          </View>
+//           </View>
+//         </View>
+
+//         <View style={{marginTop: Dimensions.get('window').height/40, alignItems: 'center'}}>
+//           <Image
+//             source={require('../../assets/mgh-htl-stacked.png')}
+//             style={{
+//               marginRight: Dimensions.get('window').width/35, 
+//               width: Dimensions.get('window').width/1.4, 
+//               height: Dimensions.get('window').height/10 }}
+//           />
+//         </View>
+//       </View>
+//     )
+//   }
+// }
+
+// const styles = StyleSheet.create({
+// title: {
+//   fontWeight: '600',
+//   color: '#333333',
+//   fontSize: Dimensions.get('window').height/35, 
+// },
+// button: {
+//   marginTop: Dimensions.get('window').height/100
+// },
+// customBtnText2: {
+//   fontWeight: '500',
+//   textAlign: 'center',
+//   textAlignVertical: "center",
+//   // color: 'white',
+//   color: '#303333',
+//   fontSize: Dimensions.get('window').height/40,
+//   marginTop: Dimensions.get('window').height/28
+// },
+// customBtnTextLine1: {
+//   fontWeight: '500',
+//   textAlign: 'center',
+//   textAlignVertical: "center",
+//   color: '#303333',
+//   fontSize: Dimensions.get('window').height/40,
+//   marginTop: Dimensions.get('window').height/40
+// },
+// customBtnTextLine2: {
+//   fontWeight: '500',
+//   textAlign: 'center',
+//   textAlignVertical: "center",
+//   color: '#303333',
+//   fontSize: Dimensions.get('window').height/40,
+// },
+// customBtnBG2: {
+//   paddingHorizontal: 1,
+//   paddingVertical: 1,
+//   shadowOpacity: .1, 
+//   borderColor: '#6AA1B5',
+//   // borderWidth: 2,
+//   // backgroundColor: '#6AA1B5',
+//   backgroundColor: 'white',
+//   borderRadius: 4, 
+//   width: Dimensions.get('window').width/2.4,
+//   height: Dimensions.get('window').height/9,
+// },
+// customBtnBG3: {
+//   paddingHorizontal: 1,
+//   paddingVertical: 1,
+//   shadowOpacity: .1, 
+//   backgroundColor: 'white',
+//   borderRadius: 4, 
+//   width: Dimensions.get('window').width/2.4,
+//   height: Dimensions.get('window').height/9,
+// }
+// })
+
+
+
+
+
+
+
+
+
+
+// // #5 new design (alyssa's design) with only ACLS content
+// render() { 
+//   return (  
+//       <View>
+
+//         <View style={styles.top}>
+//             <View style={{ alignItems: 'center'}}>
+//               <Image
+//                 source={require('../../assets/aha3.png')}
+//                 style={{
+//                   marginRight: Dimensions.get('window').width/35, 
+//                   width: Dimensions.get('window').width/1.4, 
+//                   height: Dimensions.get('window').height/10 }}
+//               />
+//             </View>
+//         </View>
+
+
+            
+
+//         <View style={styles.middle}>
+
+//         <LinearGradient 
+//             // colors={['#D4801C', '#AD3839', ]}  
+//             colors={['#256A96', '#118994', ]}  
+//             start={{x: 0, y: 0}}
+//             end={{x: 1, y: 0}} 
+//             style={styles.linearGradient}>
+//           <Text style={styles.buttonText}>
+//             ACLS
+//           </Text>
+//         </LinearGradient>
+
+//               {/* <View style={{
+//                 backgroundColor: '#256A96', 
+//                 backgroundColor: '#EC3C3E', 
+//                 // marginTop: Dimensions.get('window').height/25, 
+//                 marginLeft: Dimensions.get('window').width/30, 
+//                 marginRight: Dimensions.get('window').width/30,
+//                 paddingBottom: Dimensions.get('window').height/60,
+//                 shadowOpacity: .5
+//               }}> */}
+//                 {/* <View style={{
+//                       paddingTop: Dimensions.get('window').height/100, 
+//                       alignItems: 'center',
+//                   }}> */}
+
+                    
+//                       {/* <Text style={{color: 'white', fontSize: Dimensions.get('window').height/35, fontWeight: '500'}}>ACLS</Text> */}
+//                   {/* </View> */}
+//               {/* </View> */}
+
+//               <View style={{
+//                 // backgroundColor: '#E7EAEA', 
+//                 backgroundColor: '#EBEBEB', 
+//                 alignItems: 'center',
+//                 marginLeft: Dimensions.get('window').width/30,  
+//                 marginRight: Dimensions.get('window').width/30,
+//                 paddingBottom: Dimensions.get('window').height/75,
+//               }}>
+//                   <View style={{ 
+//                     paddingBottom: Dimensions.get('window').height/80,
+//                   }}>
+//                   </View>
+                  
+                  
+//                   <View style={{alignItems: 'center', }}>
+//                     <View style={{flexDirection: 'row', }}>
+//                       <View style={{
+//                         flexDirection: 'column', 
+//                         marginRight: Dimensions.get('window').width/30, 
+//                         marginBottom: Dimensions.get('window').height/150}}>
+//                         <TouchableOpacity
+//                           underlayColor='#69c8a1'
+//                           style={styles.customBtnBG3} 
+//                           onPress={() => this.props.navigation.navigate('CardiacArrest')}>
+//                           <Text style={styles.customBtnText2}>Cardiac Arrest</Text>
+//                         </TouchableOpacity>
+//                       </View>
+
+//                       <View style={{flexDirection: 'column'}}>
+//                         <TouchableOpacity
+//                           style={styles.customBtnBG3} 
+//                           onPress={() => this.props.navigation.navigate('Bradycardia')}>
+//                           <Text style={styles.customBtnText2}>Bradycardia</Text>
+//                         </TouchableOpacity>
+//                       </View>     
+//                     </View>
+
+
+
+
+
+//                     <View style={{flexDirection: 'row', }}>
+//                       <View style={{
+//                         flexDirection: 'column', 
+//                         marginRight: Dimensions.get('window').width/30, 
+//                         marginBottom: Dimensions.get('window').height/150}}>
+//                         <TouchableOpacity
+//                           underlayColor='#69c8a1'
+//                           style={styles.customBtnBG3} 
+//                           onPress={() => this.props.navigation.navigate('Tachycardia')}>
+//                           <Text style={styles.customBtnText2}>Tachycardia</Text>
+//                         </TouchableOpacity>
+//                       </View>
+
+//                       <View style={{flexDirection: 'column'}}>
+//                         <TouchableOpacity
+//                           style={styles.customBtnBG3} 
+//                           onPress={() => this.props.navigation.navigate('PostCardiacArrestCare')}>
+//                           <Text style={styles.customBtnTextLine1}>Post Cardiac</Text>
+//                           <Text style={styles.customBtnTextLine2}>Arrest Care</Text>
+//                         </TouchableOpacity>
+//                       </View>     
+//                     </View>
+
+                    
+              
+                  
+//                     {/* <View style={{
+//                         marginTop: Dimensions.get('window').height/140,
+//                         flexDirection: 'column', 
+//                         marginLeft: Dimensions.get('window').width/28, 
+//                         }}>
+//                         <TouchableOpacity
+//                           underlayColor='#69c8a1'
+//                           style={styles.customBtnBG3} 
+//                           onPress={() => this.props.navigation.navigate('Tachycardia')}>
+//                           <Text style={styles.customBtnText2}>Tachycardia</Text>
+//                         </TouchableOpacity>
+//                     </View> */}
+
+                    
+
+//                 </View>
+//               </View>
+//         </View>
+
+
+
+
+
+//         <View style={styles.bottom}>
+//             <View style={{marginTop: Dimensions.get('window').height/40, alignItems: 'center'}}>
+//               <Image
+//                 source={require('../../assets/mgh-htl-stacked.png')}
+//                 style={{
+//                   marginRight: Dimensions.get('window').width/35, 
+//                   width: Dimensions.get('window').width/1.4, 
+//                   height: Dimensions.get('window').height/10 }}
+//               />
+//             </View>
+//         </View>
+
+       
+//       </View>
+//     )
+//   }
+// }
+
+// const styles = StyleSheet.create({
+//   linearGradient: {
+//       // backgroundColor: '#256A96', 
+//       // backgroundColor: '#EC3C3E', 
+//       // backgroundColor: '#EC3C3E', 
+//       // marginTop: Dimensions.get('window').height/25, 
+//       marginLeft: Dimensions.get('window').width/30, 
+//       marginRight: Dimensions.get('window').width/30,
+//       paddingBottom: Dimensions.get('window').height/60,
+//       shadowOpacity: .5
+//   },
+//   buttonText: {
+//     fontSize: Dimensions.get('window').height/35,
+//     fontFamily: 'Gill Sans',
+//     textAlign: 'center',
+//     marginTop: Dimensions.get('window').height/55,
+//     color: '#ffffff',
+//     backgroundColor: 'transparent',
+//   },
+// top: {
+//   height: '25%',
+//   justifyContent: 'center',
+//   // backgroundColor: 'yellow'
+// },
+// middle: {
+//   height: '50%',
+//   justifyContent: 'center',
+//   // backgroundColor: 'pink'
+// },
+// bottom: {
+//   height: '25%',
+//   paddingTop: Dimensions.get('window').height/30,
+//   // backgroundColor: 'gray'
+// },
+
+// title: {
+//   fontWeight: '600',
+//   color: '#333333',
+//   fontSize: Dimensions.get('window').height/35, 
+// },
+// button: {
+//   marginTop: Dimensions.get('window').height/100
+// },
+// customBtnText2: {
+//   fontWeight: '500',
+//   textAlign: 'center',
+//   textAlignVertical: "center",
+//   // color: 'white',
+//   color: '#303333',
+//   fontSize: Dimensions.get('window').height/40,
+//   marginTop: Dimensions.get('window').height/28
+// },
+// customBtnTextLine1: {
+//   fontWeight: '500',
+//   textAlign: 'center',
+//   textAlignVertical: "center",
+//   color: '#303333',
+//   fontSize: Dimensions.get('window').height/40,
+//   marginTop: Dimensions.get('window').height/40
+// },
+// customBtnTextLine2: {
+//   fontWeight: '500',
+//   textAlign: 'center',
+//   textAlignVertical: "center",
+//   color: '#303333',
+//   fontSize: Dimensions.get('window').height/40,
+// },
+// customBtnBG2: {
+//   paddingHorizontal: 1,
+//   paddingVertical: 1,
+//   shadowOpacity: .1, 
+//   borderColor: '#6AA1B5',
+//   // borderWidth: 2,
+//   // backgroundColor: '#6AA1B5',
+//   backgroundColor: 'white',
+//   borderRadius: 4, 
+//   width: Dimensions.get('window').width/2.4,
+//   height: Dimensions.get('window').height/9,
+// },
+// customBtnBG3: {
+//   paddingHorizontal: 1,
+//   paddingVertical: 1,
+//   shadowOpacity: .1, 
+//   backgroundColor: 'white',
+//   borderRadius: 4, 
+//   width: Dimensions.get('window').width/2.4,
+//   height: Dimensions.get('window').height/9,
+// }
+// })
+
+
+// #6 new design (version2) with only ACLS content with 4 top to bottom, not side by side
+render() { 
+  return (  
+      <View>
+
+        <View style={styles.top}>
+            <View style={{ alignItems: 'center'}}>
+              <Image
+                source={require('../../assets/aha3.png')}
+                style={{
+                  marginRight: Dimensions.get('window').width/35, 
+                  width: Dimensions.get('window').width/1.4, 
+                  height: Dimensions.get('window').height/10 }}
+              />
+            </View>
         </View>
 
-        <View style={{marginTop: Dimensions.get('window').height/40, alignItems: 'center'}}>
-          <Image
-            source={require('../../assets/mgh-htl-stacked.png')}
-            style={{
-              marginRight: Dimensions.get('window').width/35, 
-              width: Dimensions.get('window').width/1.4, 
-              height: Dimensions.get('window').height/10 }}
-          />
+
+            
+
+        <View style={styles.middle}>
+
+        <LinearGradient 
+            // colors={['#D4801C', '#AD3839', ]}  
+            colors={['#256A96', '#118994', ]}  
+            start={{x: 0, y: 0}}
+            end={{x: 1, y: 0}} 
+            style={styles.linearGradient}>
+          <Text style={styles.buttonText}>
+            ACLS
+          </Text>
+        </LinearGradient>
+
+            
+
+              <View style={{
+                // backgroundColor: '#E7EAEA', 
+                backgroundColor: '#EBEBEB', 
+                alignItems: 'center',
+                marginLeft: Dimensions.get('window').width/30,  
+                marginRight: Dimensions.get('window').width/30,
+                paddingTop: Dimensions.get('window').height/55,
+                paddingBottom: Dimensions.get('window').height/30,
+              }}>
+                  <View style={{ 
+                    paddingBottom: Dimensions.get('window').height/80,
+                  }}>
+                  </View>
+                  
+                  
+                <View style={{alignItems: 'center', }}>
+                   
+                  <View>
+                        <TouchableOpacity
+                          underlayColor='#69c8a1'
+                          style={styles.customBtnBG3} 
+                          onPress={() => this.props.navigation.navigate('CardiacArrest')}>
+                          <Text style={styles.customBtnText2}>Cardiac Arrest</Text>
+                        </TouchableOpacity>
+                  </View>
+               
+
+               <View style={{marginTop: Dimensions.get('window').height/75,}}>
+
+                        <TouchableOpacity
+                          style={styles.customBtnBG3} 
+                          onPress={() => this.props.navigation.navigate('Bradycardia')}>
+                          <Text style={styles.customBtnText2}>Bradycardia</Text>
+                        </TouchableOpacity>
+               </View>
+                       
+                    
+
+
+
+
+                      <View style={{marginTop: Dimensions.get('window').height/75,}}>
+                        <TouchableOpacity
+                          underlayColor='#69c8a1'
+                          style={styles.customBtnBG3} 
+                          onPress={() => this.props.navigation.navigate('Tachycardia')}>
+                          <Text style={styles.customBtnText2}>Tachycardia</Text>
+                        </TouchableOpacity>
+                        </View>
+                 
+
+              <View style={{marginTop: Dimensions.get('window').height/75,}}>
+                        <TouchableOpacity
+                          style={styles.customBtnBG3} 
+                          onPress={() => this.props.navigation.navigate('PostCardiacArrestCare')}>
+                          <Text style={styles.customBtnTextLine1}>Post Cardiac</Text>
+                          <Text style={styles.customBtnTextLine2}>Arrest Care</Text>
+                        </TouchableOpacity>
+                  </View>
+                       
+                
+                </View>
+              </View>
         </View>
+
+
+
+
+
+        <View style={styles.bottom}>
+            <View style={{ alignItems: 'center'}}>
+              <Image
+                source={require('../../assets/mgh-htl-stacked.png')}
+                style={{
+                  marginRight: Dimensions.get('window').width/35, 
+                  width: Dimensions.get('window').width/1.4, 
+                  height: Dimensions.get('window').height/10 }}
+              />
+            </View>
+        </View>
+
+       
       </View>
     )
   }
 }
 
 const styles = StyleSheet.create({
+  linearGradient: {
+      // backgroundColor: '#256A96', 
+      // backgroundColor: '#EC3C3E', 
+      // backgroundColor: '#EC3C3E', 
+      // marginTop: Dimensions.get('window').height/25, 
+      marginLeft: Dimensions.get('window').width/30, 
+      marginRight: Dimensions.get('window').width/30,
+      paddingBottom: Dimensions.get('window').height/60,
+      shadowOpacity: .5
+  },
+  buttonText: {
+    fontSize: Dimensions.get('window').height/35,
+    fontFamily: 'Gill Sans',
+    textAlign: 'center',
+    marginTop: Dimensions.get('window').height/55,
+    color: '#ffffff',
+    backgroundColor: 'transparent',
+  },
+top: {
+  height: '17%',
+  justifyContent: 'center',
+  // backgroundColor: 'yellow'
+},
+middle: {
+  height: '66%',
+  justifyContent: 'center',
+  // backgroundColor: 'pink'
+},
+bottom: {
+  height: '17%',
+  justifyContent: 'center',
+  // backgroundColor: 'gray'
+},
+
 title: {
   fontWeight: '600',
   color: '#333333',
@@ -874,7 +1348,7 @@ customBtnTextLine1: {
   textAlignVertical: "center",
   color: '#303333',
   fontSize: Dimensions.get('window').height/40,
-  marginTop: Dimensions.get('window').height/40
+  marginTop: Dimensions.get('window').height/55
 },
 customBtnTextLine2: {
   fontWeight: '500',
@@ -901,7 +1375,7 @@ customBtnBG3: {
   shadowOpacity: .1, 
   backgroundColor: 'white',
   borderRadius: 4, 
-  width: Dimensions.get('window').width/2.4,
-  height: Dimensions.get('window').height/9,
+  width: Dimensions.get('window').width/1.16,
+  height: Dimensions.get('window').height/10,
 }
 })

@@ -5,6 +5,7 @@ import { ThemeProvider, Button, Divider } from 'react-native-elements'
 import SynchronizedCardioversion from './SynchronizedCardioversion'
 import AdenosineIVDose from './AdenosineIVDose'
 import Component from './../Component'
+import LinearGradient from 'react-native-linear-gradient';
 
 
 const myIcon = <Icon name="ios-arrow-back" size={30} color="white" />;
@@ -53,7 +54,7 @@ export default class Tachycardia extends React.Component {
           fontSize: Dimensions.get('window').height/43, 
           marginTop: Dimensions.get('window').height/200, 
           color: 'white', fontWeight: 'bold', 
-          textAlign: 'center'}}>MGH STAT</Text>
+          textAlign: 'center'}}>ACLS STAT</Text>
       </View>
     )
       
@@ -85,7 +86,14 @@ export default class Tachycardia extends React.Component {
       headerLeft, 
       headerRight,
       headerTitle,
-      headerStyle: {backgroundColor: '#709CD0'},      
+      headerBackground: (
+        <LinearGradient
+            colors={['#23A7C2', '#2D7C93',]}
+            style={{ flex: 1 }}
+            start={{x: 0, y: 0}}
+            end={{x: 1, y: 0}}
+        />
+      ),     
     }
   }
 
@@ -93,8 +101,8 @@ export default class Tachycardia extends React.Component {
     if (Dimensions.get('window').width === 375 && Dimensions.get('window').height === 812) {
       return (
         <Image
-          source={require('../../../../assets/Tachycardia4000x6000.png')}
-          style={{marginBottom: Dimensions.get('window').height/35, width: Dimensions.get('window').width, height: Dimensions.get('window').height/.95 }}
+          source={require('../../../../assets/Tachycardia3000x3050.png')}
+          style={{marginBottom: Dimensions.get('window').height/80, width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.17 }}
         />
       )
     }
@@ -104,7 +112,7 @@ export default class Tachycardia extends React.Component {
     if (Dimensions.get('window').width === 414 && Dimensions.get('window').height === 896) {
       return (
         <Image
-          source={require('../../../../assets/Tachycardia4000x6000.png')}
+          source={require('../../../../assets/Tachycardia3000x3050.png')}
           style={{marginBottom: Dimensions.get('window').height/35, width: Dimensions.get('window').width, height: Dimensions.get('window').height/.95}}
         />
       )
@@ -115,7 +123,7 @@ export default class Tachycardia extends React.Component {
     if (Dimensions.get('window').width === 375 && Dimensions.get('window').height === 667) {
       return (
         <Image
-          source={require('../../../../assets/Tachycardia4000x6000.png')}
+          source={require('../../../../assets/Tachycardia3000x3050.png')}
           style={{marginBottom: Dimensions.get('window').height/35, width: Dimensions.get('window').width, height: Dimensions.get('window').height/.8 }}
         />
       )
@@ -126,7 +134,7 @@ export default class Tachycardia extends React.Component {
     if (Dimensions.get('window').width === 414 && Dimensions.get('window').height === 736) {
       return (
         <Image
-          source={require('../../../../assets/Tachycardia4000x6000.png')}
+          source={require('../../../../assets/Tachycardia3000x3050.png')}
           style={{marginBottom: Dimensions.get('window').height/35, width: Dimensions.get('window').width, height: Dimensions.get('window').height/.8 }}
         />
       )
@@ -215,6 +223,9 @@ export default class Tachycardia extends React.Component {
             {this.IPhone414x736()}
           </View>
 
+            <View style={{marginBottom: Dimensions.get('window').height/50}}>
+
+            </View>
 
 
             <View onLayout={this.measureSynchronizedCardioversionView}>
@@ -237,11 +248,11 @@ export default class Tachycardia extends React.Component {
               />
             </View>
 
-            <View style={{marginTop: Dimensions.get('window').height/50, alignItems: 'center'}}>
+            {/* <View style={{marginTop: Dimensions.get('window').height/50, alignItems: 'center'}}>
               <Text style={{fontSize: Dimensions.get('window').height/70}}>
                 American Heart Association Guidelines 2015
               </Text>
-            </View>
+            </View> */}
 
 
 

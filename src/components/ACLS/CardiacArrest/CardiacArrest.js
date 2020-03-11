@@ -9,7 +9,8 @@ import CardiacArrestROSC from './cardiacArrestROSC'
 import CardiacArrestCPR from './cardiacArrestCPR'
 import CardiacArrestAdvancedAirway from './cardiacArrestAdvancedAirway'
 import Component from './../Component'
-import Timer from './Timer'
+// import Timer from './Timer'
+import LinearGradient from 'react-native-linear-gradient';
 
 
 export default class CardiacArrest extends React.Component {
@@ -54,7 +55,7 @@ export default class CardiacArrest extends React.Component {
           fontSize: Dimensions.get('window').height/43, 
           marginTop: Dimensions.get('window').height/200, 
           color: 'white', fontWeight: 'bold', 
-          textAlign: 'center'}}>MGH STAT</Text>
+          textAlign: 'center'}}>ACLS STAT</Text>
       </View>
     )
       
@@ -86,7 +87,14 @@ export default class CardiacArrest extends React.Component {
       headerLeft, 
       headerRight,
       headerTitle,
-      headerStyle: {backgroundColor: '#709CD0'},      
+      headerBackground: (
+        <LinearGradient
+            colors={['#23A7C2', '#2D7C93',]}
+            style={{ flex: 1 }}
+            start={{x: 0, y: 0}}
+            end={{x: 1, y: 0}}
+        />
+      ),   
     }
   }
 
@@ -94,8 +102,8 @@ export default class CardiacArrest extends React.Component {
     if (Dimensions.get('window').width === 375 && Dimensions.get('window').height === 812) {
       return (
         <Image
-          source={require('../../../../assets/CardiacArrest3000x5500.png')}
-          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/.75}}
+          source={require('../../../../assets/CardiacArrest3000x3000.png')}
+          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.25}}
         />
       )
     }
@@ -105,7 +113,7 @@ export default class CardiacArrest extends React.Component {
     if (Dimensions.get('window').width === 414 && Dimensions.get('window').height === 896) {
       return (
         <Image
-          source={require('../../../../assets/CardiacArrest3000x5500.png')}
+          source={require('../../../../assets/CardiacArrest3000x3000.png')}
           style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/.75}}
         />
       )
@@ -116,8 +124,8 @@ export default class CardiacArrest extends React.Component {
     if (Dimensions.get('window').width === 375 && Dimensions.get('window').height === 667) {
       return (
         <Image
-          source={require('../../../../assets/CardiacArrest3000x5500.png')}
-          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/.6 }}
+          source={require('../../../../assets/CardiacArrest3000x3000.png')}
+          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.01 }}
         />
       )
     }
@@ -127,8 +135,9 @@ export default class CardiacArrest extends React.Component {
     if (Dimensions.get('window').width === 414 && Dimensions.get('window').height === 736) {
       return (
         <Image
-          source={require('../../../../assets/CardiacArrest3000x5500.png')}
-          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/.6 }}
+        // source={require('../../../../assets/CardiacArrest3000x3000.png')}
+        // source={require('../../../../assets/CardiacArrest3000x3000.png')}
+          style={{width: Dimensions.get('window').width/2, height: Dimensions.get('window').height }}
         />
       )
     }
@@ -138,8 +147,8 @@ export default class CardiacArrest extends React.Component {
     if (Dimensions.get('window').width === 320 && Dimensions.get('window').height === 568) {
       return (
         <Image
-          source={require('../../../../assets/CardiacArrest3000x5500.png')}
-          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/.63 }}
+          source={require('../../../../assets/CardiacArrest3000x3000.png')}
+          style={{width: Dimensions.get('window').width/2, height: Dimensions.get('window').height }}
         />
       )
     }
@@ -168,7 +177,6 @@ export default class CardiacArrest extends React.Component {
       CPRQualityHidden: true,
       advancedAirwayHidden: true
     }
-    this.ImageURI = require('../../../../assets/Cardiac.png')
   }
 
   onPressReversibleCausesHidden = () => {
@@ -385,88 +393,95 @@ export default class CardiacArrest extends React.Component {
 
 
 
-<View style={{}}>
-
-        <View style={{flexDirection: 'row', }}>
-            <View style={{
-                flexDirection: 'column',
-                width: '60%',
-                backgroundColor: '#EED8C5', 
-                borderRadius: 10, 
-                padding: Dimensions.get('window').width/50,
-                marginLeft: Dimensions.get('window').width/40,  
-                marginRight: Dimensions.get('window').width/50,
-                paddingBottom: Dimensions.get('window').height/75,
-            }}>
-
-              <View style={{flexDirection: 'row'}}>
-                <View style={{flexDirection: 'column'}}>
-                    <Text style={{fontSize: Dimensions.get('window').height/42,}}>{`\u2022`}</Text>
-                </View>
-
-                <View style={{flexDirection: 'column'}}>
-                  <Text style={{fontSize: Dimensions.get('window').height/42}}>
-                    <Text>If no signs of return of spontaneous circulation (ROSC), go to</Text>
-                    <Text style={{fontWeight: 'bold'}}> 10</Text>
-                    <Text> or</Text>
-                    <Text style={{fontWeight: 'bold'}}> 11</Text>
-                  </Text>
-                </View>
-              </View>
-              <View></View>
+<View style={{alignItems: 'center', marginBottom: Dimensions.get('window').height/50,}}>
+  <View style={{flexDirection: 'row'}}>
 
 
+    <View style={{
+      backgroundColor: '#CBE7F7', 
+      borderRadius: 10, 
+      // marginLeft: Dimensions.get('window').width/50,
+      width: '35%',
+      padding: Dimensions.get('window').width/150,
+    }}>
+      <View style={{alignItems: 'center',}}>
+        <Text style={{fontWeight: 'bold', fontSize: Dimensions.get('window').width/21}}>CPR 2 min</Text>
+      </View>
+      <View style={{flexDirection: 'row'}}>
+          <Text style={{
+            fontSize: Dimensions.get('window').height/42, 
+            marginRight: Dimensions.get('window').width/90,}}>{`\u2022`}</Text>
+          <Text style={{marginTop: Dimensions.get('window').height/200}}>Amiodarone or Liocaine</Text> 
+      </View>
+      <View style={{flexDirection: 'row'}}>
+          <Text style={{fontSize: Dimensions.get('window').height/40, paddingRight: Dimensions.get('window').width/90,}}>{`\u2022`}</Text>
+          <Text style={{marginTop: Dimensions.get('window').height/200}}>Treat reversible causes</Text> 
+      </View>
+    </View>
 
-            <View style={{flexDirection: 'row'}}>
-              <View style={{flexDirection: 'column'}}>
-                  <Text style={{fontSize: Dimensions.get('window').height/42,}}>{`\u2022`}</Text>
-              </View>
 
-              <View style={{flexDirection: 'column'}}>
-                      <Text style={{fontSize: Dimensions.get('window').height/42,}}>If ROSC, go to</Text>
-                      <TouchableOpacity
-                        style={styles.customBtnBG3} 
-                        onPress={() => this.props.navigation.navigate('PostCardiacArrestCare')}>
-                        <Text style={styles.customBtnText2}>Post Cardiac Arrest Care</Text>
-                      </TouchableOpacity>
-              </View>
-            </View>
-          </View>
+ 
 
 
 
 
 
-          <View style={{
-              flexDirection: 'column',
-              width: '20%', 
-              alignItems: 'center',
-              borderRadius: 10, 
-              marginLeft: Dimensions.get('window').width/7,  
-          }}>
-            <View style={{flexDirection: 'column', }}>
-              <View style={{flexDirection: 'row', backgroundColor: '#EED8C5', borderRadius: 10, height: Dimensions.get('window').height/10, padding: 10}}>
-                    <Text style={{fontSize: Dimensions.get('window').height/42,}}>
-                      <Text>Go to</Text>
-                      <Text style={{fontWeight: 'bold'}}> 5</Text>
-                      <Text> or</Text>
-                      <Text style={{fontWeight: 'bold'}}> 7</Text>
-                    </Text>
-              </View>
-
-              <View style={{flexDirection: 'row', backgroundColor: 'white'}}>
-                {/* <Text>Hllo</Text> */}
-              </View>
-
-            </View>
 
 
 
 
-
-          </View>
+      <View style={{
+          backgroundColor: '#EED8C5', 
+          borderRadius: 10, 
+          marginLeft: Dimensions.get('window').width/30,
+          width: '57%',
+          padding: Dimensions.get('window').width/150,
+      }}>
+        <View style={{flexDirection: 'row',}}>
+          <Text style={{
+            // marginTop: Dimensions.get('window').height/140, 
+            marginRight: Dimensions.get('window').width/90, 
+            fontSize: Dimensions.get('window').height/42,}}>{`\u2022`}</Text>
+          <Text style={{flex: 1, flexWrap: 'wrap', marginTop: Dimensions.get('window').height/200}}>
+            <Text>If no signs of ROSC, go to</Text>
+            <Text style={{fontWeight: 'bold'}}> 10</Text>
+            <Text> or</Text>
+            <Text style={{fontWeight: 'bold'}}> 11</Text> 
+          </Text>
         </View>
-</View>
+            
+
+        <View style={{flexDirection: 'row'}}>
+              <Text style={{
+                  marginRight: Dimensions.get('window').width/90,
+                  marginTop: Dimensions.get('window').height/140, 
+                  fontSize: Dimensions.get('window').height/42,}}>{`\u2022`}
+              </Text>
+
+              <Text style={{
+                marginTop: Dimensions.get('window').height/80, 
+                fontSize: Dimensions.get('window').width/27,}}>If ROSC, go to 
+              </Text>
+        </View>
+
+        <View style={{alignItems: 'center'}}>
+          <TouchableOpacity
+            style={styles.customBtnBG3} 
+            onPress={() => this.props.navigation.navigate('PostCardiacArrestCare')}>
+            <Text style={styles.customBtnText2}>Post Cardiac Arrest Care</Text>
+          </TouchableOpacity>
+        </View>
+
+      </View>
+    </View>
+  </View>
+
+
+
+
+
+
+
 
 
    
@@ -510,7 +525,7 @@ export default class CardiacArrest extends React.Component {
                   toggle={this.onPressROSCHidden} 
                   hidden = {this.state.ROSCHidden}
                   component={<CardiacArrestROSC />}
-                  buttonTitle='Return of Spontaneous Circulation (ROSC)'
+                  buttonTitle='Return of Spontaneous Circulation'
                 />
               </View>
 
@@ -534,13 +549,13 @@ export default class CardiacArrest extends React.Component {
                 />
               </View>
 
-              <View style={{
+              {/* <View style={{
                 marginTop: Dimensions.get('window').height/50
               }}>
                 <Text style={{fontSize: Dimensions.get('window').height/70,}}>
                   American Heart Association Guidelines 2018
                 </Text>
-              </View>
+              </View> */}
           </View>
 
         
@@ -584,17 +599,15 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     textAlignVertical: "center",
     color: 'white',
-    fontSize: Dimensions.get('window').height/50,
-    marginTop: Dimensions.get('window').height/200
+    marginTop: Dimensions.get('window').height/155,
+    fontSize: Dimensions.get('window').width/25,
   },
   customBtnBG3: {
     alignItems: 'center',
     backgroundColor: '#B93E2F',
-    paddingHorizontal: 1,
-    paddingVertical: 1,
-    shadowOpacity: .1, 
+    // shadowOpacity: .3, 
     borderRadius: 4, 
-    marginTop: Dimensions.get('window').height/150,
+    marginTop: Dimensions.get('window').height/250,
     width: Dimensions.get('window').width/2,
     height: Dimensions.get('window').height/25,
   }

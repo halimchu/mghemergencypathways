@@ -31,21 +31,19 @@
       "scale" : "3x"
     },
     {
-      "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "STAT120x120.png",
+      "size" : "60x60",
       "scale" : "2x"
     },
     {
-      "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "STAT180x180.png",
+      "size" : "60x60",
       "scale" : "3x"
     },
     {
       "size" : "1024x1024",
       "idiom" : "ios-marketing",
-      "filename" : "STAT1024.png",
+      "filename" : "HAEMR App Icon_25.png",
       "scale" : "1x"
     }
   ],

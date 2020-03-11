@@ -5,6 +5,7 @@ import { Button, Divider } from 'react-native-elements'
 import Component from './../Component'
 import ReversibleCauses from '../reversibleCauses'
 import DosesDetails from './DosesDetails'
+import LinearGradient from 'react-native-linear-gradient';
 
 export default class PostCardiacArrestCare extends React.Component {
   static navigationOptions = ({ navigation }) => {
@@ -48,7 +49,7 @@ export default class PostCardiacArrestCare extends React.Component {
           fontSize: Dimensions.get('window').height/43, 
           marginTop: Dimensions.get('window').height/200, 
           color: 'white', fontWeight: 'bold', 
-          textAlign: 'center'}}>MGH STAT</Text>
+          textAlign: 'center'}}>ACLS STAT</Text>
       </View>
     )
       
@@ -80,7 +81,14 @@ export default class PostCardiacArrestCare extends React.Component {
       headerLeft, 
       headerRight,
       headerTitle,
-      headerStyle: {backgroundColor: '#709CD0'},      
+      headerBackground: (
+        <LinearGradient
+            colors={['#23A7C2', '#2D7C93',]}
+            style={{ flex: 1 }}
+            start={{x: 0, y: 0}}
+            end={{x: 1, y: 0}}
+        />
+      ),     
     }
   }
 
@@ -89,7 +97,7 @@ export default class PostCardiacArrestCare extends React.Component {
       return (
         <Image
           source={require('../../../../assets/PostCardiacArrestCare3000x4000.png')}
-          style={{marginBottom: Dimensions.get('window').height/70, width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.3}}
+          style={{ width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.3}}
         />
       )
     }
@@ -203,6 +211,10 @@ export default class PostCardiacArrestCare extends React.Component {
             {this.IPhone414x736()}
           </View>
 
+          <View style={{marginBottom: Dimensions.get('window').height/50}}>
+
+          </View>
+
           <View style={{ alignItems: 'center', marginTop: Dimensions.get('window').height/80 }} onLayout={this.measureParentView}>
               <View onLayout={this.measureReversibleCausesView}>
                 <Component 
@@ -227,14 +239,7 @@ export default class PostCardiacArrestCare extends React.Component {
           </View>
 
 
-          <View style={{
-            marginTop: Dimensions.get('window').height/50,
-            alignItems: 'center'
-          }}>
-            <Text style={{fontSize: Dimensions.get('window').height/70,}}>
-              American Heart Association Guidelines 2015
-            </Text>
-          </View>
+    
 
 
 
