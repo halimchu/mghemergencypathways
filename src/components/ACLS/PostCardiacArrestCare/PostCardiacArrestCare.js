@@ -3,7 +3,7 @@ import { Image, Dimensions, View, Text, StyleSheet, ScrollView, TouchableOpacity
 import Icon from 'react-native-vector-icons/Ionicons' 
 import { Button, Divider } from 'react-native-elements'
 import Component from './../Component'
-import ReversibleCauses from '../reversibleCauses'
+import ReversibleCausesPostCardiac from './reversibleCausesPostCardiac'
 import DosesDetails from './DosesDetails'
 import LinearGradient from 'react-native-linear-gradient';
 
@@ -49,7 +49,7 @@ export default class PostCardiacArrestCare extends React.Component {
           fontSize: Dimensions.get('window').height/43, 
           marginTop: Dimensions.get('window').height/200, 
           color: 'white', fontWeight: 'bold', 
-          textAlign: 'center'}}>ACLS STAT</Text>
+          textAlign: 'center'}}>ACLS</Text>
       </View>
     )
       
@@ -92,34 +92,24 @@ export default class PostCardiacArrestCare extends React.Component {
     }
   }
 
-  IPhone375x812 () {
-    if (Dimensions.get('window').width === 375 && Dimensions.get('window').height === 812) {
-      return (
-        <Image
-          source={require('../../../../assets/PostCardiacArrestCare3000x4000.png')}
-          style={{ width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.3}}
-        />
-      )
-    }
-  }
-
+  
   IPhone414x896 () {
     if (Dimensions.get('window').width === 414 && Dimensions.get('window').height === 896) {
       return (
         <Image
-          source={require('../../../../assets/PostCardiacArrestCare3000x4000.png')}
-          style={{marginBottom: Dimensions.get('window').height/70, width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.25}}
+          source={require('../../../../assets/PostCardiac4000x4000.png')}
+          style={{ width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.4 }}
         />
       )
     }
   }
 
-  IPhone375x667 () {
-    if (Dimensions.get('window').width === 375 && Dimensions.get('window').height === 667) {
+  IPhone375x812 () {
+    if (Dimensions.get('window').width === 375 && Dimensions.get('window').height === 812) {
       return (
         <Image
-          source={require('../../../../assets/PostCardiacArrestCare3000x4000.png')}
-          style={{marginBottom: Dimensions.get('window').height/70, width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.01}}
+          source={require('../../../../assets/PostCardiac4000x4000.png')}
+          style={{ width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.4 }}
         />
       )
     }
@@ -129,8 +119,30 @@ export default class PostCardiacArrestCare extends React.Component {
     if (Dimensions.get('window').width === 414 && Dimensions.get('window').height === 736) {
       return (
         <Image
-          source={require('../../../../assets/PostCardiacArrestCare3000x4000.png')}
-          style={{marginBottom: Dimensions.get('window').height/70, width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.01 }}
+          source={require('../../../../assets/PostCardiac4000x4000.png')}
+          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.15 }}
+        />
+      )
+    }
+  }
+
+  IPhone375x667 () {
+    if (Dimensions.get('window').width === 375 && Dimensions.get('window').height === 667) {
+      return (
+        <Image
+          source={require('../../../../assets/PostCardiac4000x4000.png')}
+          style={{marginBottom: Dimensions.get('window').height/70, width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.13}}
+        />
+      )
+    }
+  }
+
+  IPhone320x568 () {
+    if (Dimensions.get('window').width === 320 && Dimensions.get('window').height === 568) {
+      return (
+        <Image
+          source={require('../../../../assets/PostCardiac4000x4000.png')}
+          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.15 }}
         />
       )
     }
@@ -199,21 +211,23 @@ export default class PostCardiacArrestCare extends React.Component {
 
           <View styles={styles.top}>
             <Text style={styles.titleFirstLine}>Post Cardiac Arrest Care</Text>
-            {/* <Text>{Dimensions.get('window').width}</Text>
-            <Text>{Dimensions.get('window').height}</Text> */}
             <Divider style={styles.divider} />
           </View>
+
+          {/* <Text>{Dimensions.get('window').width}</Text>
+          <Text>{Dimensions.get('window').height}</Text> */}
               
           <View onLayout={this.measureImageView}>
             {this.IPhone375x812()}
             {this.IPhone414x896()}
             {this.IPhone375x667()}
             {this.IPhone414x736()}
+            {this.IPhone320x568()}
           </View>
 
-          <View style={{marginBottom: Dimensions.get('window').height/50}}>
+          {/* <View style={{marginBottom: Dimensions.get('window').height/50}}>
 
-          </View>
+          </View> */}
 
           <View style={{ alignItems: 'center', marginTop: Dimensions.get('window').height/80 }} onLayout={this.measureParentView}>
               <View onLayout={this.measureReversibleCausesView}>
@@ -221,7 +235,7 @@ export default class PostCardiacArrestCare extends React.Component {
                   goToNextComponent={this.goToComponentTwo} 
                   toggle={this.onPressReversibleCausesHidden} 
                   hidden = {this.state.reversibleCausesHidden}
-                  component={<ReversibleCauses />}
+                  component={<ReversibleCausesPostCardiac />}
                   buttonTitle='Reversible Causes'
                 />
               </View>

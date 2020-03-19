@@ -13,7 +13,7 @@ export default class InpatientConditions extends React.Component {
           fontSize: Dimensions.get('window').height/43, 
           marginTop: Dimensions.get('window').height/200, 
           color: 'white', fontWeight: 'bold', 
-          textAlign: 'center'}}>ACLS STAT</Text>
+          textAlign: 'center'}}>ACLS</Text>
       </View>
     )
 
@@ -25,7 +25,6 @@ export default class InpatientConditions extends React.Component {
           </View>
         }
         onPress={ () => navigation.navigate('') }
-        // DevelopmentTeam
         type='clear'
       />
     )
@@ -1179,25 +1178,24 @@ render() {
                 source={require('../../assets/aha3.png')}
                 style={{
                   marginRight: Dimensions.get('window').width/35, 
-                  width: Dimensions.get('window').width/1.4, 
-                  height: Dimensions.get('window').height/10 }}
+                  width: Dimensions.get('window').width/1.6, 
+                  height: Dimensions.get('window').height/6.5 }}
               />
             </View>
         </View>
 
 
-            
+                                                                                                                                                                                                                                                                                                                                                                                                                                                               
 
         <View style={styles.middle}>
 
         <LinearGradient 
-            // colors={['#D4801C', '#AD3839', ]}  
             colors={['#256A96', '#118994', ]}  
             start={{x: 0, y: 0}}
             end={{x: 1, y: 0}} 
             style={styles.linearGradient}>
           <Text style={styles.buttonText}>
-            ACLS
+            Adult Cardiac Life Support
           </Text>
         </LinearGradient>
 
@@ -1292,10 +1290,6 @@ render() {
 
 const styles = StyleSheet.create({
   linearGradient: {
-      // backgroundColor: '#256A96', 
-      // backgroundColor: '#EC3C3E', 
-      // backgroundColor: '#EC3C3E', 
-      // marginTop: Dimensions.get('window').height/25, 
       marginLeft: Dimensions.get('window').width/30, 
       marginRight: Dimensions.get('window').width/30,
       paddingBottom: Dimensions.get('window').height/60,
@@ -1321,7 +1315,7 @@ middle: {
 },
 bottom: {
   height: '17%',
-  justifyContent: 'center',
+  paddingTop: Dimensions.get('window').height/100,
   // backgroundColor: 'gray'
 },
 

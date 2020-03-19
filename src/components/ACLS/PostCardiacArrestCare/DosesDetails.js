@@ -20,14 +20,13 @@ export default class DosesDetails extends React.Component {
     return (
       <View style={{marginTop: Dimensions.get('window').height/150, marginBottom: Dimensions.get('window').height/150}}>
 
-        <View style={{marginLeft: Dimensions.get('window').width/10}}>
+        <View style={{marginLeft: Dimensions.get('window').width/30}}>
           <View style={{flexDirection: 'row'}}>
-              <Text style={styles.bulletPoint}>{`\u2022`}</Text>
-              <Text style={{fontWeight: 'bold', fontSize: Dimensions.get('window').height/45,}}> Ventilation/oxygenation:</Text>
+              <Text style={{fontWeight: 'bold', fontSize: Dimensions.get('window').height/50,}}> Ventilation/oxygenation:</Text>
           </View>
 
-          <View style={{marginLeft: Dimensions.get('window').width/35}}>
-            <Text style={{fontSize: Dimensions.get('window').height/45}}>
+          <View style={{marginLeft: Dimensions.get('window').width/100}}>
+            <Text style={{fontSize: Dimensions.get('window').height/50}}>
                     <Text style={styles.regular}>Avoid excessive ventilation. Start at 10 breaths/min and titrate to target</Text> 
                     <Text> PETCO</Text>
                     <Text style={{
@@ -53,7 +52,6 @@ export default class DosesDetails extends React.Component {
             {this.state.data.map((item) => (
                 <View key={item} style={ styles.bulletPoints }>
                   <View style={{ flexDirection: 'row' }}>
-                    <Text style={styles.bulletPoint}>{`\u2022`}</Text>
                     <Text style={styles.bulletPointHeader}>{item[0]}</Text>
                   </View>
                   <Text style={styles.bulletPointText}>{item[1]}</Text>
@@ -68,23 +66,22 @@ export default class DosesDetails extends React.Component {
 
 const styles = StyleSheet.create({
   bulletPoint: {
-    color: 'gray',
     fontSize: Dimensions.get('window').height/50,
   },
   bulletPoints: {
     marginTop: Dimensions.get('window').height/50,
-    marginLeft: Dimensions.get('window').width/11,
+    marginLeft: Dimensions.get('window').width/30,
     marginRight: Dimensions.get('window').width/8,
   },
   bulletPointHeader: {
     fontWeight: 'bold',
-    fontSize: Dimensions.get('window').height/45,
-    marginLeft: Dimensions.get('window').width/50,
+    fontSize: Dimensions.get('window').height/50,
+    marginLeft: Dimensions.get('window').width/200,
   },
   bulletPointText: {
     fontWeight: '400',
-    fontSize: Dimensions.get('window').height/45,
-    marginLeft: Dimensions.get('window').width/23,
+    fontSize: Dimensions.get('window').height/50,
+    marginLeft: Dimensions.get('window').width/100,
   },
 
 })

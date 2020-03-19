@@ -48,7 +48,7 @@ export default class BradyCardia extends React.Component {
           fontSize: Dimensions.get('window').height/43, 
           marginTop: Dimensions.get('window').height/200, 
           color: 'white', fontWeight: 'bold', 
-          textAlign: 'center'}}>ACLS STAT</Text>
+          textAlign: 'center'}}>ACLS</Text>
       </View>
     )
       
@@ -87,19 +87,7 @@ export default class BradyCardia extends React.Component {
             start={{x: 0, y: 0}}
             end={{x: 1, y: 0}}
         />
-      ),
-      // headerStyle: {backgroundColor: '#709CD0'},      
-    }
-  }
-
-  IPhone375x812 () {
-    if (Dimensions.get('window').width === 375 && Dimensions.get('window').height === 812) {
-      return (
-        <Image
-          source={require('../../../../assets/Bradycardia3000x3000.png')}
-          style={{marginBottom: Dimensions.get('window').height/70, width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.25}}
-        />
-      )
+      ),   
     }
   }
 
@@ -107,19 +95,19 @@ export default class BradyCardia extends React.Component {
     if (Dimensions.get('window').width === 414 && Dimensions.get('window').height === 896) {
       return (
         <Image
-          source={require('../../../../assets/Bradycardia3000x3000.png')}
-          style={{marginBottom: Dimensions.get('window').height/70, width: Dimensions.get('window').width, height: Dimensions.get('window').height}}
+          source={require('../../../../assets/Bradycardia3000x2300.png')}
+          style={{ width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.5}}
         />
       )
     }
   }
 
-  IPhone375x667 () {
-    if (Dimensions.get('window').width === 375 && Dimensions.get('window').height === 667) {
+  IPhone375x812 () {
+    if (Dimensions.get('window').width === 375 && Dimensions.get('window').height === 812) {
       return (
         <Image
-          source={require('../../../../assets/Bradycardia3000x3000.png')}
-          style={{marginBottom: Dimensions.get('window').height/70, width: Dimensions.get('window').width, height: Dimensions.get('window').height/.85}}
+          source={require('../../../../assets/Bradycardia3000x2300.png')}
+          style={{ width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.5}}
         />
       )
     }
@@ -129,8 +117,30 @@ export default class BradyCardia extends React.Component {
     if (Dimensions.get('window').width === 414 && Dimensions.get('window').height === 736) {
       return (
         <Image
-          source={require('../../../../assets/Bradycardia3000x3000.png')}
-          style={{marginBottom: Dimensions.get('window').height/70, width: Dimensions.get('window').width, height: Dimensions.get('window').height/.85 }}
+          source={require('../../../../assets/Bradycardia3000x2300.png')}
+          style={{ width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.22 }}
+        />
+      )
+    }
+  }
+
+  IPhone375x667 () {
+    if (Dimensions.get('window').width === 375 && Dimensions.get('window').height === 667) {
+      return (
+        <Image 
+          source={require('../../../../assets/Bradycardia3000x2300.png')}
+          style={{ width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.22}}
+        />
+      )
+    }
+  } 
+
+  IPhone320x568 () {
+    if (Dimensions.get('window').width === 320 && Dimensions.get('window').height === 568) {
+      return (
+        <Image
+          source={require('../../../../assets/Bradycardia3000x2300.png')}
+          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.23 }}
         />
       )
     }
@@ -179,16 +189,19 @@ export default class BradyCardia extends React.Component {
         >
 
           <View styles={styles.top}>
-            <Text style={styles.titleFirstLine}>Adult Bradycardia</Text>
-            <Text style={styles.titleSecondLine}>with a Pulse Algorithm</Text>
+            <Text style={styles.titleFirstLine}>Bradycardia with a Pulse</Text>
             <Divider style={styles.divider} />
           </View>
+
+          {/* <Text>{Dimensions.get('window').width}</Text>
+          <Text>{Dimensions.get('window').height}</Text> */}
               
           <View onLayout={this.measureImageView}>
             {this.IPhone375x812()}
             {this.IPhone414x896()}
             {this.IPhone375x667()}
             {this.IPhone414x736()}
+            {this.IPhone320x568()}
           </View>
 
           <View style={{marginBottom: Dimensions.get('window').height/60}}>

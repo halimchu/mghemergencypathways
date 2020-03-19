@@ -10,6 +10,7 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		5FB591D6CBF3F14588F21B9A /* libPods-mghemergencypathways.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2795B91DE17C57B177BAC23A /* libPods-mghemergencypathways.a */; };
+		8AD5D39E241ACAD900F3DF84 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		8AE0B02A240EE1DC0067A4DB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A90E88323E0A4C000CE36DA /* LaunchScreen.xib */; };
 /* End PBXBuildFile section */
 
@@ -37,7 +38,7 @@
 		020FB63C37F6469E89B5D76E /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		089532AAC2504A76ABD78779 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		0FA36FF17EEA4662A767C71C /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* ACLS STAT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ACLS STAT.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07F961A680F5B00A75B9A /* ACLS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ACLS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = mghemergencypathways/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = mghemergencypathways/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = mghemergencypathways/Images.xcassets; sourceTree = "<group>"; };
@@ -205,7 +206,7 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* ACLS STAT.app */,
+				13B07F961A680F5B00A75B9A /* ACLS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -240,7 +241,7 @@
 			);
 			name = mghemergencypathways;
 			productName = mghemergencypathways;
-			productReference = 13B07F961A680F5B00A75B9A /* ACLS STAT.app */;
+			productReference = 13B07F961A680F5B00A75B9A /* ACLS.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -304,6 +305,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AE0B02A240EE1DC0067A4DB /* LaunchScreen.xib in Resources */,
+				8AD5D39E241ACAD900F3DF84 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,7 +447,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.healthcaretransformationlab.mghstat.beta;
-				PRODUCT_NAME = "ACLS STAT";
+				PRODUCT_NAME = ACLS;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -466,7 +468,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.healthcaretransformationlab.mghstat.beta;
-				PRODUCT_NAME = "ACLS STAT";
+				PRODUCT_NAME = ACLS;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;

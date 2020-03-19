@@ -54,7 +54,7 @@ export default class Tachycardia extends React.Component {
           fontSize: Dimensions.get('window').height/43, 
           marginTop: Dimensions.get('window').height/200, 
           color: 'white', fontWeight: 'bold', 
-          textAlign: 'center'}}>ACLS STAT</Text>
+          textAlign: 'center'}}>ACLS</Text>
       </View>
     )
       
@@ -97,34 +97,24 @@ export default class Tachycardia extends React.Component {
     }
   }
 
-  IPhone375x812 () {
-    if (Dimensions.get('window').width === 375 && Dimensions.get('window').height === 812) {
-      return (
-        <Image
-          source={require('../../../../assets/Tachycardia3000x3050.png')}
-          style={{marginBottom: Dimensions.get('window').height/80, width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.17 }}
-        />
-      )
-    }
-  }
 
   IPhone414x896 () {
     if (Dimensions.get('window').width === 414 && Dimensions.get('window').height === 896) {
       return (
         <Image
-          source={require('../../../../assets/Tachycardia3000x3050.png')}
-          style={{marginBottom: Dimensions.get('window').height/35, width: Dimensions.get('window').width, height: Dimensions.get('window').height/.95}}
+          source={require('../../../../assets/Tachycardia3000x2500.png')}
+          style={{ marginBottom: Dimensions.get('window').height/60, width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.4}}
         />
       )
     }
   }
 
-  IPhone375x667 () {
-    if (Dimensions.get('window').width === 375 && Dimensions.get('window').height === 667) {
+  IPhone375x812 () {
+    if (Dimensions.get('window').width === 375 && Dimensions.get('window').height === 812) {
       return (
         <Image
-          source={require('../../../../assets/Tachycardia3000x3050.png')}
-          style={{marginBottom: Dimensions.get('window').height/35, width: Dimensions.get('window').width, height: Dimensions.get('window').height/.8 }}
+          source={require('../../../../assets/Tachycardia3000x2500.png')}
+          style={{ marginBottom: Dimensions.get('window').height/60, width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.4 }}
         />
       )
     }
@@ -134,12 +124,35 @@ export default class Tachycardia extends React.Component {
     if (Dimensions.get('window').width === 414 && Dimensions.get('window').height === 736) {
       return (
         <Image
-          source={require('../../../../assets/Tachycardia3000x3050.png')}
-          style={{marginBottom: Dimensions.get('window').height/35, width: Dimensions.get('window').width, height: Dimensions.get('window').height/.8 }}
+          source={require('../../../../assets/Tachycardia3000x2500.png')}
+          style={{ marginBottom: Dimensions.get('window').height/60, width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.13 }}
         />
       )
     }
   }
+
+  IPhone375x667 () {
+    if (Dimensions.get('window').width === 375 && Dimensions.get('window').height === 667) {
+      return (
+        <Image
+          source={require('../../../../assets/Tachycardia3000x2500.png')}
+          style={{ marginBottom: Dimensions.get('window').height/60, width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.15 }}
+        />
+      )
+    }
+  }
+
+  IPhone320x568 () {
+    if (Dimensions.get('window').width === 320 && Dimensions.get('window').height === 568) {
+      return (
+        <Image
+          source={require('../../../../assets/Tachycardia3000x2500.png')}
+          style={{marginBottom: Dimensions.get('window').height/60, width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.15 }}
+        />
+      )
+    }
+  }
+
 
   constructor(props) {
     super(props)
@@ -208,8 +221,7 @@ export default class Tachycardia extends React.Component {
         >
 
           <View styles={styles.top}>
-            <Text style={styles.titleFirstLine}>Adult Tachycardia</Text>
-            <Text style={styles.titleSecondLine}>with a Pulse Algorithm</Text>
+            <Text style={styles.titleFirstLine}>Tachycardia with a Pulse</Text>
             <Divider style={styles.divider} />
             {/* <Text>{Dimensions.get('window').height}</Text>
             <Text>{Dimensions.get('window').width}</Text> */}
@@ -221,11 +233,8 @@ export default class Tachycardia extends React.Component {
             {this.IPhone414x896()}
             {this.IPhone375x667()}
             {this.IPhone414x736()}
+            {this.IPhone320x568()}
           </View>
-
-            <View style={{marginBottom: Dimensions.get('window').height/50}}>
-
-            </View>
 
 
             <View onLayout={this.measureSynchronizedCardioversionView}>

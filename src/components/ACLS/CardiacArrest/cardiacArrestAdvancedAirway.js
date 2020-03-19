@@ -1,5 +1,5 @@
 import React from 'react'
-import { Dimensions, View, Text, StyleSheet } from 'react-native'
+import { SafeAreaView, Dimensions, View, Text, StyleSheet } from 'react-native'
 
 export default class CardiacArrestAdvancedAirway extends React.Component {
 	state = {
@@ -11,33 +11,35 @@ export default class CardiacArrestAdvancedAirway extends React.Component {
 	}
   render() {
     return (
-      <View>
-       {this.state.data.map((item) => (
-					<View key={item} style={ styles.bulletPoints }>
-						<View style={{ flexDirection: 'row', }}>
-							<Text style={styles.bulletPoint}>{`\u2022`}</Text>
-							<Text style={styles.bulletPointText}>{item}</Text>
-						</View>
-					</View> 
-				))} 
-			</View>       
+      <SafeAreaView style={{marginBottom: Dimensions.get('window').height/120}}>
+        <View style={{marginLeft: Dimensions.get('window').width/30 }}>
+            {this.state.data.map((item) => (
+              <View key={item} style={ styles.bulletPoints }>
+                <View style={{ flexDirection: 'row', }}>
+                  <Text style={styles.bulletPoint}>{`\u2022`}</Text>
+                  <View>
+                    <Text style={styles.bulletPointText}>{item}</Text>
+                  </View>
+                </View>
+              </View> 
+            ))} 
+        </View>
+			</SafeAreaView>       
     )
   }
 }
 
 const styles = StyleSheet.create({
   bulletPoints: {
-    flexDirection: 'row',
-    marginLeft: Dimensions.get('window').width/10,
     marginTop: Dimensions.get('window').height/120,
+    // marginRight: Dimensions.get('window').width/50
   },
   bulletPoint: {
     fontWeight: 'bold',
-    fontSize: Dimensions.get('window').height/45,
+    fontSize: Dimensions.get('window').height/60,
   },
   bulletPointText: {
     marginLeft: Dimensions.get('window').height/150,
-    marginRight: Dimensions.get('window').height/30,
-    fontSize: Dimensions.get('window').height/45,
+    fontSize: Dimensions.get('window').height/50,
   },
 })

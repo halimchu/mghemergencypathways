@@ -2,7 +2,6 @@ import React from 'react'
 import { Image, Dimensions, View, Text, StyleSheet, ScrollView, TouchableOpacity, SafeAreaView } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons' 
 import { Button, Divider } from 'react-native-elements'
-import ReversibleCauses from '../reversibleCauses'
 import CardiacArrestShockEnergy from './cardiacArrestShockEnergy'
 import CardiacArrestDrugTherapy from './cardiacArrestDrugTherapy'
 import CardiacArrestROSC from './cardiacArrestROSC'
@@ -11,6 +10,7 @@ import CardiacArrestAdvancedAirway from './cardiacArrestAdvancedAirway'
 import Component from './../Component'
 // import Timer from './Timer'
 import LinearGradient from 'react-native-linear-gradient';
+import CardiacArrestReversibleCauses from './cardiacArrestReversibleCauses'
 
 
 export default class CardiacArrest extends React.Component {
@@ -55,7 +55,7 @@ export default class CardiacArrest extends React.Component {
           fontSize: Dimensions.get('window').height/43, 
           marginTop: Dimensions.get('window').height/200, 
           color: 'white', fontWeight: 'bold', 
-          textAlign: 'center'}}>ACLS STAT</Text>
+          textAlign: 'center'}}>ACLS</Text>
       </View>
     )
       
@@ -98,34 +98,24 @@ export default class CardiacArrest extends React.Component {
     }
   }
 
-  IPhone375x812 () {
-    if (Dimensions.get('window').width === 375 && Dimensions.get('window').height === 812) {
-      return (
-        <Image
-          source={require('../../../../assets/CardiacArrest3000x3000.png')}
-          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.25}}
-        />
-      )
-    }
-  }
 
   IPhone414x896 () {
     if (Dimensions.get('window').width === 414 && Dimensions.get('window').height === 896) {
       return (
         <Image
-          source={require('../../../../assets/CardiacArrest3000x3000.png')}
-          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/.75}}
+          source={require('../../../../assets/CardiacArrest3000x2700.png')}
+          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.5}}
         />
       )
     }
   }
 
-  IPhone375x667 () {
-    if (Dimensions.get('window').width === 375 && Dimensions.get('window').height === 667) {
+  IPhone375x812 () {
+    if (Dimensions.get('window').width === 375 && Dimensions.get('window').height === 812) {
       return (
         <Image
-          source={require('../../../../assets/CardiacArrest3000x3000.png')}
-          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.01 }}
+          source={require('../../../../assets/CardiacArrest3000x2700.png')}
+          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.5}}
         />
       )
     }
@@ -135,9 +125,19 @@ export default class CardiacArrest extends React.Component {
     if (Dimensions.get('window').width === 414 && Dimensions.get('window').height === 736) {
       return (
         <Image
-        // source={require('../../../../assets/CardiacArrest3000x3000.png')}
-        // source={require('../../../../assets/CardiacArrest3000x3000.png')}
-          style={{width: Dimensions.get('window').width/2, height: Dimensions.get('window').height }}
+          source={require('../../../../assets/CardiacArrest3000x2700.png')}
+          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.22 }}
+        />
+      )
+    }
+  }
+
+  IPhone375x667 () {
+    if (Dimensions.get('window').width === 375 && Dimensions.get('window').height === 667) {
+      return (
+        <Image
+          source={require('../../../../assets/CardiacArrest3000x2700.png')}
+          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.22 }}
         />
       )
     }
@@ -147,8 +147,8 @@ export default class CardiacArrest extends React.Component {
     if (Dimensions.get('window').width === 320 && Dimensions.get('window').height === 568) {
       return (
         <Image
-          source={require('../../../../assets/CardiacArrest3000x3000.png')}
-          style={{width: Dimensions.get('window').width/2, height: Dimensions.get('window').height }}
+          source={require('../../../../assets/CardiacArrest3000x2700.png')}
+          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.22 }}
         />
       )
     }
@@ -367,11 +367,11 @@ export default class CardiacArrest extends React.Component {
           
 
           <View style={{paddingTop: Dimensions.get('window').height/300,}}>
-            <Text style={styles.title}>Adult Cardiac Arrest Algorithm</Text>
+            <Text style={styles.title}>Cardiac Arrest</Text>
             <Divider style={styles.divider} />
           </View>
-          <Text>{Dimensions.get('window').width}</Text>
-          <Text>{Dimensions.get('window').height}</Text>
+          {/* <Text>{Dimensions.get('window').width}</Text>
+          <Text>{Dimensions.get('window').height}</Text> */}
 
 
 
@@ -400,12 +400,12 @@ export default class CardiacArrest extends React.Component {
     <View style={{
       backgroundColor: '#CBE7F7', 
       borderRadius: 10, 
-      // marginLeft: Dimensions.get('window').width/50,
-      width: '35%',
-      padding: Dimensions.get('window').width/150,
+      width: '36%',
+      paddingTop: Dimensions.get('window').width/150,
+      paddingLeft: Dimensions.get('window').width/100,
     }}>
       <View style={{alignItems: 'center',}}>
-        <Text style={{fontWeight: 'bold', fontSize: Dimensions.get('window').width/21}}>CPR 2 min</Text>
+        <Text style={{fontWeight: 'bold', fontSize: Dimensions.get('window').width/26}}>CPR 2 min</Text>
       </View>
       <View style={{flexDirection: 'row'}}>
           <Text style={{
@@ -414,8 +414,8 @@ export default class CardiacArrest extends React.Component {
           <Text style={{marginTop: Dimensions.get('window').height/200}}>Amiodarone or Liocaine</Text> 
       </View>
       <View style={{flexDirection: 'row'}}>
-          <Text style={{fontSize: Dimensions.get('window').height/40, paddingRight: Dimensions.get('window').width/90,}}>{`\u2022`}</Text>
-          <Text style={{marginTop: Dimensions.get('window').height/200}}>Treat reversible causes</Text> 
+          <Text style={{fontSize: Dimensions.get('window').height/40}}>{`\u2022`}</Text>
+          <Text style={{marginTop: Dimensions.get('window').height/200,  marginRight: Dimensions.get('window').width/90,}}>Treat reversible causes</Text> 
       </View>
     </View>
 
@@ -487,13 +487,13 @@ export default class CardiacArrest extends React.Component {
    
 
 
-          <View style={{ alignItems: 'center', marginTop: Dimensions.get('window').height/80 }} onLayout={this.measureParentView}>
+          <View style={{ alignItems: 'center'}} onLayout={this.measureParentView}>
               <View onLayout={this.measureReversibleCausesView}>
                 <Component 
                   goToNextComponent={this.goToComponentTwo} 
                   toggle={this.onPressReversibleCausesHidden} 
                   hidden = {this.state.reversibleCausesHidden}
-                  component={<ReversibleCauses />}
+                  component={<CardiacArrestReversibleCauses />}
                   buttonTitle='Reversible Causes'
                 />
               </View>
