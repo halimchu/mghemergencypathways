@@ -1,105 +1,178 @@
 import React from 'react'
 import { Button, Image, Dimensions, View, Text, StyleSheet, ScrollView, TouchableOpacity, SafeAreaView } from 'react-native'
-import { ThemeProvider } from 'react-native-elements';
+import Icon from 'react-native-vector-icons/Ionicons' 
 
 
-export default class CardiacArrest extends React.Component {
+
+
+export default class Timer extends React.Component {
    
   state = {
-    minute: 2,
-    countDownSecond: 0,
-    timerNotStarted: true,
-    showStartButton: true,
-    showResetButton: false
+    minute: 0,
+    secondBefore: 0,
+    second: 0,
+    fastSecond: true, 
+    secondBeforeVisible: true,
+    icon: 'ios-play',
   }
 
-  turnTimerButtonOff = () => {
-    this.setState({ timerNotStarted: null })
-  }
 
   onStart = () => {
-    // if timer not started yet
-
-    this.setState({ showStartButton: !this.state.showStartButton })
-    
-    this.turnTimerButtonOff()
-    if(this.state.timerNotStarted) {
 
 
-              // minute
-              this.interval = setInterval(() => {
-                if (this.state.minute < 0) {
-                  this.setState({
-                    minute: 0,
-                  })
-                } else if (this.state.minute > 0) {
-                  this.setState({
-                    minute: this.state.minute - 1,
-                  })
-                }
-              }, 62000);
-              // 62000 is the right number
-          
-              // minute
-              this.interval = setInterval(() => {
-                if (this.state.minute === 2) {
-                  this.setState({ minute: this.state.minute - 1 })
-                } 
-                
+    if (this.state.minute === 0 && this.state.second === 0 ) {
+            this.setState({ second: 1 })
+
+            this.interval = setInterval(() => {
+              this.setState({ second: this.state.second + 1 })
             
-              // second
-              if (this.state.minute === 0 && this.state.countDownSecond === 0) {
-                this.setState({ countDownSecond: 0 })
-              } else if (this.state.countDownSecond > 0) {
-                this.setState({ countDownSecond: this.state.countDownSecond - 1 })
-              } else if (this.state.minute > -1) {
-                  this.setState({ countDownSecond: 59 })
+              if (this.state.second > 9) {
+                this.setState({ secondBeforeVisible: false })
               } 
-            }, 1000);
+            
+              // if minute is 0 and second is 60, increase minute by 1 and set second to 0
+              if (this.state.minute === 0 && this.state.second === 59 + 1) {
+                this.setState({ secondBeforeVisible: true })
+                this.setState({ minute: this.state.minute + 1 })
+                this.setState({ second: 0 })
+              }
+            
+              // if minute is 1 and second is 60, increase minute by 1, and set second to 0
+              if (this.state.minute === 1 && this.state.second === 59 + 1) {
+                this.setState({ secondBeforeVisible: true })
+                this.setState({ minute: this.state.minute + 1 })
+                this.setState({ second: 0 })
+              }
+            
+              // if timer reaches 2 minutes, keep it at 2 minutes 
+              if (this.state.minute === 2 && this.state.second === 0) {
+                clearInterval(this.interval)
+              }  
+            }, 1000)
+    } else {
 
-  
-    } 
+      if (this.state.minute !== 2 && this.state.second !== 0) {
+            this.interval = setInterval(() => {
+              this.setState({ second: this.state.second + 1 })
+            
+              if (this.state.second > 9) {
+                this.setState({ secondBeforeVisible: false })
+              } 
+            
+              // if minute is 0 and second is 60, increase minute by 1 and set second to 0
+              if (this.state.minute === 0 && this.state.second === 59 + 1) {
+                this.setState({ secondBeforeVisible: true })
+                this.setState({ minute: this.state.minute + 1 })
+                this.setState({ second: 0 })
+              }
+            
+              // if minute is 1 and second is 60, increase minute by 1, and set second to 0
+              if (this.state.minute === 1 && this.state.second === 59 + 1) {
+                this.setState({ secondBeforeVisible: true })
+                this.setState({ minute: this.state.minute + 1 })
+                this.setState({ second: 0 })
+              }
+            
+              // if timer reaches 2 minutes, keep it at 2 minutes 
+              if (this.state.minute === 2 && this.state.second === 0) {
+                clearInterval(this.interval)
+              }  
+            }, 1000)
+      }
+
+    }
   }
 
 
 
-  renderStartButton = () => {
-    return (
-      this.state.showStartButton ?
+  onReset = () => {
+    clearInterval(this.interval)
+    this.setState({ icon: 'ios-play' })
+    this.setState({ minute: 0 })
+    this.setState({ second: 0 })
+  }
 
-        <Button
-          title="Start"
-          onPress={() => {
-            this.onStart()
-          }}
-        />
-      : 
-        <Button
-          title="Reset"
-          onPress={() => {
-            this.onStart()
-          }}
-        />
-    )
+
+  onPress = () => {
+      if ( this.state.icon === 'ios-play') {
+        this.setState({ icon: 'ios-pause' })
+        this.onStart()
+  
+      } else if (this.state.icon === 'ios-pause') {
+       if (this.state.minute !== 2 && this.state.second !== 0) {
+         this.setState({ icon: 'ios-play' })
+        } 
+        this.onPause()
+      }
+    }
+
+  onPause = () => {
+    clearInterval(this.interval)
+  }
+
+
+  renderButton = () => {
+
+      if (this.state.icon === 'ios-play') {
+        return (
+          <TouchableOpacity
+          style={styles.customBtnBG} 
+          onPress={() => { this.onPress() }}>
+
+              <View style={{ alignItems: 'center' }}>
+                <Icon name={this.state.icon} size={Dimensions.get('window').height/29} color="white" />
+              </View>
+
+          <Text style={styles.customBtnText}>{this.state.buttonText}</Text>
+        </TouchableOpacity>
+        )
+      } else {
+        return (
+          <TouchableOpacity
+          style={styles.customBtnBGPause} 
+          onPress={() => { this.onPress() }}>
+
+              <View style={{ alignItems: 'center' }}>
+                <Icon name={this.state.icon} size={Dimensions.get('window').height/29} color="#569E00" />
+              </View>
+
+          <Text style={styles.customBtnText}>{this.state.buttonText}</Text>
+        </TouchableOpacity>
+        )
+      }
+        // return (
+
+
+        //   <TouchableOpacity
+        //     style={styles.customBtnBG} 
+        //     onPress={() => { this.onPress() }}>
+
+        //         <View style={{ alignItems: 'center' }}>
+        //           <Icon name={this.state.icon} size={Dimensions.get('window').height/29} color="white" />
+        //         </View>
+
+        //     <Text style={styles.customBtnText}>{this.state.buttonText}</Text>
+        //   </TouchableOpacity>
+        // )
   }
 
   renderResetButton = () => {
     return (
-      <Button
-        title="Reset"
-        onPress={() => {
-          this.onReset()
-        }}
-      />
-    )
-  }
+      <TouchableOpacity
+        style={styles.customBtnBG} 
+        onPress={() => { this.onReset() }}>
 
-  onReset = () => {
-    this.setState({ timerNotStarted: true })
-    this.setState({ minute: 2 })
-    this.setState({ countDownSecond: 0 })
-    clearInterval(this.interval)
-  }
+
+        <View style={{ alignItems: 'center', marginTop: Dimensions.get('window').height/250 }}>
+          <Icon name='ios-refresh' size={Dimensions.get('window').height/35} color="white" />
+        </View>
+      </TouchableOpacity>
+    )
+}
+
+
+
+
 
 
 
@@ -110,17 +183,29 @@ export default class CardiacArrest extends React.Component {
     return (
       <View style={styles.container}>
 
-        <View style={{flexDirection: 'row', marginBottom: Dimensions.get('window').height/80, }}>
-            <Text style={styles.secondText}>{this.state.minute}m</Text>
-            <Text style={styles.secondText}>{this.state.countDownSecond}s</Text>       
-        </View>
 
 
-        <View style={styles.buttonWrapper}>
+              <View style={{flexDirection: 'row', }}>
 
-          {this.renderStartButton()}
-          
-        </View>
+                      <Text style={styles.timeText}>{this.state.minute}:</Text>
+
+                      { this.state.secondBeforeVisible
+                      ?
+                      <Text style={styles.timeText}>{this.state.secondBefore}</Text>
+                      :
+                      null
+                      }
+
+                      <Text style={styles.timeText}>{this.state.second}</Text>  
+                
+
+
+                  <View>{this.renderButton()}</View>
+                  <View>{this.renderResetButton()}</View>
+
+              </View>
+
+
       </View>
     )
   }
@@ -128,16 +213,41 @@ export default class CardiacArrest extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     alignItems: 'center',
-    justifyContent: 'center'
+    backgroundColor: '#515052',
   },
-  buttonWrapper: {
-    width: '100%',
-    flexDirection: 'row',
-    justifyContent: 'space-around',
+  customBtnText: {
+    color: 'white',
+    fontWeight: '600',
+    textAlign: 'center',
+    marginTop: Dimensions.get('window').height/250,
+    fontSize: Dimensions.get('window').height/40,
   },
-  secondText: {
-    fontSize: 25,
+
+  customBtnBG: {
+    backgroundColor: '#569E00',
+    paddingHorizontal: 1,
+    paddingVertical: 1,
+    borderRadius: 7,
+    width: Dimensions.get('window').width/5,
+    height: Dimensions.get('window').height/25,
+  },
+  customBtnBGPause: {
+    borderWidth: 1, 
+    backgroundColor: 'white',
+    borderColor: '#569E00',
+    paddingHorizontal: 1,
+    paddingVertical: 1,
+    borderRadius: 7,
+    width: Dimensions.get('window').width/5,
+    height: Dimensions.get('window').height/25,
+  },
+
+  timeText: {
+    color: 'white',
+    fontSize: Dimensions.get('window').height/32,
   }
 })
+
+
+

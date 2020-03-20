@@ -8,9 +8,9 @@ import CardiacArrestROSC from './cardiacArrestROSC'
 import CardiacArrestCPR from './cardiacArrestCPR'
 import CardiacArrestAdvancedAirway from './cardiacArrestAdvancedAirway'
 import Component from './../Component'
-// import Timer from './Timer'
 import LinearGradient from 'react-native-linear-gradient';
 import CardiacArrestReversibleCauses from './cardiacArrestReversibleCauses'
+import Timer from './Timer'
 
 
 export default class CardiacArrest extends React.Component {
@@ -358,25 +358,26 @@ export default class CardiacArrest extends React.Component {
 
     return ( 
       <SafeAreaView>
-        <ScrollView 
-          maximumZoomScale={2.5}
-          ref={(scroller) => {this.scroller = scroller}}
-          onContentSizeChange={this.onContentSizeChange}
-        > 
 
           
 
-          <View style={{paddingTop: Dimensions.get('window').height/300,}}>
-            <Text style={styles.title}>Cardiac Arrest</Text>
-            <Divider style={styles.divider} />
+          <View style={{}}>
+            <Timer />
+      
+            {/* <Divider style={styles.divider} /> */}
           </View>
           {/* <Text>{Dimensions.get('window').width}</Text>
           <Text>{Dimensions.get('window').height}</Text> */}
 
 
 
+          <ScrollView 
+            maximumZoomScale={2.5}
+            ref={(scroller) => {this.scroller = scroller}}
+            onContentSizeChange={this.onContentSizeChange}
+          > 
 
-          {/* <Timer /> */}
+          
 
 
 
