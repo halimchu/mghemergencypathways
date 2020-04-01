@@ -2,6 +2,7 @@ import React from 'react'
 import { Dimensions, View, Text, StyleSheet, TouchableOpacity, SafeAreaView } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons' 
 import { Button, Divider } from 'react-native-elements'
+import LinearGradient from 'react-native-linear-gradient'
 
 export default class STEMI extends React.Component {
   static navigationOptions = ({ navigation }) => {
@@ -77,7 +78,12 @@ export default class STEMI extends React.Component {
       headerLeft, 
       headerRight,
       headerTitle,
-      headerStyle: {backgroundColor: '#709CD0'},      
+      headerBackground: (
+        <LinearGradient
+            colors={['#23A7C2', '#2D7C93',]}
+            style={{ flex: 1 }}
+        />
+      ),     
     }
   }
   
@@ -101,7 +107,7 @@ export default class STEMI extends React.Component {
         <View style={{ flexDirection: 'row', marginLeft: Dimensions.get('window').height/40}}>
         <Text style={styles.bulletPoint}>{`\u2022`}</Text>
         <Text>
-          <Text style={{ fontSize: Dimensions.get('window').height/37, fontWeight: '500' }}>NEW </Text>
+          <Text style={{ fontSize: Dimensions.get('window').height/38, fontWeight: '500' }}>NEW </Text>
           <Text style={styles.bulletPointText}>ST elevation</Text>
         </Text>
       </View>
@@ -114,7 +120,7 @@ export default class STEMI extends React.Component {
         <View key={item} style={{ flexDirection: 'row', marginRight: Dimensions.get('window').width/20, marginLeft: Dimensions.get('window').width/10 }}>
             <Text style={styles.bulletPoint}>{`\u2022`}</Text>  
             <Text style={{flex: 1, flexWrap: 'wrap'}}>
-            <Text style={{ fontWeight: '300', fontSize: Dimensions.get('window').height/37 }}> 
+            <Text style={{ fontWeight: '300', fontSize: Dimensions.get('window').height/39 }}> 
               {item}
             </Text>
           </Text>   
@@ -132,14 +138,14 @@ export default class STEMI extends React.Component {
             <Text>
               <Text style={{ 
                 fontWeight: '500', 
-                fontSize: Dimensions.get('window').height/37, 
+                fontSize: Dimensions.get('window').height/38, 
               }}>
                 NEW
               </Text>
               <Text> </Text>
               <Text style={{ 
                 fontWeight: '300',
-                fontSize: Dimensions.get('window').height/37,
+                fontSize: Dimensions.get('window').height/39,
               }}>
                 {item}
               </Text>
@@ -158,20 +164,20 @@ export default class STEMI extends React.Component {
           <Text style={styles.title}>STEMI</Text>
           {/* <Divider style={styles.divider} /> */}
 
-          <View style={{alignItems: 'center', paddingTop: Dimensions.get('window').height/100, }}>
-              <View style={{ flexDirection: 'row'}}>
-                <View style={{marginRight: Dimensions.get('window').width/30}}>
-                  <View style={styles.circleFilledIn}></View>
-                </View>
-                <View style={{}}>
-                  <View style={styles.circleNotFilledIn}></View>
-                </View>
-              </View>
+          <View style={{alignItems: 'center'}}>
+                  <View style={{ flexDirection: 'row'}}>
+                     <View style={styles.firstCircle}>
+                     </View>
+                     <View style={styles.secondCircle}>
+                     </View>
+                     <View style={styles.thirdCircle}>
+                     </View>
+                  </View>
           </View>
         </View>
 
         <View style={styles.middle}>
-          <View style={{alignItems: 'center', }}>
+          <View style={{ marginLeft: Dimensions.get('window').width/25, marginBottom: Dimensions.get('window').height/80,}}>
               <Text style={styles.header}>STEMI Criteria</Text>
           </View>
           {this.firstFn()}
@@ -180,15 +186,15 @@ export default class STEMI extends React.Component {
         </View>
 
         <View style={styles.bottom}>
-          <View style={{ marginBottom: Dimensions.get('window').height/80, marginTop: Dimensions.get('window').height/100 }}>
+          <View style={{ marginBottom: Dimensions.get('window').height/80,  }}>
             <Text style={styles.headerBottom}>One or more STEMI criteria?</Text>
           </View>
       
 
 
         
-        <View>
-            <View style={{marginBottom: Dimensions.get('window').height/200, }}>
+        <View style={{flexDirection: 'row'}}>
+            <View style={{marginRight: Dimensions.get('window').width/20,}}>
               <TouchableOpacity
                 style={styles.customBtnBG} 
                 onPress={() => this.props.navigation.navigate('STEMIYes')}>
@@ -210,34 +216,42 @@ export default class STEMI extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  circleFilledIn: {
+  firstCircle: {
+    marginTop: Dimensions.get('window').height/70,
     width: 12,
     height: 12,
     borderRadius: 100/2,
-    backgroundColor: '#0f55bc'
+    backgroundColor: '#6c9ea1'
   },
-  circleNotFilledIn: {
+  secondCircle: {
+    marginTop: Dimensions.get('window').height/70,
+    marginLeft: Dimensions.get('window').width/25,
     width: 12,
     height: 12,
     borderRadius: 100/2,
     borderWidth: 1,
-    borderColor: '#0f55bc'
+    borderColor: '#6c9ea1'
   },
+
+
+  
+  
   container: {
     flex: 1
   },
   top: {
-    height: '10%',
+    height: '14%',
     // backgroundColor: 'yellow'
   },
   middle: {
-    height: '57%',
+    height: '58%',
     justifyContent: 'center',
-    backgroundColor: '#F7F7F7',
+    // backgroundColor: '#F7F7F7',
   },
   bottom: {
-    height: '33%',
+    height: '28%',
     alignItems: 'center', 
+    justifyContent: 'center',
     // backgroundColor: 'gray',
   },
 
@@ -258,9 +272,7 @@ const styles = StyleSheet.create({
     height: Dimensions.get('window').height/600
   },
   header: {
-    // color: 'gray',
     fontWeight: '500',
-    // color: '#515254',
     marginBottom: Dimensions.get('window').height/70,
     fontSize: Dimensions.get('window').height/32.5,
   },
@@ -289,15 +301,24 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     textAlignVertical: "center",
     fontSize: Dimensions.get('window').height/40,
-    marginTop: Dimensions.get('window').height/40,
+    marginTop: Dimensions.get('window').height/47,
   },
+  // customBtnBG: {
+  //   borderWidth: 5,
+  //   borderColor: '#6c9ea1',
+  //   paddingHorizontal: 1,
+  //   paddingVertical: 1,
+  //   borderRadius: 30,
+  //   width: Dimensions.get('window').width/1.17,
+  //   height: Dimensions.get('window').height/10.75,
+  // },
   customBtnBG: {
-    borderWidth: 4,
-    borderColor: '#0f55bc',
+    borderWidth: 5,
+    borderColor: '#6c9ea1',
     paddingHorizontal: 1,
     paddingVertical: 1,
     borderRadius: 30,
-    width: Dimensions.get('window').width/1.25,
+    width: Dimensions.get('window').width/2.5,
     height: Dimensions.get('window').height/10.75,
   },
 })

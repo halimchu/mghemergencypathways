@@ -18,8 +18,6 @@ export default class Timer extends React.Component {
 
 
   onStart = () => {
-
-
     if (this.state.minute === 0 && this.state.second === 0 ) {
             this.setState({ second: 1 })
 
@@ -89,6 +87,7 @@ export default class Timer extends React.Component {
     clearInterval(this.interval)
     this.setState({ icon: 'ios-play' })
     this.setState({ minute: 0 })
+    this.setState({ secondBeforeVisible: true })
     this.setState({ second: 0 })
   }
 
@@ -120,7 +119,7 @@ export default class Timer extends React.Component {
           onPress={() => { this.onPress() }}>
 
               <View style={{ alignItems: 'center' }}>
-                <Icon name={this.state.icon} size={Dimensions.get('window').height/29} color="white" />
+                <Icon name={this.state.icon} size={Dimensions.get('window').height/29} color="#656767" />
               </View>
 
           <Text style={styles.customBtnText}>{this.state.buttonText}</Text>
@@ -133,27 +132,13 @@ export default class Timer extends React.Component {
           onPress={() => { this.onPress() }}>
 
               <View style={{ alignItems: 'center' }}>
-                <Icon name={this.state.icon} size={Dimensions.get('window').height/29} color="#569E00" />
+                <Icon name={this.state.icon} size={Dimensions.get('window').height/29} color="#656767" />
               </View>
 
           <Text style={styles.customBtnText}>{this.state.buttonText}</Text>
         </TouchableOpacity>
         )
       }
-        // return (
-
-
-        //   <TouchableOpacity
-        //     style={styles.customBtnBG} 
-        //     onPress={() => { this.onPress() }}>
-
-        //         <View style={{ alignItems: 'center' }}>
-        //           <Icon name={this.state.icon} size={Dimensions.get('window').height/29} color="white" />
-        //         </View>
-
-        //     <Text style={styles.customBtnText}>{this.state.buttonText}</Text>
-        //   </TouchableOpacity>
-        // )
   }
 
   renderResetButton = () => {
@@ -164,7 +149,7 @@ export default class Timer extends React.Component {
 
 
         <View style={{ alignItems: 'center', marginTop: Dimensions.get('window').height/250 }}>
-          <Icon name='ios-refresh' size={Dimensions.get('window').height/35} color="white" />
+          <Icon name='ios-refresh' size={Dimensions.get('window').height/35} color="#656767" />
         </View>
       </TouchableOpacity>
     )
@@ -184,24 +169,80 @@ export default class Timer extends React.Component {
       <View style={styles.container}>
 
 
+              <View style={{ flexDirection: 'row',}}>
 
-              <View style={{flexDirection: 'row', }}>
+                <View style={{
+                  width: '25%', 
+                  alignItems: 'center',
+                  // backgroundColor: "pink", 
+                }}>
+                  <View>{this.renderResetButton()}</View>
+                </View>
 
-                      <Text style={styles.timeText}>{this.state.minute}:</Text>
+                <View style={{ 
+                  width: '30%', 
+                  alignItems: 'center', 
+                  justifyContent: 'center', 
+                  // backgroundColor: 'green', 
+                }}> 
+                    <View style={{ flexDirection: 'row', }}>
 
-                      { this.state.secondBeforeVisible
-                      ?
-                      <Text style={styles.timeText}>{this.state.secondBefore}</Text>
-                      :
-                      null
-                      }
+                      <View style={{
+                        flexDirection: 'column', 
+                        width: '35%',  
+                        alignItems: 'center', 
+                        // backgroundColor: 'gray'
+                      }}>
+                            <Text style={styles.timeText}>0{this.state.minute}</Text>
+                      </View>
 
-                      <Text style={styles.timeText}>{this.state.second}</Text>  
+                      <View style={{
+                        flexDirection: 'column', 
+                        width: '5%', 
+                        alignItems: 'center',
+                        // backgroundColor: 'pink', 
+                      }}>
+                            <Text style={styles.timeText}>:</Text>
+                      </View>
+
+
+
+                     
+                      
+
+
+
+                            
+                      <View style={{
+                        flexDirection: 'column',  
+                        width: '35%', 
+                        alignItems: 'center', 
+                        // backgroundColor: 'gray', 
+                      }}>
+                        <View style={{flexDirection: 'row'}}>
+                              { this.state.secondBeforeVisible
+                              ?
+                              <Text style={styles.timeText}>{this.state.secondBefore}</Text>
+                              :
+                              null
+                              }
+                              <Text style={styles.timeText}>{this.state.second}</Text>  
+                        </View>
+                      </View>
+
+
+                    </View>
+                </View>
                 
 
 
-                  <View>{this.renderButton()}</View>
-                  <View>{this.renderResetButton()}</View>
+                <View style={{
+                  width: '25%', 
+                  alignItems: 'center',
+                  // backgroundColor: "pink", 
+                }}>
+                    {this.renderButton()}
+                </View>
 
               </View>
 
@@ -214,7 +255,9 @@ export default class Timer extends React.Component {
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
-    backgroundColor: '#515052',
+    paddingBottom: Dimensions.get('window').height/110,
+    paddingTop: Dimensions.get('window').height/110,
+    backgroundColor: 'white',
   },
   customBtnText: {
     color: 'white',
@@ -225,27 +268,28 @@ const styles = StyleSheet.create({
   },
 
   customBtnBG: {
-    backgroundColor: '#569E00',
+    backgroundColor: '#D3DBE2',
     paddingHorizontal: 1,
     paddingVertical: 1,
-    borderRadius: 7,
+    borderRadius: 30,
     width: Dimensions.get('window').width/5,
     height: Dimensions.get('window').height/25,
   },
   customBtnBGPause: {
     borderWidth: 1, 
-    backgroundColor: 'white',
-    borderColor: '#569E00',
+    backgroundColor: '#D3DBE2',
+    borderColor: '#D3DBE2',
     paddingHorizontal: 1,
     paddingVertical: 1,
-    borderRadius: 7,
+    borderRadius: 30,
     width: Dimensions.get('window').width/5,
     height: Dimensions.get('window').height/25,
   },
 
   timeText: {
-    color: 'white',
-    fontSize: Dimensions.get('window').height/32,
+    color: 'black',
+    fontWeight: '500',
+    fontSize: Dimensions.get('window').height/37,
   }
 })
 

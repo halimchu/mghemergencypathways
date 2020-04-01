@@ -3,8 +3,9 @@ import { Linking, Dimensions, View, Text, StyleSheet, TouchableOpacity, SafeArea
 import { Button, Divider } from 'react-native-elements'
 import Icon from 'react-native-vector-icons/Ionicons' 
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
+import LinearGradient from 'react-native-linear-gradient'
 
-export default class STEMI2 extends React.Component {
+export default class STEMIYes extends React.Component {
   static navigationOptions = ({ navigation }) => {
     let headerLeft = ( 
       <View style={{ flexDirection: 'row' }}>
@@ -15,7 +16,7 @@ export default class STEMI2 extends React.Component {
               </View>
             }
             onPress={() => navigation.goBack()}
-            type='clear'
+            type='clear'  
           />
 
           <Button 
@@ -78,7 +79,12 @@ export default class STEMI2 extends React.Component {
       headerLeft, 
       headerRight,
       headerTitle,
-      headerStyle: {backgroundColor: '#709CD0'},      
+      headerBackground: (
+        <LinearGradient
+            colors={['#23A7C2', '#2D7C93',]}
+            style={{ flex: 1 }}
+        />
+      ),  
     }
   }
 
@@ -99,15 +105,13 @@ export default class STEMI2 extends React.Component {
           <Text style={styles.title}>STEMI</Text>
           {/* <Divider style={styles.divider} /> */}
 
-          <View style={{alignItems: 'center', paddingTop: Dimensions.get('window').height/100, }}>
-              <View style={{ flexDirection: 'row'}}>
-                <View style={{marginRight: Dimensions.get('window').width/30}}>
-                  <View style={styles.circleNotFilledIn}></View>
-                </View>
-                <View style={{}}>
-                  <View style={styles.circleFilledIn}></View>
-                </View>
-              </View>
+          <View style={{alignItems: 'center'}}>
+                  <View style={{ flexDirection: 'row'}}>
+                     <View style={styles.firstCircle}>
+                     </View>
+                     <View style={styles.secondCircle}>
+                     </View>
+                  </View>
           </View>
         </View>
 
@@ -116,26 +120,25 @@ export default class STEMI2 extends React.Component {
 
         <View style={styles.middle}>
             <View style={{ alignItems: 'center' }}>
-              <TouchableOpacity
-                  style={{
-                    shadowOffset:{  width: 0,  height: 1,  },
-                    shadowColor: 'black',
-                    shadowOpacity: .5,
-                    alignItems: "center",
-                    justifyContent: "center",
-                    borderRadius: 60,
-                    backgroundColor: '#B62130',
-                    height: Dimensions.get('window').height/9,
-                    width: Dimensions.get('window').width/1.25,
-                  }}
-                  onPress={()=>{this.dialCall()}
-                }
-                >
-                <View style={{ flexDirection: 'row' }}>
-                  <MaterialIcons name="phone" size={24} color="white" />
-                  <Text style={{ fontSize: Dimensions.get('window').height/37, color: 'white', fontWeight: 'bold' }}> Call STEMI Consult</Text>
-                </View>
-                <Text style={{ marginTop: Dimensions.get('window').height/150, color: 'white', fontSize: Dimensions.get('window').height/45, fontWeight: '400'}}>x6-8282</Text>
+
+            <TouchableOpacity onPress={()=>{this.dialCall()}}>
+                    <LinearGradient 
+                      style={styles.callButton}
+                      colors={['#B62619', '#F63826', '#B62619']}
+                      start={{x: 0, y: 0}}
+                      end={{x: 1, y: 0}}
+                    >
+                        <View style={{ flexDirection: 'row' }}>
+                          <MaterialIcons name="phone" size={19} color="white" />
+                          <Text style={{ fontSize: Dimensions.get('window').width/21, color: 'white', fontWeight: 'bold' }}> Call STEMI Consult</Text>
+                        </View>
+                        <Text style={{ 
+                          marginTop: Dimensions.get('window').height/150, 
+                          color: 'white', 
+                          fontSize: Dimensions.get('window').width/24, fontWeight: '400'
+                        }}>x6-8282
+                        </Text>
+                    </LinearGradient>
               </TouchableOpacity>
             </View>
 
@@ -157,18 +160,23 @@ export default class STEMI2 extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  circleFilledIn: {
-    width: 12,
-    height: 12,
-    borderRadius: 100/2,
-    backgroundColor: '#0f55bc'
-  },
-  circleNotFilledIn: {
+  firstCircle: {
+    marginTop: Dimensions.get('window').height/70,
     width: 12,
     height: 12,
     borderRadius: 100/2,
     borderWidth: 1,
-    borderColor: '#0f55bc'
+    borderColor: '#6c9ea1'
+  },
+  secondCircle: {
+    marginTop: Dimensions.get('window').height/70,
+    marginLeft: Dimensions.get('window').width/25,
+    width: 12,
+    height: 12,
+    borderRadius: 100/2,
+    borderWidth: 1,
+    backgroundColor: '#6c9ea1',
+    borderColor: '#6c9ea1'
   },
   container: {
     flex: 1,
@@ -203,23 +211,30 @@ const styles = StyleSheet.create({
   textFirstLine: {
     fontWeight: '500',
     textAlign: 'center',
-    fontSize: Dimensions.get('window').height/32,
+    fontSize: Dimensions.get('window').height/37,
   },
   textSecondLine: {
     fontWeight: '500',
     textAlign: 'center',
-    fontSize: Dimensions.get('window').height/32,
+    fontSize: Dimensions.get('window').height/37,
   },
   textSecondLineBold: {
     fontWeight: 'bold',
     textAlign: 'center',
     paddingTop: Dimensions.get('window').height/100,
-    fontSize: Dimensions.get('window').height/32,
+    fontSize: Dimensions.get('window').height/37,
   },
   textLastTwoLines: {
     fontWeight: '500',
     textAlign: 'center',
     paddingTop: Dimensions.get('window').height/100,
-    fontSize: Dimensions.get('window').height/35,
-  }
+    fontSize: Dimensions.get('window').height/39,
+  },
+  callButton: {
+    borderRadius: 40,
+    height: Dimensions.get('window').height/11,
+    width: Dimensions.get('window').width/1.17,
+    alignItems: "center",
+    justifyContent: "center",
+  },
 })

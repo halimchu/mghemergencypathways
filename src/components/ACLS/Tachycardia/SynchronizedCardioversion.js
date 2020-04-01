@@ -19,7 +19,7 @@ export default class SynchronizedCardioversion extends React.Component {
         </View>
 
  
-
+ 
         <View style={{flexDirection: 'row', marginBottom: Dimensions.get('window').height/80, }}>
           <View style={{flexDirection: 'column'}}>
             <Text style={styles.type}>Narrow irregular:</Text>

@@ -3,6 +3,7 @@ import { Linking, Dimensions, View, Text, StyleSheet, TouchableOpacity, SafeArea
 import { Button, Divider } from 'react-native-elements'
 import Icon from 'react-native-vector-icons/Ionicons' 
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons' 
+import LinearGradient from 'react-native-linear-gradient'
 
 export default class RICUWhatToPrepare extends React.Component {
   static navigationOptions = ({ navigation }) => {
@@ -78,7 +79,12 @@ export default class RICUWhatToPrepare extends React.Component {
       headerLeft, 
       headerRight,
       headerTitle,
-      headerStyle: {backgroundColor: '#709CD0'},      
+      headerBackground: (
+        <LinearGradient
+            colors={['#23A7C2', '#2D7C93',]}
+            style={{ flex: 1 }}
+        />
+      ),
     }
   }
 
@@ -154,14 +160,14 @@ const styles = StyleSheet.create({
     width: 12,
     height: 12,
     borderRadius: 100/2,
-    backgroundColor: '#0f55bc'
+    backgroundColor: '#6c9ea1'
   },
   circleNotFilledIn: { 
     width: 12,
     height: 12,
     borderRadius: 100/2,
     borderWidth: 1,
-    borderColor: '#0f55bc'
+    borderColor: '#6c9ea1'
   },
   container: {
     flex: 1
@@ -198,9 +204,9 @@ const styles = StyleSheet.create({
   },
   header: {
     fontWeight: 'bold',
-    textAlign: 'center',
+    marginLeft: Dimensions.get('window').width/16,
     marginBottom: Dimensions.get('window').height/120,
-    fontSize: Dimensions.get('window').height/32.5,
+    fontSize: Dimensions.get('window').height/36,
   },
   bulletPoint: {
     color: 'gray',
@@ -209,12 +215,12 @@ const styles = StyleSheet.create({
   bulletPointText: {
     fontWeight: '300',
     marginLeft: Dimensions.get('window').width/80,
-    fontSize: Dimensions.get('window').height/33.7,
+    fontSize: Dimensions.get('window').height/38,
   },
   bulletPoints: {
     flexDirection: 'row',
     marginTop: Dimensions.get('window').height/90,
-    marginLeft: Dimensions.get('window').width/20,
+    marginLeft: Dimensions.get('window').width/10,
     marginRight: Dimensions.get('window').width/20,
   },
   customBtnText: {
@@ -222,15 +228,15 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     textAlignVertical: "center",
     fontSize: Dimensions.get('window').height/40,
-    marginTop: Dimensions.get('window').height/40,
+    marginTop: Dimensions.get('window').height/47,
   },
   customBtnBG: {
-    borderWidth: 4,
-    borderColor: '#0f55bc',
+    borderWidth: 5,
+    borderColor: '#6c9ea1',
     paddingHorizontal: 1,
     paddingVertical: 1,
     borderRadius: 30,
-    width: Dimensions.get('window').width/1.25,
+    width: Dimensions.get('window').width/1.17,
     height: Dimensions.get('window').height/10.75,
   },
 })

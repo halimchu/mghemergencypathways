@@ -119,7 +119,7 @@ export default class CardiacArrestReversibleCauses extends React.Component {
                                 </View>
  
 
-
+ 
                                   <View style={{flexDirection: 'row'}}>
                                     <Text style={styles.subBulletPoint}>{`\u2022`}</Text>
                                     <Text style={styles.subRegular}>Needle & tube</Text>

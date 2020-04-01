@@ -2,6 +2,7 @@ import React from 'react'
 import { Dimensions, View, Text, StyleSheet, TouchableOpacity, SafeAreaView } from 'react-native'
 import { Button, Divider } from 'react-native-elements'
 import Icon from 'react-native-vector-icons/Ionicons' 
+import LinearGradient from 'react-native-linear-gradient'
 
 export default class PertLabs extends React.Component {
   static navigationOptions = ({ navigation }) => {
@@ -77,7 +78,12 @@ export default class PertLabs extends React.Component {
       headerLeft, 
       headerRight,
       headerTitle,
-      headerStyle: {backgroundColor: '#709CD0'},      
+      headerBackground: (
+        <LinearGradient
+            colors={['#23A7C2', '#2D7C93',]}
+            style={{ flex: 1 }}
+        />
+      ),
     }
   }
 
@@ -100,15 +106,13 @@ export default class PertLabs extends React.Component {
         <View style={styles.top}>
           <Text style={styles.titleFirstLine}>Pulmonary Embolism</Text>
 
-          <View style={{alignItems: 'center', paddingTop: Dimensions.get('window').height/60, }}>
-              <View style={{ flexDirection: 'row'}}>
-                <View style={{marginRight: Dimensions.get('window').width/30}}>
-                  <View style={styles.circleNotFilledIn}></View>
-                </View>
-                <View style={{}}>
-                  <View style={styles.circleFilledIn}></View>
-                </View>
-              </View>
+          <View style={{alignItems: 'center'}}>
+                  <View style={{ flexDirection: 'row'}}>
+                     <View style={styles.firstCircle}>
+                     </View>
+                     <View style={styles.secondCircle}>
+                     </View>
+                  </View>
           </View>
 
         
@@ -134,18 +138,21 @@ export default class PertLabs extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  circleFilledIn: {
+  firstCircle: {
+    marginTop: Dimensions.get('window').height/70,
     width: 12,
     height: 12,
     borderRadius: 100/2,
-    backgroundColor: '#0f55bc'
+    backgroundColor: '#6c9ea1'
   },
-  circleNotFilledIn: {
+  secondCircle: {
+    marginTop: Dimensions.get('window').height/70,
+    marginLeft: Dimensions.get('window').width/25,
     width: 12,
     height: 12,
     borderRadius: 100/2,
     borderWidth: 1,
-    borderColor: '#0f55bc'
+    borderColor: '#6c9ea1'
   },
   container: {
     flex: 1
@@ -176,7 +183,7 @@ const styles = StyleSheet.create({
     color: '#2b2b2b',
     marginLeft: Dimensions.get('window').width/15,
     marginTop: Dimensions.get('window').height/35,
-    fontSize: Dimensions.get('window').height/32.5,
+    fontSize: Dimensions.get('window').height/36,
   },
   bulletPoint: {
     color: 'gray',
@@ -184,7 +191,7 @@ const styles = StyleSheet.create({
   },
   bulletPointText: {
     fontWeight: '300',
-    fontSize: Dimensions.get('window').height/33.7,
+    fontSize: Dimensions.get('window').height/38,
     marginLeft: Dimensions.get('window').width/100,
   },
   bulletPoints: {

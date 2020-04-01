@@ -3,8 +3,9 @@ import { Linking, Dimensions, View, Text, StyleSheet, TouchableOpacity, SafeArea
 import { Button, Divider } from 'react-native-elements'
 import Icon from 'react-native-vector-icons/Ionicons' 
 import FontAwesome5Icons from 'react-native-vector-icons/FontAwesome5'
+import LinearGradient from 'react-native-linear-gradient'
 
-export default class STEMI3 extends React.Component {
+export default class STEMIUncertain extends React.Component {
   static navigationOptions = ({ navigation }) => {
     let headerLeft = ( 
       <View style={{ flexDirection: 'row' }}>
@@ -14,7 +15,7 @@ export default class STEMI3 extends React.Component {
                 <Icon name="ios-arrow-back" size={Dimensions.get('window').height/29} color="white" />
               </View>
             }
-            onPress={() => navigation.goBack()}
+            onPress={() => navigation.goBack()} 
             type='clear'
           />
 
@@ -78,7 +79,12 @@ export default class STEMI3 extends React.Component {
       headerLeft, 
       headerRight,
       headerTitle,
-      headerStyle: {backgroundColor: '#709CD0'},      
+      headerBackground: (
+        <LinearGradient
+            colors={['#23A7C2', '#2D7C93',]}
+            style={{ flex: 1 }}
+        />
+      ),  
     }
   }
   
@@ -90,41 +96,38 @@ export default class STEMI3 extends React.Component {
           <Text style={styles.title}>STEMI</Text>
           {/* <Divider style={styles.divider} /> */}
 
-          <View style={{alignItems: 'center', paddingTop: Dimensions.get('window').height/100, }}>
-              <View style={{ flexDirection: 'row'}}>
-                <View style={{marginRight: Dimensions.get('window').width/30}}>
-                  <View style={styles.circleNotFilledIn}></View>
-                </View>
-                <View style={{}}>
-                  <View style={styles.circleFilledIn}></View>
-                </View>
-              </View>
+          <View style={{alignItems: 'center'}}>
+                  <View style={{ flexDirection: 'row'}}>
+                     <View style={styles.firstCircle}>
+                     </View>
+                     <View style={styles.secondCircle}>
+                     </View>
+                  </View>
           </View>
 
         </View>
         
         <View style={styles.middle}>
           <View style={{ alignItems: 'center' }}>
-            <TouchableOpacity
-              style={{
-                alignItems: "center",
-                justifyContent: "center",
-                borderRadius: 60,
-                backgroundColor: '#B62130',
-                height: Dimensions.get('window').height/8,
-                width: Dimensions.get('window').width/1.25,
-              }}
-              onPress={ () => { Linking.openURL('https://ppd.partners.org/scripts/phsweb.mwl?APP=PDPERS&FF=PDA&ACTION=SEARCHRES&SRCHNM=25712') }
-              }>
-              <View style={{ flexDirection: 'row' }}>
-                <View style={{ marginTop: Dimensions.get('window').height/350 }}>
-                  <FontAwesome5Icons name="pager" size={22} color="white" />
-                </View>
-                <Text style={{ fontSize: Dimensions.get('window').height/37, color: 'white', fontWeight: 'bold' }}>  Page General</Text>
-              </View>
-              <Text style={{ fontSize: Dimensions.get('window').height/37, color: 'white', fontWeight: 'bold' }}>Cardiology Consult</Text>
-              <Text style={{ marginTop: Dimensions.get('window').height/150, color: 'white', fontSize: Dimensions.get('window').height/45, fontWeight: '400'}}>25712</Text>
-            </TouchableOpacity>
+
+          <TouchableOpacity 
+                    onPress={()=>{Linking.openURL('https://ppd.partners.org/scripts/phsweb.mwl?APP=PDPERS&FF=PDA&ACTION=SEARCHRES&SRCHNM=25712')}}>
+                    <LinearGradient 
+                      style={styles.callButton}
+                      colors={['#757474', '#9e9d9d', '#757474']}
+                      start={{x: 0, y: 0}}
+                      end={{x: 1, y: 0}}
+                    >
+                        <View style={{ flexDirection: 'row' }}>
+                    <View style={{ marginTop: Dimensions.get('window').height/350 }}>
+                      <FontAwesome5Icons name="pager" size={22} color="white" />
+                    </View>
+                    <Text style={{ fontSize: Dimensions.get('window').height/37, color: 'white', fontWeight: 'bold' }}>  Page General</Text>
+                  </View>
+                  <Text style={{ fontSize: Dimensions.get('window').height/37, color: 'white', fontWeight: 'bold' }}>Cardiology Consult</Text>
+                  <Text style={{ marginTop: Dimensions.get('window').height/150, color: 'white', fontSize: Dimensions.get('window').height/45, fontWeight: '400'}}>25712</Text>
+                </LinearGradient>
+              </TouchableOpacity>
           </View>
      
           <View style={{ marginTop: Dimensions.get('window').height/20 }}>
@@ -140,18 +143,21 @@ export default class STEMI3 extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  circleFilledIn: {
+  firstCircle: {
+    marginTop: Dimensions.get('window').height/70,
     width: 12,
     height: 12,
     borderRadius: 100/2,
-    backgroundColor: '#0f55bc'
+    backgroundColor: '#6c9ea1'
   },
-  circleNotFilledIn: {
+  secondCircle: {
+    marginTop: Dimensions.get('window').height/70,
+    marginLeft: Dimensions.get('window').width/25,
     width: 12,
     height: 12,
     borderRadius: 100/2,
     borderWidth: 1,
-    borderColor: '#0f55bc'
+    borderColor: '#6c9ea1'
   },
   container: {
     flex: 1,
@@ -188,12 +194,21 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     textAlign: 'center',
     marginTop: Dimensions.get('window').height/100,
-    fontSize: Dimensions.get('window').height/32,
+    fontSize: Dimensions.get('window').height/36,
   },
   textBold: {
     fontWeight: 'bold',
     textAlign: 'center',
     marginTop: Dimensions.get('window').height/100,
-    fontSize: Dimensions.get('window').height/32,
+    fontSize: Dimensions.get('window').height/36,
+  },
+  callButton: {
+    borderRadius: 40,
+    height: Dimensions.get('window').height/8,
+    width: Dimensions.get('window').width/1.17,
+    alignItems: "center",
+    justifyContent: "center",
+    borderWidth: 1,
+    borderColor: '#ab8080'
   },
 })

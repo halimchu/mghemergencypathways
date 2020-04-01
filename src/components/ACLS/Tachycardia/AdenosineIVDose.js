@@ -1,7 +1,7 @@
 import React from 'react'
 import { Dimensions, View, Text, StyleSheet } from 'react-native'
 
-export default class SynchronizedCardioversion extends React.Component {
+export default class AdenosineIVDose extends React.Component {
 	state = {
 		data: [
       'Narrow regular: 50-100 J',
@@ -16,7 +16,7 @@ export default class SynchronizedCardioversion extends React.Component {
       this.state.dataH.map((item) => (
         item[2] 
         
-        ? 
+        ?  
 
         <View key={item} style={styles.bulletPoints}>
           <View style={{ marginRight: Dimensions.get('window').width/4, marginTop: Dimensions.get('window').height/50, flexDirection: 'row' }}>

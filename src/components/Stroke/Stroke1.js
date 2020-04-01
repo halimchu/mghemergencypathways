@@ -3,6 +3,7 @@ import { Linking, Dimensions, View, Text, StyleSheet, TouchableOpacity, SafeArea
 import { Button, Divider } from 'react-native-elements'
 import Icon from 'react-native-vector-icons/Ionicons' 
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons' 
+import LinearGradient from 'react-native-linear-gradient'
 
 export default class Stroke1 extends React.Component {
   static navigationOptions = ({ navigation }) => {
@@ -78,7 +79,12 @@ export default class Stroke1 extends React.Component {
       headerLeft, 
       headerRight,
       headerTitle,
-      headerStyle: {backgroundColor: '#709CD0'},      
+      headerBackground: (
+        <LinearGradient
+            colors={['#23A7C2', '#2D7C93',]}
+            style={{ flex: 1 }}
+        />
+      ),
     }
   }
 
@@ -107,20 +113,16 @@ export default class Stroke1 extends React.Component {
           <View style={styles.top}>
             <Text style={styles.title}>Stroke</Text>
 
-            <View style={{alignItems: 'center', paddingTop: Dimensions.get('window').height/100, }}>
-              <View style={{ flexDirection: 'row'}}>
-                <View style={{marginRight: Dimensions.get('window').width/30}}>
-                  <View style={styles.circleFilledIn}></View>
-                </View>
-                <View style={{marginRight: Dimensions.get('window').width/30}}>
-                  <View style={styles.circleNotFilledIn}></View>
-                </View>
-                <View>
-                  <View style={styles.circleNotFilledIn}></View>
-                </View>
-              </View>
+            <View style={{alignItems: 'center'}}>
+                  <View style={{ flexDirection: 'row'}}>
+                     <View style={styles.firstCircle}>
+                     </View>
+                     <View style={styles.secondCircle}>
+                     </View>
+                     <View style={styles.thirdCircle}>
+                     </View>
+                  </View>
             </View>
-
           </View>
 
 
@@ -149,21 +151,25 @@ export default class Stroke1 extends React.Component {
                   shadowOffset:{  width: 0,  height: 1,  },
                   shadowColor: 'black',
                   shadowOpacity: .5,}}>
-              <TouchableOpacity
-                style={{
-                  alignItems: "center",
-                  justifyContent: "center",
-                  borderRadius: 60,
-                  backgroundColor: '#B62130',
-                  height: Dimensions.get('window').height/9,
-                  width: Dimensions.get('window').width/1.25,
-                }}
-                onPress={()=>{this.dialCall()}}>
-                <View style={{ flexDirection: 'row' }}>
-                  <MaterialIcons name="phone" size={24} color="white" />
-                  <Text style={{ fontSize: Dimensions.get('window').height/42, color: 'white', fontWeight: 'bold' }}> Call Acute Stroke Consult</Text>
-                </View>
-                <Text style={{ marginTop: Dimensions.get('window').height/150, color: 'white', fontSize: Dimensions.get('window').height/45, fontWeight: '400'}}>x6-3333</Text>
+
+              <TouchableOpacity onPress={()=>{this.dialCall()}}>
+                    <LinearGradient 
+                      style={styles.callButton}
+                      colors={['#B62619', '#F63826', '#B62619']}
+                      start={{x: 0, y: 0}}
+                      end={{x: 1, y: 0}}
+                    >
+                        <View style={{ flexDirection: 'row' }}>
+                          <MaterialIcons name="phone" size={19} color="white" />
+                          <Text style={{ fontSize: Dimensions.get('window').width/21, color: 'white', fontWeight: 'bold' }}> Call Acute Stroke Consult</Text>
+                        </View>
+                        <Text style={{ 
+                          marginTop: Dimensions.get('window').height/150, 
+                          color: 'white', 
+                          fontSize: Dimensions.get('window').width/24, fontWeight: '400'
+                        }}>x6-3333
+                        </Text>
+                    </LinearGradient>
               </TouchableOpacity>
             </View>
 
@@ -192,20 +198,30 @@ export default class Stroke1 extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  circleFilledIn: {
+  firstCircle: {
+    marginTop: Dimensions.get('window').height/70,
     width: 12,
     height: 12,
     borderRadius: 100/2,
-    // backgroundColor: '#69c8a1',
-    backgroundColor: '#0f55bc'
+    backgroundColor: '#6c9ea1'
   },
-  circleNotFilledIn: {
+  secondCircle: {
+    marginTop: Dimensions.get('window').height/70,
+    marginLeft: Dimensions.get('window').width/25,
+    marginRight: Dimensions.get('window').width/25,
     width: 12,
     height: 12,
     borderRadius: 100/2,
     borderWidth: 1,
-    // borderColor: '#69c8a1',
-    borderColor: '#0f55bc' 
+    borderColor: '#6c9ea1'
+  },
+  thirdCircle: {
+    marginTop: Dimensions.get('window').height/70,
+    width: 12,
+    height: 12,
+    borderRadius: 100/2,
+    borderWidth: 1,
+    borderColor: '#6c9ea1'
   },
   container: {
     flex: 1
@@ -252,7 +268,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#2b2b2b',
     marginLeft: Dimensions.get('window').width/20,
-    fontSize: Dimensions.get('window').height/34,
+    fontSize: Dimensions.get('window').height/36,
   },
   bulletPoints: {
     flexDirection: 'row',
@@ -270,28 +286,32 @@ const styles = StyleSheet.create({
     fontSize: Dimensions.get('window').height/40,
   },
   bulletPointText: {
-    fontWeight: '300',
+    fontWeight: '400',
     marginLeft: Dimensions.get('window').height/150,
-    fontSize: Dimensions.get('window').height/34.5,
+    fontSize: Dimensions.get('window').height/38,
   },
   customBtnText: {
     fontWeight: '600',
-    color: 'white',
     textAlign: 'center',
     textAlignVertical: "center",
     fontSize: Dimensions.get('window').height/40,
-    marginTop: Dimensions.get('window').height/40,
+    marginTop: Dimensions.get('window').height/47,
   },
   customBtnBG: {
-    // borderWidth: 4,
-    // borderColor: '#69c8a1',
-    // borderColor: '#0f55bc',
-    backgroundColor: '#607FBC',
+    borderWidth: 5,
+    borderColor: '#6c9ea1',
     paddingHorizontal: 1,
     paddingVertical: 1,
     borderRadius: 30,
-    shadowOpacity: .1,
-    width: Dimensions.get('window').width/1.25,
+    width: Dimensions.get('window').width/1.17,
     height: Dimensions.get('window').height/10.75,
   },
+  callButton: {
+    borderRadius: 40,
+    height: Dimensions.get('window').height/11,
+    width: Dimensions.get('window').width/1.17,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
 })

@@ -84,10 +84,8 @@ export default class BradyCardia extends React.Component {
         <LinearGradient
             colors={['#23A7C2', '#2D7C93',]}
             style={{ flex: 1 }}
-            start={{x: 0, y: 0}}
-            end={{x: 1, y: 0}}
         />
-      ),   
+      ),
     }
   }
 

@@ -2,14 +2,14 @@ import React from 'react'
 import { Image, Dimensions, View, Text, StyleSheet, ScrollView, TouchableOpacity, SafeAreaView } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons' 
 import { Button, Divider } from 'react-native-elements'
+import CardiacArrestReversibleCauses from './cardiacArrestReversibleCauses'
 import CardiacArrestShockEnergy from './cardiacArrestShockEnergy'
 import CardiacArrestDrugTherapy from './cardiacArrestDrugTherapy'
 import CardiacArrestROSC from './cardiacArrestROSC'
 import CardiacArrestCPR from './cardiacArrestCPR'
 import CardiacArrestAdvancedAirway from './cardiacArrestAdvancedAirway'
 import Component from './../Component'
-import LinearGradient from 'react-native-linear-gradient';
-import CardiacArrestReversibleCauses from './cardiacArrestReversibleCauses'
+import LinearGradient from 'react-native-linear-gradient'
 import Timer from './Timer'
 
 
@@ -20,7 +20,7 @@ export default class CardiacArrest extends React.Component {
           <Button 
             icon={
               <View style={{ marginLeft: Dimensions.get('window').width/45, }}>
-                <Icon name="ios-arrow-back" size={Dimensions.get('window').height/29} color="white" />
+                <Icon name="ios-arrow-back" size={Dimensions.get('window').height/26} color="white" />
               </View>
             }
             onPress={() => navigation.goBack()}
@@ -64,7 +64,7 @@ export default class CardiacArrest extends React.Component {
         <Button 
           icon={
             <View style={{ marginRight: Dimensions.get('window').width/75 }}>
-              <Icon name="md-home" size={Dimensions.get('window').height/26} color="rgba(0, 0, 0, 0)"  />
+              <Icon name="md-home" size={32} color="rgba(0, 0, 0, 0)"  />
             </View>
           }
           onPress={() => navigation.navigate('Home')}
@@ -74,7 +74,7 @@ export default class CardiacArrest extends React.Component {
         <Button 
           icon={
             <View style={{ marginRight: Dimensions.get('window').width/75 }}>
-              <Icon name="md-home" size={Dimensions.get('window').height/29} color="white" />
+              <Icon name="md-home" size={32} color="white" />
             </View>
           }
           onPress={() => navigation.navigate('Home')}
@@ -86,18 +86,15 @@ export default class CardiacArrest extends React.Component {
     return {
       headerLeft, 
       headerRight,
-      headerTitle,
+      headerTitle, 
       headerBackground: (
         <LinearGradient
             colors={['#23A7C2', '#2D7C93',]}
             style={{ flex: 1 }}
-            start={{x: 0, y: 0}}
-            end={{x: 1, y: 0}}
         />
-      ),   
+      ),  
     }
   }
-
 
   IPhone414x896 () {
     if (Dimensions.get('window').width === 414 && Dimensions.get('window').height === 896) {
@@ -154,11 +151,12 @@ export default class CardiacArrest extends React.Component {
     }
   }
 
+
+
   constructor(props) {
     super(props)
     this.state = { 
       imageHeight: 0,
-      parentView: 0,
       screenHeight: 0,
 
 
@@ -177,6 +175,7 @@ export default class CardiacArrest extends React.Component {
       CPRQualityHidden: true,
       advancedAirwayHidden: true
     }
+    // this.ImageURI = require('../../../../assets/CardiacArrest3000x2700.png')
   }
 
   onPressReversibleCausesHidden = () => {
@@ -236,6 +235,11 @@ export default class CardiacArrest extends React.Component {
   }
 
 
+  measureReversibleCausesView = (event) => {
+    this.setState({
+      reversibleCausesView: event.nativeEvent.layout.height
+    })
+  }  
   measureParentView = (event) => {
     this.setState({
       parentView: event.nativeEvent.layout.height
@@ -251,11 +255,6 @@ export default class CardiacArrest extends React.Component {
       imageHeight: event.nativeEvent.layout.height
     })
   }
-  measureReversibleCausesView = (event) => {
-    this.setState({
-      reversibleCausesView: event.nativeEvent.layout.height
-    })
-  }  
   measureShockEnergyView = (event) => {
     this.setState({
       shockEnergyView: event.nativeEvent.layout.height
@@ -357,27 +356,18 @@ export default class CardiacArrest extends React.Component {
     
 
     return ( 
-      <SafeAreaView>
+      <SafeAreaView style={styles.container}>
 
-          
-
-          <View style={{}}>
-            <Timer />
-      
-            {/* <Divider style={styles.divider} /> */}
-          </View>
-          {/* <Text>{Dimensions.get('window').width}</Text>
-          <Text>{Dimensions.get('window').height}</Text> */}
+        <Timer />
+        <Divider />
 
 
+        <ScrollView 
+          maximumZoomScale={2.5}
+          ref={(scroller) => {this.scroller = scroller}}
+          onContentSizeChange={this.onContentSizeChange}
+        >
 
-          <ScrollView 
-            maximumZoomScale={2.5}
-            ref={(scroller) => {this.scroller = scroller}}
-            onContentSizeChange={this.onContentSizeChange}
-          > 
-
-          
 
 
 
@@ -391,10 +381,7 @@ export default class CardiacArrest extends React.Component {
 
 
 
-
-
-
-<View style={{alignItems: 'center', marginBottom: Dimensions.get('window').height/50,}}>
+          <View style={{alignItems: 'center', marginBottom: Dimensions.get('window').height/50,}}>
   <View style={{flexDirection: 'row'}}>
 
 
@@ -419,14 +406,6 @@ export default class CardiacArrest extends React.Component {
           <Text style={{marginTop: Dimensions.get('window').height/200,  marginRight: Dimensions.get('window').width/90,}}>Treat reversible causes</Text> 
       </View>
     </View>
-
-
- 
-
-
-
-
-
 
 
 
@@ -481,14 +460,7 @@ export default class CardiacArrest extends React.Component {
 
 
 
-
-
-
-
-   
-
-
-          <View style={{ alignItems: 'center'}} onLayout={this.measureParentView}>
+          <View style={{ alignItems: 'center'  }}>
               <View onLayout={this.measureReversibleCausesView}>
                 <Component 
                   goToNextComponent={this.goToComponentTwo} 
@@ -499,7 +471,7 @@ export default class CardiacArrest extends React.Component {
                 />
               </View>
 
- 
+
               <View onLayout={this.measureShockEnergyView}>
                 <Component
                   goToNextComponent={this.goToComponentThree} 
@@ -526,7 +498,7 @@ export default class CardiacArrest extends React.Component {
                   toggle={this.onPressROSCHidden} 
                   hidden = {this.state.ROSCHidden}
                   component={<CardiacArrestROSC />}
-                  buttonTitle='Return of Spontaneous Circulation'
+                  buttonTitle='Return of Spontaneous Circulation (ROSC)'
                 />
               </View>
 
@@ -550,13 +522,13 @@ export default class CardiacArrest extends React.Component {
                 />
               </View>
 
-              {/* <View style={{
+              <View style={{
                 marginTop: Dimensions.get('window').height/50
               }}>
-                <Text style={{fontSize: Dimensions.get('window').height/70,}}>
+                <Text style={{fontSize: Dimensions.get('window').height/60,}}>
                   American Heart Association Guidelines 2018
                 </Text>
-              </View> */}
+              </View>
           </View>
 
         
@@ -573,8 +545,6 @@ export default class CardiacArrest extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // justifyContent: 'center',
-    // alignItems: 'center'
   },
   top: {
     paddingTop: Dimensions.get('window').height/300,
@@ -606,7 +576,6 @@ const styles = StyleSheet.create({
   customBtnBG3: {
     alignItems: 'center',
     backgroundColor: '#B93E2F',
-    // shadowOpacity: .3, 
     borderRadius: 4, 
     marginTop: Dimensions.get('window').height/250,
     width: Dimensions.get('window').width/2,

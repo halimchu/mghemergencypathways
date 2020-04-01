@@ -2,6 +2,7 @@ import React from 'react'
 import { Dimensions, View, Text, StyleSheet, TouchableOpacity, SafeAreaView } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons' 
 import { Button, Divider } from 'react-native-elements'
+import LinearGradient from 'react-native-linear-gradient'
 
 export default class Stroke3 extends React.Component {
 
@@ -78,7 +79,12 @@ export default class Stroke3 extends React.Component {
       headerLeft, 
       headerRight,
       headerTitle,
-      headerStyle: {backgroundColor: '#709CD0'},      
+      headerBackground: (
+        <LinearGradient
+            colors={['#23A7C2', '#2D7C93',]}
+            style={{ flex: 1 }}
+        />
+      ), 
     }
   }
 
@@ -97,22 +103,16 @@ export default class Stroke3 extends React.Component {
         <View style={styles.top}>
           <Text style={styles.title}>Stroke</Text>
           {/* <Divider style={styles.divider} /> */}
-
-          <View style={{alignItems: 'center', paddingTop: Dimensions.get('window').height/100, }}>
-              <View style={{ flexDirection: 'row'}}>
-                <View style={{marginRight: Dimensions.get('window').width/30}}>
-                  <View style={styles.circleNotFilledIn}></View>
-                </View>
-                <View style={{marginRight: Dimensions.get('window').width/30}}>
-                  <View style={styles.circleNotFilledIn}></View>
-                </View>
-                <View>
-                  <View style={styles.circleFilledIn}></View>
-                </View>
-              </View>
-            </View>
-
-
+          <View style={{alignItems: 'center'}}>
+                  <View style={{ flexDirection: 'row'}}>
+                     <View style={styles.firstCircle}>
+                     </View>
+                     <View style={styles.secondCircle}>
+                     </View>
+                     <View style={styles.thirdCircle}>
+                     </View>
+                  </View>
+          </View>
         </View>
 
         <View style={styles.bottom}>
@@ -123,7 +123,7 @@ export default class Stroke3 extends React.Component {
                 <Text style={styles.bulletPoint}>{`\u2022`}</Text>
                 <Text style={styles.bulletPointText}>{item}</Text>
               </View>
-            </View>        
+            </View>         
           ))} 
         </View>
       </SafeAreaView>
@@ -132,18 +132,30 @@ export default class Stroke3 extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  circleFilledIn: {
+  firstCircle: {
+    marginTop: Dimensions.get('window').height/70,
     width: 12,
     height: 12,
     borderRadius: 100/2,
-    backgroundColor: '#0f55bc'
+    backgroundColor: '#6c9ea1'
   },
-  circleNotFilledIn: {
+  secondCircle: {
+    marginTop: Dimensions.get('window').height/70,
+    marginLeft: Dimensions.get('window').width/25,
+    marginRight: Dimensions.get('window').width/25,
     width: 12,
     height: 12,
     borderRadius: 100/2,
     borderWidth: 1,
-    borderColor: '#0f55bc'
+    borderColor: '#6c9ea1'
+  },
+  thirdCircle: {
+    marginTop: Dimensions.get('window').height/70,
+    width: 12,
+    height: 12,
+    borderRadius: 100/2,
+    borderWidth: 1,
+    borderColor: '#6c9ea1'
   },
   container: {
     flex: 1
@@ -174,9 +186,9 @@ const styles = StyleSheet.create({
   },
   header: {
     fontWeight: 'bold',
-    textAlign: 'center',
+    marginLeft: Dimensions.get('window').width/16,
     color: '#2b2b2b',
-    fontSize: Dimensions.get('window').height/34,
+    fontSize: Dimensions.get('window').height/36,
   },
   bulletPoint: {
     color: 'gray',
@@ -185,7 +197,7 @@ const styles = StyleSheet.create({
   bulletPointText: {
     fontWeight: '300',
     marginLeft: Dimensions.get('window').height/150,
-    fontSize: Dimensions.get('window').height/34.5,
+    fontSize: Dimensions.get('window').height/38,
   },
   bulletPoints: {
     flexDirection: 'row',

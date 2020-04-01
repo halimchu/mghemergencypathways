@@ -2,6 +2,7 @@ import React from 'react'
 import { Dimensions, View, Text, StyleSheet, TouchableOpacity, SafeAreaView } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons' 
 import { Button, Divider } from 'react-native-elements'
+import LinearGradient from 'react-native-linear-gradient'
 
 export default class RICUWhatToPresent extends React.Component {
   static navigationOptions = ({ navigation }) => {
@@ -77,7 +78,12 @@ export default class RICUWhatToPresent extends React.Component {
       headerLeft, 
       headerRight,
       headerTitle,
-      headerStyle: {backgroundColor: '#709CD0'},      
+      headerBackground: (
+        <LinearGradient
+            colors={['#23A7C2', '#2D7C93',]}
+            style={{ flex: 1 }}
+        />
+      ),  
     }
   }
 
@@ -103,7 +109,7 @@ export default class RICUWhatToPresent extends React.Component {
                 <Text style={styles.bulletPoint}>{`\u2022 `}</Text>
                 <Text style={{ 
                   fontWeight: '500',
-                  fontSize: Dimensions.get('window').height/33.7, 
+                  fontSize: Dimensions.get('window').height/37, 
                   }}>
                   {item[0]}
                 </Text>
@@ -111,7 +117,7 @@ export default class RICUWhatToPresent extends React.Component {
 
               <Text style={{ 
                 fontWeight: '300', 
-                fontSize: Dimensions.get('window').height/36, 
+                fontSize: Dimensions.get('window').height/38, 
                 marginBottom: Dimensions.get('window').height/70, 
                 marginLeft: Dimensions.get('window').width/28 
                 }}>
@@ -171,14 +177,14 @@ const styles = StyleSheet.create({
     width: 12,
     height: 12,
     borderRadius: 100/2,
-    backgroundColor: '#0f55bc'
+    backgroundColor: '#6c9ea1'
   },
   circleNotFilledIn: {
     width: 12,
     height: 12,
     borderRadius: 100/2,
     borderWidth: 1,
-    borderColor: '#0f55bc'
+    borderColor: '#6c9ea1'
   },
   container: {
     flex: 1
@@ -209,9 +215,9 @@ const styles = StyleSheet.create({
   },
   header: {
     fontWeight: 'bold',
-    textAlign: 'center',
+    marginLeft: Dimensions.get('window').width/16,
     marginBottom: Dimensions.get('window').height/58,
-    fontSize: Dimensions.get('window').height/32.5,
+    fontSize: Dimensions.get('window').height/36,
   },
   bulletPoint: {
     color: 'gray',
