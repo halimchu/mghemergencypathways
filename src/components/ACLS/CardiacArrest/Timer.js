@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Image, Dimensions, View, Text, StyleSheet, ScrollView, TouchableOpacity, SafeAreaView } from 'react-native'
+import { Vibration, Button, Image, Dimensions, View, Text, StyleSheet, ScrollView, TouchableOpacity, SafeAreaView } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons' 
 
 
@@ -15,6 +15,10 @@ export default class Timer extends React.Component {
     secondBeforeVisible: true,
     icon: 'ios-play',
   }
+
+  // startVibration = () => {
+  //   Vibration.vibrate([1000, 2000, 1000])
+  // }
 
 
   onStart = () => {
@@ -44,6 +48,7 @@ export default class Timer extends React.Component {
             
               // if timer reaches 2 minutes, keep it at 2 minutes 
               if (this.state.minute === 2 && this.state.second === 0) {
+                this.vibrate([1000, 2000])
                 clearInterval(this.interval)
               }  
             }, 1000)
@@ -52,7 +57,9 @@ export default class Timer extends React.Component {
       if (this.state.minute !== 2 && this.state.second !== 0) {
             this.interval = setInterval(() => {
               this.setState({ second: this.state.second + 1 })
-            
+
+          
+
               if (this.state.second > 9) {
                 this.setState({ secondBeforeVisible: false })
               } 
@@ -72,7 +79,7 @@ export default class Timer extends React.Component {
               }
             
               // if timer reaches 2 minutes, keep it at 2 minutes 
-              if (this.state.minute === 2 && this.state.second === 0) {
+              if (this.state.minute === 0 && this.state.second === 5) {
                 clearInterval(this.interval)
               }  
             }, 1000)
@@ -243,8 +250,10 @@ export default class Timer extends React.Component {
                 }}>
                     {this.renderButton()}
                 </View>
-
               </View>
+
+              {/* <Button title="button" onPress = {this.startVibration} /> */}
+
 
 
       </View>

@@ -98,7 +98,7 @@ export default class STEMI extends React.Component {
   state2 = {
     data: [
       '≥1 mm in at least two contiguous leads',
-      '≥2 mm (men) or ≥ 1.5 mm (women) in V2-V3'
+      '≥2 mm (men) or ≥ 1.5 mm (women) in V2-V3' 
     ]
   }
 

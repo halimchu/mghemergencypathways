@@ -381,10 +381,8 @@ export default class CardiacArrest extends React.Component {
 
 
 
-          <View style={{alignItems: 'center', marginBottom: Dimensions.get('window').height/50,}}>
-  <View style={{flexDirection: 'row'}}>
-
-
+  <View style={{alignItems: 'center', marginBottom: Dimensions.get('window').height/50,}}>
+    <View style={{flexDirection: 'row'}}>
     <View style={{
       backgroundColor: '#CBE7F7', 
       borderRadius: 10, 

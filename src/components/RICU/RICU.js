@@ -4,6 +4,8 @@ import { Button, Divider } from 'react-native-elements'
 import Icon from 'react-native-vector-icons/Ionicons' 
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons' 
 import LinearGradient from 'react-native-linear-gradient'
+import Component from '../ACLS/Component'
+import RiskFactors from './RiskFactors'
 
 export default class RICU extends React.Component {
   static navigationOptions = ({ navigation }) => {
@@ -95,7 +97,12 @@ export default class RICU extends React.Component {
       'Working IV',
       'Vasopressor in line and on pump',
       'Suction on and connected with tubing'
-    ]
+    ],
+    buttonHidden: true,
+  }
+
+  onPressButtonHidden = () => {
+    this.setState({ buttonHidden: !this.state.buttonHidden})
   }
 
   dialCall = () => {
@@ -110,7 +117,7 @@ export default class RICU extends React.Component {
       return (
         <Image
           source={require('../../../assets/RICU3000x2000V2.png')}
-          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.5}}
+          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/2}}
         />
       )
     }
@@ -132,7 +139,7 @@ export default class RICU extends React.Component {
       return (
         <Image
           source={require('../../../assets/RICU3000x2000V2.png')}
-          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.22 }}
+          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.6 }}
         />
       )
     }
@@ -143,7 +150,7 @@ export default class RICU extends React.Component {
       return (
         <Image
           source={require('../../../assets/RICU3000x2000V2.png')}
-          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.22 }}
+          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.65 }}
         />
       )
     }
@@ -154,7 +161,7 @@ export default class RICU extends React.Component {
       return (
         <Image
           source={require('../../../assets/RICU3000x2000V2.png')}
-          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.22 }}
+          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.6 }}
         />
       )
     }
@@ -171,7 +178,8 @@ export default class RICU extends React.Component {
         >
 
           <Text style={styles.title}>RICU</Text>
-          {/* <Divider style={styles.divider} /> */}
+          {/* <Text>{Dimensions.get('window').width}</Text>
+          <Text>{Dimensions.get('window').height}</Text> */}
           <View style={{alignItems: 'center'}}>
                   <View style={{ flexDirection: 'row'}}>
                      <View style={styles.firstCircle}>
@@ -218,6 +226,27 @@ export default class RICU extends React.Component {
                   {this.IPhone414x736()}
                   {this.IPhone320x568()}
 
+              <View onLayout={this.measureShockEnergyView}>
+              
+                    <View style={{ marginLeft: Dimensions.get('window').width/27,}}>
+                      <TouchableOpacity style={styles.customBtnBG2} onPress={() => {
+                        this.onPressButtonHidden()
+                      }}>
+                        <Text style={styles.customBtnText2}>Risk Factors</Text>
+                      </TouchableOpacity>
+                    </View>
+                    <View style={{backgroundColor: '#f0efef',}}>
+                      {!this.state.buttonHidden ? <RiskFactors /> : null}
+                    </View>
+
+                    {/* {!this.props.hidden ? this.props.goToNextComponent() : null} */}
+                  </View>
+
+
+           
+            
+
+
                 <Divider style={styles.divider}/>
               </View>
           </View>
@@ -238,15 +267,30 @@ export default class RICU extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  customBtnText2: {
+    fontWeight: '600',
+    color: '#303333',
+    textAlign: 'center',
+    fontSize: Dimensions.get('window').height/69,
+    marginTop: Dimensions.get('window').height/170,
+  },
+  customBtnBG2: {
+    backgroundColor: '#DBE2E8',
+    borderRadius: 20,
+    shadowOpacity: .2,    
+    width: Dimensions.get('window').width/3.25,
+    height: Dimensions.get('window').height/35,
+  },
+ 
   firstCircle: {
-    marginTop: Dimensions.get('window').height/70,
+    marginTop: Dimensions.get('window').height/100,
     width: 12,
     height: 12,
     borderRadius: 100/2,
     backgroundColor: '#6c9ea1'
   },
   secondCircle: {
-    marginTop: Dimensions.get('window').height/70,
+    marginTop: Dimensions.get('window').height/100,
     marginLeft: Dimensions.get('window').width/25,
     marginRight: Dimensions.get('window').width/25,
     width: 12,
@@ -256,7 +300,7 @@ const styles = StyleSheet.create({
     borderColor: '#6c9ea1'
   },
   thirdCircle: {
-    marginTop: Dimensions.get('window').height/70,
+    marginTop: Dimensions.get('window').height/100,
     width: 12,
     height: 12,
     borderRadius: 100/2,

@@ -89,40 +89,30 @@ export default class RICUWhatToPresent extends React.Component {
 
   state = { 
     data: [
-      ['One-Liner:', 'Major cardiac, pulm, ENT'],
+      ['Code Status'],
+      ['One-Liner:', 'major cardiac, pulm, ENT, acuity of decompensation'],
       ['Last Echo:', 'EF, RV function, RVSP, valves'],
-      ['Prior Intubations:', '"Chart reviews" -> "Anesthesia," leave open'],
+      ['Prior Intubations:', '"chart review" -> "anesthesia," leave open'],
       ['Code Status'],
       ['Gas Exchange:', 'Last ABG'],
       ['Allergies'],
       ['Access'],
-      ['NPO Status:', 'Last meal, major GI issues'],
-      ['Status:', 'Functional status & weight[kg]']
+      ['NPO Status:', 'last meal, major GI issues'],
+      ['Status:', 'functional status & weight [kg]']
     ],
   }
 
   whatToPresent () {
     return this.state.data.map((item) => 
       item[1] ? (
-          <View key={item[0]} style={{ marginRight: Dimensions.get('window').width/19, marginLeft: Dimensions.get('window').width/19 }}>
-              <Text>
+          <View key={item[0]} style={{ flexDirection: 'row', marginRight: Dimensions.get('window').width/19, marginLeft: Dimensions.get('window').width/19 }}>
                 <Text style={styles.bulletPoint}>{`\u2022 `}</Text>
-                <Text style={{ 
-                  fontWeight: '500',
-                  fontSize: Dimensions.get('window').height/37, 
-                  }}>
+                <Text style={{ fontWeight: '500',fontSize: Dimensions.get('window').height/37, }}>
                   {item[0]}
+                  {item[1]}
                 </Text>
-              </Text>
 
-              <Text style={{ 
-                fontWeight: '300', 
-                fontSize: Dimensions.get('window').height/38, 
-                marginBottom: Dimensions.get('window').height/70, 
-                marginLeft: Dimensions.get('window').width/28 
-                }}>
-                {item[1]}
-              </Text>
+
           </View>
 
       ) : (
@@ -131,7 +121,7 @@ export default class RICUWhatToPresent extends React.Component {
         <Text style={styles.bulletPoint}>{`\u2022 `}</Text>
         <Text style={{ 
           fontWeight: '500', 
-          fontSize: Dimensions.get('window').height/33.7, 
+          fontSize: Dimensions.get('window').height/40, 
           }}>
           {item[0]}
         </Text>
@@ -147,18 +137,15 @@ export default class RICUWhatToPresent extends React.Component {
           <Text style={styles.title}>RICU</Text>
           {/* <Divider style={styles.divider} /> */}
 
-          <View style={{alignItems: 'center', paddingTop: Dimensions.get('window').height/100, }}>
-              <View style={{ flexDirection: 'row'}}>
-                <View style={{marginRight: Dimensions.get('window').width/30}}>
-                  <View style={styles.circleNotFilledIn}></View>
-                </View>
-                <View style={{marginRight: Dimensions.get('window').width/30}}>
-                  <View style={styles.circleNotFilledIn}></View>
-                </View>
-                <View>
-                  <View style={styles.circleFilledIn}></View>
-                </View>
-              </View>
+          <View style={{alignItems: 'center'}}>
+                  <View style={{ flexDirection: 'row'}}>
+                     <View style={styles.firstCircle}>
+                     </View>
+                     <View style={styles.secondCircle}>
+                     </View>
+                     <View style={styles.thirdCircle}>
+                     </View>
+                  </View>
             </View>
 
         </View>
@@ -173,18 +160,31 @@ export default class RICUWhatToPresent extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  circleFilledIn: {
-    width: 12,
-    height: 12,
-    borderRadius: 100/2,
-    backgroundColor: '#6c9ea1'
-  },
-  circleNotFilledIn: {
+  firstCircle: {
+    marginTop: Dimensions.get('window').height/100,
     width: 12,
     height: 12,
     borderRadius: 100/2,
     borderWidth: 1,
     borderColor: '#6c9ea1'
+  },
+  secondCircle: {
+    marginTop: Dimensions.get('window').height/100,
+    marginLeft: Dimensions.get('window').width/25,
+    marginRight: Dimensions.get('window').width/25,
+    width: 12,
+    height: 12,
+    borderRadius: 100/2,
+    borderWidth: 1,
+    borderColor: '#6c9ea1',
+  },
+  thirdCircle: {
+    marginTop: Dimensions.get('window').height/100,
+    width: 12,
+    height: 12,
+    borderRadius: 100/2,
+    backgroundColor: '#6c9ea1',
+    
   },
   container: {
     flex: 1

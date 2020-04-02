@@ -90,11 +90,14 @@ export default class RICUWhatToPrepare extends React.Component {
 
   state = {
     data: [
-      'Respiratory Therapist',
+      'Respiratory Therapist present',
+      'CO2 detector',
       'Ventilator (standing or transport)',
-      'Working IV',
-      'Vasopressor in line and on pump',
-      'Suction on and connected with tubing'
+      'Working IV with free flowing IV bag attached',
+      'Vasopressor in line and on pump with carrier',
+      'Suction on and connected w/tubing',
+      'Video laryngoscope (if available)',
+      'Leave HFNC or NIV in place'
     ]
   }
 
@@ -113,24 +116,25 @@ export default class RICUWhatToPrepare extends React.Component {
           <Text style={styles.title}>RICU</Text>
           {/* <Divider style={styles.divider} /> */}
 
-          <View style={{alignItems: 'center', paddingTop: Dimensions.get('window').height/100, }}>
-              <View style={{ flexDirection: 'row'}}>
-                <View style={{marginRight: Dimensions.get('window').width/30}}>
-                  <View style={styles.circleNotFilledIn}></View>
-                </View>
-                <View style={{marginRight: Dimensions.get('window').width/30}}>
-                  <View style={styles.circleFilledIn}></View>
-                </View>
-                <View>
-                  <View style={styles.circleNotFilledIn}></View>
-                </View>
-              </View>
+          <View style={{alignItems: 'center'}}>
+                  <View style={{ flexDirection: 'row'}}>
+                     <View style={styles.firstCircle}>
+                     </View>
+                     <View style={styles.secondCircle}>
+                     </View>
+                     <View style={styles.thirdCircle}>
+                     </View>
+                  </View>
             </View>
-
         </View>
        
         <View style={styles.middle}>
-          <Text style={styles.header}>What to prepare:</Text>
+
+              <View style={{backgroundColor: '#007297', }}>
+                <Text style={{fontSize: Dimensions.get('window').height/38, fontWeight: 'bold', color: 'white', }}>Important: Informed clinician must be at patient's bedside when RICU arrives</Text>
+              </View>
+
+          <Text style={styles.header}>If RICU called, prepare the following:</Text>
           {this.state.data.map((item) => (
             <View key={item} style={ styles.bulletPoints }>
               <View style={{ flexDirection: 'row' }}>
@@ -156,6 +160,33 @@ export default class RICUWhatToPrepare extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  firstCircle: {
+    marginTop: Dimensions.get('window').height/100,
+    width: 12,
+    height: 12,
+    borderRadius: 100/2,
+    borderWidth: 1,
+    borderColor: '#6c9ea1'
+  },
+  secondCircle: {
+    marginTop: Dimensions.get('window').height/100,
+    marginLeft: Dimensions.get('window').width/25,
+    marginRight: Dimensions.get('window').width/25,
+    width: 12,
+    height: 12,
+    borderRadius: 100/2,
+    backgroundColor: '#6c9ea1',
+    borderWidth: 1,
+    borderColor: '#6c9ea1'
+  },
+  thirdCircle: {
+    marginTop: Dimensions.get('window').height/100,
+    width: 12,
+    height: 12,
+    borderRadius: 100/2,
+    borderWidth: 1,
+    borderColor: '#6c9ea1'
+  },
   circleFilledIn: {
     width: 12,
     height: 12,

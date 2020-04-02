@@ -10,6 +10,11 @@
 #import <React/RCTBridge.h>
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
+#import <UIKit/UIKit.h>
+#import <Firebase.h>
+
+
+
 
 @implementation AppDelegate
 
@@ -31,6 +36,8 @@
   UIView* launchScreenView = [[[NSBundle mainBundle] loadNibNamed:@"LaunchScreen" owner:self options:nil] objectAtIndex:0];
   launchScreenView.frame = self.window.bounds;
   rootView.loadingView = launchScreenView;
+  
+  [FIRApp configure];
   
   return YES;
 }
