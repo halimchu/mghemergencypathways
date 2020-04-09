@@ -91,10 +91,9 @@ export default class RICUWhatToPresent extends React.Component {
     data: [
       ['Code Status'],
       ['One-Liner:', 'major cardiac, pulm, ENT, acuity of decompensation'],
+      ['Vitals and Labs'],
       ['Last Echo:', 'EF, RV function, RVSP, valves'],
       ['Prior Intubations:', '"chart review" -> "anesthesia," leave open'],
-      ['Code Status'],
-      ['Gas Exchange:', 'Last ABG'],
       ['Allergies'],
       ['Access'],
       ['NPO Status:', 'last meal, major GI issues'],
@@ -104,16 +103,20 @@ export default class RICUWhatToPresent extends React.Component {
 
   whatToPresent () {
     return this.state.data.map((item) => 
+
       item[1] ? (
-          <View key={item[0]} style={{ flexDirection: 'row', marginRight: Dimensions.get('window').width/19, marginLeft: Dimensions.get('window').width/19 }}>
-                <Text style={styles.bulletPoint}>{`\u2022 `}</Text>
-                <Text style={{ fontWeight: '500',fontSize: Dimensions.get('window').height/37, }}>
-                  {item[0]}
-                  {item[1]}
-                </Text>
-
-
-          </View>
+            <View key={item[0]} style={{ 
+              flexDirection: 'row', 
+              marginRight: Dimensions.get('window').width/19, 
+              marginLeft: Dimensions.get('window').width/19,
+              marginBottom: Dimensions.get('window').height/70 }}>
+                  <Text style={styles.bulletPoint}>{`\u2022 `}</Text>
+                  <Text>
+                    <Text style={{ fontWeight: '500', fontSize: Dimensions.get('window').width/21, }}>{item[0]}</Text>
+                    <Text style={{ fontSize: Dimensions.get('window').width/21, }}> {item[1]}</Text>
+                  </Text>
+                
+            </View>
 
       ) : (
 
@@ -121,7 +124,7 @@ export default class RICUWhatToPresent extends React.Component {
         <Text style={styles.bulletPoint}>{`\u2022 `}</Text>
         <Text style={{ 
           fontWeight: '500', 
-          fontSize: Dimensions.get('window').height/40, 
+          fontSize: Dimensions.get('window').width/21, 
           }}>
           {item[0]}
         </Text>
@@ -184,7 +187,6 @@ const styles = StyleSheet.create({
     height: 12,
     borderRadius: 100/2,
     backgroundColor: '#6c9ea1',
-    
   },
   container: {
     flex: 1
@@ -217,7 +219,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginLeft: Dimensions.get('window').width/16,
     marginBottom: Dimensions.get('window').height/58,
-    fontSize: Dimensions.get('window').height/36,
+    fontSize: Dimensions.get('window').width/20,
   },
   bulletPoint: {
     color: 'gray',

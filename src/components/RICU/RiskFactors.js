@@ -4,9 +4,15 @@ import { SafeAreaView, Dimensions, View, Text, StyleSheet } from 'react-native'
 export default class RiskFactors extends React.Component {
 	state = {
 		data: [
-      'Endotracheal intubation or supraglottic advanced airway',
-      'Waveform capnography or capnometry to confirm and monitor ET tube placement',
-      'Once advanced airway in place, give 1 breath every 6 seconds (10 breaths/min) with continuous chest compressions'
+      'Prior difficult intubations',
+      'BMI >40',
+      'Prior neck radiation',
+      'Airway edema (burn, stridor, angioedema',
+      'Surgical spine injury or fixation',
+      'Airway bleeding (trauma, tumor)',
+      'History of head/neck tumor',
+      'Prior or current tracheostomy',
+      'Known inability to open mouth (e.g. trismus)'
 		]
 	}
   render() {

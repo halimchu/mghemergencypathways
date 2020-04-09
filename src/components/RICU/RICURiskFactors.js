@@ -85,15 +85,11 @@ export default class RICURiskFactors extends React.Component {
 
   state = {
     data: [
-      'Prior difficult intubation',
-      'BMI > 40',
-      'Cervical spine injury or fixation',
-      'Airway edema (burn, stridor, angioedema)',
-      'Airway bleeding (trauma, tumor)',
-      'History of head/neck tumor',
+      'Prior difficult intubations',
+      'BMI >40',
       'Prior neck radiation',
-      'Prior or current tracheostomy',
-      'Known inability to open mouth (e.g. trismus)'
+      'Airway edema (burn '
+
     ]
   }
 

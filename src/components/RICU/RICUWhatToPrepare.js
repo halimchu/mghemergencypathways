@@ -90,14 +90,15 @@ export default class RICUWhatToPrepare extends React.Component {
 
   state = {
     data: [
-      'Respiratory Therapist present',
-      'CO2 detector',
-      'Ventilator (standing or transport)',
-      'Working IV with free flowing IV bag attached',
-      'Vasopressor in line and on pump with carrier',
-      'Suction on and connected w/tubing',
-      'Video laryngoscope (if available)',
-      'Leave HFNC or NIV in place'
+      'Full set of PPE x2 for RICU team',
+      'Syringes: 10mL x4, 2mL x4, saline flushes',
+      'Respiratory therapist present',
+      'BVM with PEEP valve, and CO2 detector',
+      'ETT holder and HEPA filters',
+      'Working IV with free-flowing IV fluid bag attached',
+      'Phenylephrine ...',
+      'Suction with connected tubing',
+      'Designate one RN to join RICU team in room and one to be "clean runner"'
     ]
   }
 
@@ -126,13 +127,22 @@ export default class RICUWhatToPrepare extends React.Component {
                      </View>
                   </View>
             </View>
-        </View>
+        </View> 
        
-        <View style={styles.middle}>
 
-              <View style={{backgroundColor: '#007297', }}>
-                <Text style={{fontSize: Dimensions.get('window').height/38, fontWeight: 'bold', color: 'white', }}>Important: Informed clinician must be at patient's bedside when RICU arrives</Text>
-              </View>
+        <View style={styles.middle}>
+          <View style={{
+            backgroundColor: '#e89b0e',
+            paddingLeft: Dimensions.get('window').width/64,
+            paddingRight: Dimensions.get('window').width/64,
+            paddingTop: Dimensions.get('window').height/120,
+            paddingBottom: Dimensions.get('window').height/120,
+            marginTop: Dimensions.get('window').height/70,
+            marginBottom: Dimensions.get('window').height/50,
+            }}>
+            <Text style={{textAlign: 'center', fontSize: Dimensions.get('window').width/21, fontWeight: 'bold', color: 'white', }}>Important: Informed clinician must be at patient's bedside when RICU arrives</Text>
+          </View>
+           
 
           <Text style={styles.header}>If RICU called, prepare the following:</Text>
           {this.state.data.map((item) => (
@@ -160,6 +170,21 @@ export default class RICUWhatToPrepare extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  top: {
+    height: '10%',
+    // backgroundColor: 'yellow'
+  },
+  middle: {
+    height: '75%',
+    // paddingTop: Dimensions.get('window').height/35,
+    // backgroundColor: 'pink'
+  },
+  bottom: {
+    height: '15%',
+    alignItems: 'center', 
+    justifyContent: 'center',
+    // backgroundColor: 'gray',
+  },
   firstCircle: {
     marginTop: Dimensions.get('window').height/100,
     width: 12,
@@ -203,21 +228,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1
   },
-  top: {
-    height: '10%',
-    // backgroundColor: 'yellow'
-  },
-  middle: {
-    height: '75%',
-    paddingTop: Dimensions.get('window').height/35,
-    // backgroundColor: 'pink'
-  },
-  bottom: {
-    height: '15%',
-    alignItems: 'center', 
-    justifyContent: 'center',
-    // backgroundColor: 'gray',
-  },
+  
   title: {
     fontWeight: 'bold',
     textAlign: 'center',
@@ -237,16 +248,16 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginLeft: Dimensions.get('window').width/16,
     marginBottom: Dimensions.get('window').height/120,
-    fontSize: Dimensions.get('window').height/36,
+    fontSize: Dimensions.get('window').width/21,
   },
   bulletPoint: {
     color: 'gray',
     fontSize: Dimensions.get('window').height/40,
   },
   bulletPointText: {
-    fontWeight: '300',
+    fontWeight: '400',
     marginLeft: Dimensions.get('window').width/80,
-    fontSize: Dimensions.get('window').height/38,
+    fontSize: Dimensions.get('window').width/21,
   },
   bulletPoints: {
     flexDirection: 'row',

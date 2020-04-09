@@ -148,7 +148,8 @@ const styles = StyleSheet.create({
     width: 12,
     height: 12,
     borderRadius: 100/2,
-    backgroundColor: '#6c9ea1'
+    borderWidth: 1,
+    borderColor: '#6c9ea1'
   },
   secondCircle: {
     marginTop: Dimensions.get('window').height/70,
@@ -156,8 +157,8 @@ const styles = StyleSheet.create({
     width: 12,
     height: 12,
     borderRadius: 100/2,
-    borderWidth: 1,
-    borderColor: '#6c9ea1'
+    backgroundColor: '#6c9ea1'
+    
   },
   container: {
     flex: 1,
