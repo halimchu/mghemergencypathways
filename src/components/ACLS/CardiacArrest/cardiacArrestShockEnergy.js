@@ -14,7 +14,7 @@ export default class CardiacArrestShockEnergy extends React.Component {
               <View style={{flexDirection: 'column'}}>
                 <Text>
                   <Text style={styles.bold}>Biphasic:</Text>
-                  <Text style={styles.regular}> 200 J</Text>
+                  <Text style={styles.regular}> 120-200 J</Text>
                 </Text>
               </View>
               

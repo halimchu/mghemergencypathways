@@ -128,7 +128,7 @@ export default class RICU extends React.Component {
       return (
         <Image
           source={require('../../../assets/RICU3000x2000V2.png')}
-          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/2}}
+          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/2.3}}
         />
       )
     }
@@ -139,7 +139,7 @@ export default class RICU extends React.Component {
       return (
         <Image
           source={require('../../../assets/RICU3000x2000V2.png')}
-          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/2}}
+          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/2.3}}
         />
       )
     }
@@ -150,7 +150,7 @@ export default class RICU extends React.Component {
       return (
         <Image
           source={require('../../../assets/RICU3000x2000V2.png')}
-          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.6 }}
+          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.9}}
         />
       )
     }
@@ -161,7 +161,7 @@ export default class RICU extends React.Component {
       return (
         <Image
           source={require('../../../assets/RICU3000x2000V2.png')}
-          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.65 }}
+          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.9 }}
         />
       )
     }
@@ -172,7 +172,7 @@ export default class RICU extends React.Component {
       return (
         <Image
           source={require('../../../assets/RICU3000x2000V2.png')}
-          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.6 }}
+          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.9 }}
         />
       )
     }
@@ -203,9 +203,12 @@ export default class RICU extends React.Component {
           onContentSizeChange={this.onContentSizeChange}
         >
 
-          <Text style={styles.title}>RICU</Text>
+
+        <Text style={styles.title}>RICU</Text>
+
           {/* <Text>{Dimensions.get('window').width}</Text>
           <Text>{Dimensions.get('window').height}</Text> */}
+
           <View style={{alignItems: 'center'}}>
                   <View style={{ flexDirection: 'row'}}>
                      <View style={styles.firstCircle}>
@@ -219,7 +222,91 @@ export default class RICU extends React.Component {
 
 
 
-                <View style={{ alignItems: 'center', marginTop: Dimensions.get('window').height/100,  }}>
+               
+
+
+
+               
+
+          
+
+             
+
+
+
+                <View style={styles.divider}></View>
+                  {this.IPhone375x812()}
+                  {this.IPhone414x896()}
+                  {this.IPhone375x667()} 
+                  {this.IPhone414x736()}
+                  {this.IPhone320x568()}
+
+                  <View onLayout={this.measureShockEnergyView}>
+                    <View style={{ marginLeft: Dimensions.get('window').width/8.5,}}>
+                      <TouchableOpacity style={styles.riskFactorsButton} onPress={() => {
+                        this.onPressButtonHidden()
+                      }}>
+                        <Text style={styles.riskFactorsBtnText}>Risk Factors</Text>
+                      </TouchableOpacity>
+                    </View>
+                    <View style={{backgroundColor: '#f0f0f0',}}>
+                      {!this.state.buttonHidden ? <RiskFactors /> : null}
+                    </View>
+                  </View>
+
+              <View style={styles.divider}></View>
+
+
+<View style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginTop: Dimensions.get('window').height/30,  }}>
+
+
+          <View style={{alignContent: 'center'}}>
+              <TouchableOpacity onPress={()=>{this.dialCall()}}>
+                                    <LinearGradient 
+                                      style={styles.callButton}
+                                      colors={['#B62619', '#F63826', '#B62619']}
+                                      start={{x: 0, y: 0}}
+                                      end={{x: 1, y: 0}}
+                                    >
+                                        <View style={{ flexDirection: 'row' }}>
+                                          <MaterialIcons name="phone" size={19} color="white" />
+                                          <Text style={{ fontSize: Dimensions.get('window').width/21, color: 'white', fontWeight: 'bold' }}> Call RICU Consult</Text>
+                                        </View>
+                                        <Text style={{ 
+                                          marginTop: Dimensions.get('window').height/150, 
+                                          color: 'white', 
+                                          fontSize: Dimensions.get('window').width/24, fontWeight: '400'
+                                        }}>x6-3333
+                                        </Text>
+                                    </LinearGradient>   
+              </TouchableOpacity>
+          </View>
+
+            <View style={{marginLeft: Dimensions.get('window').width/60, }}>
+              <TouchableOpacity onPress={()=>{this.onPressButton2Hidden()}}>
+                                      {/* <LinearGradient 
+                                        style={styles.callButton2}
+                                        colors={['#90adb0', '#90adb0',]}
+                                        start={{x: 0, y: 0}}
+                                        end={{x: 1, y: 0}}
+                                      > */}
+                                          <View style={{ flexDirection: 'row' }}>
+                                            <Icon name="ios-information-circle" size={Dimensions.get('window').height/15} color="#90adb0" />
+                                            {/* <MaterialIcons name="phone" size={19} color="white" /> */}
+                                            {/* <Text style={{ fontSize: Dimensions.get('window').width/23, color: 'white', fontWeight: '500' }}> Info for Page Operator</Text> */}
+                                          </View>
+                                      {/* </LinearGradient> */}
+              </TouchableOpacity>
+            </View>
+</View>
+
+
+
+{/* 
+              <View style={{ 
+                // alignItems: 'center', 
+                // marginTop: Dimensions.get('window').height/100,  
+                }}>
                   <TouchableOpacity onPress={()=>{this.dialCall()}}>
                         <LinearGradient 
                           style={styles.callButton}
@@ -240,7 +327,9 @@ export default class RICU extends React.Component {
                         </LinearGradient>   
                   </TouchableOpacity>
 
-                  <View style={{ marginTop: Dimensions.get('window').height/150}}>
+                  <View style={{ 
+                    // marginTop: Dimensions.get('window').height/300
+                    }}>
                     <TouchableOpacity onPress={()=>{this.onPressButton2Hidden()}}>
                           <LinearGradient 
                             style={styles.callButton2}
@@ -249,102 +338,26 @@ export default class RICU extends React.Component {
                             end={{x: 1, y: 0}}
                           >
                               <View style={{ flexDirection: 'row' }}>
-                                {/* <MaterialIcons name="phone" size={19} color="white" /> */}
+                                <MaterialIcons name="phone" size={19} color="white" />
                                 <Text style={{ fontSize: Dimensions.get('window').width/23, color: 'white', fontWeight: '500' }}> Info for Page Operator</Text>
                               </View>
                           </LinearGradient>
                     </TouchableOpacity>
                   </View>
-                </View>
-
-   
+                </View> */}
 
 
-
-
-
-
-
-
-
-
-     
-       
-
-        
-           {/*  <View style={{ alignItems: 'center', marginTop: Dimensions.get('window').height/100,  }}>
-              <TouchableOpacity onPress={()=>{this.dialCall()}}>
-                    <LinearGradient 
-                      style={styles.callButton}
-                      colors={['#B62619', '#F63826', '#B62619']}
-                      start={{x: 0, y: 0}}
-                      end={{x: 1, y: 0}}
-                    >
-                        <View style={{ flexDirection: 'row' }}>
-                          <MaterialIcons name="phone" size={19} color="white" />
-                          <Text style={{ fontSize: Dimensions.get('window').width/21, color: 'white', fontWeight: 'bold' }}> Call RICU Consult</Text>
-                        </View>
-                        <Text style={{ 
-                          marginTop: Dimensions.get('window').height/150, 
-                          color: 'white', 
-                          fontSize: Dimensions.get('window').width/24, fontWeight: '400'
-                        }}>x6-3333
-                        </Text>
-                    </LinearGradient>
-              </TouchableOpacity>
-            </View>
-
-            <View style={{alignItems: 'center'}}>
-              <TouchableOpacity onPress={()=>{this.onPressButton2Hidden()}}>
-                    <LinearGradient 
-                      style={styles.callButton2}
-                      colors={['#84a9ac', '#84a9ac',]}
-                      start={{x: 0, y: 0}}
-                      end={{x: 1, y: 0}}
-                    >
-                        <View style={{ flexDirection: 'row' }}>
-                          <Text style={{ fontSize: Dimensions.get('window').width/21, color: 'white', fontWeight: 'bold' }}> Info for Page Operator</Text>
-                        </View>
-                    </LinearGradient>
-              </TouchableOpacity>
-            </View> */}
-
-            <View>
-              <View>
+                <View>
                 {!this.state.buttonHidden2 ? this.showInfo() : null}
               </View>
+       
 
-
-
-              <View onLayout={this.measureImageView}>
-                <Divider style={styles.divider}/>
-                  {this.IPhone375x812()}
-                  {this.IPhone414x896()}
-                  {this.IPhone375x667()} 
-                  {this.IPhone414x736()}
-                  {this.IPhone320x568()}
-
-              <View onLayout={this.measureShockEnergyView}>
-                    <View style={{ marginLeft: Dimensions.get('window').width/11.5,}}>
-                      <TouchableOpacity style={styles.riskFactorsButton} onPress={() => {
-                        this.onPressButtonHidden()
-                      }}>
-                        <Text style={styles.riskFactorsBtnText}>Risk Factors</Text>
-                      </TouchableOpacity>
-                    </View>
-                    <View style={{backgroundColor: '#f0f0f0',}}>
-                      {!this.state.buttonHidden ? <RiskFactors /> : null}
-                    </View>
-                  </View>
-
-                <Divider style={styles.divider}/>
-              </View>
-          </View>
+     
 
 
           
 
-          <View style={{alignItems: 'center',}}>
+          <View style={{alignItems: 'center', paddingTop: Dimensions.get('window').height/50,}}>
               <TouchableOpacity
                 style={styles.customBtnBGbottom} 
                 onPress={() => this.props.navigation.navigate('RICUWhatToPrepare')}>
@@ -389,16 +402,17 @@ const styles = StyleSheet.create({
 
   
   container: {
-    flex: 1
+    flex: 1,
+    height: '100%'
   },
   top: {
-    // height: '8%',
-    // backgroundColor: 'yellow'
+    height: '25%',
+    backgroundColor: 'yellow'
   },
   middle: {
-    // height: '77%',
+    height: '80%',
     paddingTop: Dimensions.get('window').height/13,
-    // backgroundColor: 'pink'
+    backgroundColor: 'pink'
   },
   bottom: {
     // height: '15%',
@@ -406,16 +420,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     // backgroundColor: 'gray',
   },
-
-  divider: {
-    // backgroundColor: '#CDCDCD', 
-    // marginTop: Dimensions.get('window').height/64, 
-    // marginBottom: Dimensions.get('window').height/64, 
-    marginLeft: Dimensions.get('window').width/60, 
-    marginRight: Dimensions.get('window').width/60, 
-    height: Dimensions.get('window').height/600
-  },
-
   title: {
     fontWeight: 'bold',
     textAlign: 'center',
@@ -425,11 +429,11 @@ const styles = StyleSheet.create({
   },
   divider: {
     backgroundColor: '#CDCDCD', 
-    marginTop: Dimensions.get('window').height/64, 
-    marginBottom: Dimensions.get('window').height/64, 
+    marginTop: Dimensions.get('window').height/100, 
+    marginBottom: Dimensions.get('window').height/200, 
     marginLeft: Dimensions.get('window').width/60, 
     marginRight: Dimensions.get('window').width/60, 
-    height: Dimensions.get('window').height/600
+    height: Dimensions.get('window').height/400
   },
   headerOne: {
     // fontWeight: 'bold',
@@ -475,24 +479,32 @@ const styles = StyleSheet.create({
     width: Dimensions.get('window').width/1.17,
     height: Dimensions.get('window').height/10.75,
   },
+  
   // callButton: {
-  //   borderRadius: 40,
-  //   height: Dimensions.get('window').height/11,
+  //   borderRadius: 80,
+  //   height: Dimensions.get('window').height/13,
   //   width: Dimensions.get('window').width/1.17,
   //   alignItems: "center",
   //   justifyContent: "center",
   // },
+  // callButton2: {
+  //   borderRadius: 40,
+  //   height: Dimensions.get('window').height/30,
+  //   width: Dimensions.get('window').width/2,
+  //   alignItems: "center",
+  //   justifyContent: "center",
+  // },
   callButton: {
-    borderRadius: 80,
-    height: Dimensions.get('window').height/10.75,
-    width: Dimensions.get('window').width/1.17,
+    borderRadius: 40,
+    height: Dimensions.get('window').height/11,
+    width: Dimensions.get('window').width/1.4,
     alignItems: "center",
     justifyContent: "center",
   },
   callButton2: {
-    borderRadius: 40,
-    height: Dimensions.get('window').height/30,
-    width: Dimensions.get('window').width/2,
+    borderRadius: 100,
+    height: 70,
+    width: 70,
     alignItems: "center",
     justifyContent: "center",
   },
@@ -501,7 +513,7 @@ const styles = StyleSheet.create({
     color: '#303333',
     textAlign: 'center',
     fontSize: Dimensions.get('window').height/69,
-    marginTop: Dimensions.get('window').height/100,
+    marginTop: Dimensions.get('window').height/130,
   },
   riskFactorsButton: {
     backgroundColor: '#DBE2E8',
@@ -510,7 +522,7 @@ const styles = StyleSheet.create({
     borderColor: '#cfcfcf', 
     borderWidth: 1,   
     width: Dimensions.get('window').width/4,
-    height: Dimensions.get('window').height/25,
+    height: Dimensions.get('window').height/27,
   },
  
 

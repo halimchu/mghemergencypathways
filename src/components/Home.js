@@ -499,22 +499,20 @@ export default class InpatientConditions extends React.Component {
 // #3 new design with both inpatient emergencies and acls
 render() {  
   return (  
-      <View>
+      <View style={{flex: 1}}>
 
+        <View style={styles.top}>
         <View style={{
           backgroundColor: '#0F526B', 
           marginTop: Dimensions.get('window').height/25, 
           marginLeft: Dimensions.get('window').width/30, 
           marginRight: Dimensions.get('window').width/30,
-          paddingBottom: Dimensions.get('window').height/60,
-          shadowOpacity: .5
+          paddingTop: Dimensions.get('window').height/80, 
+          paddingBottom: Dimensions.get('window').height/80,
+          shadowOpacity: .5,
+          alignItems: 'center',
         }}>
-           <View style={{
-                paddingTop: Dimensions.get('window').height/50, 
-                alignItems: 'center',
-            }}>
-                <Text style={{color: 'white', fontSize: Dimensions.get('window').height/35, fontWeight: '500'}}>Inpatient Emergencies</Text>
-            </View>
+          <Text style={{color: 'white', fontSize: Dimensions.get('window').height/35, fontWeight: '500'}}>Inpatient Emergencies</Text>
         </View>
 
 
@@ -542,7 +540,7 @@ render() {
                             style={styles.customBtnBG2} 
                               onPress={() => this.props.navigation.navigate('Stroke1')
                             }>
-                            <Text style={styles.customBtnText2}>Stroke</Text>
+                            <Text style={styles.customBtnText2}>CVA (Stroke)</Text>
                           </TouchableOpacity>
                         </View>
                 
@@ -589,15 +587,12 @@ render() {
           marginTop: Dimensions.get('window').height/25, 
           marginLeft: Dimensions.get('window').width/30, 
           marginRight: Dimensions.get('window').width/30,
-          paddingBottom: Dimensions.get('window').height/60,
-          shadowOpacity: .5
+          paddingTop: Dimensions.get('window').height/80, 
+          paddingBottom: Dimensions.get('window').height/80,
+          shadowOpacity: .5,
+          alignItems: 'center',
         }}>
-           <View style={{
-                paddingTop: Dimensions.get('window').height/100, 
-                alignItems: 'center',
-            }}>
-                <Text style={{color: 'white', fontSize: Dimensions.get('window').height/35, fontWeight: '500'}}>ACLS</Text>
-            </View>
+          <Text style={{color: 'white', fontSize: Dimensions.get('window').height/35, fontWeight: '500'}}>ACLS</Text>
         </View>
 
         <View style={{
@@ -620,20 +615,21 @@ render() {
                   marginRight: Dimensions.get('window').width/30, 
                   marginBottom: Dimensions.get('window').height/150}}>
                   <TouchableOpacity
-                    underlayColor='#69c8a1'
-                    style={styles.customBtnBG3} 
-                    onPress={() => this.props.navigation.navigate('CardiacArrest')}>
-                    <Text style={styles.customBtnText2}>Cardiac Arrest</Text>
+                    style={styles.customBtnBG2} 
+                    onPress={() => this.props.navigation.navigate('CardiacArrestCOVID')}>
+                    <Text style={styles.customBtnCovidFirstLine}>Cardiac Arrest</Text>
+                    <Text style={styles.customBtnCovidSecondLine}>COVID-19</Text>
                   </TouchableOpacity>
                 </View>
 
                 <View style={{flexDirection: 'column'}}>
-                  <TouchableOpacity
-                    style={styles.customBtnBG3} 
-                    onPress={() => this.props.navigation.navigate('Bradycardia')}>
-                    <Text style={styles.customBtnText2}>Bradycardia</Text>
+                <TouchableOpacity
+                    underlayColor='#69c8a1'
+                    style={styles.customBtnBG2} 
+                    onPress={() => this.props.navigation.navigate('CardiacArrest')}>
+                    <Text style={styles.customBtnText2}>Cardiac Arrest</Text>
                   </TouchableOpacity>
-                </View>     
+                </View>   
               </View>
 
               <View style={{flexDirection: 'row', }}>
@@ -644,7 +640,7 @@ render() {
                   marginBottom: Dimensions.get('window').height/150}}>
                   <TouchableOpacity
                     underlayColor='#69c8a1'
-                    style={styles.customBtnBG3} 
+                    style={styles.customBtnBG2} 
                     onPress={() => this.props.navigation.navigate('Tachycardia')}>
                     <Text style={styles.customBtnText2}>Tachycardia</Text>
                   </TouchableOpacity>
@@ -652,32 +648,66 @@ render() {
 
                 <View style={{flexDirection: 'column', marginTop: Dimensions.get('window').height/150}}>
                   <TouchableOpacity
-                    style={styles.customBtnBG3} 
-                    onPress={() => this.props.navigation.navigate('PostCardiacArrestCare')}>
-                    <Text style={styles.customBtnText3}>Post Cardiac</Text>
-                    <Text style={styles.customBtnText32}>Arrest Care</Text>
+                    style={styles.customBtnBG2} 
+                    onPress={() => this.props.navigation.navigate('Bradycardia')}>
+                    <Text style={styles.customBtnText2}>Bradycardia</Text>
                   </TouchableOpacity>
-                </View>     
+                </View> 
               </View>
 
+
+                <View style={{flexDirection: 'row', }}>
+                  <View style={{flexDirection: 'column', marginTop: Dimensions.get('window').height/150}}>
+                    <TouchableOpacity
+                      style={styles.customBtnBG2} 
+                      onPress={() => this.props.navigation.navigate('PostCardiacArrestCare')}>
+                      <Text style={styles.customBtnText3}>Post Cardiac</Text>
+                      <Text style={styles.customBtnText32}>Arrest Care</Text>
+                    </TouchableOpacity>
+                  </View>     
+              </View>
           </View>
         </View>
-
-        <View style={{marginTop: Dimensions.get('window').height/40, alignItems: 'center'}}>
-          <Image
-            source={require('../../assets/mgh-htl-stacked.png')}
-            style={{
-              marginRight: Dimensions.get('window').width/35, 
-              width: Dimensions.get('window').width/1.4, 
-              height: Dimensions.get('window').height/10 }}
-          />
         </View>
+
+        
+
+        <View style={styles.bottom}>
+            <View style={{ 
+                flexDirection: 'row', 
+                marginTop: Dimensions.get('window').height/45, 
+                alignItems: 'center'
+            }}>
+              
+              <Image
+                source={require('../../assets/mgh-htl-stacked.png')}
+                style={{
+                  // marginRight: Dimensions.get('window').width/35,
+                  // width: 200,
+                  // height: 90,
+                  width: Dimensions.get('window').width/1.6, 
+                  height: Dimensions.get('window').height/8 
+                }}
+              />
+            </View>
+        </View>
+
       </View>
     )
   }
 }
 
 const styles = StyleSheet.create({
+  top: {
+    height: '81%',
+    // backgroundColor: 'pink',
+  },
+ bottom: {
+   height: '19%',
+   alignItems: 'center',
+  //  justifyContent: 'center',
+  //  backgroundColor: 'gray',
+  },
 title: {
   fontWeight: '600',
   color: '#333333',
@@ -686,13 +716,29 @@ title: {
 button: {
   marginTop: Dimensions.get('window').height/100
 },
+customBtnCovidFirstLine: {
+  fontWeight: '500',
+  textAlign: 'center', 
+  textAlignVertical: "center",
+  color: '#303333',
+  fontSize: Dimensions.get('window').height/40,
+  marginTop: Dimensions.get('window').height/60
+},
+customBtnCovidSecondLine: {
+  fontWeight: '500',
+  textAlign: 'center', 
+  textAlignVertical: "center",
+  color: 'red',
+  fontWeight: 'bold',
+  fontSize: Dimensions.get('window').height/40,
+},
 customBtnText2: {
   fontWeight: '500',
   textAlign: 'center', 
   textAlignVertical: "center",
   color: '#303333',
   fontSize: Dimensions.get('window').height/40,
-  marginTop: Dimensions.get('window').height/25
+  marginTop: Dimensions.get('window').height/34
 },
 customBtnText3: {
   fontWeight: '500',
@@ -700,7 +746,7 @@ customBtnText3: {
   textAlignVertical: "center",
   color: '#303333',
   fontSize: Dimensions.get('window').height/40,
-  marginTop: Dimensions.get('window').height/40
+  marginTop: Dimensions.get('window').height/60
 },
 customBtnText32: {
   fontWeight: '500',
@@ -713,21 +759,11 @@ customBtnBG2: {
   paddingHorizontal: 1,
   paddingVertical: 1,
   shadowOpacity: .1, 
-  borderColor: '#6AA1B5',
   backgroundColor: 'white',
   borderRadius: 4, 
   width: Dimensions.get('window').width/2.4,
-  height: Dimensions.get('window').height/9,
+  height: Dimensions.get('window').height/11,
 },
-customBtnBG3: {
-  paddingHorizontal: 1,
-  paddingVertical: 1,
-  shadowOpacity: .1, 
-  backgroundColor: 'white',
-  borderRadius: 4, 
-  width: Dimensions.get('window').width/2.4,
-  height: Dimensions.get('window').height/9,
-}
 })
 
 

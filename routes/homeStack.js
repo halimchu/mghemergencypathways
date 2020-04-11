@@ -2,6 +2,7 @@ import { createStackNavigator } from 'react-navigation-stack'
 
 import Home from '../src/components/Home'
 import CardiacArrest from '../src/components/ACLS/CardiacArrest/CardiacArrest'
+import CardiacArrestCOVID from '../src/components/ACLS/CardiacArrest/CardiacArrestCOVID'
 import Bradycardia from '../src/components/ACLS/Bradycardia/Bradycardia'
 import Tachycardia from '../src/components/ACLS/Tachycardia/Tachycardia'
 import PostCardiacArrestCare from '../src/components/ACLS/PostCardiacArrestCare/PostCardiacArrestCare'
@@ -20,6 +21,7 @@ import RICUWhatToPresent from '../src/components/RICU/RICUWhatToPresent'
 const HomeStack = createStackNavigator({
     Home: { screen: Home },
     CardiacArrest: { screen: CardiacArrest },
+    CardiacArrestCOVID: { screen: CardiacArrestCOVID },
     Bradycardia: { screen: Bradycardia },
     Tachycardia: { screen: Tachycardia },
     PostCardiacArrestCare: { screen: PostCardiacArrestCare },

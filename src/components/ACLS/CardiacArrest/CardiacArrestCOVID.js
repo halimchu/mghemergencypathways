@@ -2,18 +2,20 @@ import React from 'react'
 import { Image, Dimensions, View, Text, StyleSheet, ScrollView, TouchableOpacity, SafeAreaView } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons' 
 import { Button, Divider } from 'react-native-elements'
-import CardiacArrestReversibleCauses from './cardiacArrestReversibleCauses'
-import CardiacArrestShockEnergy from './cardiacArrestShockEnergy'
+
+
 import CardiacArrestDrugTherapy from './cardiacArrestDrugTherapy'
 import CardiacArrestROSC from './cardiacArrestROSC'
 import CardiacArrestCPR from './cardiacArrestCPR'
-import CardiacArrestAdvancedAirway from './cardiacArrestAdvancedAirway'
+import CardiacArrestAdvancedAirwayCOVID from './COVID/cardiacArrestAdvancedAirwayCOVID'
+import CardiacArrestReversibleCauses from './cardiacArrestReversibleCauses'
+import CardiacArrestShockEnergy from './cardiacArrestShockEnergy'
 import Component from './../Component'
 import LinearGradient from 'react-native-linear-gradient'
 import Timer from './Timer'
 
 
-export default class CardiacArrest extends React.Component {
+export default class CardiacArrestCOVID extends React.Component {
   static navigationOptions = ({ navigation }) => {
     let headerLeft = ( 
       <View style={{ flexDirection: 'row' }}>
@@ -111,8 +113,8 @@ export default class CardiacArrest extends React.Component {
     if (Dimensions.get('window').width === 375 && Dimensions.get('window').height === 812) {
       return (
         <Image
-          source={require('../../../../assets/CardiacArrest3000x2700.png')}
-          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.5}}
+          source={require('../../../../assets/CardiacArrestCOVID3000x2500.png')}
+          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.08}}
         />
       )
     }
@@ -519,7 +521,7 @@ export default class CardiacArrest extends React.Component {
                   goToNextComponent={this.goToEnd} 
                   toggle={this.onPressAdvancedAirwayHidden} 
                   hidden = {this.state.advancedAirwayHidden}
-                  component={<CardiacArrestAdvancedAirway />}
+                  component={<CardiacArrestAdvancedAirwayCOVID />}
                   buttonTitle='Advanced Airway'
                 />
               </View>
@@ -528,7 +530,7 @@ export default class CardiacArrest extends React.Component {
                 marginTop: Dimensions.get('window').height/50
               }}>
                 <Text style={{fontSize: Dimensions.get('window').height/60,}}>
-                  American Heart Association Guidelines 2018
+                  American Heart Association Guidelines 2020
                 </Text>
               </View>
           </View>

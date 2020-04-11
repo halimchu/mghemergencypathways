@@ -90,14 +90,13 @@ export default class RICUWhatToPresent extends React.Component {
   state = { 
     data: [
       ['Code Status'],
-      ['One-Liner:', 'major cardiac, pulm, ENT, acuity of decompensation'],
-      ['Vitals and Labs'],
+      ['One-Liner:', 'major cardiac, pulm, ENT, weight [kg]'],
+      ['Vitals and Labs:', 'O2 sat, supplemental O2, HR, BP, K+, Cr'],
       ['Last Echo:', 'EF, RV function, RVSP, valves'],
-      ['Prior Intubations:', '"chart review" -> "anesthesia," leave open'],
+      ['Prior Intubations:', 'In EPIC "chart review" -> "anesthesia" tab (leave tab open)'],
       ['Allergies'],
       ['Access'],
       ['NPO Status:', 'last meal, major GI issues'],
-      ['Status:', 'functional status & weight [kg]']
     ],
   }
 
@@ -154,7 +153,7 @@ export default class RICUWhatToPresent extends React.Component {
         </View>
 
         <View style={styles.bottom}>
-          <Text style={styles.header}>What To Present:</Text>
+          <Text style={styles.header}>What To Present to RICU Team:</Text>
             {this.whatToPresent()}
         </View>
       </SafeAreaView>

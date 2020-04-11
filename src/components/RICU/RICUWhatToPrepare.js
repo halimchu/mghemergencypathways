@@ -90,13 +90,14 @@ export default class RICUWhatToPrepare extends React.Component {
 
   state = {
     data: [
+      'Obtain appropriate consents & request ICU bed',
       'Full set of PPE x2 for RICU team',
       'Syringes: 10mL x4, 2mL x4, saline flushes',
       'Respiratory therapist present',
-      'BVM with PEEP valve, and CO2 detector',
+      'AMBU bag, PEEP valve, and CO2 detector',
       'ETT holder and HEPA filters',
       'Working IV with free-flowing IV fluid bag attached',
-      'Phenylephrine ...',
+      'Phenylephrine (or norepinephrine) and propofol infusions',
       'Suction with connected tubing',
       'Designate one RN to join RICU team in room and one to be "clean runner"'
     ]
@@ -137,10 +138,16 @@ export default class RICUWhatToPrepare extends React.Component {
             paddingRight: Dimensions.get('window').width/64,
             paddingTop: Dimensions.get('window').height/120,
             paddingBottom: Dimensions.get('window').height/120,
-            marginTop: Dimensions.get('window').height/70,
+            marginTop: Dimensions.get('window').height/90,
             marginBottom: Dimensions.get('window').height/50,
             }}>
-            <Text style={{textAlign: 'center', fontSize: Dimensions.get('window').width/21, fontWeight: 'bold', color: 'white', }}>Important: Informed clinician must be at patient's bedside when RICU arrives</Text>
+            <Text style={{textAlign: 'center', fontSize: Dimensions.get('window').width/22, fontWeight: 'bold', color: 'white', }}>Important: Informed clinician must be at patient's bedside when RICU arrives.</Text>
+            <Text style={{
+              paddingTop: Dimensions.get('window').height/200, 
+              textAlign: 'center', fontSize: Dimensions.get('window').width/24, 
+              fontStyle: 'italic', 
+              fontWeight: '500', 
+              color: 'white', }}>(Please have computer logged in to patient chart)</Text>
           </View>
            
 
@@ -246,9 +253,9 @@ const styles = StyleSheet.create({
   },
   header: {
     fontWeight: 'bold',
-    marginLeft: Dimensions.get('window').width/16,
+    marginLeft: Dimensions.get('window').width/30,
     marginBottom: Dimensions.get('window').height/120,
-    fontSize: Dimensions.get('window').width/21,
+    fontSize: Dimensions.get('window').width/22,
   },
   bulletPoint: {
     color: 'gray',
@@ -257,13 +264,13 @@ const styles = StyleSheet.create({
   bulletPointText: {
     fontWeight: '400',
     marginLeft: Dimensions.get('window').width/80,
-    fontSize: Dimensions.get('window').width/21,
+    fontSize: Dimensions.get('window').width/22,
   },
   bulletPoints: {
     flexDirection: 'row',
-    marginTop: Dimensions.get('window').height/90,
-    marginLeft: Dimensions.get('window').width/10,
-    marginRight: Dimensions.get('window').width/20,
+    marginTop: Dimensions.get('window').height/150,
+    marginLeft: Dimensions.get('window').width/20,
+    marginRight: Dimensions.get('window').width/50,
   },
   customBtnText: {
     fontWeight: '600',
