@@ -98,62 +98,6 @@ export default class CardiacArrestCOVID extends React.Component {
     }
   }
 
-  IPhone414x896 () {
-    if (Dimensions.get('window').width === 414 && Dimensions.get('window').height === 896) {
-      return (
-        <Image
-          source={require('../../../../assets/CardiacArrest3000x2700.png')}
-          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.5}}
-        />
-      )
-    }
-  }
-
-  IPhone375x812 () {
-    if (Dimensions.get('window').width === 375 && Dimensions.get('window').height === 812) {
-      return (
-        <Image
-          source={require('../../../../assets/CardiacArrestCOVID3000x2500.png')}
-          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.08}}
-        />
-      )
-    }
-  }
-
-  IPhone414x736 () {
-    if (Dimensions.get('window').width === 414 && Dimensions.get('window').height === 736) {
-      return (
-        <Image
-          source={require('../../../../assets/CardiacArrest3000x2700.png')}
-          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.22 }}
-        />
-      )
-    }
-  }
-
-  IPhone375x667 () {
-    if (Dimensions.get('window').width === 375 && Dimensions.get('window').height === 667) {
-      return (
-        <Image
-          source={require('../../../../assets/CardiacArrest3000x2700.png')}
-          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.22 }}
-        />
-      )
-    }
-  }
-
-  IPhone320x568 () {
-    if (Dimensions.get('window').width === 320 && Dimensions.get('window').height === 568) {
-      return (
-        <Image
-          source={require('../../../../assets/CardiacArrest3000x2700.png')}
-          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.22 }}
-        />
-      )
-    }
-  }
-
-
 
   constructor(props) {
     super(props)
@@ -339,24 +283,71 @@ export default class CardiacArrestCOVID extends React.Component {
   }
 
 
+  IPhone414x896 () {
+    if (Dimensions.get('window').width === 414 && Dimensions.get('window').height === 896) {
+      return (
+        <Image
+          source={require('../../../../assets/CardiacArrestCOVID3000x2500.png')}
+          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.03}}
+        />
+      )
+    }
+  }
+
+  IPhone375x812 () {
+    if (Dimensions.get('window').width === 375 && Dimensions.get('window').height === 812) {
+      return (
+        <Image
+          source={require('../../../../assets/CardiacArrestCOVID3000x2500.png')}
+          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.03}}
+        />
+      )
+    }
+  }
+
+  IPhone414x736 () {
+    if (Dimensions.get('window').width === 414 && Dimensions.get('window').height === 736) {
+      return (
+        <Image
+          source={require('../../../../assets/CardiacArrestCOVID3000x2500.png')}
+          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/.85 }}
+        />
+      )
+    }
+  }
+
+  IPhone375x667 () {
+    if (Dimensions.get('window').width === 375 && Dimensions.get('window').height === 667) {
+      return (
+        <Image
+          source={require('../../../../assets/CardiacArrestCOVID3000x2500.png')}
+          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/.85 }}
+        />
+      )
+    }
+  }
+
+  IPhone320x568 () {
+    if (Dimensions.get('window').width === 320 && Dimensions.get('window').height === 568) {
+      return (
+        <Image
+          source={require('../../../../assets/CardiacArrestCOVID3000x2500.png')}
+          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/.85 }}
+        />
+      )
+    }
+  }
+
+  IPhoneNotYet () {
+    return (
+      <Image
+        source={require('../../../../assets/CardiacArrest3000x2700.png')}
+        style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.5}}
+      />
+    )
+  }
+
   render() {  
-    console.log(this.state.reversibleCausesHidden)
-    // console.log('childHeight', this.state.childHeight)
-    // console.log('screen height', this.state.screenHeight)
-    // console.log('imageHeight', this.state.screenHeight - this.state.parentView)
-    // console.log('parentView:', this.state.parentView)
-    console.log('image height:', this.state.imageHeight)
-    console.log('reversiblecausesView', this.state.reversibleCausesView)
-    console.log('shockEnergyView', this.state.shockEnergyView)
-    // console.log('drugTherapyView', this.state.drugTherapyView)
-    // console.log('ROSC', this.state.ROSCView)
-    // console.log('CPR QUality', this.state.CPRQualityView)
-    // console.log('advanced Airway', this.state.advancedAirwayView)
-  
-
-
-    
-
     return ( 
       <SafeAreaView style={styles.container}>
 
@@ -370,15 +361,24 @@ export default class CardiacArrestCOVID extends React.Component {
           onContentSizeChange={this.onContentSizeChange}
         >
 
-
+          {/* <Text>{Dimensions.get('window').width}</Text>
+          <Text>{Dimensions.get('window').height}</Text> */}
 
 
           <View onLayout={this.measureImageView}>
-            {this.IPhone375x812()}
-            {this.IPhone414x896()}
-            {this.IPhone375x667()} 
-            {this.IPhone414x736()}
-            {this.IPhone320x568()}
+            {
+            
+                this.IPhone375x812() || this.IPhone414x896() || this.IPhone414x736() || this.IPhone375x667() || this.IPhone320x568()
+                
+                ? 
+                
+                this.IPhone375x812() || this.IPhone414x896() || this.IPhone414x736() || this.IPhone375x667() || this.IPhone320x568()
+                
+                : 
+                
+                this.IPhoneNotYet()
+            
+            }  
           </View>
 
 

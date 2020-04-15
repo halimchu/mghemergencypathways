@@ -1,6 +1,6 @@
 import React from 'react'
-import { Dimensions, View, Text, StyleSheet, TouchableOpacity, SafeAreaView } from 'react-native'
-import { Button, Divider } from 'react-native-elements'
+import { Dimensions, View, Text, StyleSheet, SafeAreaView } from 'react-native'
+import { Button } from 'react-native-elements'
 import Icon from 'react-native-vector-icons/Ionicons' 
 import LinearGradient from 'react-native-linear-gradient'
 
@@ -104,18 +104,13 @@ export default class PertLabs extends React.Component {
     return (  
       <SafeAreaView style={styles.container}>
         <View style={styles.top}>
-          <Text style={styles.titleFirstLine}>Pulmonary Embolism</Text>
-
+          <Text style={styles.title}>Pulmonary Embolism</Text>
           <View style={{alignItems: 'center'}}>
-                  <View style={{ flexDirection: 'row'}}>
-                     <View style={styles.firstCircle}>
-                     </View>
-                     <View style={styles.secondCircle}>
-                     </View>
-                  </View>
+            <View style={{ flexDirection: 'row'}}>
+              <View style={styles.firstCircle}></View>
+              <View style={styles.secondCircle}></View>
+            </View>
           </View>
-
-        
         </View>
 
 
@@ -165,54 +160,30 @@ const styles = StyleSheet.create({
     height: '87%',
     // backgroundColor: 'pink',
   },
-  titleFirstLine: {
+  title: {
     fontWeight: 'bold',
     textAlign: 'center',
     color: '#2b2b2b',
     marginTop: Dimensions.get('window').height/60,
     fontSize: Dimensions.get('window').height/32.5,
   },
-  titleSecondLine: {
-    fontWeight: 'bold',
-    textAlign: 'center',
-    color: '#2b2b2b',
-    fontSize: Dimensions.get('window').height/32.5,
-  },
   header: {
     fontWeight: '500',
-    color: '#2b2b2b',
     marginLeft: Dimensions.get('window').width/15,
     marginTop: Dimensions.get('window').height/35,
     fontSize: Dimensions.get('window').height/36,
   },
   bulletPoint: {
-    color: 'gray',
-    fontSize: Dimensions.get('window').height/35,
-  },
-  bulletPointText: {
-    fontWeight: '300',
-    fontSize: Dimensions.get('window').height/38,
-    marginLeft: Dimensions.get('window').width/100,
+    fontSize: Dimensions.get('window').height/45,
   },
   bulletPoints: {
     marginTop: Dimensions.get('window').height/50,
     marginLeft: Dimensions.get('window').width/10,
     marginRight: Dimensions.get('window').width/8,
   },
-  customBtnText: {
-    fontWeight: '600',
-    color: "#fff",
-    textAlign: 'center',
-    textAlignVertical: "center",
-    fontSize: Dimensions.get('window').height/35,
-    marginTop: Dimensions.get('window').height/62,
+  bulletPointText: {
+    fontWeight: '300',
+    fontSize: Dimensions.get('window').height/38,
+    marginLeft: Dimensions.get('window').width/100,
   },
-  customBtnBG: {
-    backgroundColor: "#69c8a1",
-    paddingHorizontal: 1,
-    paddingVertical: 1,
-    borderRadius: 8,
-    width: Dimensions.get('window').width/1.13,
-    height: Dimensions.get('window').height/13.5,
-  }
 })

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Linking, Dimensions, View, Text, StyleSheet, TouchableOpacity, SafeAreaView } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons' 
-import { Button, Divider } from 'react-native-elements'
+import { Button } from 'react-native-elements'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import LinearGradient from 'react-native-linear-gradient'
 
@@ -109,39 +109,33 @@ export default class Pert extends React.Component {
     return (  
       <SafeAreaView style={styles.container}>
         <View style={styles.top}>
-          <Text style={styles.titleFirstLine}>Pulmonary Embolism</Text>
-
-            <View style={{alignItems: 'center'}}>
-                  <View style={{ flexDirection: 'row'}}>
-                     <View style={styles.firstCircle}>
-                     </View>
-                     <View style={styles.secondCircle}>
-                     </View>
-                  </View>
+          <Text style={styles.title}>Pulmonary Embolism</Text>
+          <View style={{alignItems: 'center'}}>
+            <View style={{ flexDirection: 'row'}}>
+              <View style={styles.firstCircle}></View>
+              <View style={styles.secondCircle}></View>
             </View>
+          </View>
         </View>
 
        
 
         <View style={styles.middleOne}>
-          <View style={{ }}>
-            <Text style={styles.header}>Large Pulmonary Embolus?</Text>
-            {this.state.data.map((item) => (
-                <View key={item} style={ styles.bulletPoints }>
-                  <View style={{ flexDirection: 'row' }}>
-                    <Text style={styles.bulletPoint}>{`\u2022`}</Text>
-                    <Text style={styles.bulletPointText}>{item}</Text>
-                  </View>
-                </View>        
-            ))} 
-          </View>
+          <Text style={styles.header}>Large Pulmonary Embolus?</Text>
+          {this.state.data.map((item) => (
+              <View key={item} style={ styles.bulletPoints }>
+                <View style={{ flexDirection: 'row' }}>
+                  <Text style={styles.bulletPoint}>{`\u2022`}</Text>
+                  <Text style={styles.bulletPointText}>{item}</Text>
+                </View>
+              </View>        
+          ))} 
         </View>
 
         
 
         <View style={styles.middleTwo}>
           <View style={{ alignItems: 'center' }}>
-
           <TouchableOpacity onPress={()=>{this.dialCall()}}>
                     <LinearGradient 
                       style={styles.callButton}
@@ -167,16 +161,15 @@ export default class Pert extends React.Component {
 
 
 
-          <View style={styles.bottom}>
-            <SafeAreaView>
-                <TouchableOpacity
-                  style={styles.customBtnBG} 
-                  onPress={() => this.props.navigation.navigate('PertLabs')}>
-                  <Text style={styles.customBtnText}>Next Steps</Text>
-                </TouchableOpacity>
-            </SafeAreaView>
-          </View>
-
+        <View style={styles.bottom}>
+          <SafeAreaView>
+              <TouchableOpacity
+                style={styles.customBtnBG} 
+                onPress={() => this.props.navigation.navigate('PertLabs')}>
+                <Text style={styles.customBtnText}>Next Steps</Text>
+              </TouchableOpacity>
+          </SafeAreaView>
+        </View>
       </SafeAreaView>
     )
   }
@@ -199,7 +192,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#6c9ea1'
   },
-  
   container: {
     flex: 1
   },
@@ -225,17 +217,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     // backgroundColor: 'gray',
   },
-  titleFirstLine: {
+  title: {
     fontWeight: 'bold',
     textAlign: 'center',
     color: '#2b2b2b',
     marginTop: Dimensions.get('window').height/60,
-    fontSize: Dimensions.get('window').height/32.5,
-  },
-  titleSecondLine: {
-    fontWeight: 'bold',
-    textAlign: 'center',
-    color: '#2b2b2b',
     fontSize: Dimensions.get('window').height/32.5,
   },
   divider: {
@@ -246,25 +232,23 @@ const styles = StyleSheet.create({
   },
   header: {
     fontWeight: '500',
-    color: '#515254',
     fontSize: Dimensions.get('window').height/36,
     marginLeft: Dimensions.get('window').width/15,
     marginTop: Dimensions.get('window').height/300
   },
   bulletPoint: {
-    color: 'gray',
-    fontSize: Dimensions.get('window').height/40,
-  },
-  bulletPointText: {
-    fontWeight: '300',
-    fontSize: Dimensions.get('window').height/38,
-    marginLeft: Dimensions.get('window').width/100,
+    fontSize: Dimensions.get('window').height/45,
   },
   bulletPoints: {
     flexDirection: 'row',
     marginTop: Dimensions.get('window').height/30,
     marginLeft: Dimensions.get('window').width/11,
     marginRight: Dimensions.get('window').width/8,
+  },
+  bulletPointText: {
+    fontWeight: '300',
+    fontSize: Dimensions.get('window').height/38,
+    marginLeft: Dimensions.get('window').width/100,
   },
   customBtnText: {
     fontWeight: '600',

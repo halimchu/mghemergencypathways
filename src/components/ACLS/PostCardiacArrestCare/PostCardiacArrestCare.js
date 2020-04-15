@@ -92,61 +92,6 @@ export default class PostCardiacArrestCare extends React.Component {
     }
   }
 
-  
-  IPhone414x896 () {
-    if (Dimensions.get('window').width === 414 && Dimensions.get('window').height === 896) {
-      return (
-        <Image
-          source={require('../../../../assets/PostCardiac4000x4000.png')}
-          style={{ width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.4 }}
-        />
-      )
-    }
-  }
-
-  IPhone375x812 () {
-    if (Dimensions.get('window').width === 375 && Dimensions.get('window').height === 812) {
-      return (
-        <Image
-          source={require('../../../../assets/PostCardiac4000x4000.png')}
-          style={{ width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.4 }}
-        />
-      )
-    }
-  }
-
-  IPhone414x736 () {
-    if (Dimensions.get('window').width === 414 && Dimensions.get('window').height === 736) {
-      return (
-        <Image
-          source={require('../../../../assets/PostCardiac4000x4000.png')}
-          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.15 }}
-        />
-      )
-    }
-  }
-
-  IPhone375x667 () {
-    if (Dimensions.get('window').width === 375 && Dimensions.get('window').height === 667) {
-      return (
-        <Image
-          source={require('../../../../assets/PostCardiac4000x4000.png')}
-          style={{marginBottom: Dimensions.get('window').height/70, width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.13}}
-        />
-      )
-    }
-  }
-
-  IPhone320x568 () {
-    if (Dimensions.get('window').width === 320 && Dimensions.get('window').height === 568) {
-      return (
-        <Image
-          source={require('../../../../assets/PostCardiac4000x4000.png')}
-          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.15 }}
-        />
-      )
-    }
-  }
 
 
 
@@ -199,6 +144,71 @@ export default class PostCardiacArrestCare extends React.Component {
   }
 
 
+  IPhone414x896 () {
+    if (Dimensions.get('window').width === 414 && Dimensions.get('window').height === 896) {
+      return (
+        <Image
+          source={require('../../../../assets/PostCardiac4000x4000.png')}
+          style={{ width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.4 }}
+        />
+      )
+    }
+  }
+
+  IPhone375x812 () {
+    if (Dimensions.get('window').width === 375 && Dimensions.get('window').height === 812) {
+      return (
+        <Image
+          source={require('../../../../assets/PostCardiac4000x4000.png')}
+          style={{ width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.4 }}
+        />
+      )
+    }
+  }
+
+  IPhone414x736 () {
+    if (Dimensions.get('window').width === 414 && Dimensions.get('window').height === 736) {
+      return (
+        <Image
+          source={require('../../../../assets/PostCardiac4000x4000.png')}
+          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.15 }}
+        />
+      )
+    }
+  }
+
+  IPhone375x667 () {
+    if (Dimensions.get('window').width === 375 && Dimensions.get('window').height === 667) {
+      return (
+        <Image
+          source={require('../../../../assets/PostCardiac4000x4000.png')}
+          style={{ width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.15}}
+        />
+      )
+    }
+  }
+
+  IPhone320x568 () {
+    if (Dimensions.get('window').width === 320 && Dimensions.get('window').height === 568) {
+      return (
+        <Image
+          source={require('../../../../assets/PostCardiac4000x4000.png')}
+          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.15 }}
+        />
+      )
+    }
+  }
+
+  IPhoneNotYet () {
+    return (
+      <Image
+        source={require('../../../../assets/CardiacArrest3000x2700.png')}
+        style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.4}}
+      />
+    )
+  }
+
+
 
   
   render() { 
@@ -214,22 +224,26 @@ export default class PostCardiacArrestCare extends React.Component {
             <Divider style={styles.divider} />
           </View>
 
-          {/* <Text>{Dimensions.get('window').width}</Text>
-          <Text>{Dimensions.get('window').height}</Text> */}
-              
+           
           <View onLayout={this.measureImageView}>
-            {this.IPhone375x812()}
-            {this.IPhone414x896()}
-            {this.IPhone375x667()}
-            {this.IPhone414x736()}
-            {this.IPhone320x568()}
+            {
+            
+                this.IPhone375x812() || this.IPhone414x896() || this.IPhone414x736() || this.IPhone375x667() || this.IPhone320x568()
+                
+                ? 
+                
+                this.IPhone375x812() || this.IPhone414x896() || this.IPhone414x736() || this.IPhone375x667() || this.IPhone320x568()
+                
+                : 
+                
+                this.IPhoneNotYet()
+            
+            }  
           </View>
 
-          {/* <View style={{marginBottom: Dimensions.get('window').height/50}}>
+          <View style={{marginBottom: Dimensions.get('window').height/80}}></View>
 
-          </View> */}
-
-          <View style={{ alignItems: 'center', marginTop: Dimensions.get('window').height/80 }} onLayout={this.measureParentView}>
+          <View style={{ alignItems: 'center', }} onLayout={this.measureParentView}>
               <View onLayout={this.measureReversibleCausesView}>
                 <Component 
                   goToNextComponent={this.goToComponentTwo} 
@@ -250,6 +264,10 @@ export default class PostCardiacArrestCare extends React.Component {
               component={<DosesDetails />}
               buttonTitle='Doses/Details'
             />
+          </View>
+
+          <View style={{ alignItems: 'center', marginTop: Dimensions.get('window').height/50 }}>
+            <Text style={{ fontSize: Dimensions.get('window').height/60 }}>American Heart Association Guidelines 2018</Text>
           </View>
 
 
@@ -275,7 +293,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#2b2b2b',
     paddingTop: Dimensions.get('window').height/60,
-    fontSize: Dimensions.get('window').height/33,
+    fontSize: Dimensions.get('window').height/38,
   },
   titleSecondLine: {
     fontWeight: 'bold',
@@ -286,7 +304,7 @@ const styles = StyleSheet.create({
   divider: {
     backgroundColor: '#CDCDCD', 
     marginTop: Dimensions.get('window').height/64, 
-    marginBottom: Dimensions.get('window').height/64, 
+    marginBottom: Dimensions.get('window').height/150, 
     marginLeft: Dimensions.get('window').width/60, 
     marginRight: Dimensions.get('window').width/60, 
     height: Dimensions.get('window').height/600

@@ -98,62 +98,6 @@ export default class Tachycardia extends React.Component {
   }
 
 
-  IPhone414x896 () {
-    if (Dimensions.get('window').width === 414 && Dimensions.get('window').height === 896) {
-      return (
-        <Image
-          source={require('../../../../assets/Tachycardia3000x2500.png')}
-          style={{ marginBottom: Dimensions.get('window').height/60, width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.4}}
-        />
-      )
-    }
-  }
-
-  IPhone375x812 () {
-    if (Dimensions.get('window').width === 375 && Dimensions.get('window').height === 812) {
-      return (
-        <Image
-          source={require('../../../../assets/Tachycardia3000x2500.png')}
-          style={{ marginBottom: Dimensions.get('window').height/60, width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.4 }}
-        />
-      )
-    }
-  }
-
-  IPhone414x736 () {
-    if (Dimensions.get('window').width === 414 && Dimensions.get('window').height === 736) {
-      return (
-        <Image
-          source={require('../../../../assets/Tachycardia3000x2500.png')}
-          style={{ marginBottom: Dimensions.get('window').height/60, width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.13 }}
-        />
-      )
-    }
-  }
-
-  IPhone375x667 () {
-    if (Dimensions.get('window').width === 375 && Dimensions.get('window').height === 667) {
-      return (
-        <Image
-          source={require('../../../../assets/Tachycardia3000x2500.png')}
-          style={{ marginBottom: Dimensions.get('window').height/60, width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.15 }}
-        />
-      )
-    }
-  }
-
-  IPhone320x568 () {
-    if (Dimensions.get('window').width === 320 && Dimensions.get('window').height === 568) {
-      return (
-        <Image
-          source={require('../../../../assets/Tachycardia3000x2500.png')}
-          style={{marginBottom: Dimensions.get('window').height/60, width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.15 }}
-        />
-      )
-    }
-  }
-
-
   constructor(props) {
     super(props)
     this.state = {
@@ -210,6 +154,71 @@ export default class Tachycardia extends React.Component {
   }
 
 
+
+
+  IPhone414x896 () {
+    if (Dimensions.get('window').width === 414 && Dimensions.get('window').height === 896) {
+      return (
+        <Image
+          source={require('../../../../assets/Tachycardia3000x2500.png')}
+          style={{ width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.4}}
+        />
+      )
+    }
+  }
+
+  IPhone375x812 () {
+    if (Dimensions.get('window').width === 375 && Dimensions.get('window').height === 812) {
+      return (
+        <Image
+          source={require('../../../../assets/Tachycardia3000x2500.png')}
+          style={{ width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.4 }}
+        />
+      )
+    }
+  }
+
+  IPhone414x736 () {
+    if (Dimensions.get('window').width === 414 && Dimensions.get('window').height === 736) {
+      return (
+        <Image
+          source={require('../../../../assets/Tachycardia3000x2500.png')}
+          style={{ width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.13 }}
+        />
+      )
+    }
+  }
+
+  IPhone375x667 () {
+    if (Dimensions.get('window').width === 375 && Dimensions.get('window').height === 667) {
+      return (
+        <Image
+          source={require('../../../../assets/Tachycardia3000x2500.png')}
+          style={{ width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.17 }}
+        />
+      )
+    }
+  }
+
+  IPhone320x568 () {
+    if (Dimensions.get('window').width === 320 && Dimensions.get('window').height === 568) {
+      return (
+        <Image
+          source={require('../../../../assets/Tachycardia3000x2500.png')}
+          style={{ width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.17 }}
+        />
+      )
+    }
+  }
+
+  IPhoneNotYet () {
+    return (
+      <Image
+        source={require('../../../../assets/CardiacArrest3000x2700.png')}
+        style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.4}}
+      />
+    )
+  }
   
   render() { 
     return (  
@@ -217,7 +226,6 @@ export default class Tachycardia extends React.Component {
         <ScrollView 
           maximumZoomScale={2.5}
           ref={(scroller) => {this.scroller = scroller}}
-          // onContentSizeChange={this.onContentSizeChange}
         >
 
           <View styles={styles.top}>
@@ -228,13 +236,23 @@ export default class Tachycardia extends React.Component {
             
           </View>
 
-          <View styles={{marginBottom: 50}} onLayout={this.measureImageView}>
-            {this.IPhone375x812()}
-            {this.IPhone414x896()}
-            {this.IPhone375x667()}
-            {this.IPhone414x736()}
-            {this.IPhone320x568()}
+          <View onLayout={this.measureImageView}>
+            {
+            
+                this.IPhone375x812() || this.IPhone414x896() || this.IPhone414x736() || this.IPhone375x667() || this.IPhone320x568()
+                
+                ? 
+                
+                this.IPhone375x812() || this.IPhone414x896() || this.IPhone414x736() || this.IPhone375x667() || this.IPhone320x568()
+                
+                : 
+                
+                this.IPhoneNotYet()
+            
+            }  
           </View>
+
+          <View style={{marginBottom: Dimensions.get('window').height/60}}></View>
 
 
             <View onLayout={this.measureSynchronizedCardioversionView}>
@@ -257,13 +275,10 @@ export default class Tachycardia extends React.Component {
               />
             </View>
 
-            {/* <View style={{marginTop: Dimensions.get('window').height/50, alignItems: 'center'}}>
-              <Text style={{fontSize: Dimensions.get('window').height/70}}>
-                American Heart Association Guidelines 2015
-              </Text>
-            </View> */}
 
-
+          <View style={{ alignItems: 'center', marginTop: Dimensions.get('window').height/50 }}>
+            <Text style={{ fontSize: Dimensions.get('window').height/60 }}>American Heart Association Guidelines 2018</Text>
+          </View>
 
 
         </ScrollView>
@@ -287,7 +302,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#2b2b2b',
     paddingTop: Dimensions.get('window').height/60,
-    fontSize: Dimensions.get('window').height/33,
+    fontSize: Dimensions.get('window').height/38,
   },
   titleSecondLine: {
     fontWeight: 'bold',
@@ -298,7 +313,7 @@ const styles = StyleSheet.create({
   divider: {
     backgroundColor: '#CDCDCD', 
     marginTop: Dimensions.get('window').height/64, 
-    marginBottom: Dimensions.get('window').height/64, 
+    marginBottom: Dimensions.get('window').height/150, 
     marginLeft: Dimensions.get('window').width/60, 
     marginRight: Dimensions.get('window').width/60, 
     height: Dimensions.get('window').height/600

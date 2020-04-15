@@ -1,7 +1,7 @@
 import React from 'react'
 import { Dimensions, View, Text, StyleSheet, TouchableOpacity, SafeAreaView } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons' 
-import { Button, Divider } from 'react-native-elements'
+import { Button } from 'react-native-elements'
 import LinearGradient from 'react-native-linear-gradient'
 
 export default class STEMI extends React.Component {
@@ -118,7 +118,7 @@ export default class STEMI extends React.Component {
     return (
       this.state2.data.map((item) => (
         <View key={item} style={{ flexDirection: 'row', marginRight: Dimensions.get('window').width/20, marginLeft: Dimensions.get('window').width/10 }}>
-            <Text style={styles.bulletPoint}>{`\u2022`}</Text>  
+            <Text style={styles.bulletPointSmall}>{`\u2022`}</Text>  
             <Text style={{flex: 1, flexWrap: 'wrap'}}>
             <Text style={{ fontWeight: '300', fontSize: Dimensions.get('window').height/39 }}> 
               {item}
@@ -159,22 +159,22 @@ export default class STEMI extends React.Component {
   render() { 
     return (  
       <SafeAreaView style={styles.container}>
-
         <View style={styles.top}>
           <Text style={styles.title}>STEMI</Text>
-          {/* <Divider style={styles.divider} /> */}
-
           <View style={{alignItems: 'center'}}>
-                  <View style={{ flexDirection: 'row'}}>
-                     <View style={styles.firstCircle}>
-                     </View>
-                     <View style={styles.secondCircle}>
-                     </View>
-                     <View style={styles.thirdCircle}>
-                     </View>
-                  </View>
+            <View style={{ flexDirection: 'row'}}>
+                <View style={styles.firstCircle}>
+                </View>
+                <View style={styles.secondCircle}>
+                </View>
+                <View style={styles.thirdCircle}>
+                </View>
+            </View>
           </View>
         </View>
+
+
+
 
         <View style={styles.middle}>
           <View style={{ marginLeft: Dimensions.get('window').width/25, marginBottom: Dimensions.get('window').height/80,}}>
@@ -185,15 +185,15 @@ export default class STEMI extends React.Component {
           {this.thirdFn()}
         </View>
 
+
+
+
         <View style={styles.bottom}>
           <View style={{ marginBottom: Dimensions.get('window').height/80,  }}>
             <Text style={styles.headerBottom}>One or more STEMI criteria?</Text>
           </View>
-      
 
-
-        
-        <View style={{flexDirection: 'row'}}>
+          <View style={{flexDirection: 'row'}}>
             <View style={{marginRight: Dimensions.get('window').width/20,}}>
               <TouchableOpacity
                 style={styles.customBtnBG} 
@@ -207,9 +207,9 @@ export default class STEMI extends React.Component {
               onPress={() => this.props.navigation.navigate('STEMIUncertain')}>
               <Text style={styles.customBtnText}>Uncertain</Text>
             </TouchableOpacity>  
+          </View>
         </View>
-       
-        </View>
+
       </SafeAreaView>
     )
   }
@@ -232,10 +232,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#6c9ea1'
   },
-
-
-  
-  
   container: {
     flex: 1
   },
@@ -254,22 +250,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     // backgroundColor: 'gray',
   },
-
-
   title: {
     fontWeight: 'bold',
     textAlign: 'center',
     color: '#2b2b2b',
     marginTop: Dimensions.get('window').height/60,
     fontSize: Dimensions.get('window').height/32.5,
-  },
-  divider: {
-    backgroundColor: '#CDCDCD', 
-    marginTop: Dimensions.get('window').height/64, 
-    marginBottom: Dimensions.get('window').height/64, 
-    marginLeft: Dimensions.get('window').width/60, 
-    marginRight: Dimensions.get('window').width/60, 
-    height: Dimensions.get('window').height/600
   },
   header: {
     fontWeight: '500',
@@ -287,14 +273,17 @@ const styles = StyleSheet.create({
     marginTop: Dimensions.get('window').height/55,
     marginLeft: Dimensions.get('window').height/40,
   },
-  bulletPoint: {
-    color: 'gray',
-    fontSize: Dimensions.get('window').height/40,
-    marginRight: Dimensions.get('window').height/275
-  },
   bulletPointText: {
     fontWeight: '300',
     fontSize: Dimensions.get('window').height/34.5,
+  },
+  bulletPoint: {
+    fontSize: Dimensions.get('window').height/40,
+    marginRight: Dimensions.get('window').height/275
+  },
+  bulletPointSmall: {
+    fontSize: Dimensions.get('window').height/45,
+    marginRight: Dimensions.get('window').height/275
   },
   customBtnText: {
     fontWeight: '600',
@@ -303,15 +292,6 @@ const styles = StyleSheet.create({
     fontSize: Dimensions.get('window').height/40,
     marginTop: Dimensions.get('window').height/47,
   },
-  // customBtnBG: {
-  //   borderWidth: 5,
-  //   borderColor: '#6c9ea1',
-  //   paddingHorizontal: 1,
-  //   paddingVertical: 1,
-  //   borderRadius: 30,
-  //   width: Dimensions.get('window').width/1.17,
-  //   height: Dimensions.get('window').height/10.75,
-  // },
   customBtnBG: {
     borderWidth: 5,
     borderColor: '#6c9ea1',
@@ -320,5 +300,5 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     width: Dimensions.get('window').width/2.5,
     height: Dimensions.get('window').height/10.75,
-  },
+  }
 })

@@ -112,19 +112,14 @@ export default class Stroke1 extends React.Component {
       <SafeAreaView style={styles.container}>
           <View style={styles.top}>
             <Text style={styles.title}>Stroke</Text>
-
             <View style={{alignItems: 'center'}}>
                   <View style={{ flexDirection: 'row'}}>
-                     <View style={styles.firstCircle}>
-                     </View>
-                     <View style={styles.secondCircle}>
-                     </View>
-                     <View style={styles.thirdCircle}>
-                     </View>
+                     <View style={styles.firstCircle}></View>
+                     <View style={styles.secondCircle}></View>
+                     <View style={styles.thirdCircle}></View>
                   </View>
             </View>
           </View>
-
 
 
           <View style={styles.middle}>
@@ -152,7 +147,7 @@ export default class Stroke1 extends React.Component {
                   shadowColor: 'black',
                   shadowOpacity: .5,}}>
 
-              <TouchableOpacity onPress={()=>{this.dialCall()}}>
+                <TouchableOpacity onPress={()=>{this.dialCall()}}>
                     <LinearGradient 
                       style={styles.callButton}
                       colors={['#B62619', '#F63826', '#B62619']}
@@ -170,20 +165,22 @@ export default class Stroke1 extends React.Component {
                         }}>x6-3333
                         </Text>
                     </LinearGradient>
-              </TouchableOpacity>
-            </View>
+                </TouchableOpacity>
+              </View>
 
-            <View style={{ marginTop: Dimensions.get('window').height/300 }}>
-              {this.state.dataTwo.map((item) => (
-                <View key={item} style={ styles.bulletPointsTwo }>
-                  <View style={{ flexDirection: 'row' }}>
-                    <Text style={styles.bulletPoint}>{`\u2022`}</Text>
-                    <Text style={styles.bulletPointText}>{item}</Text>
-                  </View>
-                </View>        
-              ))} 
-            </View>
+              <View style={{ marginTop: Dimensions.get('window').height/300 }}>
+                {this.state.dataTwo.map((item) => (
+                  <View key={item} style={ styles.bulletPointsTwo }>
+                    <View style={{ flexDirection: 'row' }}>
+                      <Text style={styles.bulletPoint}>{`\u2022`}</Text>
+                      <Text style={styles.bulletPointText}>{item}</Text>
+                    </View>
+                  </View>        
+                ))} 
+              </View>
           </View>
+
+
 
           <View style={styles.bottom}>
             <TouchableOpacity
@@ -247,7 +244,6 @@ const styles = StyleSheet.create({
     height: '15%',
     alignItems: 'center', 
     justifyContent: 'center',
-    // backgroundColor: 'gray',
   },
   divider: {
     backgroundColor: '#CDCDCD', 
@@ -282,13 +278,19 @@ const styles = StyleSheet.create({
     marginTop: Dimensions.get('window').height/40,
   },
   bulletPoint: {
-    color: 'gray',
-    fontSize: Dimensions.get('window').height/40,
+    fontSize: Dimensions.get('window').height/45,
   },
   bulletPointText: {
-    fontWeight: '400',
+    fontWeight: '300',
     marginLeft: Dimensions.get('window').height/150,
     fontSize: Dimensions.get('window').height/38,
+  },
+  callButton: {
+    borderRadius: 40,
+    height: Dimensions.get('window').height/11,
+    width: Dimensions.get('window').width/1.17,
+    alignItems: "center",
+    justifyContent: "center",
   },
   customBtnText: {
     fontWeight: '600',
@@ -305,13 +307,6 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     width: Dimensions.get('window').width/1.17,
     height: Dimensions.get('window').height/10.75,
-  },
-  callButton: {
-    borderRadius: 40,
-    height: Dimensions.get('window').height/11,
-    width: Dimensions.get('window').width/1.17,
-    alignItems: "center",
-    justifyContent: "center",
   },
 
 })

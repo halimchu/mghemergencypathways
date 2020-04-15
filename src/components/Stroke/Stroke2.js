@@ -1,6 +1,6 @@
 import React from 'react'
-import { Dimensions, View, Text, StyleSheet, TouchableOpacity, SafeAreaView, } from 'react-native'
-import { Button, Divider } from 'react-native-elements'
+import { Dimensions, View, Text, StyleSheet, TouchableOpacity, SafeAreaView } from 'react-native'
+import { Button } from 'react-native-elements'
 import Icon from 'react-native-vector-icons/Ionicons' 
 import LinearGradient from 'react-native-linear-gradient'
 
@@ -103,19 +103,13 @@ export default class Stroke2 extends React.Component {
       <SafeAreaView style={styles.container}>
         <View style={styles.top}>
           <Text style={styles.title}>Stroke</Text>
-          {/* <Divider style={styles.divider} /> */}
-
           <View style={{alignItems: 'center'}}>
-                  <View style={{ flexDirection: 'row'}}>
-                     <View style={styles.firstCircle}>
-                     </View>
-                     <View style={styles.secondCircle}>
-                     </View>
-                     <View style={styles.thirdCircle}>
-                     </View>
-                  </View>
+            <View style={{ flexDirection: 'row'}}>
+              <View style={styles.firstCircle}></View>
+              <View style={styles.secondCircle}></View>
+              <View style={styles.thirdCircle}></View>
+            </View>
           </View>
-
         </View>
 
         <View style={styles.middle}>
@@ -185,14 +179,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     // backgroundColor: 'gray',
   },
-  divider: {
-    backgroundColor: '#CDCDCD', 
-    marginTop: Dimensions.get('window').height/64, 
-    marginBottom: Dimensions.get('window').height/64, 
-    marginLeft: Dimensions.get('window').width/60, 
-    marginRight: Dimensions.get('window').width/60, 
-    height: Dimensions.get('window').height/600
-  },
   title: {
     fontWeight: 'bold',
     textAlign: 'center',
@@ -201,19 +187,18 @@ const styles = StyleSheet.create({
     fontSize: Dimensions.get('window').height/32.5,
   },
   bulletPoint: {
-    color: 'gray',
-    fontSize: Dimensions.get('window').height/40,
-  },
-  bulletPointText: {
-    fontWeight: '300',
-    marginLeft: Dimensions.get('window').width/95,
-    fontSize: Dimensions.get('window').height/38,
+    fontSize: Dimensions.get('window').height/45,
   },
   bulletPoints: {
     flexDirection: 'row',
     marginTop: Dimensions.get('window').height/40,
     marginLeft: Dimensions.get('window').width/10,
     marginRight: Dimensions.get('window').width/18,
+  },
+  bulletPointText: {
+    fontWeight: '300',
+    marginLeft: Dimensions.get('window').width/95,
+    fontSize: Dimensions.get('window').height/38,
   },
   customBtnText: {
     fontWeight: '600',

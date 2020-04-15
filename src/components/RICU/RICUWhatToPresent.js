@@ -1,7 +1,7 @@
 import React from 'react'
-import { Dimensions, View, Text, StyleSheet, TouchableOpacity, SafeAreaView } from 'react-native'
+import { Dimensions, View, Text, StyleSheet, SafeAreaView } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons' 
-import { Button, Divider } from 'react-native-elements'
+import { Button } from 'react-native-elements'
 import LinearGradient from 'react-native-linear-gradient'
 
 export default class RICUWhatToPresent extends React.Component {
@@ -103,23 +103,29 @@ export default class RICUWhatToPresent extends React.Component {
   whatToPresent () {
     return this.state.data.map((item) => 
 
-      item[1] ? (
+      item[1] 
+
+      ? (
             <View key={item[0]} style={{ 
               flexDirection: 'row', 
               marginRight: Dimensions.get('window').width/19, 
               marginLeft: Dimensions.get('window').width/19,
-              marginBottom: Dimensions.get('window').height/70 }}>
+              marginBottom: Dimensions.get('window').height/70 
+            }}>
                   <Text style={styles.bulletPoint}>{`\u2022 `}</Text>
                   <Text>
-                    <Text style={{ fontWeight: '500', fontSize: Dimensions.get('window').width/21, }}>{item[0]}</Text>
-                    <Text style={{ fontSize: Dimensions.get('window').width/21, }}> {item[1]}</Text>
+                    <Text style={{ fontWeight: '500', fontSize: Dimensions.get('window').width/21 }}>{item[0]}</Text>
+                    <Text style={{ fontSize: Dimensions.get('window').width/21 }}> {item[1]}</Text>
                   </Text>
                 
             </View>
 
       ) : (
 
-      <Text style={{ marginLeft: Dimensions.get('window').width/19, marginBottom: Dimensions.get('window').height/70 }}>
+      <Text style={{ 
+        marginLeft: Dimensions.get('window').width/19, 
+        marginBottom: Dimensions.get('window').height/70 
+      }}>
         <Text style={styles.bulletPoint}>{`\u2022 `}</Text>
         <Text style={{ 
           fontWeight: '500', 
@@ -137,24 +143,18 @@ export default class RICUWhatToPresent extends React.Component {
       <SafeAreaView style={styles.container}>
         <View style={styles.top}>
           <Text style={styles.title}>RICU</Text>
-          {/* <Divider style={styles.divider} /> */}
-
           <View style={{alignItems: 'center'}}>
-                  <View style={{ flexDirection: 'row'}}>
-                     <View style={styles.firstCircle}>
-                     </View>
-                     <View style={styles.secondCircle}>
-                     </View>
-                     <View style={styles.thirdCircle}>
-                     </View>
-                  </View>
-            </View>
-
+              <View style={{ flexDirection: 'row'}}>
+                <View style={styles.firstCircle}></View>
+                <View style={styles.secondCircle}></View>
+                <View style={styles.thirdCircle}></View>
+              </View>
+          </View>
         </View>
 
         <View style={styles.bottom}>
           <Text style={styles.header}>What To Present to RICU Team:</Text>
-            {this.whatToPresent()}
+          {this.whatToPresent()}
         </View>
       </SafeAreaView>
     )
@@ -221,7 +221,6 @@ const styles = StyleSheet.create({
     fontSize: Dimensions.get('window').width/20,
   },
   bulletPoint: {
-    color: 'gray',
-    fontSize: Dimensions.get('window').height/40,
-  },
+    fontSize: Dimensions.get('window').height/50,
+  }
 })

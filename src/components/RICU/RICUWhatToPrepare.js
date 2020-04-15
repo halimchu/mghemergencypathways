@@ -1,8 +1,7 @@
 import React from 'react'
 import { Linking, Dimensions, View, Text, StyleSheet, TouchableOpacity, SafeAreaView } from 'react-native'
-import { Button, Divider } from 'react-native-elements'
-import Icon from 'react-native-vector-icons/Ionicons' 
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons' 
+import { Button } from 'react-native-elements'
+import Icon from 'react-native-vector-icons/Ionicons'  
 import LinearGradient from 'react-native-linear-gradient'
 
 export default class RICUWhatToPrepare extends React.Component {
@@ -110,24 +109,32 @@ export default class RICUWhatToPrepare extends React.Component {
     Linking.openURL(phoneNumber);
   }
 
+  // someFunc = () => {
+  //   if (Dimensions.get('window').width === 320 && Dimensions.get('window').height === 568) {
+  //     styles.
+  //     return (
+  //       <Text>Yes</Text>
+  //     )
+  //   } else {
+  //     return (
+  //       <Text>No</Text>
+  //     )
+  //   }
+  // }
+
 
   render() { 
     return (  
       <SafeAreaView style={styles.container}>
         <View style={styles.top}>
           <Text style={styles.title}>RICU</Text>
-          {/* <Divider style={styles.divider} /> */}
-
           <View style={{alignItems: 'center'}}>
-                  <View style={{ flexDirection: 'row'}}>
-                     <View style={styles.firstCircle}>
-                     </View>
-                     <View style={styles.secondCircle}>
-                     </View>
-                     <View style={styles.thirdCircle}>
-                     </View>
-                  </View>
+            <View style={{ flexDirection: 'row'}}>
+              <View style={styles.firstCircle}></View>
+              <View style={styles.secondCircle}></View>
+              <View style={styles.thirdCircle}></View>
             </View>
+          </View>
         </View> 
        
 
@@ -141,7 +148,12 @@ export default class RICUWhatToPrepare extends React.Component {
             marginTop: Dimensions.get('window').height/90,
             marginBottom: Dimensions.get('window').height/50,
             }}>
-            <Text style={{textAlign: 'center', fontSize: Dimensions.get('window').width/22, fontWeight: 'bold', color: 'white', }}>Important: Informed clinician must be at patient's bedside when RICU arrives.</Text>
+            <Text style={{
+              textAlign: 'center', 
+              fontSize: Dimensions.get('window').width/22, 
+              fontWeight: 'bold', 
+              color: 'white', 
+            }}>Important: Informed clinician must be at patient's bedside when RICU arrives.</Text>
             <Text style={{
               paddingTop: Dimensions.get('window').height/200, 
               textAlign: 'center', fontSize: Dimensions.get('window').width/24, 
@@ -152,11 +164,13 @@ export default class RICUWhatToPrepare extends React.Component {
            
 
           <Text style={styles.header}>If RICU called, prepare the following:</Text>
+
+
           {this.state.data.map((item) => (
             <View key={item} style={ styles.bulletPoints }>
               <View style={{ flexDirection: 'row' }}>
                 <Text style={styles.bulletPoint}>{`\u2022`}</Text>
-                <Text style={styles.bulletPointText}>{item}</Text>
+                <Text style={ (Dimensions.get('window').width === 320 && Dimensions.get('window').height === 568) ? styles.bulletPointTextSE : styles.bulletPointText }>{item}</Text>
               </View>
             </View>        
           ))} 
@@ -183,7 +197,6 @@ const styles = StyleSheet.create({
   },
   middle: {
     height: '75%',
-    // paddingTop: Dimensions.get('window').height/35,
     // backgroundColor: 'pink'
   },
   bottom: {
@@ -235,7 +248,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1
   },
-  
   title: {
     fontWeight: 'bold',
     textAlign: 'center',
@@ -258,19 +270,24 @@ const styles = StyleSheet.create({
     fontSize: Dimensions.get('window').width/22,
   },
   bulletPoint: {
-    color: 'gray',
-    fontSize: Dimensions.get('window').height/40,
-  },
-  bulletPointText: {
-    fontWeight: '400',
-    marginLeft: Dimensions.get('window').width/80,
-    fontSize: Dimensions.get('window').width/22,
+    // color: 'gray',
+    fontSize: Dimensions.get('window').height/50,
   },
   bulletPoints: {
     flexDirection: 'row',
     marginTop: Dimensions.get('window').height/150,
     marginLeft: Dimensions.get('window').width/20,
     marginRight: Dimensions.get('window').width/50,
+  },
+  bulletPointText: {
+    fontWeight: '400',
+    marginLeft: Dimensions.get('window').width/80,
+    fontSize: Dimensions.get('window').width/22,
+  },
+  bulletPointTextSE: {
+    fontWeight: '400',
+    marginLeft: Dimensions.get('window').width/80,
+    fontSize: Dimensions.get('window').width/24,
   },
   customBtnText: {
     fontWeight: '600',

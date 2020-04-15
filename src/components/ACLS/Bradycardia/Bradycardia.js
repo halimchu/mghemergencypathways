@@ -89,6 +89,40 @@ export default class BradyCardia extends React.Component {
     }
   }
 
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      imageHeight: 0,
+      dosesDetailsView: 0,
+      dosesDetailsHidden: true,
+    }
+  }
+
+
+  onPressDosesDetailsHidden = () => {
+    this.setState({ dosesDetailsHidden: !this.state.dosesDetailsHidden})
+  }
+
+  
+  measureImageView = (event) => {
+    this.setState({
+      imageHeight: event.nativeEvent.layout.height
+    })
+  }
+  measureDosesDetailsView = (event) => {
+    this.setState({
+      dosesDetailsView: event.nativeEvent.layout.height
+    })
+  }
+
+
+  goToEnd = () => {
+    const added = this.state.imageHeight + this.state.dosesDetailsView
+    this.scroller.scrollTo({x: 0, y: added, animated: true});
+  }
+
+
   IPhone414x896 () {
     if (Dimensions.get('window').width === 414 && Dimensions.get('window').height === 896) {
       return (
@@ -144,38 +178,13 @@ export default class BradyCardia extends React.Component {
     }
   }
 
-
-
-  constructor(props) {
-    super(props)
-    this.state = {
-      imageHeight: 0,
-      dosesDetailsView: 0,
-      dosesDetailsHidden: true,
-    }
-  }
-
-
-  onPressDosesDetailsHidden = () => {
-    this.setState({ dosesDetailsHidden: !this.state.dosesDetailsHidden})
-  }
-
-  
-  measureImageView = (event) => {
-    this.setState({
-      imageHeight: event.nativeEvent.layout.height
-    })
-  }
-  measureDosesDetailsView = (event) => {
-    this.setState({
-      dosesDetailsView: event.nativeEvent.layout.height
-    })
-  }
-
-
-  goToEnd = () => {
-    const added = this.state.imageHeight + this.state.dosesDetailsView
-    this.scroller.scrollTo({x: 0, y: added, animated: true});
+  IPhoneNotYet () {
+    return (
+      <Image
+        source={require('../../../../assets/CardiacArrest3000x2700.png')}
+        style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.5}}
+      />
+    )
   }
   
   render() { 
@@ -186,7 +195,7 @@ export default class BradyCardia extends React.Component {
           ref={(scroller) => {this.scroller = scroller}}
         >
 
-          <View styles={styles.top}>
+          <View>
             <Text style={styles.titleFirstLine}>Bradycardia with a Pulse</Text>
             <Divider style={styles.divider} />
           </View>
@@ -195,16 +204,24 @@ export default class BradyCardia extends React.Component {
           <Text>{Dimensions.get('window').height}</Text> */}
               
           <View onLayout={this.measureImageView}>
-            {this.IPhone375x812()}
-            {this.IPhone414x896()}
-            {this.IPhone375x667()}
-            {this.IPhone414x736()}
-            {this.IPhone320x568()}
+            {
+            
+                this.IPhone375x812() || this.IPhone414x896() || this.IPhone414x736() || this.IPhone375x667() || this.IPhone320x568()
+                
+                ? 
+                
+                this.IPhone375x812() || this.IPhone414x896() || this.IPhone414x736() || this.IPhone375x667() || this.IPhone320x568()
+                
+                : 
+                
+                this.IPhoneNotYet()
+            
+            }  
           </View>
 
-          <View style={{marginBottom: Dimensions.get('window').height/60}}>
 
-          </View>
+
+          <View style={{marginBottom: Dimensions.get('window').height/60}}></View>
 
 
           <View onLayout={this.measureDosesDetailsView}>
@@ -218,7 +235,9 @@ export default class BradyCardia extends React.Component {
           </View>
 
           
-
+          <View style={{ alignItems: 'center', marginTop: Dimensions.get('window').height/50 }}>
+            <Text style={{ fontSize: Dimensions.get('window').height/60 }}>American Heart Association Guidelines 2018</Text>
+          </View>
 
         
         </ScrollView>
@@ -239,7 +258,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#2b2b2b',
     paddingTop: Dimensions.get('window').height/60,
-    fontSize: Dimensions.get('window').height/33,
+    fontSize: Dimensions.get('window').height/38,
   },
   titleSecondLine: {
     fontWeight: 'bold',
@@ -250,7 +269,7 @@ const styles = StyleSheet.create({
   divider: {
     backgroundColor: '#CDCDCD', 
     marginTop: Dimensions.get('window').height/64, 
-    marginBottom: Dimensions.get('window').height/64, 
+    marginBottom: Dimensions.get('window').height/150, 
     marginLeft: Dimensions.get('window').width/60, 
     marginRight: Dimensions.get('window').width/60, 
     height: Dimensions.get('window').height/600

@@ -96,60 +96,7 @@ export default class CardiacArrest extends React.Component {
     }
   }
 
-  IPhone414x896 () {
-    if (Dimensions.get('window').width === 414 && Dimensions.get('window').height === 896) {
-      return (
-        <Image
-          source={require('../../../../assets/CardiacArrest3000x2700.png')}
-          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.5}}
-        />
-      )
-    }
-  }
-
-  IPhone375x812 () {
-    if (Dimensions.get('window').width === 375 && Dimensions.get('window').height === 812) {
-      return (
-        <Image
-          source={require('../../../../assets/CardiacArrest3000x2700.png')}
-          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.5}}
-        />
-      )
-    }
-  }
-
-  IPhone414x736 () {
-    if (Dimensions.get('window').width === 414 && Dimensions.get('window').height === 736) {
-      return (
-        <Image
-          source={require('../../../../assets/CardiacArrest3000x2700.png')}
-          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.22 }}
-        />
-      )
-    }
-  }
-
-  IPhone375x667 () {
-    if (Dimensions.get('window').width === 375 && Dimensions.get('window').height === 667) {
-      return (
-        <Image
-          source={require('../../../../assets/CardiacArrest3000x2700.png')}
-          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.22 }}
-        />
-      )
-    }
-  }
-
-  IPhone320x568 () {
-    if (Dimensions.get('window').width === 320 && Dimensions.get('window').height === 568) {
-      return (
-        <Image
-          source={require('../../../../assets/CardiacArrest3000x2700.png')}
-          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.22 }}
-        />
-      )
-    }
-  }
+  
 
 
 
@@ -337,30 +284,83 @@ export default class CardiacArrest extends React.Component {
   }
 
 
+
+  IPhone414x896 () { //11 Pro Max, Xs Max
+    if (Dimensions.get('window').width === 414 && Dimensions.get('window').height === 896) {
+      return (
+        <Image
+          source={require('../../../../assets/CardiacArrest3000x2700.png')}
+          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.5}}
+        />
+      )
+    }
+  }
+
+
+  IPhone375x812 () { // Xs, X, 11 Pro
+    if (Dimensions.get('window').width === 375 && Dimensions.get('window').height === 812) {
+      return (
+        <Image
+          source={require('../../../../assets/CardiacArrest3000x2700.png')}
+          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.5}}
+        />
+      )
+    }
+  }
+
+  IPhone414x736 () { // 6+ 6x+ 7+ 8+ 
+    if (Dimensions.get('window').width === 414 && Dimensions.get('window').height === 736) {
+      return (
+        <Image
+          source={require('../../../../assets/CardiacArrest3000x2700.png')}
+          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.22 }}
+        />
+      )
+    }
+  }
+
+  IPhone375x667 () { // 6, 6s, 7, 8
+    if (Dimensions.get('window').width === 375 && Dimensions.get('window').height === 667) {
+      return (
+        <Image
+          source={require('../../../../assets/CardiacArrest3000x2700.png')}
+          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.22 }}
+        />
+      )
+    }
+  }
+
+  IPhone320x568 () { // SE
+    if (Dimensions.get('window').width === 320 && Dimensions.get('window').height === 568) {
+      return (
+        <Image
+          source={require('../../../../assets/CardiacArrest3000x2700.png')}
+          style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.22 }}
+        />
+      )
+    }
+  }
+
+  IPhoneNotYet () {
+    return (
+      <Image
+        source={require('../../../../assets/CardiacArrest3000x2700.png')}
+        style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.5}}
+      />
+    )
+  }
+
+
   render() {  
-    console.log(this.state.reversibleCausesHidden)
-    // console.log('childHeight', this.state.childHeight)
-    // console.log('screen height', this.state.screenHeight)
-    // console.log('imageHeight', this.state.screenHeight - this.state.parentView)
-    // console.log('parentView:', this.state.parentView)
-    console.log('image height:', this.state.imageHeight)
-    console.log('reversiblecausesView', this.state.reversibleCausesView)
-    console.log('shockEnergyView', this.state.shockEnergyView)
-    // console.log('drugTherapyView', this.state.drugTherapyView)
-    // console.log('ROSC', this.state.ROSCView)
-    // console.log('CPR QUality', this.state.CPRQualityView)
-    // console.log('advanced Airway', this.state.advancedAirwayView)
-  
-
-
-    
-
     return ( 
       <SafeAreaView style={styles.container}>
 
         <Timer />
         <Divider />
+        
 
+        {/* <Text>{Dimensions.get('window').width}</Text>
+        <Text>{Dimensions.get('window').height}</Text> */}
 
         <ScrollView 
           maximumZoomScale={2.5}
@@ -372,11 +372,21 @@ export default class CardiacArrest extends React.Component {
 
 
           <View onLayout={this.measureImageView}>
-            {this.IPhone375x812()}
-            {this.IPhone414x896()}
-            {this.IPhone375x667()} 
-            {this.IPhone414x736()}
-            {this.IPhone320x568()}
+            {
+            
+                this.IPhone375x812() || this.IPhone414x896() || this.IPhone414x736() || this.IPhone375x667() || this.IPhone320x568()
+                
+                ? 
+                
+                this.IPhone375x812() || this.IPhone414x896() || this.IPhone414x736() || this.IPhone375x667() || this.IPhone320x568()
+                
+                : 
+                
+                this.IPhoneNotYet()
+            
+            }  
+
+
           </View>
 
 
@@ -552,17 +562,11 @@ const styles = StyleSheet.create({
     paddingTop: Dimensions.get('window').height/300,
     // backgroundColor: 'yellow'
   },
-  title: {
-    fontWeight: 'bold',
-    textAlign: 'center',
-    color: '#2b2b2b',
-    marginTop: Dimensions.get('window').height/60,
-    fontSize: Dimensions.get('window').height/33,
-  },
+
   divider: {
     backgroundColor: '#CDCDCD', 
     marginTop: Dimensions.get('window').height/100, 
-    marginBottom: Dimensions.get('window').height/64, 
+    marginBottom: Dimensions.get('window').height/150, 
     marginLeft: Dimensions.get('window').width/60, 
     marginRight: Dimensions.get('window').width/60, 
     height: Dimensions.get('window').height/600
@@ -582,5 +586,6 @@ const styles = StyleSheet.create({
     marginTop: Dimensions.get('window').height/250,
     width: Dimensions.get('window').width/2,
     height: Dimensions.get('window').height/25,
-  }
+  },
+  
 })

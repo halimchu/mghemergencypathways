@@ -1,10 +1,9 @@
 import React from 'react'
 import { ScrollView, Image, Linking, Dimensions, View, Text, StyleSheet, TouchableOpacity, SafeAreaView } from 'react-native'
-import { Button, Divider } from 'react-native-elements'
+import { Button } from 'react-native-elements'
 import Icon from 'react-native-vector-icons/Ionicons' 
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons' 
 import LinearGradient from 'react-native-linear-gradient'
-import Component from '../ACLS/Component'
 import RiskFactors from './RiskFactors'
 
 export default class RICU extends React.Component {
@@ -178,6 +177,15 @@ export default class RICU extends React.Component {
     }
   }
 
+  IPhoneNotYet () {
+    return (
+      <Image
+        source={require('../../../assets/RICU3000x2000V2.png')}
+        style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/2.3}}
+      />
+    )
+  }
+
   showInfo = () => {
     return (
       <View style={{backgroundColor: '#E9E9E7'}}>
@@ -200,162 +208,94 @@ export default class RICU extends React.Component {
         <ScrollView 
           maximumZoomScale={2.5}
           ref={(scroller) => {this.scroller = scroller}}
-          onContentSizeChange={this.onContentSizeChange}
         >
 
-
-        <Text style={styles.title}>RICU</Text>
-
-          {/* <Text>{Dimensions.get('window').width}</Text>
-          <Text>{Dimensions.get('window').height}</Text> */}
-
+          <Text style={styles.title}>RICU</Text>
           <View style={{alignItems: 'center'}}>
-                  <View style={{ flexDirection: 'row'}}>
-                     <View style={styles.firstCircle}>
-                     </View>
-                     <View style={styles.secondCircle}>
-                     </View>
-                     <View style={styles.thirdCircle}>
-                     </View>
-                  </View>
+            <View style={{ flexDirection: 'row'}}>
+                <View style={styles.firstCircle}></View>
+                <View style={styles.secondCircle}></View>
+                <View style={styles.thirdCircle}></View>
             </View>
-
-
-
-               
-
-
-
-               
-
-          
-
-             
-
-
-
-                <View style={styles.divider}></View>
-                  {this.IPhone375x812()}
-                  {this.IPhone414x896()}
-                  {this.IPhone375x667()} 
-                  {this.IPhone414x736()}
-                  {this.IPhone320x568()}
-
-                  <View onLayout={this.measureShockEnergyView}>
-                    <View style={{ marginLeft: Dimensions.get('window').width/8.5,}}>
-                      <TouchableOpacity style={styles.riskFactorsButton} onPress={() => {
-                        this.onPressButtonHidden()
-                      }}>
-                        <Text style={styles.riskFactorsBtnText}>Risk Factors</Text>
-                      </TouchableOpacity>
-                    </View>
-                    <View style={{backgroundColor: '#f0f0f0',}}>
-                      {!this.state.buttonHidden ? <RiskFactors /> : null}
-                    </View>
-                  </View>
-
-              <View style={styles.divider}></View>
-
-
-<View style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginTop: Dimensions.get('window').height/30,  }}>
-
-
-          <View style={{alignContent: 'center'}}>
-              <TouchableOpacity onPress={()=>{this.dialCall()}}>
-                                    <LinearGradient 
-                                      style={styles.callButton}
-                                      colors={['#B62619', '#F63826', '#B62619']}
-                                      start={{x: 0, y: 0}}
-                                      end={{x: 1, y: 0}}
-                                    >
-                                        <View style={{ flexDirection: 'row' }}>
-                                          <MaterialIcons name="phone" size={19} color="white" />
-                                          <Text style={{ fontSize: Dimensions.get('window').width/21, color: 'white', fontWeight: 'bold' }}> Call RICU Consult</Text>
-                                        </View>
-                                        <Text style={{ 
-                                          marginTop: Dimensions.get('window').height/150, 
-                                          color: 'white', 
-                                          fontSize: Dimensions.get('window').width/24, fontWeight: '400'
-                                        }}>x6-3333
-                                        </Text>
-                                    </LinearGradient>   
-              </TouchableOpacity>
           </View>
 
-            <View style={{marginLeft: Dimensions.get('window').width/60, }}>
-              <TouchableOpacity onPress={()=>{this.onPressButton2Hidden()}}>
-                                      {/* <LinearGradient 
-                                        style={styles.callButton2}
-                                        colors={['#90adb0', '#90adb0',]}
-                                        start={{x: 0, y: 0}}
-                                        end={{x: 1, y: 0}}
-                                      > */}
-                                          <View style={{ flexDirection: 'row' }}>
-                                            <Icon name="ios-information-circle" size={Dimensions.get('window').height/15} color="#90adb0" />
-                                            {/* <MaterialIcons name="phone" size={19} color="white" /> */}
-                                            {/* <Text style={{ fontSize: Dimensions.get('window').width/23, color: 'white', fontWeight: '500' }}> Info for Page Operator</Text> */}
-                                          </View>
-                                      {/* </LinearGradient> */}
-              </TouchableOpacity>
-            </View>
-</View>
 
 
+          <View style={styles.divider}></View>
 
-{/* 
-              <View style={{ 
-                // alignItems: 'center', 
-                // marginTop: Dimensions.get('window').height/100,  
-                }}>
-                  <TouchableOpacity onPress={()=>{this.dialCall()}}>
-                        <LinearGradient 
-                          style={styles.callButton}
-                          colors={['#B62619', '#F63826', '#B62619']}
-                          start={{x: 0, y: 0}}
-                          end={{x: 1, y: 0}}
-                        >
-                            <View style={{ flexDirection: 'row' }}>
-                              <MaterialIcons name="phone" size={19} color="white" />
-                              <Text style={{ fontSize: Dimensions.get('window').width/21, color: 'white', fontWeight: 'bold' }}> Call RICU Consult</Text>
-                            </View>
-                            <Text style={{ 
-                              marginTop: Dimensions.get('window').height/150, 
-                              color: 'white', 
-                              fontSize: Dimensions.get('window').width/24, fontWeight: '400'
-                            }}>x6-3333
-                            </Text>
-                        </LinearGradient>   
-                  </TouchableOpacity>
-
-                  <View style={{ 
-                    // marginTop: Dimensions.get('window').height/300
-                    }}>
-                    <TouchableOpacity onPress={()=>{this.onPressButton2Hidden()}}>
-                          <LinearGradient 
-                            style={styles.callButton2}
-                            colors={['#90adb0', '#90adb0',]}
-                            start={{x: 0, y: 0}}
-                            end={{x: 1, y: 0}}
-                          >
-                              <View style={{ flexDirection: 'row' }}>
-                                <MaterialIcons name="phone" size={19} color="white" />
-                                <Text style={{ fontSize: Dimensions.get('window').width/23, color: 'white', fontWeight: '500' }}> Info for Page Operator</Text>
-                              </View>
-                          </LinearGradient>
-                    </TouchableOpacity>
-                  </View>
-                </View> */}
+          <View onLayout={this.measureImageView}>
+            {
+            
+                this.IPhone375x812() || this.IPhone414x896() || this.IPhone414x736() || this.IPhone375x667() || this.IPhone320x568()
+                
+                ? 
+                
+                this.IPhone375x812() || this.IPhone414x896() || this.IPhone414x736() || this.IPhone375x667() || this.IPhone320x568()
+                
+                : 
+                
+                this.IPhoneNotYet()
+            
+            }  
+          </View>
 
 
-                <View>
-                {!this.state.buttonHidden2 ? this.showInfo() : null}
-              </View>
-       
-
-     
-
+      
+          <View style={{ marginLeft: Dimensions.get('window').width/9}}>
+            <TouchableOpacity style={styles.riskFactorsButton} onPress={() => {
+              this.onPressButtonHidden()
+            }}>
+              <Text style={styles.riskFactorsBtnText}>Risk Factors</Text>
+            </TouchableOpacity>
+          </View>
 
           
+          <View style={{backgroundColor: '#f0f0f0',}}>
+            {!this.state.buttonHidden ? <RiskFactors /> : null}
+          </View>
+        
+
+          <View style={styles.divider}></View>
+
+          <View style={{
+            flexDirection: 'row', 
+            justifyContent: 'center', 
+            alignItems: 'center', 
+            marginTop: Dimensions.get('window').height/30 
+          }}>
+            <View style={{alignContent: 'center'}}>
+                <TouchableOpacity onPress={()=>{this.dialCall()}}>
+                      <LinearGradient 
+                        style={styles.callButton}
+                        colors={['#B62619', '#F63826', '#B62619']}
+                        start={{x: 0, y: 0}}
+                        end={{x: 1, y: 0}}
+                      >
+                          <View style={{ flexDirection: 'row' }}>
+                            <MaterialIcons name="phone" size={19} color="white" />
+                            <Text style={{ fontSize: Dimensions.get('window').width/21, color: 'white', fontWeight: 'bold' }}> Call RICU Consult</Text>
+                          </View>
+                          <Text style={{ 
+                            marginTop: Dimensions.get('window').height/150, 
+                            color: 'white', 
+                            fontSize: Dimensions.get('window').width/24, fontWeight: '400'
+                          }}>x6-3333
+                          </Text>
+                      </LinearGradient>   
+                </TouchableOpacity>
+            </View>
+
+            <View style={{marginLeft: Dimensions.get('window').width/60, }}>
+                <TouchableOpacity onPress={()=>{this.onPressButton2Hidden()}}>
+                    <View style={{ flexDirection: 'row' }}>
+                      <Icon name="ios-information-circle" size={Dimensions.get('window').height/15} color="#90adb0" />
+                    </View>                  
+                </TouchableOpacity>
+            </View>
+          </View>
+
+
+          {!this.state.buttonHidden2 ? this.showInfo() : null}
 
           <View style={{alignItems: 'center', paddingTop: Dimensions.get('window').height/50,}}>
               <TouchableOpacity
@@ -372,8 +312,6 @@ export default class RICU extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  
-
   firstCircle: {
     marginTop: Dimensions.get('window').height/100,
     width: 12,
@@ -399,26 +337,9 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#6c9ea1'
   },
-
-  
   container: {
     flex: 1,
     height: '100%'
-  },
-  top: {
-    height: '25%',
-    backgroundColor: 'yellow'
-  },
-  middle: {
-    height: '80%',
-    paddingTop: Dimensions.get('window').height/13,
-    backgroundColor: 'pink'
-  },
-  bottom: {
-    // height: '15%',
-    alignItems: 'center', 
-    justifyContent: 'center',
-    // backgroundColor: 'gray',
   },
   title: {
     fontWeight: 'bold',
@@ -435,21 +356,8 @@ const styles = StyleSheet.create({
     marginRight: Dimensions.get('window').width/60, 
     height: Dimensions.get('window').height/400
   },
-  headerOne: {
-    // fontWeight: 'bold',
-    textAlign: 'center',
-    marginTop: Dimensions.get('window').height/45, 
-    fontSize: Dimensions.get('window').height/34,
-  },
-  headerTwo: {
-    // fontWeight: 'bold',
-    textAlign: 'center',
-    marginBottom: Dimensions.get('window').height/40,
-    fontSize: Dimensions.get('window').height/34,
-  },
   bulletPoint: {
     color: 'gray',
-    // marginLeft: Dimensions.get('window').width/10,
     fontSize: Dimensions.get('window').height/50,
   },
   bulletPointText: {
@@ -479,32 +387,10 @@ const styles = StyleSheet.create({
     width: Dimensions.get('window').width/1.17,
     height: Dimensions.get('window').height/10.75,
   },
-  
-  // callButton: {
-  //   borderRadius: 80,
-  //   height: Dimensions.get('window').height/13,
-  //   width: Dimensions.get('window').width/1.17,
-  //   alignItems: "center",
-  //   justifyContent: "center",
-  // },
-  // callButton2: {
-  //   borderRadius: 40,
-  //   height: Dimensions.get('window').height/30,
-  //   width: Dimensions.get('window').width/2,
-  //   alignItems: "center",
-  //   justifyContent: "center",
-  // },
   callButton: {
     borderRadius: 40,
     height: Dimensions.get('window').height/11,
     width: Dimensions.get('window').width/1.4,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  callButton2: {
-    borderRadius: 100,
-    height: 70,
-    width: 70,
     alignItems: "center",
     justifyContent: "center",
   },
@@ -523,10 +409,5 @@ const styles = StyleSheet.create({
     borderWidth: 1,   
     width: Dimensions.get('window').width/4,
     height: Dimensions.get('window').height/27,
-  },
- 
-
-
-
-
+  }
 })

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Linking, Dimensions, View, Text, StyleSheet, TouchableOpacity, SafeAreaView } from 'react-native'
-import { Button, Divider } from 'react-native-elements'
+import { Button } from 'react-native-elements'
 import Icon from 'react-native-vector-icons/Ionicons' 
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import LinearGradient from 'react-native-linear-gradient'
@@ -98,59 +98,51 @@ export default class STEMIYes extends React.Component {
   render() { 
     return (  
       <SafeAreaView style={styles.container}>
-
-
-
         <View style={styles.top}> 
           <Text style={styles.title}>STEMI</Text>
-          {/* <Divider style={styles.divider} /> */}
-
           <View style={{alignItems: 'center'}}>
-                  <View style={{ flexDirection: 'row'}}>
-                     <View style={styles.firstCircle}>
-                     </View>
-                     <View style={styles.secondCircle}>
-                     </View>
-                  </View>
+            <View style={{ flexDirection: 'row'}}>
+              <View style={styles.firstCircle}>
+              </View>
+              <View style={styles.secondCircle}>
+              </View>
+            </View>
           </View>
         </View>
 
 
-
-
         <View style={styles.middle}>
             <View style={{ alignItems: 'center' }}>
-
-            <TouchableOpacity onPress={()=>{this.dialCall()}}>
-                    <LinearGradient 
-                      style={styles.callButton}
-                      colors={['#B62619', '#F63826', '#B62619']}
-                      start={{x: 0, y: 0}}
-                      end={{x: 1, y: 0}}
-                    >
-                        <View style={{ flexDirection: 'row' }}>
-                          <MaterialIcons name="phone" size={19} color="white" />
-                          <Text style={{ fontSize: Dimensions.get('window').width/21, color: 'white', fontWeight: 'bold' }}> Call STEMI Consult</Text>
-                        </View>
-                        <Text style={{ 
-                          marginTop: Dimensions.get('window').height/150, 
-                          color: 'white', 
-                          fontSize: Dimensions.get('window').width/24, fontWeight: '400'
-                        }}>x6-8282
-                        </Text>
-                    </LinearGradient>
+              <TouchableOpacity onPress={()=>{this.dialCall()}}>
+                      <LinearGradient 
+                        style={styles.callButton}
+                        colors={['#B62619', '#F63826', '#B62619']}
+                        start={{x: 0, y: 0}}
+                        end={{x: 1, y: 0}}
+                      >
+                          <View style={{ flexDirection: 'row' }}>
+                            <MaterialIcons name="phone" size={19} color="white" />
+                            <Text style={{ fontSize: Dimensions.get('window').width/21, color: 'white', fontWeight: 'bold' }}> Call STEMI Consult</Text>
+                          </View>
+                          <Text style={{ 
+                            marginTop: Dimensions.get('window').height/150, 
+                            color: 'white', 
+                            fontSize: Dimensions.get('window').width/24, fontWeight: '400'
+                          }}>x6-8282
+                          </Text>
+                      </LinearGradient>
               </TouchableOpacity>
             </View>
 
             <View style={{ paddingTop: Dimensions.get('window').height/16 }}>
-              <Text style={styles.textFirstLine}>Enter SmartPhrase in Epic</Text>
-              <Text style={{ paddingTop: Dimensions.get('window').height/100 }}>
-                <Text style={styles.textSecondLine}>Start </Text>
-                <Text style={styles.textSecondLineBold}>.AcuteMIMGH</Text>
-              </Text>
-              <Text style={styles.textLastTwoLines}>(to generate relevant</Text>
-              <Text style={styles.textLastTwoLines}>information to clinical team)</Text> 
-          </View>
+                <Text style={styles.textFirstLine}>Enter SmartPhrase in Epic</Text>
+                <Text style={{ paddingTop: Dimensions.get('window').height/100 }}>
+                  <Text style={styles.textSecondLine}>Start </Text>
+                  <Text style={styles.textSecondLineBold}>.AcuteMIMGH</Text>
+                </Text>
+                <Text style={styles.textLastTwoLines}>(to generate relevant</Text>
+                <Text style={styles.textLastTwoLines}>information to clinical team)</Text> 
+            </View>
         </View>
 
 
@@ -191,7 +183,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: Dimensions.get('window').height/6,
     // backgroundColor: '#F7F7F7',
-
   },
   title: {
     fontWeight: 'bold',
@@ -200,14 +191,7 @@ const styles = StyleSheet.create({
     paddingTop: Dimensions.get('window').height/60,
     fontSize: Dimensions.get('window').height/32.5,
   },
-  divider: {
-    backgroundColor: '#CDCDCD', 
-    marginTop: Dimensions.get('window').height/64, 
-    marginBottom: Dimensions.get('window').height/64, 
-    marginLeft: Dimensions.get('window').width/60, 
-    marginRight: Dimensions.get('window').width/60, 
-    height: Dimensions.get('window').height/600
-  },
+  
   textFirstLine: {
     fontWeight: '500',
     textAlign: 'center',
@@ -236,5 +220,5 @@ const styles = StyleSheet.create({
     width: Dimensions.get('window').width/1.17,
     alignItems: "center",
     justifyContent: "center",
-  },
+  }
 })

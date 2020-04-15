@@ -2,32 +2,30 @@ import React from 'react'
 import { Dimensions, View, Text, StyleSheet } from 'react-native'
 
 export default class ReversibleCausesPostCardiac extends React.Component {
-	state = {
-		dataH: [
-      ['H', 'ypovolemia'],
-      ['H', 'ypoxia'],
-      ['H','ydrogen ion (acidosis)'],
-      ['H', 'ypo-/hyperkalemia'],
-      ['H', 'ypothermia'],
-    ],
-    dataT: [
-      ['T', 'ension pneumothorax'],
-      ['T', 'amponade cardiac'],
-      ['T', 'oxins'],
-      ['T', 'hrombosis pulmonary'],
-      ['T', 'hrombosis coronary']
-    ],
-  }
-
-  
 
   render() {
     return (
       <View style={{alignItems: 'center'}}>
 
-                <View style={{flexDirection: 'row', }}>
+                <View style={{flexDirection: 'row',}}>
                   <View style={{flexDirection: 'column'}}>
+                                <View style={styles.flexDirection}>
+                                  <Text style={styles.bulletPoint}>{`\u2022`}</Text>
+                                  <Text style={styles.bold}>H</Text>
+                                  <Text style={styles.regular}>ypovolemia</Text>
+                                </View>
+
                                 <View style={{flexDirection: 'row'}}>
+                                  <Text style={styles.subBulletPoint}>{`\u2022`}</Text>
+                                  <Text style={styles.subRegular}>IV fluid boluses</Text>
+                                </View>
+
+                                <View style={{flexDirection: 'row'}}>
+                                  <Text style={styles.subBulletPoint}>{`\u2022`}</Text>
+                                  <Text style={styles.subRegular}>Vasopressors</Text>
+                                </View>
+
+                                <View style={styles.flexDirection}>
                                     <Text style={styles.bulletPoint}>{`\u2022`}</Text>
                                     <Text style={styles.bold}>H</Text>
                                     <Text style={styles.regular}>ypoxia</Text>
@@ -36,27 +34,32 @@ export default class ReversibleCausesPostCardiac extends React.Component {
                                 <View style={{flexDirection: 'row'}}>
                                     <Text style={styles.subBulletPoint}>{`\u2022`}</Text>
                                     <Text style={styles.subRegular}>Bag-valve-mask</Text>
-                                </View>
+                                </View> 
 
                                 <View style={{flexDirection: 'row'}}>
                                     <Text style={styles.subBulletPoint}>{`\u2022`}</Text>
                                     <Text style={styles.subRegular}>Intubation</Text>
                                 </View>
 
-
-                               
-
-                                <View style={{flexDirection: 'row'}}>
-                                    <Text style={styles.subBulletPoint}>{`\u2022`}</Text>
-                                    <Text style={styles.subRegular}>± Naloxone</Text>
+                                <View style={styles.flexDirection}>
+                                  <Text style={styles.bulletPoint}>{`\u2022`}</Text>
+                                  <Text style={styles.bold}>H</Text>
+                                  <Text style={styles.regular}>ydrogen ions</Text>
                                 </View>
+                                <View style={styles.titleBottom}>
+                                  <Text style={styles.regular}>(acidosis)</Text>
+                                </View>  
+                                <View style={{flexDirection: 'row'}}>
+                                  <Text style={styles.subBulletPoint}>{`\u2022`}</Text>
+                                  <Text style={styles.subRegular}>Sodium bicarbonate</Text>
+                                </View>        
 
                                 <View style={styles.flexDirection}>
                                     <Text style={styles.bulletPoint}>{`\u2022`}</Text>
                                     <Text style={styles.bold}>H</Text>
                                     <Text style={styles.regular}>ypokalemia/</Text>
                                 </View>
-                                <View style={{flexDirection: 'row', marginLeft: Dimensions.get('window').width/50,}}>
+                                <View style={{flexDirection: 'row', marginLeft: Dimensions.get('window').width/55.5,}}>
                                     <Text style={styles.bold}>H</Text>
                                     <Text style={styles.regular}>yperkalemia</Text>
                                 </View>
@@ -74,27 +77,13 @@ export default class ReversibleCausesPostCardiac extends React.Component {
                                       <Text style={styles.subBulletPoint}>{`\u2022`}</Text>
                                       <Text style={styles.subRegular}>Hyperkalemia:</Text>
                                   </View>
+
                                   <View style={styles.subBulletPointSecondLine}>
                                     <Text style={styles.subRegular}>Calcium gluconate</Text>
                                   </View>
 
 
-                                  <View style={styles.flexDirection}>
-                                    <Text style={styles.bulletPoint}>{`\u2022`}</Text>
-                                    <Text style={styles.bold}>H</Text>
-                                    <Text style={styles.regular}>ypovolemia</Text>
-                                  </View>
-
-                                  <View style={{flexDirection: 'row'}}>
-                                    <Text style={styles.subBulletPoint}>{`\u2022`}</Text>
-                                    <Text style={styles.subRegular}>IV fluid boluses</Text>
-                                  </View>
-
-                                  <View style={{flexDirection: 'row'}}>
-                                    <Text style={styles.subBulletPoint}>{`\u2022`}</Text>
-                                    <Text style={styles.subRegular}>Vasopressors</Text>
-                                  </View>
-
+                                  
                                   <View style={styles.flexDirection}>
                                     <Text style={styles.bulletPoint}>{`\u2022`}</Text>
                                     <Text style={styles.bold}>H</Text>
@@ -105,37 +94,21 @@ export default class ReversibleCausesPostCardiac extends React.Component {
                                     <Text style={styles.subBulletPoint}>{`\u2022`}</Text>
                                     <Text style={styles.subRegular}>Warm NS IVF</Text>
                                   </View>
-
-                                  <View style={{flexDirection: 'row'}}>
-                                    <Text style={styles.subBulletPoint}>{`\u2022`}</Text>
-                                    <Text style={styles.subRegular}>Bair-hugger</Text>
-                                    <Text style={styles.sub}>TM</Text>
-                                  </View>
-
-                                  <View style={styles.flexDirection}>
-                                    <Text style={styles.bulletPoint}>{`\u2022`}</Text>
-                                    <Text style={styles.bold}>H</Text>
-                                    <Text style={styles.regular}>ydrogen ions</Text>
-                                  </View>
-                                  <View style={styles.titleBottom}>
-                                    <Text style={styles.regular}>(acidosis)</Text>
-                                  </View>  
-                                  <View style={{flexDirection: 'row'}}>
-                                    <Text style={styles.subBulletPoint}>{`\u2022`}</Text>
-                                    <Text style={styles.subRegular}>Sodium bicarbonate</Text>
-                                  </View>        
+                                  
                   </View>
 
 
 
-                  <View style={{flexDirection: 'column', marginLeft: Dimensions.get('window').width/15,}}>
-                                <View style={{flexDirection: 'row'}}>
+
+
+
+                  <View style={{flexDirection: 'column', marginLeft: Dimensions.get('window').width/20}}>
+                                <View style={styles.flexDirection}>
                                     <Text style={styles.bulletPoint}>{`\u2022`}</Text>
                                     <Text style={styles.bold}>T</Text>
                                     <Text style={styles.regular}>ension pneumothorax</Text>
                                 </View>
  
-
 
                                   <View style={{flexDirection: 'row'}}>
                                     <Text style={styles.subBulletPoint}>{`\u2022`}</Text>
@@ -166,6 +139,12 @@ export default class ReversibleCausesPostCardiac extends React.Component {
                                     <Text style={styles.subRegular}>Pericardiocentesis</Text>
                                   </View>
 
+                                  <View style={styles.flexDirection}>
+                                    <Text style={styles.bulletPoint}>{`\u2022`}</Text>
+                                    <Text style={styles.bold}>T</Text>
+                                    <Text style={styles.regular}>oxins</Text>
+                                  </View>
+
 
 
                                   <View style={styles.flexDirection}>
@@ -183,11 +162,6 @@ export default class ReversibleCausesPostCardiac extends React.Component {
                                     <Text style={styles.subRegular}>tPA</Text>
                                   </View>
 
-                                  <View style={{flexDirection: 'row'}}>
-                                    <Text style={styles.subBulletPoint}>{`\u2022`}</Text>
-                                    <Text style={styles.subRegular}>Embolectomy</Text>
-                                  </View>
-
 
                                   <View style={styles.flexDirection}>
                                     <Text style={styles.bulletPoint}>{`\u2022`}</Text>
@@ -203,17 +177,8 @@ export default class ReversibleCausesPostCardiac extends React.Component {
                                     <Text style={styles.subRegular}>tPA</Text>
                                   </View>
 
-                                  <View style={{flexDirection: 'row'}}>
-                                    <Text style={styles.subBulletPoint}>{`\u2022`}</Text>
-                                    <Text style={styles.subRegular}>PCI</Text>
-                                  </View>
 
-
-                                  <View style={styles.flexDirection}>
-                                    <Text style={styles.bulletPoint}>{`\u2022`}</Text>
-                                    <Text style={styles.bold}>T</Text>
-                                    <Text style={styles.regular}>oxins</Text>
-                                  </View>
+                                 
                               
 
 
@@ -222,13 +187,7 @@ export default class ReversibleCausesPostCardiac extends React.Component {
 
 
                   </View>
-      </View>
-
-
-
-
-
-
+        </View>
       </View>
     )
   }
