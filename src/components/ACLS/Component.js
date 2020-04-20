@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     // backgroundColor: "#69c8a1",
     backgroundColor: '#DBE2E8',
     // backgroundColor: '#256A96',
-    width: Dimensions.get('window').width/1.05,
+    width: Dimensions.get('window').width/1.02,
     height: Dimensions.get('window').height/20,
   },
 })

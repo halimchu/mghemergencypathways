@@ -26,6 +26,7 @@ export default class InpatientConditions extends React.Component {
           fontSize: Dimensions.get('window').height/43, 
           marginTop: Dimensions.get('window').height/200, 
           color: 'white', fontWeight: 'bold', 
+          // textAlign: 'center'}}>ACLS</Text>
           textAlign: 'center'}}>MGH STAT</Text>
       </View>
     )
@@ -41,6 +42,10 @@ export default class InpatientConditions extends React.Component {
       ),
     }
   }
+
+
+
+
 
   render() {  
     return (  
@@ -322,19 +327,22 @@ const styles = StyleSheet.create({
 
 
 
-// // #2 new design (version2) with only ACLS content with 4 top to bottom, not side by side
+// // #2 ACLS only content
 // render() { 
 //   return (  
-//       <View>
+//       <View style={{backgroundColor: 'white'}}>
 
 //         <View style={styles.top}>
 //             <View style={{ alignItems: 'center'}}>
 //               <Image
-//                 source={require('../../assets/aha3.png')}
+//                 source={require('../../assets/aha4.png')}
 //                 style={{
 //                   marginRight: Dimensions.get('window').width/35, 
-//                   width: Dimensions.get('window').width/1.6, 
-//                   height: Dimensions.get('window').height/6.5 }}
+//                   width: Dimensions.get('window').width/2, 
+//                   height: Dimensions.get('window').height/9, 
+//                   // width: 120, 
+//                   // height: 70 
+//                 }}
 //               />
 //             </View>
 //         </View>
@@ -357,7 +365,6 @@ const styles = StyleSheet.create({
             
 
 //               <View style={{
-//                 // backgroundColor: '#E7EAEA', 
 //                 backgroundColor: '#EBEBEB', 
 //                 alignItems: 'center',
 //                 marginLeft: Dimensions.get('window').width/30,  
@@ -377,40 +384,47 @@ const styles = StyleSheet.create({
 //                         <TouchableOpacity
 //                           underlayColor='#69c8a1'
 //                           style={styles.customBtnBG3} 
-//                           onPress={() => this.props.navigation.navigate('CardiacArrest')}>
+//                           onPress={() => this.props.navigation.navigate('CardiacArrest2')}>
 //                           <Text style={styles.customBtnText2}>Cardiac Arrest</Text>
 //                         </TouchableOpacity>
 //                   </View>
-               
+              
 
 //                <View style={{marginTop: Dimensions.get('window').height/75,}}>
+//                         <TouchableOpacity
+//                           style={styles.customBtnBG3} 
+//                           onPress={() => this.props.navigation.navigate('CardiacArrestCOVID2')}>
+                            
+//                               <Text style={styles.customBtnTextLine1}>Cardiac Arrest</Text>
+//                               <Text style={styles.customBtnTextCovid}>COVID-19</Text>
+                           
+//                         </TouchableOpacity>
+//                </View>
+                       
 
+//               <View style={{marginTop: Dimensions.get('window').height/75,}}>
+//                 <TouchableOpacity
+//                   underlayColor='#69c8a1'
+//                   style={styles.customBtnBG3} 
+//                   onPress={() => this.props.navigation.navigate('Tachycardia')}>
+//                   <Text style={styles.customBtnText2}>Tachycardia</Text>
+//                 </TouchableOpacity>
+//               </View>
+
+
+//                <View style={{marginTop: Dimensions.get('window').height/75,}}>
 //                         <TouchableOpacity
 //                           style={styles.customBtnBG3} 
 //                           onPress={() => this.props.navigation.navigate('Bradycardia')}>
 //                           <Text style={styles.customBtnText2}>Bradycardia</Text>
 //                         </TouchableOpacity>
 //                </View>
-                       
-                    
-
-
-
-
-//                       <View style={{marginTop: Dimensions.get('window').height/75,}}>
-//                         <TouchableOpacity
-//                           underlayColor='#69c8a1'
-//                           style={styles.customBtnBG3} 
-//                           onPress={() => this.props.navigation.navigate('Tachycardia')}>
-//                           <Text style={styles.customBtnText2}>Tachycardia</Text>
-//                         </TouchableOpacity>
-//                         </View>
                  
 
 //               <View style={{marginTop: Dimensions.get('window').height/75,}}>
 //                         <TouchableOpacity
 //                           style={styles.customBtnBG3} 
-//                           onPress={() => this.props.navigation.navigate('PostCardiacArrestCare')}>
+//                           onPress={() => this.props.navigation.navigate('PostCardiacArrestCare2')}>
 //                           <Text style={styles.customBtnTextLine1}>Post Cardiac</Text>
 //                           <Text style={styles.customBtnTextLine2}>Arrest Care</Text>
 //                         </TouchableOpacity>
@@ -470,7 +484,7 @@ const styles = StyleSheet.create({
 // },
 // bottom: {
 //   height: '17%',
-//   paddingTop: Dimensions.get('window').height/100,
+//   justifyContent: 'center',
 //   // backgroundColor: 'gray'
 // },
 
@@ -482,28 +496,20 @@ const styles = StyleSheet.create({
 // button: {
 //   marginTop: Dimensions.get('window').height/100
 // },
-// customBtnText2: {
-//   fontWeight: '500',
-//   textAlign: 'center',
-//   textAlignVertical: "center",
-//   // color: 'white',
-//   color: '#303333',
-//   fontSize: Dimensions.get('window').height/40,
-//   marginTop: Dimensions.get('window').height/28
-// },
-// customBtnTextLine1: {
-//   fontWeight: '500',
-//   textAlign: 'center',
-//   textAlignVertical: "center",
-//   color: '#303333',
-//   fontSize: Dimensions.get('window').height/40,
-//   marginTop: Dimensions.get('window').height/55
-// },
+
+
 // customBtnTextLine2: {
 //   fontWeight: '500',
 //   textAlign: 'center',
 //   textAlignVertical: "center",
 //   color: '#303333',
+//   fontSize: Dimensions.get('window').height/40,
+// },
+// customBtnTextCovid: {
+//   fontWeight: 'bold',
+//   textAlign: 'center',
+//   textAlignVertical: "center",
+//   color: 'red',
 //   fontSize: Dimensions.get('window').height/40,
 // },
 // customBtnBG2: {
@@ -518,13 +524,30 @@ const styles = StyleSheet.create({
 //   width: Dimensions.get('window').width/2.4,
 //   height: Dimensions.get('window').height/9,
 // },
+// customBtnText2: {
+//   fontWeight: '500',
+//   textAlign: 'center',
+//   textAlignVertical: "center",
+//   // color: 'white',
+//   color: '#303333',
+//   fontSize: Dimensions.get('window').height/40,
+//   marginTop: Dimensions.get('window').height/37
+// },
+// customBtnTextLine1: {
+//   fontWeight: '500',
+//   textAlign: 'center',
+//   textAlignVertical: "center",
+//   color: '#303333',
+//   fontSize: Dimensions.get('window').height/40,
+//   marginTop: Dimensions.get('window').height/80
+// },
 // customBtnBG3: {
 //   paddingHorizontal: 1,
 //   paddingVertical: 1,
 //   shadowOpacity: .1, 
 //   backgroundColor: 'white',
 //   borderRadius: 4, 
-//   width: Dimensions.get('window').width/1.16,
-//   height: Dimensions.get('window').height/10,
+//   width: Dimensions.get('window').width/1.16, 
+//   height: Dimensions.get('window').height/12,
 // }
 // })

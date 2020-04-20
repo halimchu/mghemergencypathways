@@ -116,7 +116,7 @@ export default class PertLabs extends React.Component {
 
         <View style={styles.bottom}>
           <View style={{marginLeft: Dimensions.get('window').width/27}}>
-            <Text style={styles.header}>Please Order:</Text>
+            <Text style={styles.header}>If not already obtained, please order:</Text>
           </View>
           {this.state.data.map((item) => (
             <View key={item} style={ styles.bulletPoints }>
@@ -126,7 +126,13 @@ export default class PertLabs extends React.Component {
               </View>
             </View>        
           ))} 
+
+
+          <View style={{marginTop: 20, paddingLeft: 20, paddingRight: 10, }}>
+            <Text style={styles.text}>If concerned about COVID, please discuss with PERT the need for TTE, LENI, & CT with PERT</Text>
+          </View>
         </View>
+
       </SafeAreaView>
     )
   }
@@ -186,4 +192,10 @@ const styles = StyleSheet.create({
     fontSize: Dimensions.get('window').height/38,
     marginLeft: Dimensions.get('window').width/100,
   },
+  text: {
+    color: '#5c5c5c',
+    fontWeight: '400',
+    fontSize: Dimensions.get('window').height/40,
+    marginLeft: Dimensions.get('window').width/100,
+  }
 })

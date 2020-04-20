@@ -57,7 +57,7 @@ export default class CardiacArrestCOVID extends React.Component {
           fontSize: Dimensions.get('window').height/43, 
           marginTop: Dimensions.get('window').height/200, 
           color: 'white', fontWeight: 'bold', 
-          textAlign: 'center'}}>ACLS</Text>
+          textAlign: 'center'}}>MGH STAT</Text>
       </View>
     )
       
@@ -341,8 +341,8 @@ export default class CardiacArrestCOVID extends React.Component {
   IPhoneNotYet () {
     return (
       <Image
-        source={require('../../../../assets/CardiacArrest3000x2700.png')}
-        style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.5}}
+        source={require('../../../../assets/CardiacArrestCOVID3000x2500.png')}
+        style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.03}}
       />
     )
   }
@@ -383,7 +383,7 @@ export default class CardiacArrestCOVID extends React.Component {
 
 
 
-  <View style={{alignItems: 'center', marginBottom: Dimensions.get('window').height/50,}}>
+  <View style={{alignItems: 'center',}}>
     <View style={{flexDirection: 'row'}}>
     <View style={{
       backgroundColor: '#CBE7F7', 
@@ -463,18 +463,18 @@ export default class CardiacArrestCOVID extends React.Component {
 
 
 
+          <View style={{marginBottom: Dimensions.get('window').height/80,}}></View>
+          <View style={{ alignItems: 'center', }}>
 
-          <View style={{ alignItems: 'center'  }}>
-              <View onLayout={this.measureReversibleCausesView}>
+              <View onLayout={this.measureCPRQualityView}>
                 <Component 
-                  goToNextComponent={this.goToComponentTwo} 
-                  toggle={this.onPressReversibleCausesHidden} 
-                  hidden = {this.state.reversibleCausesHidden}
-                  component={<CardiacArrestReversibleCauses />}
-                  buttonTitle='Reversible Causes'
+                  goToNextComponent={this.goToComponentSix} 
+                  toggle={this.onPressCPRQualityHidden} 
+                  hidden = {this.state.CPRQualityHidden}
+                  component={<CardiacArrestCPR />}
+                  buttonTitle='CPR Quality'
                 />
               </View>
-
 
               <View onLayout={this.measureShockEnergyView}>
                 <Component
@@ -485,7 +485,17 @@ export default class CardiacArrestCOVID extends React.Component {
                   buttonTitle='Shock Energy for Defibrillation'
                 />
               </View>
-            
+
+              <View style={{ }} onLayout={this.measureAdvancedAirwayView}>
+                <Component 
+                  goToNextComponent={this.goToEnd} 
+                  toggle={this.onPressAdvancedAirwayHidden} 
+                  hidden = {this.state.advancedAirwayHidden}
+                  component={<CardiacArrestAdvancedAirwayCOVID />}
+                  buttonTitle='Advanced Airway'
+                />
+              </View>
+
               <View onLayout={this.measureDrugTherapyView}>
                 <Component 
                   goToNextComponent={this.goToComponentFour} 
@@ -506,37 +516,20 @@ export default class CardiacArrestCOVID extends React.Component {
                 />
               </View>
 
-              <View onLayout={this.measureCPRQualityView}>
+
+              <View onLayout={this.measureReversibleCausesView}>
                 <Component 
-                  goToNextComponent={this.goToComponentSix} 
-                  toggle={this.onPressCPRQualityHidden} 
-                  hidden = {this.state.CPRQualityHidden}
-                  component={<CardiacArrestCPR />}
-                  buttonTitle='CPR Quality'
+                  goToNextComponent={this.goToComponentTwo} 
+                  toggle={this.onPressReversibleCausesHidden} 
+                  hidden = {this.state.reversibleCausesHidden}
+                  component={<CardiacArrestReversibleCauses />}
+                  buttonTitle='Reversible Causes'
                 />
               </View>
 
-              <View style={{ }} onLayout={this.measureAdvancedAirwayView}>
-                <Component 
-                  goToNextComponent={this.goToEnd} 
-                  toggle={this.onPressAdvancedAirwayHidden} 
-                  hidden = {this.state.advancedAirwayHidden}
-                  component={<CardiacArrestAdvancedAirwayCOVID />}
-                  buttonTitle='Advanced Airway'
-                />
-              </View>
 
-              <View style={{
-                marginTop: Dimensions.get('window').height/50
-              }}>
-                <Text style={{fontSize: Dimensions.get('window').height/60,}}>
-                  American Heart Association Guidelines 2020
-                </Text>
-              </View>
+              
           </View>
-
-        
-
         </ScrollView>
       </SafeAreaView> 
     )

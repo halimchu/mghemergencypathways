@@ -122,7 +122,7 @@ export default class Stroke1 extends React.Component {
           </View>
 
 
-          <View style={styles.middle}>
+          <View style={styles.middleOne}>
             <View style={{marginLeft: Dimensions.get('window').width/20}}>
               <Text style={styles.header}>Concern for Stroke?</Text>
             </View>
@@ -137,48 +137,56 @@ export default class Stroke1 extends React.Component {
           </View>
 
           <View style={styles.middleTwo}>
-            <View style={{alignItems: 'center'}}>
-              <Text style={styles.header}>Initial Steps</Text>
-            </View>
-            <View style={{ 
-                  alignItems: 'center', 
-                  marginTop: Dimensions.get('window').height/50, 
-                  shadowOffset:{  width: 0,  height: 1,  },
-                  shadowColor: 'black',
-                  shadowOpacity: .5,}}>
+            <View style={styles.middleTwoSubOne}>
+                <View style={{alignItems: 'center'}}>
+                  <Text style={styles.header}>Initial Steps</Text>
+                </View>
+                <View style={{ 
+                      alignItems: 'center', 
+                      marginTop: Dimensions.get('window').height/50, 
+                      shadowOffset:{  width: 0,  height: 1,  },
+                      shadowColor: 'black',
+                      shadowOpacity: .5,}}>
 
-                <TouchableOpacity onPress={()=>{this.dialCall()}}>
-                    <LinearGradient 
-                      style={styles.callButton}
-                      colors={['#B62619', '#F63826', '#B62619']}
-                      start={{x: 0, y: 0}}
-                      end={{x: 1, y: 0}}
-                    >
+                    <TouchableOpacity onPress={()=>{this.dialCall()}}>
+                        <LinearGradient 
+                          style={styles.callButton}
+                          colors={['#B62619', '#F63826', '#B62619']}
+                          start={{x: 0, y: 0}}
+                          end={{x: 1, y: 0}}
+                        >
+                            <View style={{ flexDirection: 'row' }}>
+                              <MaterialIcons name="phone" size={19} color="white" />
+                              <Text style={{ fontSize: Dimensions.get('window').width/21, color: 'white', fontWeight: 'bold' }}> Call Acute Stroke Consult</Text>
+                            </View>
+                            <Text style={{ 
+                              marginTop: Dimensions.get('window').height/150, 
+                              color: 'white', 
+                              fontSize: Dimensions.get('window').width/24, fontWeight: '400'
+                            }}>x6-3333
+                            </Text>
+                        </LinearGradient>
+                    </TouchableOpacity>
+                  </View>
+
+                  <View style={{ marginTop: Dimensions.get('window').height/300 }}>
+                    {this.state.dataTwo.map((item) => (
+                      <View key={item} style={ styles.bulletPointsTwo }>
                         <View style={{ flexDirection: 'row' }}>
-                          <MaterialIcons name="phone" size={19} color="white" />
-                          <Text style={{ fontSize: Dimensions.get('window').width/21, color: 'white', fontWeight: 'bold' }}> Call Acute Stroke Consult</Text>
+                          <Text style={styles.bulletPoint}>{`\u2022`}</Text>
+                          <Text style={styles.bulletPointText}>{item}</Text>
                         </View>
-                        <Text style={{ 
-                          marginTop: Dimensions.get('window').height/150, 
-                          color: 'white', 
-                          fontSize: Dimensions.get('window').width/24, fontWeight: '400'
-                        }}>x6-3333
-                        </Text>
-                    </LinearGradient>
-                </TouchableOpacity>
-              </View>
+                      </View>        
+                    ))} 
+                  </View>
+            </View>
 
-              <View style={{ marginTop: Dimensions.get('window').height/300 }}>
-                {this.state.dataTwo.map((item) => (
-                  <View key={item} style={ styles.bulletPointsTwo }>
-                    <View style={{ flexDirection: 'row' }}>
-                      <Text style={styles.bulletPoint}>{`\u2022`}</Text>
-                      <Text style={styles.bulletPointText}>{item}</Text>
-                    </View>
-                  </View>        
-                ))} 
+              <View>
+                <Text style={styles.middleTwoSubTwo}>Neurology senior resident will arrive within 10 minutes, if not re-call acute stroke consult and escalate to stroke attending</Text>
               </View>
           </View>
+
+
 
 
 
@@ -227,23 +235,31 @@ const styles = StyleSheet.create({
     height: '10%',
     // backgroundColor: 'yellow'
   },
-  middle: {
-    height: '29%',
-    paddingTop:  Dimensions.get('window').height/30,
+  middleOne: {
+    height: '24%',
+    justifyContent: 'center',
     // backgroundColor: 'green'
   },
   middleTwo: {
-    height: '46%',
-    justifyContent: 'center',
-    shadowOffset:{  width: 0,  height: 1,  },
-    shadowColor: 'black',
-    shadowOpacity: .25,
-    backgroundColor: '#F7F7F7',
+    height: '51%',
+    // backgroundColor: 'pink'
+  },
+    middleTwoSubOne: {
+      justifyContent: 'center',
+      shadowOffset:{  width: 0,  height: 1,  },
+      shadowColor: 'black',
+      shadowOpacity: .25,
+      backgroundColor: '#F7F7F7',
+    },
+    middleTwoSubTwo: {
+      fontSize: Dimensions.get('window').height/48,
+      // backgroundColor: 'purple',
   },
   bottom: {
     height: '15%',
     alignItems: 'center', 
     justifyContent: 'center',
+    // backgroundColor: 'gray',
   },
   divider: {
     backgroundColor: '#CDCDCD', 

@@ -38,10 +38,10 @@ export default class RiskFactors extends React.Component {
 const styles = StyleSheet.create({
   bulletPoints: {
     marginTop: Dimensions.get('window').height/120,
-    // marginRight: Dimensions.get('window').width/50
   },
   bulletPoint: {
     fontWeight: 'bold',
+    color: 'gray',
     fontSize: Dimensions.get('window').height/60,
   },
   bulletPointText: {

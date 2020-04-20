@@ -91,9 +91,9 @@ export default class Stroke2 extends React.Component {
     data: [
       'Monitor vital signs Q15 min: Goal Sp02 ≥95%',
       'Order STAT CT Head, CTA Head & Neck',
-      'Call Neuroradiology to confirm scanner ready',
-      'Prepare travel IV pump & monitor',
-      'Do NOT place lines, NGT, or Foley', 
+      'Ensure patient has IV access for CT and possible alteplase',
+      'Assist neurology team in confirming scanner readiness with neuroradiology (6-8188)',
+      'Prepare travel IV pump & monitor', 
       'Write order for NPO and swallow screen in EPIC'
     ]
   }

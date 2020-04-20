@@ -92,6 +92,7 @@ export default class Stroke3 extends React.Component {
     data: [
       'Floor RN & MD accompany patient to CT scanner',
       'Continue monitoring vital signs Q15 min',
+      'If alteplase given, do not place lines in non-compressible sites, do not place NGT or Foley',
       'Remain with patient until completion of acute workup or transfer to Neurology service'
     ]
   }

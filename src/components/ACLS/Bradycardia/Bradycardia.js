@@ -48,7 +48,7 @@ export default class BradyCardia extends React.Component {
           fontSize: Dimensions.get('window').height/43, 
           marginTop: Dimensions.get('window').height/200, 
           color: 'white', fontWeight: 'bold', 
-          textAlign: 'center'}}>ACLS</Text>
+          textAlign: 'center'}}>MGH STAT</Text>
       </View>
     )
       
@@ -181,7 +181,7 @@ export default class BradyCardia extends React.Component {
   IPhoneNotYet () {
     return (
       <Image
-        source={require('../../../../assets/CardiacArrest3000x2700.png')}
+        source={require('../../../../assets/Bradycardia3000x2300.png')}
         style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.5}}
       />
     )
@@ -232,14 +232,7 @@ export default class BradyCardia extends React.Component {
               component={<DosesDetails />}
               buttonTitle='Doses/Details'
             />
-          </View>
-
-          
-          <View style={{ alignItems: 'center', marginTop: Dimensions.get('window').height/50 }}>
-            <Text style={{ fontSize: Dimensions.get('window').height/60 }}>American Heart Association Guidelines 2018</Text>
-          </View>
-
-        
+          </View>        
         </ScrollView>
       </SafeAreaView>
     )

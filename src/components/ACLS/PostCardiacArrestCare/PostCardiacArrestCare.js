@@ -3,9 +3,9 @@ import { Image, Dimensions, View, Text, StyleSheet, ScrollView, TouchableOpacity
 import Icon from 'react-native-vector-icons/Ionicons' 
 import { Button, Divider } from 'react-native-elements'
 import Component from './../Component'
-import ReversibleCausesPostCardiac from './reversibleCausesPostCardiac'
 import DosesDetails from './DosesDetails'
 import LinearGradient from 'react-native-linear-gradient';
+import CardiacArrestReversibleCauses from '../CardiacArrest/cardiacArrestReversibleCauses'
 
 export default class PostCardiacArrestCare extends React.Component {
   static navigationOptions = ({ navigation }) => {
@@ -49,7 +49,7 @@ export default class PostCardiacArrestCare extends React.Component {
           fontSize: Dimensions.get('window').height/43, 
           marginTop: Dimensions.get('window').height/200, 
           color: 'white', fontWeight: 'bold', 
-          textAlign: 'center'}}>ACLS</Text>
+          textAlign: 'center'}}>MGH STAT</Text>
       </View>
     )
       
@@ -85,8 +85,6 @@ export default class PostCardiacArrestCare extends React.Component {
         <LinearGradient
             colors={['#23A7C2', '#2D7C93',]}
             style={{ flex: 1 }}
-            start={{x: 0, y: 0}}
-            end={{x: 1, y: 0}}
         />
       ),     
     }
@@ -202,7 +200,7 @@ export default class PostCardiacArrestCare extends React.Component {
   IPhoneNotYet () {
     return (
       <Image
-        source={require('../../../../assets/CardiacArrest3000x2700.png')}
+        source={require('../../../../assets/PostCardiac4000x4000.png')}
         style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.4}}
       />
     )
@@ -249,7 +247,7 @@ export default class PostCardiacArrestCare extends React.Component {
                   goToNextComponent={this.goToComponentTwo} 
                   toggle={this.onPressReversibleCausesHidden} 
                   hidden = {this.state.reversibleCausesHidden}
-                  component={<ReversibleCausesPostCardiac />}
+                  component={<CardiacArrestReversibleCauses />}
                   buttonTitle='Reversible Causes'
                 />
               </View>
@@ -266,16 +264,8 @@ export default class PostCardiacArrestCare extends React.Component {
             />
           </View>
 
-          <View style={{ alignItems: 'center', marginTop: Dimensions.get('window').height/50 }}>
-            <Text style={{ fontSize: Dimensions.get('window').height/60 }}>American Heart Association Guidelines 2018</Text>
-          </View>
 
-
-    
-
-
-
-        </ScrollView>
+        </ScrollView> 
       </SafeAreaView>
     )
   }

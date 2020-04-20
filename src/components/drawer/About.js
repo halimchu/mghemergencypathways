@@ -73,35 +73,40 @@ export default class About extends React.Component {
     return (  
       <SafeAreaView style={styles.container}>
         <ScrollView>
-            <Text style={styles.bold}>About the App</Text>
-            <Text style={styles.text}>
-              The MGH STAT app is a reference of clinical protocols, resources, and content for physicians and advanced practice providers as they manage patients with acutely life threatening illnesses. All algorithms and protocols (CVA, PE, RICU, STEMI) are developed and vetted by their respective MGH specialty specific committees. All ACLS content in the app is material developed, studied, and vetted by the American Heart Association.
-            </Text>
-            <Text style={styles.bold}>Creators</Text>
-            <Text style={styles.text}>Andrew Chu, MD, MPH</Text>
-            <Text style={styles.text}>Jared Conley, MD, PhD, MPH</Text>
+          <View style={{marginLeft: Dimensions.get('window').width/25, paddingRight: Dimensions.get('window').width/40, }}>
+
+              <Text style={styles.title}>ABOUT THE APP</Text>
+
+              <View style={{marginTop: Dimensions.get('window').height/50,}}>
+                <Text style={styles.text}>
+                  The MGH STAT app is a reference of clinical protocols, resources, and content for physicians and advanced practice providers as they manage patients with acutely life threatening illnesses. All algorithms and protocols (CVA, PE, RICU, STEMI) are developed and vetted by their respective MGH specialty specific committees. All ACLS content in the app is material developed, studied, and vetted by the American Heart Association (AHA). The AHA has given permission and a license to use their ACLS materials for the purposes of this app. 
+                </Text>
+              </View>
+              <Text style={styles.bold}>Creators</Text>
+              <Text style={styles.text}>Andrew Chu, MD, MPH</Text>
+              <Text style={styles.text}>Jared Conley, MD, PhD, MPH</Text>
 
 
-            <Text style={styles.bold}>Significant Contributors</Text>
-            <Text style={styles.text}>Halim Chu</Text>
-            <Text style={styles.text}>Josh Ziperstein, MD</Text>
-            <Text style={styles.text}>Blake Niccum, MD</Text>
-            <Text style={styles.text}>Melvin Joice, MD</Text>
-            <Text style={styles.text}>Matthew Tung, MD</Text>
-            <Text style={styles.text}>Eric Isselbacher, MD</Text>
+              <Text style={styles.bold}>Significant Contributors</Text>
+              <Text style={styles.text}>Halim Chu</Text>
+              <Text style={styles.text}>Josh Ziperstein, MD</Text>
+              <Text style={styles.text}>Blake Niccum, MD</Text>
+              <Text style={styles.text}>Melvin Joice, MD</Text>
+              <Text style={styles.text}>Matthew Tung, MD</Text>
+              <Text style={styles.text}>Eric Isselbacher, MD, MHCDS</Text>
 
 
-            <Text style={styles.bold}>Partners</Text>
-            <Text style={styles.text}>MGH Healthcare Transformation Lab (HTL)</Text>
-            <Text style={styles.text}>American Heart Association (AHA)</Text>
-            <Text style={styles.text}>MGH Housestaff Innovation Studio</Text>
-            <Text style={styles.text}>MGH Laboratory of Computer Science (LCS)</Text>
+              <Text style={styles.bold}>Partners</Text>
+              <Text style={styles.text}>MGH Healthcare Transformation Lab (HTL)</Text>
+              <Text style={styles.text}>American Heart Association (AHA)</Text>
+              <Text style={styles.text}>MGH Housestaff Innovation Studio</Text>
 
 
-            <Text style={styles.bold}>Acknowledgements</Text>
-            <Text style={styles.text}>
-              Special thanks to all the MGH specialty committees (CVA, PE, RICU, STEMI) and the American Heart Association for providing evidence-based guidelines to serve patients in need.
-            </Text>
+              <Text style={styles.bold}>Acknowledgements</Text>
+              <Text style={styles.text}>
+                Special thanks to all the MGH specialty committees (CVA, PE, RICU, STEMI) and the American Heart Association for providing evidence-based guidelines and for their collaboration to enable this digital health tool to serve patients in need.
+              </Text>
+          </View>
         </ScrollView>
       </SafeAreaView>
     )
@@ -112,14 +117,22 @@ export default class About extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginLeft: Dimensions.get('window').width/25,
+  },
+  title: {
+    marginTop: Dimensions.get('window').height/60,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: '#4d4d4d',
+    fontSize: Dimensions.get('window').width/23,
   },
   bold: {
     marginTop: Dimensions.get('window').height/60,
     fontWeight: 'bold',
-    fontSize: Dimensions.get('window').height/44
+    fontSize: Dimensions.get('window').width/23,
+    color: '#4d4d4d',
   },
   text: {
-    fontSize: Dimensions.get('window').height/47
+    fontSize: Dimensions.get('window').width/25,
+    color: '#636363',
   },
 })

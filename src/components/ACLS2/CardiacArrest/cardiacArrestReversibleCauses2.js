@@ -1,7 +1,7 @@
 import React from 'react'
 import { Dimensions, View, Text, StyleSheet } from 'react-native'
 
-export default class CardiacArrestReversibleCauses extends React.Component {
+export default class CardiacArrestReversibleCauses2 extends React.Component {
 
   render() {
     return (

@@ -20,6 +20,10 @@ export default class CardiacArrestDrugTherapy extends React.Component {
           <Text style={styles.regular}>Second dose: 150 mg</Text>
         </View>
 
+        <View style={{marginTop: Dimensions.get('window').height/120}}>
+          <Text style={styles.regular}>-or-</Text>
+        </View>
+
 
         <View style={{marginTop: Dimensions.get('window').height/70}}>
           <Text style={styles.lidocaine}>Lidocaine IV/IO dose:</Text>
@@ -35,7 +39,8 @@ export default class CardiacArrestDrugTherapy extends React.Component {
         <View style={{marginTop: Dimensions.get('window').height/70}}>
           <Text>
             <Text style={styles.bold}>Calcium gluconate</Text>
-            <Text style={styles.regular}> 3 grams IV</Text>
+            <Text style={styles.regular}> (10%) 3-6g</Text>
+            <Text style={styles.regular}> (30-60 mL) IV</Text>
           </Text>
         </View>
 
@@ -56,14 +61,14 @@ export default class CardiacArrestDrugTherapy extends React.Component {
         <View style={{marginTop: Dimensions.get('window').height/70}}>
           <Text>
             <Text style={styles.bold}>Sodium bicarbonate</Text>
-            <Text style={styles.regular}> 150 mEq IV</Text>
+            <Text style={styles.regular}> 1 mEq/kg IV bolus</Text>
           </Text>
         </View>
 
         <View style={{marginTop: Dimensions.get('window').height/70}}>
           <Text>
-            <Text style={styles.bold}>tPA (Alteplase)</Text>
-            <Text style={styles.regular}> 100 mg IV</Text>
+            <Text style={styles.bold}>Alteplase, Recombinant (rtPA)</Text>
+            <Text style={styles.regular}> 50- and 100-mg vials reconstituted with sterile water to 1 mg/mL</Text>
           </Text>
         </View>
 

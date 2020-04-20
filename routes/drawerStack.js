@@ -8,7 +8,7 @@ import HomeStack from './homeStack'
 import AboutStack from './aboutStack'
 import DisclaimerStack from './disclaimerStack'
 import TermsConditionsStack from './termsConditionsStack'
-import { ScrollView } from 'react-native-gesture-handler'
+import PrivacyPolicyStack from './privacyPolicyStack'
 
 const CustomDrawerComponent = (props) => (
   <SafeAreaView style={{ flex: 1 }}>
@@ -22,13 +22,17 @@ const CustomDrawerComponent = (props) => (
 const RootDrawerNavigator = createDrawerNavigator({
   Home: { screen: HomeStack },
   About: { screen: AboutStack },
-  Disclaimer: { screen: DisclaimerStack },
   TermsConditions: {
       navigationOptions: {
-        drawerLabel: "Terms & Conditions",
-        fontSize: 100
+        drawerLabel: "Terms of Use",
       },
       screen: TermsConditionsStack
+  },
+  PrivacyPolicy: {
+    navigationOptions: {
+      drawerLabel: "Privacy Policy",
+    },
+    screen: PrivacyPolicyStack
   },
 },{
   contentComponent: CustomDrawerComponent,

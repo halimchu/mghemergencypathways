@@ -163,7 +163,11 @@ export default class RICUWhatToPrepare extends React.Component {
           </View>
            
 
-          <Text style={styles.header}>If RICU called, prepare the following:</Text>
+          <Text style={styles.header}>
+            <Text>If</Text>
+            <Text style={{color: 'red'}}> STAT RICU</Text>
+            <Text> called, prepare the following:</Text>
+          </Text>
 
 
           {this.state.data.map((item) => (

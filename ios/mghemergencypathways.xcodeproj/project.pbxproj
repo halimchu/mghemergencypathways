@@ -456,9 +456,9 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.healthcaretransformationlab.mghstat.beta;
+				PRODUCT_BUNDLE_IDENTIFIER = org.healthcaretransformationlab.mghstat.release;
 				PRODUCT_NAME = STAT;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -558,9 +558,9 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.healthcaretransformationlab.mghstat.beta;
+				PRODUCT_BUNDLE_IDENTIFIER = org.healthcaretransformationlab.mghstat.release;
 				PRODUCT_NAME = STAT;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;

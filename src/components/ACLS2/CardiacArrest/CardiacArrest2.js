@@ -2,15 +2,15 @@ import React from 'react'
 import { Image, Dimensions, View, Text, StyleSheet, ScrollView, TouchableOpacity, SafeAreaView } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons' 
 import { Button, Divider } from 'react-native-elements'
-import CardiacArrestReversibleCauses from './cardiacArrestReversibleCauses'
-import CardiacArrestShockEnergy from './cardiacArrestShockEnergy'
-import CardiacArrestDrugTherapy from './cardiacArrestDrugTherapy'
-import CardiacArrestROSC from './cardiacArrestROSC'
-import CardiacArrestCPR from './cardiacArrestCPR'
-import CardiacArrestAdvancedAirway from './cardiacArrestAdvancedAirway'
-import Component from './../Component'
+import CardiacArrestReversibleCauses2 from './cardiacArrestReversibleCauses2'
+import CardiacArrestShockEnergy from '../../ACLS/CardiacArrest/cardiacArrestShockEnergy'
+import CardiacArrestDrugTherapy from '../../ACLS/CardiacArrest/cardiacArrestDrugTherapy'
+import CardiacArrestROSC from '../../ACLS/CardiacArrest/cardiacArrestROSC'
+import CardiacArrestCPR from '../../ACLS/CardiacArrest/cardiacArrestCPR'
+import CardiacArrestAdvancedAirway from '../../ACLS/CardiacArrest/cardiacArrestAdvancedAirway'
+import Component from '../../ACLS/Component'
 import LinearGradient from 'react-native-linear-gradient'
-import Timer from './Timer'
+import Timer from '../../ACLS/CardiacArrest/Timer'
 
 
 export default class CardiacArrest extends React.Component {
@@ -55,7 +55,7 @@ export default class CardiacArrest extends React.Component {
           fontSize: Dimensions.get('window').height/43, 
           marginTop: Dimensions.get('window').height/200, 
           color: 'white', fontWeight: 'bold', 
-          textAlign: 'center'}}>MGH STAT</Text>
+          textAlign: 'center'}}>ACLS</Text>
       </View>
     )
       
@@ -122,6 +122,7 @@ export default class CardiacArrest extends React.Component {
       CPRQualityHidden: true,
       advancedAirwayHidden: true
     }
+    // this.ImageURI = require('../../../../assets/CardiacArrest3000x2700.png')
   }
 
   onPressReversibleCausesHidden = () => {
@@ -388,7 +389,7 @@ export default class CardiacArrest extends React.Component {
 
 
 
-  <View style={{alignItems: 'center',}}>
+  <View style={{alignItems: 'center', marginBottom: Dimensions.get('window').height/50,}}>
     <View style={{flexDirection: 'row'}}>
     <View style={{
       backgroundColor: '#CBE7F7', 
@@ -456,7 +457,7 @@ export default class CardiacArrest extends React.Component {
         <View style={{alignItems: 'center'}}>
           <TouchableOpacity
             style={styles.customBtnBG3} 
-            onPress={() => this.props.navigation.navigate('PostCardiacArrestCare')}>
+            onPress={() => this.props.navigation.navigate('PostCardiacArrestCare2')}>
             <Text style={styles.customBtnText2}>Post Cardiac Arrest Care</Text>
           </TouchableOpacity>
         </View>
@@ -468,9 +469,9 @@ export default class CardiacArrest extends React.Component {
 
 
 
-  <View style={{marginBottom: Dimensions.get('window').height/80,}}></View>
+
           <View style={{ alignItems: 'center'  }}>
-          <View onLayout={this.measureCPRQualityView}>
+              <View onLayout={this.measureCPRQualityView}>
                 <Component 
                   goToNextComponent={this.goToComponentSix} 
                   toggle={this.onPressCPRQualityHidden} 
@@ -499,7 +500,7 @@ export default class CardiacArrest extends React.Component {
                   buttonTitle='Advanced Airway'
                 />
               </View>
-            
+
               <View onLayout={this.measureDrugTherapyView}>
                 <Component 
                   goToNextComponent={this.goToComponentFour} 
@@ -520,19 +521,37 @@ export default class CardiacArrest extends React.Component {
                 />
               </View>
 
-
               <View onLayout={this.measureReversibleCausesView}>
                 <Component 
                   goToNextComponent={this.goToComponentTwo} 
                   toggle={this.onPressReversibleCausesHidden} 
                   hidden = {this.state.reversibleCausesHidden}
-                  component={<CardiacArrestReversibleCauses />}
+                  component={<CardiacArrestReversibleCauses2 />}
                   buttonTitle='Reversible Causes'
                 />
               </View>
 
+
               
+            
+              
+
+              
+
+             
+
+              
+
+              {/* <View style={{
+                marginTop: Dimensions.get('window').height/50
+              }}>
+                <Text style={{fontSize: Dimensions.get('window').height/60,}}>
+                  American Heart Association Guidelines 2018
+                </Text>
+              </View> */}
           </View>
+
+        
 
         </ScrollView>
       </SafeAreaView> 

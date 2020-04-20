@@ -37,5 +37,24 @@ const HomeStack = createStackNavigator({
     RICUWhatToPrepare: { screen: RICUWhatToPrepare },
     RICUWhatToPresent: { screen: RICUWhatToPresent },
   })
+
+
+
+
+  // import Home from '../src/components/Home'
+  // import CardiacArrest2 from '../src/components/ACLS2/CardiacArrest/CardiacArrest2'
+  // import CardiacArrestCOVID2 from '../src/components/ACLS2/CardiacArrest/CardiacArrestCOVID2'
+  // import Bradycardia from '../src/components/ACLS/Bradycardia/Bradycardia'
+  // import Tachycardia from '../src/components/ACLS/Tachycardia/Tachycardia'
+  // import PostCardiacArrestCare2 from '../src/components/ACLS2/PostCardiacArrest/PostCardiacArrestCare2'
+
+  // const HomeStack = createStackNavigator({
+  //   Home: { screen: Home },
+  //   CardiacArrest2: { screen: CardiacArrest2 },
+  //   CardiacArrestCOVID2: { screen: CardiacArrestCOVID2 },
+  //   Tachycardia: { screen: Tachycardia },
+  //   Bradycardia: { screen: Bradycardia },
+  //   PostCardiacArrestCare2: { screen: PostCardiacArrestCare2 },
+  // })
   
   export default HomeStack

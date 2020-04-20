@@ -101,8 +101,8 @@ export default class RICU extends React.Component {
       '"STAT" or "non-urgent"',
       'COVID-19 status',
       'Patient last name and location',
-      'Clinician cell number',
-      'If patient requires emergency surgical airway, call x6-333 and state: "Emergency surgical airway, [current location]."'
+      'Clinician name and cellphone number',
+      'If patient requires emergency surgical airway, call x6-3333 and state: "Emergency surgical airway, [current location]."'
     ],
     buttonHidden: true,
     buttonHidden2: true,
@@ -188,7 +188,7 @@ export default class RICU extends React.Component {
 
   showInfo = () => {
     return (
-      <View style={{backgroundColor: '#E9E9E7'}}>
+      <View style={{backgroundColor: '#f0f0f0', paddingBottom: Dimensions.get('window').height/100, }}>
           {this.state.dataTwo.map((item) => (
             <View key={item} style={ styles.bulletPoints }>
               <View style={{ flexDirection: 'row' }}>
@@ -241,11 +241,11 @@ export default class RICU extends React.Component {
 
 
       
-          <View style={{ marginLeft: Dimensions.get('window').width/9}}>
+          <View style={{ marginLeft: Dimensions.get('window').width/29}}>
             <TouchableOpacity style={styles.riskFactorsButton} onPress={() => {
               this.onPressButtonHidden()
             }}>
-              <Text style={styles.riskFactorsBtnText}>Risk Factors</Text>
+              <Text style={styles.riskFactorsBtnText}>See Risk Factors</Text>
             </TouchableOpacity>
           </View>
 
@@ -273,7 +273,7 @@ export default class RICU extends React.Component {
                       >
                           <View style={{ flexDirection: 'row' }}>
                             <MaterialIcons name="phone" size={19} color="white" />
-                            <Text style={{ fontSize: Dimensions.get('window').width/21, color: 'white', fontWeight: 'bold' }}> Call RICU Consult</Text>
+                            <Text style={{ fontSize: Dimensions.get('window').width/24, color: 'white', fontWeight: 'bold' }}> Call Page Operator for RICU</Text>
                           </View>
                           <Text style={{ 
                             marginTop: Dimensions.get('window').height/150, 
@@ -368,7 +368,7 @@ const styles = StyleSheet.create({
   bulletPoints: {
     flexDirection: 'row',
     marginTop: Dimensions.get('window').height/90,
-    marginLeft: Dimensions.get('window').width/8,
+    marginLeft: Dimensions.get('window').width/50,
     marginRight: Dimensions.get('window').width/30,
   },
   customBtnText: {
@@ -407,7 +407,7 @@ const styles = StyleSheet.create({
     shadowOpacity: .2,
     borderColor: '#cfcfcf', 
     borderWidth: 1,   
-    width: Dimensions.get('window').width/4,
+    width: Dimensions.get('window').width/2.4,
     height: Dimensions.get('window').height/27,
   }
 })
