@@ -9,6 +9,7 @@ import AboutStack from './aboutStack'
 import DisclaimerStack from './disclaimerStack'
 import TermsConditionsStack from './termsConditionsStack'
 import PrivacyPolicyStack from './privacyPolicyStack'
+import ContactUsStack from './contactUsStack'
 
 const CustomDrawerComponent = (props) => (
   <SafeAreaView style={{ flex: 1 }}>
@@ -34,6 +35,12 @@ const RootDrawerNavigator = createDrawerNavigator({
     },
     screen: PrivacyPolicyStack
   },
+  ContactUs: {
+    navigationOptions: {
+      drawerLabel: "Contact Us",
+    },
+    screen: ContactUsStack
+},
 },{
   contentComponent: CustomDrawerComponent,
   contentOptions: {

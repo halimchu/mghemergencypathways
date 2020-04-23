@@ -98,7 +98,7 @@ export default class RICU extends React.Component {
       'Suction on and connected with tubing'
     ],
     dataTwo: [
-      '"STAT" or "non-urgent"',
+      '"STAT" vs "non-STAT"',
       'COVID-19 status',
       'Patient last name and location',
       'Clinician name and cellphone number',
@@ -300,7 +300,7 @@ export default class RICU extends React.Component {
           <View style={{alignItems: 'center', paddingTop: Dimensions.get('window').height/50,}}>
               <TouchableOpacity
                 style={styles.customBtnBGbottom} 
-                onPress={() => this.props.navigation.navigate('RICUWhatToPrepare')}>
+                onPress={() => this.props.navigation.navigate('RICUWhatToPresent')}>
                 <Text style={styles.customBtnText}>Next Steps</Text>
               </TouchableOpacity>
           </View>

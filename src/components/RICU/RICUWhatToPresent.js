@@ -1,5 +1,5 @@
 import React from 'react'
-import { Dimensions, View, Text, StyleSheet, SafeAreaView } from 'react-native'
+import { TouchableOpacity, Dimensions, View, Text, StyleSheet, SafeAreaView } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons' 
 import { Button } from 'react-native-elements'
 import LinearGradient from 'react-native-linear-gradient'
@@ -152,10 +152,20 @@ export default class RICUWhatToPresent extends React.Component {
           </View>
         </View>
 
-        <View style={styles.bottom}>
+        <View style={styles.middle}>
           <Text style={styles.header}>What To Present to RICU Team:</Text>
           {this.whatToPresent()}
-        </View>
+            </View>
+
+
+            <View style={styles.bottom}>
+              <TouchableOpacity
+                style={styles.customBtnBG} 
+                onPress={() => this.props.navigation.navigate('RICUWhatToPrepare')}>
+                <Text style={styles.customBtnText}>Next Steps</Text>
+              </TouchableOpacity>
+            </View>
+
       </SafeAreaView>
     )
   }
@@ -177,27 +187,32 @@ const styles = StyleSheet.create({
     width: 12,
     height: 12,
     borderRadius: 100/2,
-    borderWidth: 1,
-    borderColor: '#6c9ea1',
+    backgroundColor: '#6c9ea1',
   },
   thirdCircle: {
     marginTop: Dimensions.get('window').height/100,
     width: 12,
     height: 12,
     borderRadius: 100/2,
-    backgroundColor: '#6c9ea1',
+    borderWidth: 1,
+    borderColor: '#6c9ea1'
   },
   container: {
     flex: 1
   },
   top: {
-    height: '10%',
-    // backgroundColor: 'gray'
+    height: '15%',
+    // backgroundColor: 'yellow'
+  },
+  middle: {
+    height: '70%',
+    // backgroundColor: 'pink'
   },
   bottom: {
-    height: '90%',
-    paddingTop: Dimensions.get('window').height/35,
-    // backgroundColor: 'yellow',
+    height: '15%',
+    alignItems: 'center', 
+    justifyContent: 'center',
+    // backgroundColor: 'gray',
   },
   title: {
     fontWeight: 'bold',
@@ -222,5 +237,21 @@ const styles = StyleSheet.create({
   },
   bulletPoint: {
     fontSize: Dimensions.get('window').height/50,
-  }
+  },
+  customBtnText: {
+    fontWeight: '600',
+    textAlign: 'center',
+    textAlignVertical: "center",
+    fontSize: Dimensions.get('window').height/40,
+    marginTop: Dimensions.get('window').height/47,
+  },
+  customBtnBG: {
+    borderWidth: 5,
+    borderColor: '#6c9ea1',
+    paddingHorizontal: 1,
+    paddingVertical: 1,
+    borderRadius: 30,
+    width: Dimensions.get('window').width/1.17,
+    height: Dimensions.get('window').height/10.75,
+  },
 })

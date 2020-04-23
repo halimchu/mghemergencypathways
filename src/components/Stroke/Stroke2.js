@@ -162,7 +162,8 @@ const styles = StyleSheet.create({
     borderColor: '#6c9ea1'
   },
   container: {
-    flex: 1
+    flex: 1,
+    marginRight: Dimensions.get('window').width/60, 
   },
   top: {
     height: '10%',

@@ -230,7 +230,8 @@ export default class InpatientConditions extends React.Component {
               }}>
                 
               <Image
-                source={require('../../assets/mgh-htl-stacked.png')}
+                // source={require('../../assets/mgh-htl-stacked.png')}
+                source={require('../../assets/HealthcareTransformationLab_RGB.png')}
                 style={ (Dimensions.get('window').width === 320 && Dimensions.get('window').height === 568) ? styles.imageSizeSE : styles.imageSize }
               />
             </View>

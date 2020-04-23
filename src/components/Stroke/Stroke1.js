@@ -104,6 +104,7 @@ export default class Stroke1 extends React.Component {
     dataTwo: [
       'Obtain Last Seen Well (LSW) time',
       'Obtain fingerstick glucose: Treat <50 or >400',
+      'Neurology senior resident will arrive within 10 minutes; if not, re-call acute stroke consult and escalate to stroke attending'
     ]
   }
   
@@ -138,12 +139,16 @@ export default class Stroke1 extends React.Component {
 
           <View style={styles.middleTwo}>
             <View style={styles.middleTwoSubOne}>
-                <View style={{alignItems: 'center'}}>
+                <View style={{
+                  alignItems: 'center', 
+                  paddingTop: Dimensions.get('window').height/50,
+                  paddingBottom: Dimensions.get('window').height/50,
+                }}>
                   <Text style={styles.header}>Initial Steps</Text>
-                </View>
+               
                 <View style={{ 
                       alignItems: 'center', 
-                      marginTop: Dimensions.get('window').height/50, 
+                      marginTop: Dimensions.get('window').height/100, 
                       shadowOffset:{  width: 0,  height: 1,  },
                       shadowColor: 'black',
                       shadowOpacity: .5,}}>
@@ -169,7 +174,11 @@ export default class Stroke1 extends React.Component {
                     </TouchableOpacity>
                   </View>
 
-                  <View style={{ marginTop: Dimensions.get('window').height/300 }}>
+            
+
+                  <View style={{ 
+                    marginTop: Dimensions.get('window').height/300 
+                  }}>
                     {this.state.dataTwo.map((item) => (
                       <View key={item} style={ styles.bulletPointsTwo }>
                         <View style={{ flexDirection: 'row' }}>
@@ -179,11 +188,10 @@ export default class Stroke1 extends React.Component {
                       </View>        
                     ))} 
                   </View>
+
+              </View>
             </View>
 
-              <View>
-                <Text style={styles.middleTwoSubTwo}>Neurology senior resident will arrive within 10 minutes, if not re-call acute stroke consult and escalate to stroke attending</Text>
-              </View>
           </View>
 
 
@@ -242,7 +250,7 @@ const styles = StyleSheet.create({
   },
   middleTwo: {
     height: '51%',
-    // backgroundColor: 'pink'
+    // backgroundColor: 'pink',
   },
     middleTwoSubOne: {
       justifyContent: 'center',
@@ -252,7 +260,9 @@ const styles = StyleSheet.create({
       backgroundColor: '#F7F7F7',
     },
     middleTwoSubTwo: {
-      fontSize: Dimensions.get('window').height/48,
+      // fontSize: Dimensions.get('window').height/40,
+      paddingLeft: Dimensions.get('window').width/50,
+      paddingRight: Dimensions.get('window').width/50,
       // backgroundColor: 'purple',
   },
   bottom: {
@@ -285,13 +295,13 @@ const styles = StyleSheet.create({
   bulletPoints: {
     flexDirection: 'row',
     marginLeft: Dimensions.get('window').width/10,
-    marginTop: Dimensions.get('window').height/60,
+    marginTop: Dimensions.get('window').height/100,
   },
   bulletPointsTwo: {
     flexDirection: 'row',
     marginLeft: Dimensions.get('window').width/10,
     marginRight: Dimensions.get('window').width/10,
-    marginTop: Dimensions.get('window').height/40,
+    marginTop: Dimensions.get('window').height/100,
   },
   bulletPoint: {
     fontSize: Dimensions.get('window').height/45,
@@ -299,7 +309,7 @@ const styles = StyleSheet.create({
   bulletPointText: {
     fontWeight: '300',
     marginLeft: Dimensions.get('window').height/150,
-    fontSize: Dimensions.get('window').height/38,
+    fontSize: Dimensions.get('window').height/40,
   },
   callButton: {
     borderRadius: 40,

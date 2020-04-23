@@ -89,8 +89,6 @@ export default class RICUWhatToPrepare extends React.Component {
 
   state = {
     data: [
-      'Obtain appropriate consents & request ICU bed',
-      'Full set of PPE x2 for RICU team',
       'Syringes: 10mL x4, 2mL x4, saline flushes',
       'Respiratory therapist present',
       'AMBU bag, PEEP valve, and CO2 detector',
@@ -162,33 +160,43 @@ export default class RICUWhatToPrepare extends React.Component {
               color: 'white', }}>(Please have computer logged in to patient chart)</Text>
           </View>
            
-
-          <Text style={styles.header}>
-            <Text>If</Text>
-            <Text style={{color: 'red'}}> STAT RICU</Text>
-            <Text> called, prepare the following:</Text>
-          </Text>
+        
 
 
-          {this.state.data.map((item) => (
-            <View key={item} style={ styles.bulletPoints }>
-              <View style={{ flexDirection: 'row' }}>
-                <Text style={styles.bulletPoint}>{`\u2022`}</Text>
-                <Text style={ (Dimensions.get('window').width === 320 && Dimensions.get('window').height === 568) ? styles.bulletPointTextSE : styles.bulletPointText }>{item}</Text>
-              </View>
-            </View>        
-          ))} 
-        </View>
-     
-        <View style={styles.bottom}>
-          <SafeAreaView>
-            <TouchableOpacity
-              style={styles.customBtnBG} 
-              onPress={() => this.props.navigation.navigate('RICUWhatToPresent')}>
-              <Text style={styles.customBtnText}>Next Steps</Text>
-            </TouchableOpacity>
-          </SafeAreaView>
-        </View>
+          
+
+        
+                <Text style={styles.header}>
+                  <Text>If</Text>
+                  <Text style={{color: 'red'}}> STAT RICU</Text>
+                  <Text> called for emergent intubation, please work with the rapid response team to prepare the following:</Text>
+                </Text>
+
+                <View style={{marginRight: Dimensions.get('window').width/50, }}>
+                  {this.state.data.map((item) => (
+                    <View key={item} style={ styles.bulletPoints }>
+                      <View style={{ flexDirection: 'row' }}>
+                        <Text style={styles.bulletPoint}>{`\u2022`}</Text>
+                        <Text style={ (Dimensions.get('window').width === 320 && Dimensions.get('window').height === 568) ? styles.bulletPointTextSE : styles.bulletPointText }>{item}</Text>
+                      </View>
+                    </View>        
+                  ))} 
+
+                  <View style={{
+                    paddingTop: Dimensions.get('window').height/22,
+                    paddingLeft: Dimensions.get('window').width/22,
+                    paddingRight: Dimensions.get('window').width/22,
+                    }}>
+                    <Text style={{
+                      textAlign: 'center',
+                      fontSize: Dimensions.get('window').width/22,
+                      fontStyle: 'italic',
+                      color: '#575757', 
+                    }}>If non-emergent intubation needed, please obtain consent for intubation</Text>
+                  </View>
+                </View>
+
+            </View>
       </SafeAreaView>
     )
   }
@@ -224,7 +232,6 @@ const styles = StyleSheet.create({
     width: 12,
     height: 12,
     borderRadius: 100/2,
-    backgroundColor: '#6c9ea1',
     borderWidth: 1,
     borderColor: '#6c9ea1'
   },
@@ -233,8 +240,7 @@ const styles = StyleSheet.create({
     width: 12,
     height: 12,
     borderRadius: 100/2,
-    borderWidth: 1,
-    borderColor: '#6c9ea1'
+    backgroundColor: '#6c9ea1',
   },
   circleFilledIn: {
     width: 12,
@@ -250,7 +256,7 @@ const styles = StyleSheet.create({
     borderColor: '#6c9ea1'
   },
   container: {
-    flex: 1
+    flex: 1,
   },
   title: {
     fontWeight: 'bold',

@@ -1,11 +1,11 @@
 import React from 'react'
-import { Image, Dimensions, View, Text, StyleSheet, ScrollView, TouchableOpacity, SafeAreaView } from 'react-native'
+import { Image, Linking, Dimensions, View, Text, StyleSheet, ScrollView, TouchableOpacity, SafeAreaView } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons' 
 import { Button, Divider } from 'react-native-elements'
 import LinearGradient from 'react-native-linear-gradient'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
-export default class About extends React.Component {
+export default class ContactUs extends React.Component {
   static navigationOptions = ({ navigation }) => {
     let headerLeft = ( 
       <View style={{ flexDirection: 'row' }}>
@@ -75,40 +75,30 @@ export default class About extends React.Component {
         <ScrollView>
           <View style={{marginLeft: Dimensions.get('window').width/25, paddingRight: Dimensions.get('window').width/40, }}>
 
-              <Text style={styles.title}>ABOUT THE APP</Text>
+              <Text style={styles.title}>Contact Us</Text>
 
-              <View style={{marginTop: Dimensions.get('window').height/50,}}>
-                <Text style={styles.text}>
-                  The MGH STAT app is a reference of clinical protocols, resources, and content for physicians and advanced practice providers as they manage patients with acutely life threatening illnesses. All algorithms and protocols (CVA, PE, RICU, STEMI) are developed and vetted by their respective MGH specialty specific committees. All ACLS content in the app is material developed, studied, and vetted by the American Heart Association (AHA). The AHA has given permission and a license to use their ACLS materials for the purposes of this app. 
-                </Text>
-              </View>
-              <Text style={styles.bold}>Creators</Text>
-              <Text style={styles.text}>Andrew Chu, MD, MPH</Text>
-              <Text style={styles.text}>Jared Conley, MD, PhD, MPH</Text>
+              <View style={{marginTop: Dimensions.get('window').height/50,}}></View>
 
 
-              <Text style={styles.bold}>Significant Contributors</Text>
-              <Text style={styles.text}>Halim Chu</Text>
-              <Text style={styles.text}>Josh Ziperstein, MD</Text>
-              <Text style={styles.text}>Blake Niccum, MD</Text>
-              <Text style={styles.text}>Melvin Joice, MD</Text>
-              <Text style={styles.text}>Matthew Tung, MD</Text>
-              <Text style={styles.text}>Kenneth Rosenfield, MD</Text>
-              <Text style={styles.text}>Jean Kwo, MD</Text>
-              <Text style={styles.text}>Eric Isselbacher, MD, MHCDS</Text>
-             
+              <Text style={styles.text}>If you have any questions or would like to provide feedback about the app, please contact us at: </Text>
+              <TouchableOpacity
+                style={styles.customBtnSendFeedback}
+                onPress={ () => Linking.openURL('mailto:hchu3@mgh.harvard.edu')} >
+                <Text style={styles.customBtnTextSendFeedback}>hctransformationlab@partners.org</Text>
+              </TouchableOpacity>
 
 
-              <Text style={styles.bold}>Partners</Text>
-              <Text style={styles.text}>MGH Healthcare Transformation Lab (HTL)</Text>
-              <Text style={styles.text}>American Heart Association (AHA)</Text>
-              <Text style={styles.text}>MGH Housestaff Innovation Studio</Text>
+              <View style={{marginTop: Dimensions.get('window').height/50,}}></View>
+
+              <Text style={styles.text}>Learn more about the MGH Healthcare Transformation Lab and our innovation work at:</Text>
+              <TouchableOpacity
+                style={styles.customBtnSendFeedback}
+                onPress={ () => Linking.openURL('http://healthcaretransformation.org/')} >
+                <Text style={styles.customBtnTextSendFeedback}>http://healthcaretransformation.org/</Text>
+              </TouchableOpacity>
 
 
-              <Text style={styles.bold}>Acknowledgements</Text>
-              <Text style={styles.text}>
-                Special thanks to all the MGH specialty committees (CVA, PE, RICU, STEMI) and the American Heart Association for providing evidence-based guidelines and for their collaboration to enable this digital health tool to serve patients in need.
-              </Text>
+              
           </View>
         </ScrollView>
       </SafeAreaView>
@@ -137,5 +127,9 @@ const styles = StyleSheet.create({
   text: {
     fontSize: Dimensions.get('window').width/25,
     color: '#636363',
+  },
+  customBtnTextSendFeedback: {
+    fontSize: Dimensions.get('window').width/25,
+    color: 'blue',
   },
 })
