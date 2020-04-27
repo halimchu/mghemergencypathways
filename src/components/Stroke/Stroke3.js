@@ -128,6 +128,45 @@ export default class Stroke3 extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1
+  },
+  top: {
+    height: '10%',
+    // backgroundColor: 'yellow'
+  },
+  bottom: {
+    height: '90%',
+    paddingTop: Dimensions.get('window').height/30, 
+    // backgroundColor: 'gray',
+  },
+  title: {
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: '#2b2b2b',
+    marginTop: Dimensions.get('window').height/60,
+    fontSize: Dimensions.get('window').height/32.5,
+  },
+  header: {
+    fontWeight: 'bold',
+    marginLeft: Dimensions.get('window').width/10,
+    color: '#2b2b2b',
+    fontSize: Dimensions.get('window').height/36,
+  },
+  bulletPoint: {
+    fontSize: Dimensions.get('window').height/45,
+  },
+  bulletPoints: {
+    flexDirection: 'row',
+    marginTop: Dimensions.get('window').height/60,
+    paddingLeft: Dimensions.get('window').width/10,
+    paddingRight:Dimensions.get('window').width/10,
+  },
+  bulletPointText: {
+    fontWeight: '300',
+    marginLeft: Dimensions.get('window').width/70,
+    fontSize: Dimensions.get('window').height/38,
+  },
   firstCircle: {
     marginTop: Dimensions.get('window').height/70,
     width: 12,
@@ -152,44 +191,5 @@ const styles = StyleSheet.create({
     height: 12,
     borderRadius: 100/2,
     backgroundColor: '#6c9ea1'
-  },
-  container: {
-    flex: 1
-  },
-  top: {
-    height: '10%',
-    // backgroundColor: 'yellow'
-  },
-  bottom: {
-    height: '90%',
-    paddingTop: Dimensions.get('window').height/30, 
-    // backgroundColor: 'gray',
-  },
-  title: {
-    fontWeight: 'bold',
-    textAlign: 'center',
-    color: '#2b2b2b',
-    marginTop: Dimensions.get('window').height/60,
-    fontSize: Dimensions.get('window').height/32.5,
-  },
-  header: {
-    fontWeight: 'bold',
-    marginLeft: Dimensions.get('window').width/16,
-    color: '#2b2b2b',
-    fontSize: Dimensions.get('window').height/36,
-  },
-  bulletPoint: {
-    fontSize: Dimensions.get('window').height/45,
-  },
-  bulletPoints: {
-    flexDirection: 'row',
-    marginTop: Dimensions.get('window').height/60,
-    marginLeft: Dimensions.get('window').width/10,
-    marginRight:Dimensions.get('window').width/10,
-  },
-  bulletPointText: {
-    fontWeight: '300',
-    marginLeft: Dimensions.get('window').height/150,
-    fontSize: Dimensions.get('window').height/38,
   },
 })

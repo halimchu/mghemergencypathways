@@ -136,7 +136,11 @@ export default class RICUWhatToPrepare extends React.Component {
         </View> 
        
 
-        <View style={styles.middle}>
+
+
+
+
+        {/* <View style={styles.middle}> */}
           <View style={{
             backgroundColor: '#e89b0e',
             paddingLeft: Dimensions.get('window').width/64,
@@ -145,7 +149,7 @@ export default class RICUWhatToPrepare extends React.Component {
             paddingBottom: Dimensions.get('window').height/120,
             marginTop: Dimensions.get('window').height/90,
             marginBottom: Dimensions.get('window').height/50,
-            }}>
+          }}>
             <Text style={{
               textAlign: 'center', 
               fontSize: Dimensions.get('window').width/22, 
@@ -160,49 +164,52 @@ export default class RICUWhatToPrepare extends React.Component {
               color: 'white', }}>(Please have computer logged in to patient chart)</Text>
           </View>
            
-        
-
-
-          
-
-        
-                <Text style={styles.header}>
-                  <Text>If</Text>
-                  <Text style={{color: 'red'}}> STAT RICU</Text>
-                  <Text> called for emergent intubation, please work with the rapid response team to prepare the following:</Text>
-                </Text>
-
-                <View style={{marginRight: Dimensions.get('window').width/50, }}>
-                  {this.state.data.map((item) => (
-                    <View key={item} style={ styles.bulletPoints }>
-                      <View style={{ flexDirection: 'row' }}>
-                        <Text style={styles.bulletPoint}>{`\u2022`}</Text>
-                        <Text style={ (Dimensions.get('window').width === 320 && Dimensions.get('window').height === 568) ? styles.bulletPointTextSE : styles.bulletPointText }>{item}</Text>
-                      </View>
-                    </View>        
-                  ))} 
-
-                  <View style={{
-                    paddingTop: Dimensions.get('window').height/22,
-                    paddingLeft: Dimensions.get('window').width/22,
-                    paddingRight: Dimensions.get('window').width/22,
-                    }}>
-                    <Text style={{
-                      textAlign: 'center',
-                      fontSize: Dimensions.get('window').width/22,
-                      fontStyle: 'italic',
-                      color: '#575757', 
-                    }}>If non-emergent intubation needed, please obtain consent for intubation</Text>
-                  </View>
+          <View style={{paddingLeft: Dimensions.get('window').width/30, paddingRight: Dimensions.get('window').width/30}}>
+            <Text style={styles.header}>
+              <Text>If</Text>
+              <Text style={{color: 'red'}}> STAT RICU</Text>
+              <Text> called for emergent intubation, please work with the rapid response team to prepare the following:</Text>
+            </Text>
+          </View>
+  
+          <View style={{ paddingTop: Dimensions.get('window').height/170}}>
+            {this.state.data.map((item) => (
+              <View key={item} style={ styles.bulletPoints }>
+                <View style={{ flexDirection: 'row' }}>
+                  <Text style={styles.bulletPoint}>{`\u2022`}</Text>
+                  <Text style={ (Dimensions.get('window').width === 320 && Dimensions.get('window').height === 568) ? styles.bulletPointTextSE : styles.bulletPointText }>{item}</Text>
                 </View>
+              </View>        
+            ))} 
+          </View>
+        {/* </View> */}
 
-            </View>
+
+
+
+
+          <View style={{
+            paddingTop: Dimensions.get('window').height/30,
+            paddingLeft: Dimensions.get('window').width/10,
+            paddingRight: Dimensions.get('window').width/10,
+            }}>
+            <Text style={{
+              textAlign: 'center',
+              fontSize: Dimensions.get('window').width/22,
+              fontStyle: 'italic',
+              color: '#575757', 
+            }}>If non-emergent intubation needed, please obtain consent for intubation</Text>
+
+        </View>
       </SafeAreaView>
     )
   }
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
   top: {
     height: '10%',
     // backgroundColor: 'yellow'
@@ -212,51 +219,10 @@ const styles = StyleSheet.create({
     // backgroundColor: 'pink'
   },
   bottom: {
-    height: '15%',
+    // height: '10%',
     alignItems: 'center', 
     justifyContent: 'center',
     // backgroundColor: 'gray',
-  },
-  firstCircle: {
-    marginTop: Dimensions.get('window').height/100,
-    width: 12,
-    height: 12,
-    borderRadius: 100/2,
-    borderWidth: 1,
-    borderColor: '#6c9ea1'
-  },
-  secondCircle: {
-    marginTop: Dimensions.get('window').height/100,
-    marginLeft: Dimensions.get('window').width/25,
-    marginRight: Dimensions.get('window').width/25,
-    width: 12,
-    height: 12,
-    borderRadius: 100/2,
-    borderWidth: 1,
-    borderColor: '#6c9ea1'
-  },
-  thirdCircle: {
-    marginTop: Dimensions.get('window').height/100,
-    width: 12,
-    height: 12,
-    borderRadius: 100/2,
-    backgroundColor: '#6c9ea1',
-  },
-  circleFilledIn: {
-    width: 12,
-    height: 12,
-    borderRadius: 100/2,
-    backgroundColor: '#6c9ea1'
-  },
-  circleNotFilledIn: { 
-    width: 12,
-    height: 12,
-    borderRadius: 100/2,
-    borderWidth: 1,
-    borderColor: '#6c9ea1'
-  },
-  container: {
-    flex: 1,
   },
   title: {
     fontWeight: 'bold',
@@ -265,29 +231,20 @@ const styles = StyleSheet.create({
     marginTop: Dimensions.get('window').height/60,
     fontSize: Dimensions.get('window').height/32.5,
   },
-  divider: {
-    backgroundColor: '#CDCDCD', 
-    marginTop: Dimensions.get('window').height/64, 
-    marginBottom: Dimensions.get('window').height/64, 
-    marginLeft: Dimensions.get('window').width/60, 
-    marginRight: Dimensions.get('window').width/60, 
-    height: Dimensions.get('window').height/600
-  },
   header: {
     fontWeight: 'bold',
-    marginLeft: Dimensions.get('window').width/30,
     marginBottom: Dimensions.get('window').height/120,
     fontSize: Dimensions.get('window').width/22,
+    textAlign: 'center'
   },
   bulletPoint: {
-    // color: 'gray',
     fontSize: Dimensions.get('window').height/50,
   },
   bulletPoints: {
     flexDirection: 'row',
     marginTop: Dimensions.get('window').height/150,
-    marginLeft: Dimensions.get('window').width/20,
-    marginRight: Dimensions.get('window').width/50,
+    paddingLeft: Dimensions.get('window').width/10,
+    paddingRight: Dimensions.get('window').width/10,
   },
   bulletPointText: {
     fontWeight: '400',
@@ -314,5 +271,30 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     width: Dimensions.get('window').width/1.17,
     height: Dimensions.get('window').height/10.75,
+  },
+  firstCircle: {
+    marginTop: Dimensions.get('window').height/100,
+    width: 12,
+    height: 12,
+    borderRadius: 100/2,
+    borderWidth: 1,
+    borderColor: '#6c9ea1'
+  },
+  secondCircle: {
+    marginTop: Dimensions.get('window').height/100,
+    marginLeft: Dimensions.get('window').width/25,
+    marginRight: Dimensions.get('window').width/25,
+    width: 12,
+    height: 12,
+    borderRadius: 100/2,
+    borderWidth: 1,
+    borderColor: '#6c9ea1'
+  },
+  thirdCircle: {
+    marginTop: Dimensions.get('window').height/100,
+    width: 12,
+    height: 12,
+    borderRadius: 100/2,
+    backgroundColor: '#6c9ea1',
   },
 })

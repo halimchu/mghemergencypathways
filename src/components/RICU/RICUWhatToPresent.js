@@ -108,8 +108,8 @@ export default class RICUWhatToPresent extends React.Component {
       ? (
             <View key={item[0]} style={{ 
               flexDirection: 'row', 
-              marginRight: Dimensions.get('window').width/19, 
-              marginLeft: Dimensions.get('window').width/19,
+              marginRight: Dimensions.get('window').width/10, 
+              marginLeft: Dimensions.get('window').width/10,
               marginBottom: Dimensions.get('window').height/70 
             }}>
                   <Text style={styles.bulletPoint}>{`\u2022 `}</Text>
@@ -123,7 +123,8 @@ export default class RICUWhatToPresent extends React.Component {
       ) : (
 
       <Text style={{ 
-        marginLeft: Dimensions.get('window').width/19, 
+        marginLeft: Dimensions.get('window').width/10, 
+        marginRight: Dimensions.get('window').width/10,
         marginBottom: Dimensions.get('window').height/70 
       }}>
         <Text style={styles.bulletPoint}>{`\u2022 `}</Text>
@@ -172,31 +173,6 @@ export default class RICUWhatToPresent extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  firstCircle: {
-    marginTop: Dimensions.get('window').height/100,
-    width: 12,
-    height: 12,
-    borderRadius: 100/2,
-    borderWidth: 1,
-    borderColor: '#6c9ea1'
-  },
-  secondCircle: {
-    marginTop: Dimensions.get('window').height/100,
-    marginLeft: Dimensions.get('window').width/25,
-    marginRight: Dimensions.get('window').width/25,
-    width: 12,
-    height: 12,
-    borderRadius: 100/2,
-    backgroundColor: '#6c9ea1',
-  },
-  thirdCircle: {
-    marginTop: Dimensions.get('window').height/100,
-    width: 12,
-    height: 12,
-    borderRadius: 100/2,
-    borderWidth: 1,
-    borderColor: '#6c9ea1'
-  },
   container: {
     flex: 1
   },
@@ -231,7 +207,7 @@ const styles = StyleSheet.create({
   },
   header: {
     fontWeight: 'bold',
-    marginLeft: Dimensions.get('window').width/16,
+    marginLeft: Dimensions.get('window').width/10,
     marginBottom: Dimensions.get('window').height/58,
     fontSize: Dimensions.get('window').width/20,
   },
@@ -253,5 +229,30 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     width: Dimensions.get('window').width/1.17,
     height: Dimensions.get('window').height/10.75,
+  },
+  firstCircle: {
+    marginTop: Dimensions.get('window').height/100,
+    width: 12,
+    height: 12,
+    borderRadius: 100/2,
+    borderWidth: 1,
+    borderColor: '#6c9ea1'
+  },
+  secondCircle: {
+    marginTop: Dimensions.get('window').height/100,
+    marginLeft: Dimensions.get('window').width/25,
+    marginRight: Dimensions.get('window').width/25,
+    width: 12,
+    height: 12,
+    borderRadius: 100/2,
+    backgroundColor: '#6c9ea1',
+  },
+  thirdCircle: {
+    marginTop: Dimensions.get('window').height/100,
+    width: 12,
+    height: 12,
+    borderRadius: 100/2,
+    borderWidth: 1,
+    borderColor: '#6c9ea1'
   },
 })

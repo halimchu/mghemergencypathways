@@ -95,7 +95,7 @@ export default class PertLabs extends React.Component {
       'Troponin T-hs',
       'EKG',
       'CTA chest PE protocol',
-      'US LE duplex (bilateral)',
+      'US LE veins duplex (bilateral)',
       'TTE (Page US Tech if daytime hours)'
     ]
   }
@@ -115,9 +115,7 @@ export default class PertLabs extends React.Component {
 
 
         <View style={styles.bottom}>
-          <View style={{marginLeft: Dimensions.get('window').width/27}}>
-            <Text style={styles.header}>If not already obtained, please order:</Text>
-          </View>
+          <Text style={styles.header}>If not already obtained, please order:</Text>
           {this.state.data.map((item) => (
             <View key={item} style={ styles.bulletPoints }>
               <View style={{ flexDirection: 'row' }}>
@@ -128,8 +126,8 @@ export default class PertLabs extends React.Component {
           ))} 
 
 
-          <View style={{marginTop: 20, paddingLeft: 20, paddingRight: 10, }}>
-            <Text style={styles.text}>If concerned about COVID, please discuss with PERT the need for TTE, LENI, & CT with PERT</Text>
+          <View style={{marginTop: Dimensions.get('window').height/30, paddingLeft: Dimensions.get('window').width/10, paddingRight: Dimensions.get('window').width/10, }}>
+            <Text style={styles.text}>If concerned about COVID, please discuss with PERT the need for TTE, LENI, & CT.</Text>
           </View>
         </View>
 
@@ -139,22 +137,6 @@ export default class PertLabs extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  firstCircle: {
-    marginTop: Dimensions.get('window').height/70,
-    width: 12,
-    height: 12,
-    borderRadius: 100/2,
-    borderWidth: 1,
-    borderColor: '#6c9ea1'
-  },
-  secondCircle: {
-    marginTop: Dimensions.get('window').height/70,
-    marginLeft: Dimensions.get('window').width/25,
-    width: 12,
-    height: 12,
-    borderRadius: 100/2,
-    backgroundColor: '#6c9ea1',
-  },
   container: {
     flex: 1
   },
@@ -175,7 +157,7 @@ const styles = StyleSheet.create({
   },
   header: {
     fontWeight: '500',
-    marginLeft: Dimensions.get('window').width/15,
+    marginLeft: Dimensions.get('window').width/10,
     marginTop: Dimensions.get('window').height/35,
     fontSize: Dimensions.get('window').height/36,
   },
@@ -185,7 +167,7 @@ const styles = StyleSheet.create({
   bulletPoints: {
     marginTop: Dimensions.get('window').height/50,
     marginLeft: Dimensions.get('window').width/10,
-    marginRight: Dimensions.get('window').width/8,
+    marginRight: Dimensions.get('window').width/20,
   },
   bulletPointText: {
     fontWeight: '300',
@@ -197,5 +179,21 @@ const styles = StyleSheet.create({
     fontWeight: '400',
     fontSize: Dimensions.get('window').height/40,
     marginLeft: Dimensions.get('window').width/100,
-  }
+  },
+  firstCircle: {
+    marginTop: Dimensions.get('window').height/70,
+    width: 12,
+    height: 12,
+    borderRadius: 100/2,
+    borderWidth: 1,
+    borderColor: '#6c9ea1'
+  },
+  secondCircle: {
+    marginTop: Dimensions.get('window').height/70,
+    marginLeft: Dimensions.get('window').width/25,
+    width: 12,
+    height: 12,
+    borderRadius: 100/2,
+    backgroundColor: '#6c9ea1',
+  },
 })

@@ -104,7 +104,7 @@ export default class STEMI extends React.Component {
 
   firstFn() {
     return (
-        <View style={{ flexDirection: 'row', marginLeft: Dimensions.get('window').height/40}}>
+        <View style={{ flexDirection: 'row', marginLeft: Dimensions.get('window').width/10}}>
         <Text style={styles.bulletPoint}>{`\u2022`}</Text>
         <Text>
           <Text style={{ fontSize: Dimensions.get('window').height/38, fontWeight: '500' }}>NEW </Text>
@@ -117,7 +117,7 @@ export default class STEMI extends React.Component {
   secondFn() {
     return (
       this.state2.data.map((item) => (
-        <View key={item} style={{ flexDirection: 'row', marginRight: Dimensions.get('window').width/20, marginLeft: Dimensions.get('window').width/10 }}>
+        <View key={item} style={{ flexDirection: 'row', paddingRight: Dimensions.get('window').width/10, marginLeft: Dimensions.get('window').width/6 }}>
             <Text style={styles.bulletPointSmall}>{`\u2022`}</Text>  
             <Text style={{flex: 1, flexWrap: 'wrap'}}>
             <Text style={{ fontWeight: '300', fontSize: Dimensions.get('window').height/39 }}> 
@@ -177,7 +177,7 @@ export default class STEMI extends React.Component {
 
 
         <View style={styles.middle}>
-          <View style={{ marginLeft: Dimensions.get('window').width/25, marginBottom: Dimensions.get('window').height/80,}}>
+          <View style={{ marginLeft: Dimensions.get('window').width/10, marginBottom: Dimensions.get('window').height/80,}}>
               <Text style={styles.header}>STEMI Criteria</Text>
           </View>
           {this.firstFn()}
@@ -269,9 +269,9 @@ const styles = StyleSheet.create({
   },
   bulletPoints: {
     flexDirection: 'row',
-    marginRight: 40,
     marginTop: Dimensions.get('window').height/55,
-    marginLeft: Dimensions.get('window').height/40,
+    marginLeft: Dimensions.get('window').width/10,
+    marginRight: Dimensions.get('window').width/10,
   },
   bulletPointText: {
     fontWeight: '300',

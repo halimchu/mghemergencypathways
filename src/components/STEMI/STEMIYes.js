@@ -113,7 +113,7 @@ export default class STEMIYes extends React.Component {
 
         <View style={styles.middle}>
             <View style={{ alignItems: 'center' }}>
-              <TouchableOpacity onPress={()=>{this.dialCall()}}>
+              <TouchableOpacity style={styles.shadow} onPress={()=>{this.dialCall()}}>
                       <LinearGradient 
                         style={styles.callButton}
                         colors={['#B62619', '#F63826', '#B62619']}
@@ -121,15 +121,22 @@ export default class STEMIYes extends React.Component {
                         end={{x: 1, y: 0}}
                       >
                           <View style={{ flexDirection: 'row' }}>
-                            <MaterialIcons name="phone" size={19} color="white" />
-                            <Text style={{ fontSize: Dimensions.get('window').width/21, color: 'white', fontWeight: 'bold' }}> Call STEMI Consult</Text>
+                             <View style={{flexDirection: 'column'}}>
+                              <View style={{marginLeft: Dimensions.get('window').width/15}}>
+                                <MaterialIcons name="phone-in-talk" size={Dimensions.get('window').width/9} color="white" />
+                              </View>
+                            </View>
+                            <View style={{flexDirection: 'column'}}>
+                              <Text style={{ marginLeft: Dimensions.get('window').width/17, fontSize: Dimensions.get('window').width/21, color: 'white', fontWeight: 'bold' }}> Call STEMI Consult</Text>
+                              <Text style={{ 
+                                marginTop: Dimensions.get('window').height/150, 
+                                color: 'white', 
+                                fontSize: Dimensions.get('window').width/24, fontWeight: '400',
+                                paddingLeft: Dimensions.get('window').width/5, 
+                              }}>x6-8282
+                              </Text>
+                            </View>
                           </View>
-                          <Text style={{ 
-                            marginTop: Dimensions.get('window').height/150, 
-                            color: 'white', 
-                            fontSize: Dimensions.get('window').width/24, fontWeight: '400'
-                          }}>x6-8282
-                          </Text>
                       </LinearGradient>
               </TouchableOpacity>
             </View>
@@ -218,7 +225,12 @@ const styles = StyleSheet.create({
     borderRadius: 40,
     height: Dimensions.get('window').height/11,
     width: Dimensions.get('window').width/1.17,
-    alignItems: "center",
     justifyContent: "center",
-  }
+  },
+  shadow: {
+    shadowColor: 'black',
+    shadowOpacity: 0.8,
+    backgroundColor : "#0000",
+    shadowOffset : { width: 1, height: 1},
+  },
 })

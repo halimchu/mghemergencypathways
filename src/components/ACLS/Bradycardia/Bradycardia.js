@@ -150,7 +150,7 @@ export default class BradyCardia extends React.Component {
       return (
         <Image
           source={require('../../../../assets/Bradycardia3000x2300.png')}
-          style={{ width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.22 }}
+          style={{ width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.25 }}
         />
       )
     }
@@ -161,7 +161,7 @@ export default class BradyCardia extends React.Component {
       return (
         <Image 
           source={require('../../../../assets/Bradycardia3000x2300.png')}
-          style={{ width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.22}}
+          style={{ width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.25}}
         />
       )
     }

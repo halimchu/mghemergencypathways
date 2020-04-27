@@ -111,6 +111,7 @@ export default class STEMIUncertain extends React.Component {
           <View style={{ alignItems: 'center' }}>
 
           <TouchableOpacity 
+                    style={styles.shadow}
                     onPress={()=>{Linking.openURL('https://ppd.partners.org/scripts/phsweb.mwl?APP=PDPERS&FF=PDA&ACTION=SEARCHRES&SRCHNM=25712')}}>
                     <LinearGradient 
                       style={styles.callButton}
@@ -209,7 +210,11 @@ const styles = StyleSheet.create({
     width: Dimensions.get('window').width/1.17,
     alignItems: "center",
     justifyContent: "center",
-    borderWidth: 1,
-    borderColor: '#ab8080'
+  },
+  shadow: {
+    shadowColor: 'black',
+    shadowOpacity: 5,
+    backgroundColor : "#0000",
+    shadowOffset : { width: 1.5, height: 1.5},
   },
 })

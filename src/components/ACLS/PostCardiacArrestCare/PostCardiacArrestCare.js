@@ -241,17 +241,7 @@ export default class PostCardiacArrestCare extends React.Component {
 
           <View style={{marginBottom: Dimensions.get('window').height/80}}></View>
 
-          <View style={{ alignItems: 'center', }} onLayout={this.measureParentView}>
-              <View onLayout={this.measureReversibleCausesView}>
-                <Component 
-                  goToNextComponent={this.goToComponentTwo} 
-                  toggle={this.onPressReversibleCausesHidden} 
-                  hidden = {this.state.reversibleCausesHidden}
-                  component={<CardiacArrestReversibleCauses />}
-                  buttonTitle='Reversible Causes'
-                />
-              </View>
-          </View>
+          
 
 
           <View onLayout={this.measureDosesDetailsView}>
@@ -262,6 +252,18 @@ export default class PostCardiacArrestCare extends React.Component {
               component={<DosesDetails />}
               buttonTitle='Doses/Details'
             />
+          </View>
+
+          <View style={{ alignItems: 'center', }} onLayout={this.measureParentView}>
+              <View onLayout={this.measureReversibleCausesView}>
+                <Component 
+                  goToNextComponent={this.goToComponentTwo} 
+                  toggle={this.onPressReversibleCausesHidden} 
+                  hidden = {this.state.reversibleCausesHidden}
+                  component={<CardiacArrestReversibleCauses />}
+                  buttonTitle='Reversible Causes'
+                />
+              </View>
           </View>
 
 

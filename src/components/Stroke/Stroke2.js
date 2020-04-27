@@ -89,11 +89,12 @@ export default class Stroke2 extends React.Component {
 
   state = {
     data: [
-      'Monitor vital signs Q15 min: Goal Sp02 ≥95%',
-      'Order STAT CT Head, CTA Head & Neck',
+      // 'Monitor vital signs Q15 min: Goal Sp02 ≥95%',
+      'Place patient on transport monitor for BP evaluations',
+      'Order STAT CT Head. Discuss need for CTA Head/Neck with neurology',
       'Ensure patient has IV access for CT and possible alteplase',
       'Assist neurology team in confirming scanner readiness with neuroradiology (6-8188)',
-      'Prepare travel IV pump & monitor', 
+      'Prepare travel IV pump', 
       'Write order for NPO and swallow screen in EPIC'
     ]
   }
@@ -136,34 +137,9 @@ export default class Stroke2 extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  firstCircle: {
-    marginTop: Dimensions.get('window').height/70,
-    width: 12,
-    height: 12,
-    borderRadius: 100/2,
-    borderWidth: 1,
-    borderColor: '#6c9ea1',
-  },
-  secondCircle: {
-    marginTop: Dimensions.get('window').height/70,
-    marginLeft: Dimensions.get('window').width/25,
-    marginRight: Dimensions.get('window').width/25,
-    width: 12,
-    height: 12,
-    borderRadius: 100/2,
-    backgroundColor: '#6c9ea1'
-  },
-  thirdCircle: {
-    marginTop: Dimensions.get('window').height/70,
-    width: 12,
-    height: 12,
-    borderRadius: 100/2,
-    borderWidth: 1,
-    borderColor: '#6c9ea1'
-  },
   container: {
     flex: 1,
-    marginRight: Dimensions.get('window').width/60, 
+    // marginRight: Dimensions.get('window').width/60, 
   },
   top: {
     height: '10%',
@@ -194,11 +170,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginTop: Dimensions.get('window').height/40,
     marginLeft: Dimensions.get('window').width/10,
-    marginRight: Dimensions.get('window').width/18,
+    marginRight: Dimensions.get('window').width/10,
   },
   bulletPointText: {
     fontWeight: '300',
-    marginLeft: Dimensions.get('window').width/95,
+    marginLeft: Dimensions.get('window').width/70,
     fontSize: Dimensions.get('window').height/38,
   },
   customBtnText: {
@@ -216,5 +192,30 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     width: Dimensions.get('window').width/1.17,
     height: Dimensions.get('window').height/10.75,
+  },
+  firstCircle: {
+    marginTop: Dimensions.get('window').height/70,
+    width: 12,
+    height: 12,
+    borderRadius: 100/2,
+    borderWidth: 1,
+    borderColor: '#6c9ea1',
+  },
+  secondCircle: {
+    marginTop: Dimensions.get('window').height/70,
+    marginLeft: Dimensions.get('window').width/25,
+    marginRight: Dimensions.get('window').width/25,
+    width: 12,
+    height: 12,
+    borderRadius: 100/2,
+    backgroundColor: '#6c9ea1'
+  },
+  thirdCircle: {
+    marginTop: Dimensions.get('window').height/70,
+    width: 12,
+    height: 12,
+    borderRadius: 100/2,
+    borderWidth: 1,
+    borderColor: '#6c9ea1'
   },
 }) 

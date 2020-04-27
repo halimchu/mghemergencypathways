@@ -130,13 +130,13 @@ export default class Pert extends React.Component {
                 </View>
               </View>        
           ))} 
-        </View>
+        </View> 
 
         
 
         <View style={styles.middleTwo}>
-          <View style={{ alignItems: 'center' }}>
-          <TouchableOpacity onPress={()=>{this.dialCall()}}>
+          
+          <TouchableOpacity style={styles.shadow} onPress={()=>{this.dialCall()}}>
                     <LinearGradient 
                       style={styles.callButton}
                       colors={['#B62619', '#F63826', '#B62619']}
@@ -144,18 +144,26 @@ export default class Pert extends React.Component {
                       end={{x: 1, y: 0}}
                     >
                         <View style={{ flexDirection: 'row' }}>
-                          <MaterialIcons name="phone" size={19} color="white" />
-                          <Text style={{ fontSize: Dimensions.get('window').width/21, color: 'white', fontWeight: 'bold' }}> Call PERT Consult</Text>
+                          <View style={{flexDirection: 'column'}}>
+                            <View style={{marginLeft: Dimensions.get('window').width/15}}>
+                              <MaterialIcons name="phone-in-talk" size={Dimensions.get('window').width/9} color="white" />
+                            </View>
+                          </View>
+                          <View style={{flexDirection: 'column',}}>
+                            <Text style={{ marginLeft: Dimensions.get('window').width/12, fontSize: Dimensions.get('window').width/21, color: 'white', fontWeight: 'bold' }}>Call PERT Consult</Text>
+                            <Text style={{ 
+                              marginTop: Dimensions.get('window').height/150, 
+                              color: 'white', 
+                              textAlign: 'center',
+                              fontSize: Dimensions.get('window').width/24, fontWeight: '400'
+                            }}>x4-7378
+                            </Text>
+                          </View>
                         </View>
-                        <Text style={{ 
-                          marginTop: Dimensions.get('window').height/150, 
-                          color: 'white', 
-                          fontSize: Dimensions.get('window').width/24, fontWeight: '400'
-                        }}>x4-7378
-                        </Text>
+                        
                     </LinearGradient>
               </TouchableOpacity>
-            </View>
+           
         </View>
  
 
@@ -176,22 +184,6 @@ export default class Pert extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  firstCircle: {
-    marginTop: Dimensions.get('window').height/70,
-    width: 12,
-    height: 12,
-    borderRadius: 100/2,
-    backgroundColor: '#6c9ea1'
-  },
-  secondCircle: {
-    marginTop: Dimensions.get('window').height/70,
-    marginLeft: Dimensions.get('window').width/25,
-    width: 12,
-    height: 12,
-    borderRadius: 100/2,
-    borderWidth: 1,
-    borderColor: '#6c9ea1'
-  },
   container: {
     flex: 1
   },
@@ -233,7 +225,7 @@ const styles = StyleSheet.create({
   header: {
     fontWeight: '500',
     fontSize: Dimensions.get('window').height/36,
-    marginLeft: Dimensions.get('window').width/15,
+    marginLeft: Dimensions.get('window').width/10,
     marginTop: Dimensions.get('window').height/300
   },
   bulletPoint: {
@@ -242,13 +234,13 @@ const styles = StyleSheet.create({
   bulletPoints: {
     flexDirection: 'row',
     marginTop: Dimensions.get('window').height/30,
-    marginLeft: Dimensions.get('window').width/11,
-    marginRight: Dimensions.get('window').width/8,
+    paddingLeft: Dimensions.get('window').width/11,
+    paddingRight: Dimensions.get('window').width/10,
   },
   bulletPointText: {
     fontWeight: '300',
     fontSize: Dimensions.get('window').height/38,
-    marginLeft: Dimensions.get('window').width/100,
+    marginLeft: Dimensions.get('window').width/70,
   },
   customBtnText: {
     fontWeight: '600',
@@ -270,7 +262,29 @@ const styles = StyleSheet.create({
     borderRadius: 40,
     height: Dimensions.get('window').height/11,
     width: Dimensions.get('window').width/1.17,
-    alignItems: "center",
+    // alignItems: "center",
     justifyContent: "center",
+  },
+  shadow: {
+    shadowColor: 'black',
+    shadowOpacity: 0.8,
+    backgroundColor : "#0000",
+    shadowOffset : { width: 1, height: 1},
+  },
+  firstCircle: {
+    marginTop: Dimensions.get('window').height/70,
+    width: 12,
+    height: 12,
+    borderRadius: 100/2,
+    backgroundColor: '#6c9ea1'
+  },
+  secondCircle: {
+    marginTop: Dimensions.get('window').height/70,
+    marginLeft: Dimensions.get('window').width/25,
+    width: 12,
+    height: 12,
+    borderRadius: 100/2,
+    borderWidth: 1,
+    borderColor: '#6c9ea1'
   },
 })

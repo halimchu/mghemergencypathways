@@ -6,7 +6,6 @@ import { Linking, Dimensions, View, Text, StyleSheet, TouchableOpacity, } from '
 
 import HomeStack from './homeStack'
 import AboutStack from './aboutStack'
-import DisclaimerStack from './disclaimerStack'
 import TermsConditionsStack from './termsConditionsStack'
 import PrivacyPolicyStack from './privacyPolicyStack'
 import ContactUsStack from './contactUsStack'

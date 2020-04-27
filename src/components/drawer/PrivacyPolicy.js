@@ -75,7 +75,7 @@ export default class PrivacyPolicy extends React.Component {
         <ScrollView>
 
 
-                <View style={styles.top}>
+                <View style={{marginBottom: Dimensions.get('window').height/50, marginLeft: Dimensions.get('window').width/25, paddingRight: Dimensions.get('window').width/25 }}>
                   <Text style={styles.title}>MGH STAT APPLICATION PRIVACY POLICY</Text>
 
                   <View style={{marginTop: Dimensions.get('window').height/50,}}>
@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
   },
   top: {
     marginLeft: Dimensions.get('window').width/25, 
-    paddingRight: Dimensions.get('window').width/35,
+    paddingRight: Dimensions.get('window').width/25,
   },
   title: {
     marginTop: Dimensions.get('window').height/60,

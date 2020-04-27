@@ -24,18 +24,15 @@ export default class Component extends React.Component {
 const styles = StyleSheet.create({
   customBtnText: {
     fontWeight: '600',
-    // color: "#fff",
     color: '#303333',
     textAlign: 'center',
-    fontSize: Dimensions.get('window').height/53,
+    fontSize: Dimensions.get('window').width/27,
     marginTop: Dimensions.get('window').height/80,
   },
   customBtnBG: {
     borderWidth: 1,
     borderColor: 'white',
-    // backgroundColor: "#69c8a1",
     backgroundColor: '#DBE2E8',
-    // backgroundColor: '#256A96',
     width: Dimensions.get('window').width/1.02,
     height: Dimensions.get('window').height/20,
   },

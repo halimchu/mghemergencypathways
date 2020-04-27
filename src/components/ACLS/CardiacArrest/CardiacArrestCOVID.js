@@ -258,27 +258,27 @@ export default class CardiacArrestCOVID extends React.Component {
       
   
   goToComponentTwo = () => {
-    const added = this.state.imageHeight + this.state.reversibleCausesView
+    const added = this.state.imageHeight + this.state.CPRQualityView + this.state.shockEnergyView + 300
     this.scroller.scrollTo({x: 0, y: added, animated: true});
   }
   goToComponentThree = () => {
-    const added = this.state.imageHeight + this.state.reversibleCausesView 
+    const added = this.state.imageHeight + this.state.CPRQualityView + this.state.shockEnergyView + this.state.advancedAirwayView + this.state.drugTherapyView + 200
     this.scroller.scrollTo({x: 0, y: added, animated: true});
   }
   goToComponentFour = () => {
-    const added = this.state.imageHeight + this.state.reversibleCausesView + this.state.shockEnergyView + this.state.ROSCView
+    const added = this.state.imageHeight + this.state.CPRQualityView + this.state.shockEnergyView + this.state.drugTherapyView + this.state.advancedAirwayView  + 200
     this.scroller.scrollTo({x: 0, y: added, animated: true});
   }
   goToComponentFive = () => {
-    const added = this.state.imageHeight + this.state.reversibleCausesView + this.state.shockEnergyView + this.state.ROSCView + this.state.CPRQualityView
+    const added = this.state.imageHeight + this.state.CPRQualityView + this.state.shockEnergyView + this.state.drugTherapyView + this.state.advancedAirwayView + 200
     this.scroller.scrollTo({x: 0, y: added, animated: true});
   }
   goToComponentSix = () => {
-    const added = this.state.imageHeight + this.state.reversibleCausesView + this.state.shockEnergyView + this.state.ROSCView + this.state.CPRQualityView + this.state.advancedAirwayView
+    const added = this.state.imageHeight + this.state.CPRQualityView + this.state.shockEnergyView + this.state.drugTherapyView + this.state.advancedAirwayView + this.state.ROSCView + this.state.reversibleCausesView + 200
     this.scroller.scrollTo({x: 0, y: added, animated: true});
   }
   goToEnd = () => {
-    const added = this.state.imageHeight + this.state.reversibleCausesView + this.state.shockEnergyView + this.state.ROSCView + this.state.CPRQualityView + this.state.advancedAirwayView
+    const added = this.state.imageHeight + this.state.CPRQualityView + this.state.shockEnergyView + this.state.drugTherapyView + this.state.advancedAirwayView + this.state.ROSCView + this.state.reversibleCausesView + 200
     this.scroller.scrollTo({x: 0, y: added, animated: true});
   }
 
@@ -424,10 +424,14 @@ export default class CardiacArrestCOVID extends React.Component {
         <View style={{flexDirection: 'row',}}>
           <Text style={{
             // marginTop: Dimensions.get('window').height/140, 
-            marginRight: Dimensions.get('window').width/90, 
+            // marginRight: Dimensions.get('window').width/90, 
             fontSize: Dimensions.get('window').height/42,}}>{`\u2022`}</Text>
-          <Text style={{flex: 1, flexWrap: 'wrap', marginTop: Dimensions.get('window').height/200}}>
-            <Text>If no signs of ROSC, go to</Text>
+          <Text style={{
+            flex: 1, 
+            flexWrap: 'wrap', 
+            marginTop: Dimensions.get('window').height/200
+          }}>
+            <Text>If no signs of return of spontaneous circulation (ROSC), go to</Text>
             <Text style={{fontWeight: 'bold'}}> 10</Text>
             <Text> or</Text>
             <Text style={{fontWeight: 'bold'}}> 11</Text> 
@@ -452,7 +456,7 @@ export default class CardiacArrestCOVID extends React.Component {
           <TouchableOpacity
             style={styles.customBtnBG3} 
             onPress={() => this.props.navigation.navigate('PostCardiacArrestCare')}>
-            <Text style={styles.customBtnText2}>Post Cardiac Arrest Care</Text>
+            <Text style={styles.customBtnText2}>Post-Cardiac Arrest Care</Text>
           </TouchableOpacity>
         </View>
 
@@ -468,7 +472,7 @@ export default class CardiacArrestCOVID extends React.Component {
 
               <View onLayout={this.measureCPRQualityView}>
                 <Component 
-                  goToNextComponent={this.goToComponentSix} 
+                  goToNextComponent={this.goToComponentTwo} 
                   toggle={this.onPressCPRQualityHidden} 
                   hidden = {this.state.CPRQualityHidden}
                   component={<CardiacArrestCPR />}
@@ -488,7 +492,7 @@ export default class CardiacArrestCOVID extends React.Component {
 
               <View style={{ }} onLayout={this.measureAdvancedAirwayView}>
                 <Component 
-                  goToNextComponent={this.goToEnd} 
+                  goToNextComponent={this.goToComponentFour} 
                   toggle={this.onPressAdvancedAirwayHidden} 
                   hidden = {this.state.advancedAirwayHidden}
                   component={<CardiacArrestAdvancedAirwayCOVID />}
@@ -498,7 +502,7 @@ export default class CardiacArrestCOVID extends React.Component {
 
               <View onLayout={this.measureDrugTherapyView}>
                 <Component 
-                  goToNextComponent={this.goToComponentFour} 
+                  goToNextComponent={this.goToComponentFive} 
                   toggle={this.onPressDrugTherapyHidden} 
                   hidden = {this.state.drugTherapyHidden}
                   component={<CardiacArrestDrugTherapy />}
@@ -506,9 +510,13 @@ export default class CardiacArrestCOVID extends React.Component {
                 />
               </View>
 
+             
+
+             
+
               <View onLayout={this.measureROSCView}>
                 <Component 
-                  goToNextComponent={this.goToComponentFive} 
+                  goToNextComponent={this.goToComponentSix} 
                   toggle={this.onPressROSCHidden} 
                   hidden = {this.state.ROSCHidden}
                   component={<CardiacArrestROSC />}
@@ -519,7 +527,7 @@ export default class CardiacArrestCOVID extends React.Component {
 
               <View onLayout={this.measureReversibleCausesView}>
                 <Component 
-                  goToNextComponent={this.goToComponentTwo} 
+                  goToNextComponent={this.goToEnd} 
                   toggle={this.onPressReversibleCausesHidden} 
                   hidden = {this.state.reversibleCausesHidden}
                   component={<CardiacArrestReversibleCauses />}

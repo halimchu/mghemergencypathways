@@ -1,6 +1,6 @@
 import React from 'react'
 import { Linking, Dimensions, View, Text, StyleSheet, TouchableOpacity, SafeAreaView } from 'react-native'
-import { Button, Divider } from 'react-native-elements'
+import { Button } from 'react-native-elements'
 import Icon from 'react-native-vector-icons/Ionicons' 
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons' 
 import LinearGradient from 'react-native-linear-gradient'
@@ -97,14 +97,15 @@ export default class Stroke1 extends React.Component {
 
   state = {
     dataOne: [
-      'Facial Drooping?',
+      'Facial Weakness/Drooping?',
       'Arm or Leg Weakness?',
       'Speech Difficulties?'
     ],
     dataTwo: [
       'Obtain Last Seen Well (LSW) time',
-      'Obtain fingerstick glucose: Treat <50 or >400',
-      'Neurology senior resident will arrive within 10 minutes; if not, re-call acute stroke consult and escalate to stroke attending'
+      'Check fingerstick glucose',
+      // 'Obtain fingerstick glucose: Treat <50 or >400',
+      'Neurology senior resident will arrive within 10 minutes; if not, re-call Acute Stroke Consult and ask page operator to page stroke attending'
     ]
   }
   
@@ -124,7 +125,7 @@ export default class Stroke1 extends React.Component {
 
 
           <View style={styles.middleOne}>
-            <View style={{marginLeft: Dimensions.get('window').width/20}}>
+            <View style={{marginLeft: Dimensions.get('window').width/10}}>
               <Text style={styles.header}>Concern for Stroke?</Text>
             </View>
             {this.state.dataOne.map((item) => (
@@ -153,7 +154,7 @@ export default class Stroke1 extends React.Component {
                       shadowColor: 'black',
                       shadowOpacity: .5,}}>
 
-                    <TouchableOpacity onPress={()=>{this.dialCall()}}>
+                    <TouchableOpacity style={styles.shadow} onPress={()=>{this.dialCall()}}>
                         <LinearGradient 
                           style={styles.callButton}
                           colors={['#B62619', '#F63826', '#B62619']}
@@ -161,15 +162,22 @@ export default class Stroke1 extends React.Component {
                           end={{x: 1, y: 0}}
                         >
                             <View style={{ flexDirection: 'row' }}>
-                              <MaterialIcons name="phone" size={19} color="white" />
-                              <Text style={{ fontSize: Dimensions.get('window').width/21, color: 'white', fontWeight: 'bold' }}> Call Acute Stroke Consult</Text>
+                            <View style={{flexDirection: 'column'}}>
+                              <View style={{marginLeft: Dimensions.get('window').width/15}}>
+                                <MaterialIcons name="phone-in-talk" size={Dimensions.get('window').width/9} color="white" />
+                              </View>
                             </View>
-                            <Text style={{ 
-                              marginTop: Dimensions.get('window').height/150, 
-                              color: 'white', 
-                              fontSize: Dimensions.get('window').width/24, fontWeight: '400'
-                            }}>x6-3333
-                            </Text>
+                            <View style={{flexDirection: 'column'}}>
+                                <Text style={{ marginLeft: Dimensions.get('window').width/60, fontSize: Dimensions.get('window').width/21, color: 'white', fontWeight: 'bold' }}>Call Acute Stroke Consult</Text>
+                                <Text style={{ 
+                                  marginTop: Dimensions.get('window').height/150, 
+                                  color: 'white', 
+                                  paddingLeft: Dimensions.get('window').width/5.75, 
+                                  fontSize: Dimensions.get('window').width/24, fontWeight: '400'
+                                }}>x6-3333
+                                </Text>
+                            </View>
+                            </View>
                         </LinearGradient>
                     </TouchableOpacity>
                   </View>
@@ -211,31 +219,6 @@ export default class Stroke1 extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  firstCircle: {
-    marginTop: Dimensions.get('window').height/70,
-    width: 12,
-    height: 12,
-    borderRadius: 100/2,
-    backgroundColor: '#6c9ea1'
-  },
-  secondCircle: {
-    marginTop: Dimensions.get('window').height/70,
-    marginLeft: Dimensions.get('window').width/25,
-    marginRight: Dimensions.get('window').width/25,
-    width: 12,
-    height: 12,
-    borderRadius: 100/2,
-    borderWidth: 1,
-    borderColor: '#6c9ea1'
-  },
-  thirdCircle: {
-    marginTop: Dimensions.get('window').height/70,
-    width: 12,
-    height: 12,
-    borderRadius: 100/2,
-    borderWidth: 1,
-    borderColor: '#6c9ea1'
-  },
   container: {
     flex: 1
   },
@@ -289,7 +272,6 @@ const styles = StyleSheet.create({
   header: {
     fontWeight: 'bold',
     color: '#2b2b2b',
-    marginLeft: Dimensions.get('window').width/20,
     fontSize: Dimensions.get('window').height/36,
   },
   bulletPoints: {
@@ -299,8 +281,8 @@ const styles = StyleSheet.create({
   },
   bulletPointsTwo: {
     flexDirection: 'row',
-    marginLeft: Dimensions.get('window').width/10,
-    marginRight: Dimensions.get('window').width/10,
+    paddingLeft: Dimensions.get('window').width/10,
+    paddingRight: Dimensions.get('window').width/10,
     marginTop: Dimensions.get('window').height/100,
   },
   bulletPoint: {
@@ -308,15 +290,20 @@ const styles = StyleSheet.create({
   },
   bulletPointText: {
     fontWeight: '300',
-    marginLeft: Dimensions.get('window').height/150,
+    marginLeft: Dimensions.get('window').width/70,
     fontSize: Dimensions.get('window').height/40,
   },
   callButton: {
     borderRadius: 40,
     height: Dimensions.get('window').height/11,
     width: Dimensions.get('window').width/1.17,
-    alignItems: "center",
     justifyContent: "center",
+  },
+  shadow: {
+    shadowColor: 'black',
+    shadowOpacity: 0.8,
+    backgroundColor : "#0000",
+    shadowOffset : { width: 1, height: 1},
   },
   customBtnText: {
     fontWeight: '600',
@@ -334,5 +321,29 @@ const styles = StyleSheet.create({
     width: Dimensions.get('window').width/1.17,
     height: Dimensions.get('window').height/10.75,
   },
-
+  firstCircle: {
+    marginTop: Dimensions.get('window').height/70,
+    width: 12,
+    height: 12,
+    borderRadius: 100/2,
+    backgroundColor: '#6c9ea1'
+  },
+  secondCircle: {
+    marginTop: Dimensions.get('window').height/70,
+    marginLeft: Dimensions.get('window').width/25,
+    marginRight: Dimensions.get('window').width/25,
+    width: 12,
+    height: 12,
+    borderRadius: 100/2,
+    borderWidth: 1,
+    borderColor: '#6c9ea1'
+  },
+  thirdCircle: {
+    marginTop: Dimensions.get('window').height/70,
+    width: 12,
+    height: 12,
+    borderRadius: 100/2,
+    borderWidth: 1,
+    borderColor: '#6c9ea1'
+  },
 })

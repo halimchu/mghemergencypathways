@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image, Dimensions, View, Text, StyleSheet, ScrollView, TouchableOpacity, SafeAreaView } from 'react-native'
+import { Linking, Dimensions, View, Text, StyleSheet, ScrollView, TouchableOpacity, SafeAreaView } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons' 
 import { Button, Divider } from 'react-native-elements'
 import LinearGradient from 'react-native-linear-gradient'
@@ -87,11 +87,10 @@ export default class TermsConditions extends React.Component {
       <SafeAreaView style={styles.container}>
         <ScrollView>
 
-          <View style={styles.top}>
-
                 <Text style={styles.title}>MGH STAT TERMS OF USE</Text>
                 <Text style={styles.titleSecondLine}>AND USER AGREEMENT</Text>
 
+<View style={{ marginBottom: Dimensions.get('window').height/50, marginLeft: Dimensions.get('window').width/25, paddingRight: Dimensions.get('window').width/25,}}>
 
                   <Text style={styles.headingBold}>Background</Text>
                   <Text style={styles.text}>MGH STAT is an application developed by Massachusetts General Hospital ("MGH") that serves as a digital repository for MGH-specific emergency protocols vetted by their appropriate specialty-specific committees for life threatening illnesses like strokes, heart attacks and airway emergencies. MGH STAT is intended for use solely by MGH physicians, physician assistants, and nurse practitioners.</Text>
@@ -171,7 +170,10 @@ export default class TermsConditions extends React.Component {
                   <View style={{marginTop: Dimensions.get('window').height/60,}}>
                     <Text style={styles.text}>A printed version of this Agreement and of any related notice given in electronic form shall be admissible in judicial or administrative proceedings based upon or relating to this Agreement to the same extent and subject to the same conditions as other business documents and records originally generated and maintained in printed form.</Text>
                   </View>
-          </View>
+</View>
+
+
+
 
 
         </ScrollView>
@@ -186,8 +188,6 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   top: {
-    marginLeft: Dimensions.get('window').width/25, 
-    paddingRight: Dimensions.get('window').width/35,
   },
   title: {
     marginTop: Dimensions.get('window').height/60,

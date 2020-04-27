@@ -188,18 +188,18 @@ export default class RICU extends React.Component {
 
   showInfo = () => {
     return (
-      <View style={{backgroundColor: '#f0f0f0', paddingBottom: Dimensions.get('window').height/100, }}>
+      <View style={{backgroundColor: '#f0f0f0', paddingRight: Dimensions.get('window').width/25, paddingBottom: Dimensions.get('window').height/100, }}>
           {this.state.dataTwo.map((item) => (
             <View key={item} style={ styles.bulletPoints }>
               <View style={{ flexDirection: 'row' }}>
                 <Text style={styles.bulletPoint}>{`\u2022`}</Text>
-                <Text style={styles.bulletPointText}>{item}</Text>
+                <Text style={styles.bulletPointText2}>{item}</Text>
               </View>
             </View>        
           ))} 
         </View>
     ) 
-  }
+  } 
 
 
   render() { 
@@ -210,7 +210,13 @@ export default class RICU extends React.Component {
           ref={(scroller) => {this.scroller = scroller}}
         >
 
-          <Text style={styles.title}>RICU</Text>
+
+            <View style={{alignItems: 'center'}}>
+              <Text style={styles.title}>RICU </Text>
+              <Text style={{fontWeight: '500', fontSize: Dimensions.get('window').width/25, color: 'red'}}>(Notable changes in COVID-19 Era)</Text>
+            </View>
+          
+
           <View style={{alignItems: 'center'}}>
             <View style={{ flexDirection: 'row'}}>
                 <View style={styles.firstCircle}></View>
@@ -264,7 +270,7 @@ export default class RICU extends React.Component {
             marginTop: Dimensions.get('window').height/30 
           }}>
             <View style={{alignContent: 'center'}}>
-                <TouchableOpacity onPress={()=>{this.dialCall()}}>
+                {/* <TouchableOpacity onPress={()=>{this.dialCall()}}>
                       <LinearGradient 
                         style={styles.callButton}
                         colors={['#B62619', '#F63826', '#B62619']}
@@ -272,6 +278,7 @@ export default class RICU extends React.Component {
                         end={{x: 1, y: 0}}
                       >
                           <View style={{ flexDirection: 'row' }}>
+                            <Text style={{ fontSize: Dimensions.get('window').width/24, color: 'white', fontWeight: 'bold' }}> Use this button to</Text>
                             <MaterialIcons name="phone" size={19} color="white" />
                             <Text style={{ fontSize: Dimensions.get('window').width/24, color: 'white', fontWeight: 'bold' }}> Call Page Operator for RICU</Text>
                           </View>
@@ -282,12 +289,39 @@ export default class RICU extends React.Component {
                           }}>x6-3333
                           </Text>
                       </LinearGradient>   
+                </TouchableOpacity> */}
+
+                <TouchableOpacity style={styles.shadow} onPress={()=>{this.dialCall()}}>
+                      <LinearGradient 
+                        style={styles.callButton}
+                        colors={['#B62619', '#F63826', '#B62619']}
+                        start={{x: 0, y: 0}}
+                        end={{x: 1, y: 0}}
+                      >
+                          <View style={{ flexDirection: 'row' }}>
+                            <View style={{flexDirection: 'column'}}>
+                              <View style={{marginLeft: Dimensions.get('window').width/20}}>
+                                <MaterialIcons name="phone-in-talk" size={40} color="white" />
+                              </View>
+                            </View>
+                            <View style={{flexDirection: 'column'}}>
+                              <Text style={{ fontSize: Dimensions.get('window').width/24, color: 'white', fontWeight: 'bold' }}>Call Page Operator for RICU</Text>
+                              <Text style={{ 
+                                marginTop: Dimensions.get('window').height/150, 
+                                paddingLeft: Dimensions.get('window').width/7, 
+                                color: 'white', 
+                                fontSize: Dimensions.get('window').width/24, fontWeight: '400'
+                              }}>x6-3333
+                              </Text>
+                            </View>
+                          </View>
+                      </LinearGradient>   
                 </TouchableOpacity>
             </View>
 
-            <View style={{marginLeft: Dimensions.get('window').width/60, }}>
+            <View style={{marginLeft: Dimensions.get('window').width/40, }}>
                 <TouchableOpacity onPress={()=>{this.onPressButton2Hidden()}}>
-                    <View style={{ flexDirection: 'row' }}>
+                    <View style={{ flexDirection: 'row',  }}>
                       <Icon name="ios-information-circle" size={Dimensions.get('window').height/15} color="#90adb0" />
                     </View>                  
                 </TouchableOpacity>
@@ -312,31 +346,6 @@ export default class RICU extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  firstCircle: {
-    marginTop: Dimensions.get('window').height/100,
-    width: 12,
-    height: 12,
-    borderRadius: 100/2,
-    backgroundColor: '#6c9ea1'
-  },
-  secondCircle: {
-    marginTop: Dimensions.get('window').height/100,
-    marginLeft: Dimensions.get('window').width/25,
-    marginRight: Dimensions.get('window').width/25,
-    width: 12,
-    height: 12,
-    borderRadius: 100/2,
-    borderWidth: 1,
-    borderColor: '#6c9ea1'
-  },
-  thirdCircle: {
-    marginTop: Dimensions.get('window').height/100,
-    width: 12,
-    height: 12,
-    borderRadius: 100/2,
-    borderWidth: 1,
-    borderColor: '#6c9ea1'
-  },
   container: {
     flex: 1,
     height: '100%'
@@ -347,6 +356,7 @@ const styles = StyleSheet.create({
     color: '#2b2b2b',
     marginTop: Dimensions.get('window').height/60,
     fontSize: Dimensions.get('window').height/32.5,
+    // marginLeft: Dimensions.get('window').width/3,
   },
   divider: {
     backgroundColor: '#CDCDCD', 
@@ -357,13 +367,14 @@ const styles = StyleSheet.create({
     height: Dimensions.get('window').height/400
   },
   bulletPoint: {
+    marginLeft: Dimensions.get('window').width/80,
     color: 'gray',
     fontSize: Dimensions.get('window').height/50,
   },
-  bulletPointText: {
-    fontWeight: '300',
+  bulletPointText2: {
+    fontWeight: '400',
     marginLeft: Dimensions.get('window').width/80,
-    fontSize: Dimensions.get('window').height/45,
+    fontSize: Dimensions.get('window').height/50,
   },
   bulletPoints: {
     flexDirection: 'row',
@@ -389,10 +400,17 @@ const styles = StyleSheet.create({
   },
   callButton: {
     borderRadius: 40,
+    shadowRadius: 15,
+    shadowOffset : { width: 1, height: 13},
     height: Dimensions.get('window').height/11,
-    width: Dimensions.get('window').width/1.4,
-    alignItems: "center",
+    width: Dimensions.get('window').width/1.3,
     justifyContent: "center",
+  },
+  shadow: {
+    shadowColor: 'black',
+    shadowOpacity: 0.8,
+    backgroundColor : "#0000",
+    shadowOffset : { width: 1, height: 1},
   },
   riskFactorsBtnText: {
     fontWeight: '600',
@@ -409,5 +427,38 @@ const styles = StyleSheet.create({
     borderWidth: 1,   
     width: Dimensions.get('window').width/2.4,
     height: Dimensions.get('window').height/27,
-  }
+  },
+  button3: {
+    shadowColor: 'black',
+    shadowOpacity: 0.8,
+    // elevation: 6,
+    backgroundColor : "#0000",
+    // shadowRadius: 15 ,
+    shadowOffset : { width: 3, height: 3},
+  },
+  firstCircle: {
+    marginTop: Dimensions.get('window').height/100,
+    width: 12,
+    height: 12,
+    borderRadius: 100/2,
+    backgroundColor: '#6c9ea1'
+  },
+  secondCircle: {
+    marginTop: Dimensions.get('window').height/100,
+    marginLeft: Dimensions.get('window').width/25,
+    marginRight: Dimensions.get('window').width/25,
+    width: 12,
+    height: 12,
+    borderRadius: 100/2,
+    borderWidth: 1,
+    borderColor: '#6c9ea1'
+  },
+  thirdCircle: {
+    marginTop: Dimensions.get('window').height/100,
+    width: 12,
+    height: 12,
+    borderRadius: 100/2,
+    borderWidth: 1,
+    borderColor: '#6c9ea1'
+  },
 })

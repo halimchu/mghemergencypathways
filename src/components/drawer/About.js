@@ -73,13 +73,12 @@ export default class About extends React.Component {
     return (  
       <SafeAreaView style={styles.container}>
         <ScrollView>
-          <View style={{marginLeft: Dimensions.get('window').width/25, paddingRight: Dimensions.get('window').width/40, }}>
+            <Text style={styles.title}>ABOUT THE APP</Text>
 
-              <Text style={styles.title}>ABOUT THE APP</Text>
-
+            <View style={{marginBottom: Dimensions.get('window').height/50, marginLeft: Dimensions.get('window').width/25, paddingRight: Dimensions.get('window').width/25, }}>
               <View style={{marginTop: Dimensions.get('window').height/50,}}>
                 <Text style={styles.text}>
-                  The MGH STAT app is a reference of clinical protocols, resources, and content for physicians and advanced practice providers as they manage patients with acutely life threatening illnesses. All algorithms and protocols (CVA, PE, RICU, STEMI) are developed and vetted by their respective MGH specialty specific committees. All ACLS content in the app is material developed, studied, and vetted by the American Heart Association (AHA). The AHA has given permission and a license to use their ACLS materials for the purposes of this app. 
+                  The MGH STAT app is a reference of clinical protocols, resources, and content for physicians and advanced practice providers as they manage patients with acutely life threatening illnesses. All algorithms and protocols (CVA, PE, RICU, STEMI) are developed and vetted by their respective MGH specialty specific committees. All ACLS content in the app is material developed, studied, and vetted by the American Heart Association (AHA). The AHA has given permission and a license to use their ACLS materials for the purposes of this app. We want to thank each of them for their collaboration in this effort.
                 </Text>
               </View>
               <Text style={styles.bold}>Creators</Text>
@@ -93,10 +92,20 @@ export default class About extends React.Component {
               <Text style={styles.text}>Blake Niccum, MD</Text>
               <Text style={styles.text}>Melvin Joice, MD</Text>
               <Text style={styles.text}>Matthew Tung, MD</Text>
-              <Text style={styles.text}>Kenneth Rosenfield, MD</Text>
-              <Text style={styles.text}>Jean Kwo, MD</Text>
               <Text style={styles.text}>Eric Isselbacher, MD, MHCDS</Text>
-             
+
+
+              <Text style={styles.bold}>MGH Specialty Committee Contributors</Text>
+              <Text style={styles.text}>Christopher Anderson MD, MMSc</Text>
+              <Text style={styles.text}>Joseph Garasic, MD</Text>
+              <Text style={styles.text}>Christopher Kabrhel, MD, MPH</Text>
+              <Text style={styles.text}>Jean Kwo, MD</Text>
+              <Text style={styles.text}>Kenneth Rosenfield, MD, MHCDS</Text>
+              <Text style={styles.text}>Elizabeth Temin, MD, MPH</Text>
+
+              <View style={{marginTop: Dimensions.get('window').height/70,}}>
+                <Text style={styles.text}>We also appreciate the contributions of the Department of Medicine leadership.</Text>
+              </View>
 
 
               <Text style={styles.bold}>Partners</Text>
@@ -105,10 +114,7 @@ export default class About extends React.Component {
               <Text style={styles.text}>MGH Housestaff Innovation Studio</Text>
 
 
-              <Text style={styles.bold}>Acknowledgements</Text>
-              <Text style={styles.text}>
-                Special thanks to all the MGH specialty committees (CVA, PE, RICU, STEMI) and the American Heart Association for providing evidence-based guidelines and for their collaboration to enable this digital health tool to serve patients in need.
-              </Text>
+              
           </View>
         </ScrollView>
       </SafeAreaView>

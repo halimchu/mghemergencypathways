@@ -1,9 +1,8 @@
-import React, {Fragment} from "react";
-import { Image, Dimensions, View, Text, StyleSheet, ScrollView, TouchableOpacity, SafeAreaView,  TouchableWithoutFeedback} from "react-native";
+import React from "react";
+import { Image, Dimensions, View, Text, StyleSheet, ScrollView, SafeAreaView, } from "react-native";
 import Icon from 'react-native-vector-icons/Ionicons' 
-import { ThemeProvider, Button, Divider } from 'react-native-elements'
-import SynchronizedCardioversion from './SynchronizedCardioversion'
-import AdenosineIVDose from './AdenosineIVDose'
+import { Button, Divider } from 'react-native-elements'
+import DosesDetails from './DosesDetails'
 import Component from './../Component'
 import LinearGradient from 'react-native-linear-gradient';
 
@@ -136,13 +135,11 @@ export default class Tachycardia extends React.Component {
 
 
   goToComponentTwo = () => {
-    const added = this.state.imageHeight + this.state.synchronizedCardioversionView
+    const added = this.state.imageHeight + 70
+    // + this.state.synchronizedCardioversionView
     this.scroller.scrollTo({x: 0, y: added, animated: true});
   }
-  goToEnd = () => {
-    const added = this.state.imageHeight + this.state.synchronizedCardioversionView + this.state.adenosineIVDoseView
-    this.scroller.scrollTo({x: 0, y: added, animated: true});
-  }
+
 
 
   measureImageView = (event) => {
@@ -181,7 +178,7 @@ export default class Tachycardia extends React.Component {
       return (
         <Image
           source={require('../../../../assets/Tachycardia3000x2500.png')}
-          style={{ width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.13 }}
+          style={{ width: Dimensions.get('window').width, height: Dimensions.get('window').height/1.16 }}
         />
       )
     }
@@ -251,25 +248,13 @@ export default class Tachycardia extends React.Component {
           </View>
 
           <View style={{marginBottom: Dimensions.get('window').height/60}}></View>
-
-
-            <View onLayout={this.measureSynchronizedCardioversionView}>
-              <Component
-                goToNextComponent={this.goToComponentTwo} 
-                toggle={this.onPressSynchronizedCardioversionHidden} 
-                hidden = {this.state.synchronizedCardioversionHidden}
-                component={<SynchronizedCardioversion />}
-                buttonTitle='Synchronized Cardioversion'
-              />
-            </View>
-
             <View onLayout={this.measureadenosineIVDoseView}>
               <Component
-                goToNextComponent={this.goToEnd} 
+                goToNextComponent={this.goToComponentTwo} 
                 toggle={this.onPressAdenosineIVDoseHidden} 
                 hidden = {this.state.adenosineIVDoseHidden}
-                component={<AdenosineIVDose />}
-                buttonTitle='Drug Therapy'
+                component={<DosesDetails />}
+                buttonTitle='Doses/Details'
               />
             </View>
 
