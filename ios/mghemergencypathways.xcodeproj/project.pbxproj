@@ -12,7 +12,6 @@
 		5FB591D6CBF3F14588F21B9A /* libPods-mghemergencypathways.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2795B91DE17C57B177BAC23A /* libPods-mghemergencypathways.a */; };
 		8A81C4322435712C004CB5AB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A81C4312435712C004CB5AB /* GoogleService-Info.plist */; };
 		8A81C43424357196004CB5AB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A81C43324357196004CB5AB /* LaunchScreen.xib */; };
-		8A81C43624357225004CB5AB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A81C43524357225004CB5AB /* LaunchScreen.xib */; };
 		8ADC004D243573E800815FC8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -258,7 +257,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1120;
+				LastUpgradeCheck = 1140;
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
 					13B07F861A680F5B00A75B9A = {
@@ -314,7 +313,6 @@
 			files = (
 				8ADC004D243573E800815FC8 /* Images.xcassets in Resources */,
 				8A81C43424357196004CB5AB /* LaunchScreen.xib in Resources */,
-				8A81C43624357225004CB5AB /* LaunchScreen.xib in Resources */,
 				8A81C4322435712C004CB5AB /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -445,12 +443,12 @@
 			baseConfigurationReference = 85D5CE74089B13A6C24E2ADB /* Pods-mghemergencypathways.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CURRENT_PROJECT_VERSION = 20040301;
+				CURRENT_PROJECT_VERSION = 20060302;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = 6S5C5RSYA2;
 				INFOPLIST_FILE = mghemergencypathways/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.1.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -468,7 +466,7 @@
 			baseConfigurationReference = A68E398784F583715F8BD203 /* Pods-mghemergencypathways.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CURRENT_PROJECT_VERSION = 20040301;
+				CURRENT_PROJECT_VERSION = 20060302;
 				DEVELOPMENT_TEAM = 6S5C5RSYA2;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -552,7 +550,7 @@
 				);
 				INFOPLIST_FILE = mghemergencypathways/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.1.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",

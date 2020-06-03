@@ -17,6 +17,8 @@ import Stroke3 from '../src/components/Stroke/Stroke3'
 import RICU from '../src/components/RICU/RICU'
 import RICUWhatToPrepare from '../src/components/RICU/RICUWhatToPrepare'
 import RICUWhatToPresent from '../src/components/RICU/RICUWhatToPresent'
+import ECMOOne from '../src/components/ACLS/CardiacArrest/ECMOOne'
+import ECMOTwo from '../src/components/ACLS/CardiacArrest/ECMOTwo'
 
 const HomeStack = createStackNavigator({
     Home: { screen: Home },
@@ -36,6 +38,8 @@ const HomeStack = createStackNavigator({
     RICU: { screen: RICU },
     RICUWhatToPrepare: { screen: RICUWhatToPrepare },
     RICUWhatToPresent: { screen: RICUWhatToPresent },
+    ECMOOne: { screen: ECMOOne },
+    ECMOTwo: { screen: ECMOTwo },
   })
 
 

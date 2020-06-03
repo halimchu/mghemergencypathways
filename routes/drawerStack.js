@@ -4,8 +4,8 @@ import React from 'react'
 import { Linking, Dimensions, View, Text, StyleSheet, TouchableOpacity, } from 'react-native'
 
 
-import HomeStack from './homeStack'
-import AboutStack from './aboutStack'
+import HomeStack from './homeStack'  
+import AboutStack from './aboutStack'  
 import TermsConditionsStack from './termsConditionsStack'
 import PrivacyPolicyStack from './privacyPolicyStack'
 import ContactUsStack from './contactUsStack'
@@ -39,7 +39,7 @@ const RootDrawerNavigator = createDrawerNavigator({
       drawerLabel: "Contact Us",
     },
     screen: ContactUsStack
-},
+  },
 },{
   contentComponent: CustomDrawerComponent,
   contentOptions: {

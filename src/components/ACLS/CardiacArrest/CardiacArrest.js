@@ -350,7 +350,7 @@ export default class CardiacArrest extends React.Component {
 
 
 
-          {/* <View onLayout={this.measureImageView}> */}
+
             {
             
                 this.IPhone375x812() || this.IPhone414x896() || this.IPhone414x736() || this.IPhone375x667() || this.IPhone320x568()
@@ -364,7 +364,7 @@ export default class CardiacArrest extends React.Component {
                 this.IPhoneNotYet()
             
             }  
-          {/* </View> */}
+     
 
 
 
@@ -418,7 +418,15 @@ export default class CardiacArrest extends React.Component {
             <Text style={{fontWeight: 'bold'}}> 11</Text> 
           </Text>
         </View>
-            
+
+        <View style={{alignItems: 'center'}}>
+          <TouchableOpacity
+            style={styles.customBtnBG3} 
+            onPress={() => this.props.navigation.navigate('ECMOOne')}>
+            <Text style={styles.customBtnText2}>Consider ECMO</Text>
+          </TouchableOpacity>
+        </View>
+              
 
         <View style={{flexDirection: 'row'}}>
               <Text style={{
