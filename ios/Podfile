@@ -36,6 +36,7 @@ target 'mghemergencypathways' do
   pod 'RNGestureHandler', :podspec => '../node_modules/react-native-gesture-handler/RNGestureHandler.podspec'
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
   pod 'Firebase/Analytics'
+  pod 'Firebase/Crashlytics'
 
   
   use_native_modules!

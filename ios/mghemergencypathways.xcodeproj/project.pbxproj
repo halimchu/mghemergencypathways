@@ -443,7 +443,7 @@
 			baseConfigurationReference = 85D5CE74089B13A6C24E2ADB /* Pods-mghemergencypathways.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CURRENT_PROJECT_VERSION = 20060302;
+				CURRENT_PROJECT_VERSION = 20060401;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = 6S5C5RSYA2;
 				INFOPLIST_FILE = mghemergencypathways/Info.plist;
@@ -466,7 +466,7 @@
 			baseConfigurationReference = A68E398784F583715F8BD203 /* Pods-mghemergencypathways.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CURRENT_PROJECT_VERSION = 20060302;
+				CURRENT_PROJECT_VERSION = 20060401;
 				DEVELOPMENT_TEAM = 6S5C5RSYA2;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",

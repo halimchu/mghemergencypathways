@@ -437,6 +437,14 @@ export default class CardiacArrestCOVID extends React.Component {
             <Text style={{fontWeight: 'bold'}}> 11</Text> 
           </Text>
         </View>
+
+        <View style={{alignItems: 'center'}}>
+          <TouchableOpacity
+            style={styles.customBtnBG3} 
+            onPress={() => this.props.navigation.navigate('ECMOOne')}>
+            <Text style={styles.customBtnText2}>Consider ECMO</Text>
+          </TouchableOpacity>
+        </View>
             
 
         <View style={{flexDirection: 'row'}}>
