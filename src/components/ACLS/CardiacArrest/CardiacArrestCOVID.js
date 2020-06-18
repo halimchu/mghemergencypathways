@@ -12,7 +12,8 @@ import CardiacArrestReversibleCauses from './cardiacArrestReversibleCauses'
 import CardiacArrestShockEnergy from './cardiacArrestShockEnergy'
 import Component from './../Component'
 import LinearGradient from 'react-native-linear-gradient'
-import Timer from './Timer'
+import TimerCovid from './TimerCovid'
+import timerReducerCovid from '../../../reducers/timerReducerCovid'
 
 
 export default class CardiacArrestCOVID extends React.Component {
@@ -351,7 +352,7 @@ export default class CardiacArrestCOVID extends React.Component {
     return ( 
       <SafeAreaView style={styles.container}>
 
-        <Timer />
+        <TimerCovid />
         <Divider />
 
 

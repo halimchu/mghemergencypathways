@@ -29,13 +29,22 @@ import {
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import Navigator from './routes/drawerStack'
+import logger from 'redux-logger'
+import thunk from 'redux-thunk'
+import { Provider } from 'react-redux' //Provider component wraps around the root App Component
+import { createStore, applyMiddleware } from 'redux'
+import reducers from './src/reducers/index.js'
 
+
+const store = createStore(reducers, applyMiddleware(thunk, logger)) 
 
 const App = () => {
   return (
-    <NavigationContainer>
-      <Navigator />
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer>
+        <Navigator />
+      </NavigationContainer>
+    </Provider>
   )
 }
   
